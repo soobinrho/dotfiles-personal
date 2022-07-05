@@ -7,7 +7,13 @@ including `.vimrc` and `.bashrc`. You can find them here:
 .
 ├── home
 │   └── soobinrho
-├── LICENSE
-└── README.md
-
+│       ├── .bashrc
+│       ├── .vim
+│       │   └── plugins.vim
+│       └── .vimrc
 ```
+
+<!--
+On GitHub README.MD files, we can make folder structure
+examples by using the bash command `tree`.
+-->
