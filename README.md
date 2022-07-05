@@ -1,6 +1,6 @@
 # Overview
 
-These are the dotfiles I use, including
+These are the configuration dotfiles that I use, including
 `.vimrc` and `.bashrc`. You can find them here:
 
     .
