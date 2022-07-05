@@ -1,5 +1,9 @@
 # .bashrc
 
+# ------------------------------------- #
+# Default .bashrc
+# ------------------------------------- #
+
 # Source global definitions
 if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
@@ -25,6 +29,10 @@ if [ -d ~/.bashrc.d ]; then
 fi
 
 unset rc
+
+# ------------------------------------- #
+# Anaconda
+# ------------------------------------- #
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
