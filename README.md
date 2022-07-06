@@ -96,7 +96,7 @@ adduser main
 usermod -aG sudo main
 
 # Copy the public key from the root
-# to the user.
+# to the user that we just created.
 rsync --archive --chown=main:main /root/.ssh /home/main
 ```
 
