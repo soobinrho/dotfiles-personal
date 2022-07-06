@@ -75,7 +75,7 @@ git config --global commit.gpgSign true
 # The --archive option preserves 
 # all permissions, modification times, and 
 # everytihng inside the directory recursively.
-rsync --archive /home/soobinrho/.gnupg soobinrho@ip_address:~
+rsync --archive /home/soobinrho/.gnupg soobinrho@ip_address:/home/soobinrho
 ```
 
 **Creating a key for SSH
