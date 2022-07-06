@@ -134,15 +134,23 @@ sudo service sshd start
 sudo service sshd stop
 ```
 
-**Setting the SSH client to never timeout
+**Client-side configuration
 [[Original StackExchange by laur](https://unix.stackexchange.com/questions/708206/ssh-timeout-does-not-happen-and-not-disconnect)]**
 
 ```bash
-# Configuring your SSH client settings.
+# Configuring your SSH client
+# to never timeout.
 cat >> ~/.ssh/config
 Host *
   ServerAliveInterval 15
   ServerAliveCountMax 3
+
+# Creating an alias so that we can 
+# `ssh myserver` instead of `ssh main@ip_address`
+cat >> ~/.ssh/config
+Host testhost
+    HostName ip_address
+    User main
 ```
 
 
