@@ -54,7 +54,8 @@ unset __conda_setup
 # ------------------------------------- #
 alias vim=vimx
 alias PullGitAll=~/git/bash-git-pull-in-every-folder/PullGitAll
-alias StatusGitAll=~/git/bash-git-pull-in-every-folder/optional_scripts/StatusGitAll 
+alias StatusGitAll=~/git/bash-git-pull-in-every-folder/optional_scripts/StatusGitAll
+alias BuildJava=~/git/college-programming/summer_2022/computer_science_II/BuildJava
 
 # ------------------------------------- #
 # GNU GPG Configuration
