@@ -69,6 +69,15 @@ git config --global user.signingkey BC0596A444D39F64
 git config --global commit.gpgSign true
 ```
 
+**Copying both the public key and private key to my second laptop via SSH.
+
+```bash
+# The --archive option preserves 
+# all permissions, modification times, and 
+# everytihng inside the directory recursively.
+rsync --archive --chown=soobinrho:soobinrho /home/soobinrho/.gnupg soobinrho@ip_address:~
+```
+
 **Creating a key for SSH
 [[Original article by Brian Boucheron](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-20-04)]**
 
