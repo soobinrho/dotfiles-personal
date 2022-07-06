@@ -80,7 +80,9 @@ ssh-keygen -b 4096
 ssh-copy-id root@ip_address
 ```
 
-**Initializing a `Ubuntu` server on `DigitalOcean`
+## Settings for `droplets` on `DigitalOcean`
+
+**Initializing an `Ubuntu` server on `DigitalOcean`
 [[Original article by Brian Boucheron](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-20-04)]**
 
 ```bash
@@ -100,7 +102,7 @@ usermod -aG sudo main
 rsync --archive --chown=main:main /root/.ssh /home/main
 ```
 
-**Configuring `sshd_config` on a `Ubuntu` server
+**Configuring `sshd_config` on an `Ubuntu` server
 [[Original article by Justin Ellingwood](https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys)]**
 
 ```bash
@@ -117,6 +119,8 @@ PermitRootLogin no
 # Restart SSH.
 sudo service ssh restart
 ```
+
+## Settings for my own SSH servers
 
 **Using a `Fedora` machine as a temporary SSH server
 [[Original article by Justin Ellingwood](https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys)]**
