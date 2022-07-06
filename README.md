@@ -6,11 +6,11 @@ including `.vimrc` and `.bashrc`. You can find them here:
 ```bash
 .
 ├── home
-│    └── soobinrho
-│          ├── .bashrc
-│          ├── .vim
-│          │    └── plugins.vim
-│          └── .vimrc
+│   └── soobinrho
+│       ├── .bashrc
+│       ├── .vim
+│       │    └── plugins.vim
+│       └── .vimrc
 ```
 
 <!--
