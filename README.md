@@ -33,6 +33,10 @@ vim
 [[Original article by Wouter De Schuyter](https://wouterdeschuyter.be/blog/verified-signed-commits-on-github)]**
 
 ```bash
+# Copy and paste .bashrc
+cd git/dotfiles-personal/home/soobinrho
+cp .bashrc ~/.bashrc
+
 # First, create a GPG key.
 gpg --full-generate-key
 
