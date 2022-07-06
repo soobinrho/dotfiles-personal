@@ -100,7 +100,7 @@ usermod -aG sudo main
 rsync --archive --chown=main:main /root/.ssh /home/main
 ```
 
-**Configuring sshd_config on a `Ubuntu` server
+**Configuring `sshd_config` on a `Ubuntu` server
 [[Original article by Justin Ellingwood](https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys)]**
 
 ```bash
