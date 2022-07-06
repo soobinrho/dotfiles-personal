@@ -117,15 +117,15 @@ AllowUsers soobinrho
 # Disable root login.
 PermitRootLogin no
 
-# Restart ssh.
+# Restart SSH.
 sudo service ssh restart
 ```
 
-**Using a `Fedora` machine as a temporary ssh server
+**Using a `Fedora` machine as a temporary SSH server
 [[Original article by Justin Ellingwood](https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys)]**
 
 ```bash
-# Start the ssh server.
+# Start the SSH server.
 sudo service sshd start
 
 # (Optional) Stop sshd. Note that sshd will be 
@@ -134,11 +134,11 @@ sudo service sshd start
 sudo service sshd stop
 ```
 
-**Setting the ssh client to never timeout
+**Setting the SSH client to never timeout
 [[Original StackExchange by laur](https://unix.stackexchange.com/questions/708206/ssh-timeout-does-not-happen-and-not-disconnect)]**
 
 ```bash
-# Configuring your ssh client settings.
+# Configuring your SSH client settings.
 cat >> ~/.ssh/config
 Host *
   ServerAliveInterval 15
