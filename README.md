@@ -69,6 +69,74 @@ git config --global user.signingkey BC0596A444D39F64
 git config --global commit.gpgSign true
 ```
 
+**Creating a key for SSH
+[[Original article by Brian Boucheron](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-20-04)]**
+
+```bash
+# Create a key with the length of 4096 bits. 
+ssh-keygen -b 4096
+
+# Copy the public key to the SSH server.
+ssh-copy-id root@ip_address
+```
+
+**Setting up a Ubuntu server on DigitalOcean
+[[Original article by Brian Boucheron](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-20-04)]**
+
+```bash
+# SSH into the server.
+ssh root@ip_address
+
+# Set up the firewall.
+ufw allow OpenSSH
+ufw enable
+
+# Create a user account.
+adduser main
+usermod -aG sudo main
+
+# Copy the public key from the root
+# to the user.
+rsync --archive --chown=main:main /root/.ssh /home/main
+```
+
+**Configuring sshd_config on a Ubuntu server
+[[Original article by Justin Ellingwood](https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys)]**
+
+```bash
+# Open the config file.
+sudo vim /etc/ssh/sshd_config
+
+# Disallow password authentication
+# so that only the RSA SSH key can be used.
+PasswordAuthentication no
+
+# Only allow certain users to ssh.
+AllowUsers soobinrho
+
+# Disable root login.
+PermitRootLogin no
+
+# Restart ssh.
+sudo service ssh restart
+```
+
+**Using a Fedora machine as a temporary ssh server
+[[Original article by Justin Ellingwood](https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys)]**
+
+```bash
+# Start the ssh server.
+sudo service sshd start
+
+# (Optional) Stop sshd. Note that sshd will be 
+# stopped automatically after rebooting.
+# However, we can manually stop it by:
+sudo service sshd stop
+```
+
+
+
+
 <!--
 On GitHub README.MD files, we can make folder structure
 examples by using the bash command `tree`. 
