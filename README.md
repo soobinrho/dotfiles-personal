@@ -80,7 +80,7 @@ ssh-keygen -b 4096
 ssh-copy-id root@ip_address
 ```
 
-**Setting up a `Ubuntu` server on `DigitalOcean`
+**Initializing a `Ubuntu` server on `DigitalOcean`
 [[Original article by Brian Boucheron](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-20-04)]**
 
 ```bash
