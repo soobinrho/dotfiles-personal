@@ -69,7 +69,7 @@ git config --global user.signingkey BC0596A444D39F64
 git config --global commit.gpgSign true
 ```
 
-**Copying both the public key and private key to my second laptop via SSH.
+**Copying both the public key and private key to my second laptop via SSH.**
 
 ```bash
 # The --archive option preserves 
