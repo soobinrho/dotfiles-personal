@@ -29,7 +29,7 @@ vim
 :PlugInstall 
 ```
 
-**Signing git commits with a GPG key
+**Signing `git` commits with a GPG key
 [[Original article by Wouter De Schuyter](https://wouterdeschuyter.be/blog/verified-signed-commits-on-github)]**
 
 ```bash
@@ -80,7 +80,7 @@ ssh-keygen -b 4096
 ssh-copy-id root@ip_address
 ```
 
-**Setting up a Ubuntu server on DigitalOcean
+**Setting up a `Ubuntu` server on `DigitalOcean`
 [[Original article by Brian Boucheron](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-20-04)]**
 
 ```bash
@@ -100,7 +100,7 @@ usermod -aG sudo main
 rsync --archive --chown=main:main /root/.ssh /home/main
 ```
 
-**Configuring sshd_config on a Ubuntu server
+**Configuring sshd_config on a `Ubuntu` server
 [[Original article by Justin Ellingwood](https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys)]**
 
 ```bash
@@ -121,7 +121,7 @@ PermitRootLogin no
 sudo service ssh restart
 ```
 
-**Using a Fedora machine as a temporary ssh server
+**Using a `Fedora` machine as a temporary ssh server
 [[Original article by Justin Ellingwood](https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys)]**
 
 ```bash
