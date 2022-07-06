@@ -111,9 +111,6 @@ sudo vim /etc/ssh/sshd_config
 # so that only the RSA SSH key can be used.
 PasswordAuthentication no
 
-# Only allow certain users to ssh.
-AllowUsers soobinrho
-
 # Disable root login.
 PermitRootLogin no
 
