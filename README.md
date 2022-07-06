@@ -148,7 +148,7 @@ Host *
 # Creating an alias so that we can 
 # `ssh myserver` instead of `ssh main@ip_address`
 cat >> ~/.ssh/config
-Host testhost
+Host myserver
     HostName ip_address
     User main
 ```
