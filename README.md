@@ -69,7 +69,8 @@ git config --global user.signingkey BC0596A444D39F64
 git config --global commit.gpgSign true
 ```
 
-**Copying the public key and private key to my second laptop via SSH**
+**Copying both the public GPG key and private GPG key
+to my second laptop via `rsync` and SSH**
 
 ```bash
 # The --archive option preserves 
@@ -87,6 +88,17 @@ ssh-keygen -b 4096
 
 # Copy the public key to the SSH server.
 ssh-copy-id root@ip_address
+```
+
+**Copying both the public SSH key and private SSH key
+to my second laptop via `rsync` and SSH**
+
+```bash
+# Copy the private SSH key.
+rsync --archive ~/.ssh/id_rsa soobinrho@ip_address:~/.ssh/id_rsa
+
+# Copy the public SSH key.
+rsync --archive ~/.ssh/id_rsa.pub soobinrho@ip_address:~/.ssh/id_rsa.pub
 ```
 
 ## Settings for `droplets` on `DigitalOcean`
