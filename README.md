@@ -9,7 +9,7 @@ including `.vimrc` and `.bashrc`. You can find them here:
 │   └── soobinrho
 │       ├── .bashrc
 │       ├── .vim
-│       │    └── plugins.vim
+│       │   └── plugins.vim
 │       └── .vimrc
 ```
 
