@@ -1,0 +1,40 @@
+# ------------------------------------------ #
+# The default settings from editorconfig-vim
+# ------------------------------------------ #
+
+root = true
+
+[*]
+end_of_line = lf
+charset = utf-8
+
+[*.{vim,sh}]
+indent_style = space
+indent_size = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+max_line_length = 80
+
+[*.rb]
+indent_style = space
+indent_size = 2
+insert_final_newline = true
+trim_trailing_whitespace = true
+max_line_length = 120
+
+[*.yml]
+indent_style = space
+indent_size = 2
+
+[*.{bat,vbs,ps1}]
+end_of_line = CRLF
+
+# ------------------------------- #
+# Configs that I added personally
+# ------------------------------- #
+
+[*.java]
+indent_style = space
+indent_size = 4
+trim_trailing_whitespace = true
+insert_final_newline = true
