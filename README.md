@@ -27,6 +27,10 @@ cp .vim/plugins.vim ~/vim/plugins.vim
 # Install the plugins.
 vim
 :PlugInstall 
+
+# Plus, `editorconfig` wan't working for me,
+# but it was fixed with
+cp ~/.vim/plugged/editorconfig-vim/.editorconfig ~/
 ```
 
 **Signing `git` commits with a GPG key
