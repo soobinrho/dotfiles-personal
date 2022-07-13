@@ -125,7 +125,41 @@ usermod -aG sudo main
 rsync --archive --chown=main:main /root/.ssh /home/main
 ```
 
-**Installing Docker Engine
+**Installing Docker Engine on Ubuntu
+[[Original article by Docker](https://docs.docker.com/engine/install/ubuntu/)]**
+
+```bash
+# Update apt.
+sudo apt update
+
+# Add the official Docker repository to apt.
+sudo apt install \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+# Install Docker Engine.
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+
+# Add your account to the group docker
+# so that you can use it without sudo.
+sudo groupadd docker
+sudo usermod -aG docker $USER
+
+# Re-login so that the changes can be applied.
+su -l $USER
+```
+
+
+
+**Installing Docker Engine on Fedora
 [[Original article by Docker](https://docs.docker.com/engine/install/fedora/)]**
 
 ```bash
@@ -134,6 +168,8 @@ sudo dnf -y install dnf-plugins-core
 sudo dnf config-manager \
     --add-repo \
     https://download.docker.com/linux/fedora/docker-ce.repo
+
+# Install Docker Engine.
 sudo dnf install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 
 # On Ubuntu, Docker service starts automatically,
@@ -142,8 +178,11 @@ sudo systemctl start docker
 
 # Add your account to the group docker
 # so that you can use it without sudo.
-sudo su -
-usermod -aG docker main
+sudo groupadd docker
+sudo usermod -aG docker $USER
+
+# Re-login so that the changes can be applied.
+su -l $USER
 ```
 
 **Configuring `sshd_config` on an Ubuntu server
