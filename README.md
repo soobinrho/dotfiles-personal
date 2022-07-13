@@ -13,7 +13,7 @@ including `.vimrc` and `.bashrc`. You can find them here:
 
 # Examples
 
-**Adding `Vim` Plugins
+**Adding Vim Plugins
 [[Original article by Alex Hunt](https://medium.com/@huntie/10-essential-vim-plugins-for-2018-39957190b7a9)]**
 
 ```bash
@@ -24,14 +24,14 @@ cp .vim/plugins.vim ~/vim/plugins.vim
 
 # Install the plugins.
 vim
-:PlugInstall 
+:PlugInstall
 
-# Plus, `editorconfig` wan't working for me,
+# Plus, editorconfig wan't working for me,
 # but it was fixed with
 cp ~/.vim/plugged/editorconfig-vim/.editorconfig ~/
 ```
 
-**Signing `git` commits with a GPG key
+**Signing git commits with a GPG key
 [[Original article by Wouter De Schuyter](https://wouterdeschuyter.be/blog/verified-signed-commits-on-github)]**
 
 ```bash
@@ -51,7 +51,7 @@ gpg --full-generate-key
 # Set the key to never expire.
 0
 
-# Set the key's user ID as my name and 
+# Set the key's user ID as my name and
 # GitHub email address.
 Soobin Rho
 soobinrho@gmail.com
@@ -72,11 +72,11 @@ git config --global commit.gpgSign true
 ```
 
 **Copying both the public GPG key and private GPG key
-to my second laptop via `rsync` and SSH**
+to my second laptop via rsync and SSH**
 
 ```bash
-# The --archive option preserves 
-# all permissions, modification times, and 
+# The --archive option preserves
+# all permissions, modification times, and
 # everytihng inside the directory recursively.
 rsync --archive /home/soobinrho/.gnupg soobinrho@ip_address:/home/soobinrho
 ```
@@ -85,7 +85,7 @@ rsync --archive /home/soobinrho/.gnupg soobinrho@ip_address:/home/soobinrho
 [[Original article by Brian Boucheron](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-20-04)]**
 
 ```bash
-# Create a key with the length of 4096 bits. 
+# Create a key with the length of 4096 bits.
 ssh-keygen -b 4096
 
 # Copy the public key to the SSH server.
@@ -93,7 +93,7 @@ ssh-copy-id root@ip_address
 ```
 
 **Copying both the public SSH key and private SSH key
-to my second laptop via `rsync` and SSH**
+to my second laptop via rsync and SSH**
 
 ```bash
 # Copy the private SSH key.
@@ -103,9 +103,9 @@ rsync --archive ~/.ssh/id_rsa soobinrho@ip_address:~/.ssh/id_rsa
 rsync --archive ~/.ssh/id_rsa.pub soobinrho@ip_address:~/.ssh/id_rsa.pub
 ```
 
-## Settings for `droplets` on `DigitalOcean`
+## Settings for droplets on DigitalOcean
 
-**Initializing an `Ubuntu` server on `DigitalOcean`
+**Initializing an Ubuntu server on DigitalOcean
 [[Original article by Brian Boucheron](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-20-04)]**
 
 ```bash
@@ -125,7 +125,28 @@ usermod -aG sudo main
 rsync --archive --chown=main:main /root/.ssh /home/main
 ```
 
-**Configuring `sshd_config` on an `Ubuntu` server
+**Installing Docker Engine
+[[Original article by Docker](https://docs.docker.com/engine/install/fedora/)]**
+
+```bash
+# Add the official Docker repository to dnf.
+sudo dnf -y install dnf-plugins-core
+sudo dnf config-manager \
+    --add-repo \
+    https://download.docker.com/linux/fedora/docker-ce.repo
+sudo dnf install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+
+# On Ubuntu, Docker service starts automatically,
+# but on Fedora, Docker service should be started with
+sudo systemctl start docker
+
+# Add your account to the group docker
+# so that you can use it without sudo.
+sudo su -
+usermod -aG docker main
+```
+
+**Configuring `sshd_config` on an Ubuntu server
 [[Original article by Justin Ellingwood](https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys)]**
 
 ```bash
@@ -145,14 +166,14 @@ sudo service ssh restart
 
 ## Settings for my own SSH servers
 
-**Using a `Fedora` machine as a temporary SSH server
+**Using a Fedora machine as a temporary SSH server
 [[Original article by Justin Ellingwood](https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys)]**
 
 ```bash
 # Start the SSH server.
 sudo service sshd start
 
-# (Optional) Stop sshd. Note that sshd will be 
+# (Optional) Stop sshd. Note that sshd will be
 # stopped automatically after rebooting.
 # However, we can manually stop it by:
 sudo service sshd stop
@@ -169,7 +190,7 @@ Host *
   ServerAliveInterval 15
   ServerAliveCountMax 3
 
-# Creating an alias so that we can 
+# Creating an alias so that we can
 # `ssh myserver` instead of `ssh main@ip_address`
 # It's nice to be able to ssh without ip_address
 cat >> ~/.ssh/config
@@ -181,7 +202,7 @@ Host myserver
 
 <!--
 On GitHub README.MD files, we can make folder structure
-examples by using the bash command `tree`. 
+examples by using the bash command `tree`.
 -->
 
 <br>
