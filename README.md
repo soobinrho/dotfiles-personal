@@ -69,6 +69,7 @@ gpg --armor --export BC0596A444D39F64
 # Configure git to sign all commits with the key.
 git config --global user.signingkey BC0596A444D39F64
 git config --global commit.gpgSign true
+git config --global alias.c 'commit -s'
 ```
 
 **Copying both the public GPG key and private GPG key
