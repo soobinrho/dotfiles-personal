@@ -70,9 +70,17 @@ gpg --armor --export BC0596A444D39F64
 git config --global user.signingkey BC0596A444D39F64
 git config --global commit.gpgSign true
 
+# Yes, your commits are now signed with
+# your GPG key. Furthermore, you might want
+# to signoff your commits for
+# Developer Certificate of Origin (DCO)
+# as well. You can do this by running:
+git config --global alias.c 'commit -s'
+
 # Now, you can commit with
 # git c -am'Commit message.'
-git config --global alias.c 'commit -s'
+# Your commits will be signed with
+# both your GPG key and the DCO.
 ```
 
 **Copying both the public GPG key and private GPG key
