@@ -81,6 +81,10 @@ git config --global alias.c 'commit -s'
 # git c -am'Commit message.'
 # Your commits will be signed with
 # both your GPG key and the DCO.
+
+# Set default branch name to main
+# instead of master.
+git config --global init.defaultBranch main
 ```
 
 **Copying both the public GPG key and private GPG key
