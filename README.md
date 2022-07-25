@@ -2,7 +2,6 @@ These are the configuration dotfiles that I use personally,
 including `.vimrc` and `.bashrc`. You can find them here:
 
 ```bash
-.
 ├── home
 │   └── soobinrho
 │       ├── .bashrc
@@ -10,6 +9,9 @@ including `.vimrc` and `.bashrc`. You can find them here:
 │       │   └── plugins.vim
 │       └── .vimrc
 ```
+
+<br>
+<br>
 
 # Examples
 
@@ -30,6 +32,7 @@ vim
 # but it was fixed with
 cp ~/.vim/plugged/editorconfig-vim/.editorconfig ~/
 ```
+<br>
 
 **Signing git commits with a GPG key
 [[Original article by Wouter De Schuyter](https://wouterdeschuyter.be/blog/verified-signed-commits-on-github)]**
@@ -87,6 +90,8 @@ git config --global alias.c 'commit -s'
 git config --global init.defaultBranch main
 ```
 
+<br>
+
 **Copying both the public GPG key and private GPG key
 to my second laptop via rsync and SSH**
 
@@ -96,6 +101,8 @@ to my second laptop via rsync and SSH**
 # everytihng inside the directory recursively.
 rsync --archive /home/soobinrho/.gnupg soobinrho@ip_address:/home/soobinrho
 ```
+
+<br>
 
 **Creating a key for SSH
 [[Original article by Brian Boucheron](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-20-04)]**
@@ -108,6 +115,8 @@ ssh-keygen -b 4096
 ssh-copy-id root@ip_address
 ```
 
+<br>
+
 **Copying both the public SSH key and private SSH key
 to my second laptop via rsync and SSH**
 
@@ -118,6 +127,9 @@ rsync --archive ~/.ssh/id_rsa soobinrho@ip_address:~/.ssh/id_rsa
 # Copy the public SSH key.
 rsync --archive ~/.ssh/id_rsa.pub soobinrho@ip_address:~/.ssh/id_rsa.pub
 ```
+
+<br>
+<br>
 
 ## Settings for droplets on DigitalOcean
 
@@ -140,6 +152,8 @@ usermod -aG sudo main
 # to the user that we just created.
 rsync --archive --chown=main:main /root/.ssh /home/main
 ```
+<br>
+<br>
 
 **Installing Docker Engine on Ubuntu
 [[Original article by Docker](https://docs.docker.com/engine/install/ubuntu/)]**
@@ -173,7 +187,7 @@ sudo usermod -aG docker $USER
 su -l $USER
 ```
 
-
+<br>
 
 **Installing Docker Engine on Fedora
 [[Original article by Docker](https://docs.docker.com/engine/install/fedora/)]**
@@ -201,6 +215,8 @@ sudo usermod -aG docker $USER
 su -l $USER
 ```
 
+<br>
+
 **Configuring `sshd_config` on an Ubuntu server
 [[Original article by Justin Ellingwood](https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys)]**
 
@@ -219,6 +235,9 @@ PermitRootLogin no
 sudo service ssh restart
 ```
 
+<br>
+<br>
+
 ## Settings for my own SSH servers
 
 **Using a Fedora machine as a temporary SSH server
@@ -233,6 +252,8 @@ sudo service sshd start
 # However, we can manually stop it by:
 sudo service sshd stop
 ```
+
+<br>
 
 **Client-side configuration
 [[Original StackExchange by laur](https://unix.stackexchange.com/questions/708206/ssh-timeout-does-not-happen-and-not-disconnect)]**
