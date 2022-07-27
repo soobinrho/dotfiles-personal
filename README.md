@@ -56,6 +56,8 @@ if [ "$TERM" != "linux" ]; then
 fi
 ```
 
+<br>
+
 ## Vim
 
 **Adding Vim Plugins
@@ -91,6 +93,8 @@ git lfs install
 # to track .pdf files using LFS:
 # git lfs track "*.pdf"
 ```
+
+<br>
 
 **Signing git commits with a GPG key
 [[Original article by Wouter De Schuyter](https://wouterdeschuyter.be/blog/verified-signed-commits-on-github)]**
@@ -333,7 +337,9 @@ Host myserver
     User main
 ```
 
-**Disableing Updates for Specific Packages**
+<br>
+
+**Disableing Updates for Specific Packages
 [[Original Article by Techmint](https://www.tecmint.com/exclude-package-updates-yum-dnf-command/)]**
 
 If you by any chance have to disable
@@ -346,12 +352,6 @@ sudo vim /etc/dnf/dnf.conf
 exclude=package-name-version18*
 ```
 
-<!--
-On GitHub README.MD files, we can make folder structure
-examples by using the bash command `tree`.
--->
-
 <br>
 <br>
 <br>
-
