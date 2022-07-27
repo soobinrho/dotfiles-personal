@@ -18,7 +18,8 @@ including `.vimrc` and `.bashrc`. You can find them here:
 ## Steps
 [1.](#1-dev-tool-configs) Dev Tool Configs<br>
   [A.](#bash) Bash<br>
-  [B.](#Vim) Vim<br>
+  [B.](#vim) Vim<br>
+  [C.](#git) Git<br>
 [2.](#2-virtual-private-server-configs) Virtual Private Server Configs<br>
 [3.](#3-ssh-configs-for-my-laptops) SSH Configs for my Laptops<br>
 
@@ -61,6 +62,8 @@ vim
 cp ~/.vim/plugged/editorconfig-vim/.editorconfig ~/
 ```
 <br>
+
+## Git
 
 **Signing git commits with a GPG key
 [[Original article by Wouter De Schuyter](https://wouterdeschuyter.be/blog/verified-signed-commits-on-github)]**
