@@ -1,4 +1,6 @@
-# Overview
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/19341857/181281095-b56a803b-9530-4cd3-bc57-27bb0239d823.png" width="600">
+</p>
 
 These are the dotfiles and
 configuration files I use personally.
