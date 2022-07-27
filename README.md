@@ -1,6 +1,8 @@
 <br>
 <br>
 
+# Overview
+
 These are the dotfiles and
 configuration files I use personally.
 
@@ -25,7 +27,7 @@ configuration files I use personally.
 <br>
 <br>
 
-## Configuration Files and Dotfiles
+# Configuration Files and Dotfiles
 [1.](#1-dev-tool-configs) Dev Tool Configs<br>
   [A.](#bash) Bash<br>
   [B.](#vim) Vim<br>
@@ -173,7 +175,7 @@ rsync --archive ~/.ssh/id_rsa.pub soobinrho@ip_address:~/.ssh/id_rsa.pub
 <br>
 <br>
 
-## 2. Virtual Private Server Configs
+# 2. Virtual Private Server Configs
 
 **Initializing an Ubuntu server on DigitalOcean
 [[Original article by Brian Boucheron](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-20-04)]**
@@ -280,7 +282,7 @@ sudo service ssh restart
 <br>
 <br>
 
-## 3. SSH Configs for my Laptops
+# 3. SSH Configs for my Laptops
 
 **Using a Fedora machine as a temporary SSH server
 [[Original article by Justin Ellingwood](https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys)]**
