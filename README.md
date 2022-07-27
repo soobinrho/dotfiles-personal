@@ -26,7 +26,7 @@ configuration files I use personally.
 <br>
 <br>
 
-# Configuration Files and Dotfiles
+## Configuration Files and Dotfiles
 [1.](#1-dev-tools-configs) Dev Tools Configs<br>
 &#160;&#160;&#160;&#160;[A.](#bash) Bash<br>
 &#160;&#160;&#160;&#160;[B.](#vim) Vim<br>
