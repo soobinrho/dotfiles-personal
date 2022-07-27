@@ -62,3 +62,10 @@ alias BuildJava=~/git/college-programming/summer_2022/computer_science_II/BuildJ
 # ------------------------------------- #
 export GPG_TTY=$(tty)
 
+# ------------------------------------- #
+# Sourcing for Bash Powerline
+# https://github.com/chris-marsh/pureline
+# ------------------------------------- #
+source ~/pureline/pureline ~/.pureline.conf
+
+
