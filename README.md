@@ -6,6 +6,7 @@ including `.vimrc` and `.bashrc`. You can find them here:
 ├── home
 │   └── soobinrho
 │       ├── .bashrc
+│       ├── .pureline.conf
 │       ├── .vim
 │       │   └── plugins.vim
 │       └── .vimrc
