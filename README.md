@@ -26,9 +26,9 @@ configuration files I use personally.
 
 # Configuration Files and Dotfiles
 [1.](#1-dev-tool-configs) Dev Tool Configs<br>
- &#0020; &#0020; &#0020; &#0020; [A.](#bash) Bash<br>
-  [B.](#vim) Vim<br>
-  [C.](#git) Git<br>
+&#160;&#160;&#160;&#160;[A.](#bash) Bash<br>
+&#160;&#160;&#160;&#160;[B.](#vim) Vim<br>
+&#160;&#160;&#160;&#160;[C.](#git) Git<br>
 [2.](#2-virtual-private-server-configs) Virtual Private Server Configs<br>
 [3.](#3-ssh-configs-for-my-laptops) SSH Configs for my Laptops<br>
 
