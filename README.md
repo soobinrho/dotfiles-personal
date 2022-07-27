@@ -329,6 +329,18 @@ Host myserver
     User main
 ```
 
+**Disableing Updates for Specific Packages**
+[[Original Article by Techmint](https://www.tecmint.com/exclude-package-updates-yum-dnf-command/)]**
+
+If you by any chance have to disable
+dnf updates on specific packages:
+
+```bash
+sudo vim /etc/dnf/dnf.conf
+
+# Add the following line:
+exclude=package-name-version18*
+```
 
 <!--
 On GitHub README.MD files, we can make folder structure
