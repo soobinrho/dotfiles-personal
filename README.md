@@ -35,6 +35,7 @@ including `.vimrc` and `.bashrc`. You can find them here:
 
 ```bash
 # Install PureLine.
+cd ~
 git clone https://github.com/chris-marsh/pureline.git
 cp pureline/configs/powerline_full_256col.conf ~/.pureline.conf
 
