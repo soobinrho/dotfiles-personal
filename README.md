@@ -41,7 +41,7 @@ configuration files I use personally.
 
 ## Bash
 
-**Setting up a Bash Powerline
+**Setting up a PureLine
 [[GitHub](https://github.com/chris-marsh/pureline)]**
 
 ```bash
