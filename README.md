@@ -50,7 +50,7 @@ cd ~
 git clone https://github.com/chris-marsh/pureline.git
 cp pureline/configs/powerline_full_256col.conf ~/.pureline.conf
 
-# Add the following line to anywhere on ~/.bashrc
+# Add the following lines to anywhere on ~/.bashrc
 if [ "$TERM" != "linux" ]; then
     source ~/pureline/pureline ~/.pureline.conf
 fi
