@@ -2,6 +2,7 @@ These are the configuration dotfiles that I use personally,
 including `.vimrc` and `.bashrc`. You can find them here:
 
 ```bash
+# tree
 ├── home
 │   └── soobinrho
 │       ├── .bashrc
@@ -13,7 +14,33 @@ including `.vimrc` and `.bashrc`. You can find them here:
 <br>
 <br>
 
-# Examples
+## Steps
+[1.](#1-dev-tool-configs) Dev Tool Configs<br>
+  [A.](#bash) Bash<br>
+  [B.](#Vim) Vim<br>
+[2.](#2-virtual-private-server-configs) Virtual Private Server Configs<br>
+[3.](#3-ssh-configs-for-my-laptops) SSH Configs for my Laptops<br>
+
+<br>
+<br>
+
+# 1. Dev Tool Configs
+
+## Bash
+
+**Setting up a Bash Powerline
+[[GitHub](https://github.com/chris-marsh/pureline)]**
+
+```bash
+# Install PureLine.
+git clone https://github.com/chris-marsh/pureline.git
+cp pureline/configs/powerline_full_256col.conf ~/.pureline.conf
+
+# Add the following line to anywhere on ~/.bashrc
+source ~/pureline/pureline ~/.pureline.conf
+```
+
+## Vim
 
 **Adding Vim Plugins
 [[Original article by Alex Hunt](https://medium.com/@huntie/10-essential-vim-plugins-for-2018-39957190b7a9)]**
@@ -131,7 +158,7 @@ rsync --archive ~/.ssh/id_rsa.pub soobinrho@ip_address:~/.ssh/id_rsa.pub
 <br>
 <br>
 
-## Settings for droplets on DigitalOcean
+## Virtual Private Server Configs
 
 **Initializing an Ubuntu server on DigitalOcean
 [[Original article by Brian Boucheron](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-20-04)]**
@@ -238,7 +265,7 @@ sudo service ssh restart
 <br>
 <br>
 
-## Settings for my own SSH servers
+## SSH Configs for my Laptops
 
 **Using a Fedora machine as a temporary SSH server
 [[Original article by Justin Ellingwood](https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys)]**
