@@ -2,7 +2,7 @@
 <br>
 
 These are the configuration dotfiles that I use personally,
-such as Bash, Vim, Git configs.
+such as Bash and Vim configs.
 
 ```bash
 # tree -a
