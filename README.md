@@ -9,6 +9,13 @@ including `.vimrc` and `.bashrc`. You can find them here:
 ├── home
 │   └── soobinrho
 │       ├── .bashrc
+│       ├── .editorconfig
+│       ├── .gnupg
+│       │   └── gpg-agent.conf
+│       ├── .local
+│       │   └── share
+│       │       └── konsole
+│       │           └── Profile 1.profile
 │       ├── .pureline.conf
 │       ├── .vim
 │       │   └── plugins.vim
