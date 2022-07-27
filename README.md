@@ -75,6 +75,19 @@ cp ~/.vim/plugged/editorconfig-vim/.editorconfig ~/
 
 ## Git
 
+**Install Git Large File Storage
+[[Git LFS](https://git-lfs.github.com/)]**
+
+```bash
+# Download the binaries from the
+# Git LFS website. After that,
+git lfs install
+
+# Now, for example, we can tell LFS
+# to track .pdf files using LFS:
+# git lfs track "*.pdf"
+```
+
 **Signing git commits with a GPG key
 [[Original article by Wouter De Schuyter](https://wouterdeschuyter.be/blog/verified-signed-commits-on-github)]**
 
