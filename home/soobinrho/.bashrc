@@ -66,6 +66,6 @@ export GPG_TTY=$(tty)
 # Sourcing for Bash Powerline
 # https://github.com/chris-marsh/pureline
 # ------------------------------------- #
-source ~/pureline/pureline ~/.pureline.conf
-
-
+if [ "$TERM" != "linux" ]; then
+    source ~/pureline/pureline ~/.pureline.conf
+fi
