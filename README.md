@@ -1,6 +1,3 @@
-<br>
-<br>
-
 # Overview
 
 These are the dotfiles and
