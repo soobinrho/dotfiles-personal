@@ -1,8 +1,8 @@
 <br>
 <br>
 
-These are the configuration dotfiles that I use personally,
-such as Bash and Vim configs.
+These are the dotfiles and
+configuration files I use personally.
 
 ```bash
 # tree -a
@@ -25,7 +25,7 @@ such as Bash and Vim configs.
 <br>
 <br>
 
-## Dotfiles
+## Configuration Files and Dotfiles
 [1.](#1-dev-tool-configs) Dev Tool Configs<br>
   [A.](#bash) Bash<br>
   [B.](#vim) Vim<br>
