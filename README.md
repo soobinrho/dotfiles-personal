@@ -25,7 +25,7 @@ such as Bash and Vim configs.
 <br>
 <br>
 
-## Config Categories
+## Dotfiles
 [1.](#1-dev-tool-configs) Dev Tool Configs<br>
   [A.](#bash) Bash<br>
   [B.](#vim) Vim<br>
