@@ -15,7 +15,7 @@ including `.vimrc` and `.bashrc`. You can find them here:
 <br>
 <br>
 
-## Steps
+## Config Categories
 [1.](#1-dev-tool-configs) Dev Tool Configs<br>
   [A.](#bash) Bash<br>
   [B.](#vim) Vim<br>
