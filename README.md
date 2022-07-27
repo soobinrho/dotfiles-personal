@@ -2,7 +2,7 @@
 <br>
 
 These are the configuration dotfiles that I use personally,
-including `.vimrc` and `.bashrc`. You can find them here:
+such as Bash, Vim, Git configs.
 
 ```bash
 # tree -a
