@@ -52,7 +52,8 @@ unset __conda_setup
 # ------------------------------------- #
 # Aliases
 # ------------------------------------- #
-alias vim=vimx
+alias vim=nvim
+alias oldvim=\vim
 alias PullGitAll=~/git/bash-git-pull-in-every-folder/PullGitAll
 alias StatusGitAll=~/git/bash-git-pull-in-every-folder/optional-scripts/StatusGitAll
 alias BuildJava=~/git/college-programming/summer-2022/computer-science-II/BuildJava

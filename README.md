@@ -132,10 +132,6 @@ cp ~/.vim/plugged/editorconfig-vim/.editorconfig ~/
 npm install prettier -g
 mkdir -p ~/.vim/pack/plugins/start
 git clone https://github.com/prettier/vim-prettier ~/.vim/pack/plugins/start/vim-prettier
-
-# Install bat-style Vim color scheme.
-# https://github.com/jamespwilliams/bat.vim
-git clone https://github.com/jamespwilliams/bat.vim.git ~/.vim/pack/plugins/start/bat.vim
 ```
 <br>
 
