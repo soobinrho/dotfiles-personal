@@ -76,3 +76,8 @@ fi
 # ------------------------------------- #
 eval "$(lua ~/.local/z.lua/z.lua --init bash)"
 
+# ------------------------------------- #
+# Loading fzf
+# https://github.com/junegunn/fzf.git
+# ------------------------------------- #
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

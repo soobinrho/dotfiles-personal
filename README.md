@@ -58,6 +58,11 @@ sudo dnf install -y htop ncdu
 # Install additional utilities.
 sudo dnf install -y bat asciinema xournal vlc obs
 
+# Install fzf.
+# https://github.com/junegunn/fzf
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+
 # Install z.lua
 # https://github.com/skywind3000/z.lua.git
 git clone https://github.com/skywind3000/z.lua.git ~/.local/z.lua/
