@@ -60,3 +60,5 @@ packloadall
 " https://github.com/jamespwilliams/bat.vim
 set termguicolors
 colorscheme bat
+
+
