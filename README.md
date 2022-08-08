@@ -41,7 +41,7 @@ configuration files I use personally.
 
 ```bash
 # Install programming environment.
-sudo dnf install -y vim npm steghide gh
+sudo dnf install -y neovim python3-neovim npm steghide gh
 
 # Install Anaconda.
 # https://www.anaconda.com/
@@ -113,6 +113,11 @@ fi
 cd git/dotfiles-personal/home/soobinrho
 cp .vimrc ~/.vimrc
 cp .vim/plugins.vim ~/vim/plugins.vim
+
+# Install vim-plug.
+# https://github.com/junegunn/vim-plug
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 # Install the plugins.
 vim
