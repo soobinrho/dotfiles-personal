@@ -101,7 +101,7 @@ cp ~/.vim/plugged/editorconfig-vim/.editorconfig ~/
 
 # Install vim-prettier.
 # https://github.com/prettier/vim-prettier
-npx prettier
+npm install prettier -g
 mkdir -p ~/.vim/pack/plugins/start
 git clone https://github.com/prettier/vim-prettier ~/.vim/pack/plugins/start/vim-prettier
 
