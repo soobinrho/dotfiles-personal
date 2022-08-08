@@ -55,9 +55,6 @@ set number
 " Load vim-prettier package.
 " https://github.com/prettier/vim-prettier
 packloadall
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install --frozen-lockfile --production',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
 
 " Load bat(improved version of cat) style color scheme.
 " https://github.com/jamespwilliams/bat.vim
