@@ -59,6 +59,7 @@ sudo dnf install -y htop ncdu
 sudo dnf install -y bat asciinema xournal vlc obs
 
 # Install fzf.
+# cat **<Tab>
 # https://github.com/junegunn/fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
