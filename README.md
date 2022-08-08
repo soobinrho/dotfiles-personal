@@ -39,6 +39,28 @@ configuration files I use personally.
 
 # 1. Dev Tools Configs
 
+```bash
+# Install programming environment.
+sudo dnf install -y vim npm steghide
+
+# Install Anaconda.
+# https://www.anaconda.com/
+
+# Install Java.
+# https://www.oracle.com/java/technologies/downloads/
+
+# Install tex environment.
+sudo dnf install -y texlive texstudio
+
+# Install additional utilities.
+sudo dnf install -y bat htop asciinema xournal vlc obs
+
+# Install chrome.
+sudo dnf install fedora-workstation-repositories
+sudo dnf config-manager --set-enabled google-chrome
+sudo dnf install -y google-chrome-stable
+```
+
 ## Bash
 
 **Setting up PureLine
