@@ -76,6 +76,16 @@ vim
 # Plus, editorconfig wan't working for me,
 # but it was fixed with
 cp ~/.vim/plugged/editorconfig-vim/.editorconfig ~/
+
+# Install vim-prettier.
+# https://github.com/prettier/vim-prettier
+npx prettier
+mkdir -p ~/.vim/pack/plugins/start
+git clone https://github.com/prettier/vim-prettier ~/.vim/pack/plugins/start/vim-prettier
+
+# Install bat-style Vim color scheme.
+# https://github.com/jamespwilliams/bat.vim
+git clone https://github.com/jamespwilliams/bat.vim.git ~/.vim/pack/plugins/start/bat.vim
 ```
 <br>
 
