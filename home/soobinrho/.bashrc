@@ -69,3 +69,10 @@ export GPG_TTY=$(tty)
 if [ "$TERM" != "linux" ]; then
     source ~/pureline/pureline ~/.pureline.conf
 fi
+
+# ------------------------------------- #
+# Loading z.lua
+# https://github.com/skywind3000/z.lua
+# ------------------------------------- #
+eval "$(lua ~/.local/z.lua/z.lua --init bash)"
+

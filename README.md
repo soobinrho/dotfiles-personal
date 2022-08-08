@@ -41,7 +41,7 @@ configuration files I use personally.
 
 ```bash
 # Install programming environment.
-sudo dnf install -y vim npm steghide
+sudo dnf install -y vim npm steghide gh
 
 # Install Anaconda.
 # https://www.anaconda.com/
@@ -52,8 +52,15 @@ sudo dnf install -y vim npm steghide
 # Install tex environment.
 sudo dnf install -y texlive texstudio
 
+# Install system monitoring tools.
+sudo dnf install -y htop ncdu
+
 # Install additional utilities.
-sudo dnf install -y bat htop asciinema xournal vlc obs
+sudo dnf install -y bat asciinema xournal vlc obs
+
+# Install z.lua
+# https://github.com/skywind3000/z.lua.git
+git clone https://github.com/skywind3000/z.lua.git ~/.local/z.lua/
 
 # Install chrome.
 sudo dnf install fedora-workstation-repositories
