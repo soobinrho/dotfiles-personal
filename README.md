@@ -116,19 +116,15 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
-# Install the plugins.
-vim
-:PlugInstall
-
-# Plus, editorconfig wan't working for me,
-# but it was fixed with
-cp ~/.vim/plugged/editorconfig-vim/.editorconfig ~/
-
 # Install vim-prettier.
 # https://github.com/prettier/vim-prettier
 npm install prettier -g
 mkdir -p ~/.vim/pack/plugins/start
 git clone https://github.com/prettier/vim-prettier ~/.vim/pack/plugins/start/vim-prettier
+
+# Install the plugins.
+vim
+:PlugInstall
 ```
 <br>
 
