@@ -68,6 +68,16 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 # https://github.com/skywind3000/z.lua.git
 git clone https://github.com/skywind3000/z.lua.git ~/.local/z.lua/
 
+# Install glow.
+# glow -p README.md
+# https://github.com/charmbracelet/glow
+echo '[charm]
+name=Charm
+baseurl=https://repo.charm.sh/yum/
+enabled=1
+gpgcheck=0' | sudo tee /etc/yum.repos.d/charm.repo
+sudo yum install -y glow
+
 # Install chrome.
 sudo dnf install fedora-workstation-repositories
 sudo dnf config-manager --set-enabled google-chrome
