@@ -109,13 +109,10 @@ fi
 [[Original article by Alex Hunt](https://medium.com/@huntie/10-essential-vim-plugins-for-2018-39957190b7a9)]**
 
 ```bash
-# Copy and paste .vimrc and plugins.vim
-cd git/dotfiles-personal/home/soobinrho
-cp .vimrc ~/.vimrc
-cp .vim/plugins.vim ~/vim/plugins.vim
-
 # Install vim-plug.
 # https://github.com/junegunn/vim-plug
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
