@@ -2,7 +2,7 @@
 ColorScheme=Breeze
 
 [General]
-Name=Profile 1
+Name=Profile1
 Parent=FALLBACK/
 
 [Scrolling]
