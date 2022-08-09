@@ -7,7 +7,7 @@
 
 - link:
     ~/.bashrc: home/soobinrho/.bashrc
-    ~/.config/nvim/init.vim: home/soobinrho/.config/nvim/init.vim
+    ~/.config/nvim/init.vim: home/soobinrho/.vimrc
     ~/.editorconfig: home/soobinrho/.editorconfig
     ~/.gnupg/gpg-agent.conf: home/soobinrho/.gnupg/gpg-agent.conf
     ~/.local/share/konsole/Profile1.profile: home/soobinrho/.local/share/konsole/Profile1.profile
