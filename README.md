@@ -168,6 +168,7 @@ sudo yum install -y glow
 sudo dnf module install -y nodejs:18/common
 
 # Set permissions for npm packages.
+sudo mkdir /usr/local/lib/node_modules
 sudo chown -R $(whoami) $(npm config get prefix)/{lib/node_modules,bin,share}
 
 # Install yarn.
