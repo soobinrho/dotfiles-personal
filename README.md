@@ -159,17 +159,12 @@ sudo yum install -y glow
 <br>
 
 **Installing npm
-[[GitHub](http://npm.github.io/installation-setup-docs/installing/a-note-on-permissions.html)]**
+[[GitHub](https://github.com/nvm-sh/nvm#installing-and-updating)]**
 
 ```bash
 # Install npm.
-# If you want to install another version,
-# run `dnf module list`
-sudo dnf module install -y nodejs:18/common
-
-# Set permissions for npm packages.
-sudo mkdir /usr/local/lib/node_modules
-sudo chown -R $(whoami) $(npm config get prefix)/{lib/node_modules,bin,share}
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+nvm install node
 
 # Install yarn.
 npm install yarn -g
