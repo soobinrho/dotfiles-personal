@@ -285,7 +285,7 @@ git config --global init.defaultBranch main
 
 # 2. (Optional) SSH Server Configs
 
-***What kind of SSH server do I use?***
+***Why do you use a SSH server?***
 I try to use SSH servers only on
 virtual private servers because I don't want
 to expose port 22 on my personal device.
@@ -302,7 +302,7 @@ SSH server as soon as you're done.
 
 <br>
 
-**Server-side SSH configuration I use on my second laptop
+**Starting a SSH server on my second laptop
 [[Original article by Justin Ellingwood](https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys)]**
 
 ```bash
@@ -339,7 +339,7 @@ sudo service ssh restart    # Ubuntu
 <br>
 
 **(DANGER) Copying both the public GPG key and private GPG key
-to my second laptop via rsync and SSH**
+from my primary laptop to my second laptop**
 
 ```bash
 # (DANGER) Copy both the private and public GPG keys.
@@ -357,7 +357,7 @@ rsync --archive ~/.gnupg $(whoami)@ip_address:~
 <br>
 
 **(DANGER) Copying both the public SSH key and private SSH key
-to my second laptop via rsync and SSH**
+from my primary laptop to my second laptop**
 
 ```bash
 # (DANGER) Copy both the private and public SSH keys.
@@ -369,7 +369,7 @@ rsync --archive ~/.gitconfig $(whoami)@ip_address:~/.gitconfig
 
 <br>
 
-**(Optional) Creating a key as a SSH client
+**(Optional) Creating a key as a SSH client on my primary laptop
 [[Original article by Brian Boucheron](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-20-04)]**
 
 ```bash
