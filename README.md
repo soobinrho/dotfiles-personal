@@ -41,13 +41,10 @@ configuration files I use personally.
 
 ```bash
 # Install programming environment.
-sudo dnf install -y neovim python3-neovim npm steghide gh
+sudo dnf install -y neovim python3-neovim npm steghide gh golang
 
 # Install Anaconda.
 # https://www.anaconda.com/
-
-# Install Java.
-# https://www.oracle.com/java/technologies/downloads/
 
 # Install tex environment.
 sudo dnf install -y texlive texstudio
@@ -115,6 +112,13 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+# Install YouCompleteMe.
+sudo dnf install -y cmake gcc-c++ make python3-devel
+cd ~/.vim/plugged
+git clone https://github.com/ycm-core/YouCompleteMe.git
+cd YouCompleteMe
+python3 install.py --all
 
 # Install vim-prettier.
 # https://github.com/prettier/vim-prettier
