@@ -132,6 +132,11 @@ sudo dnf install -y texlive texstudio
 # Install system monitoring tools.
 sudo dnf install -y htop ncdu
 
+# Install dnf-automatic
+# so that dnf updates everyday automatically.
+sudo dnf install -y dnf-automatic
+sudo systemctl enable --now dnf-automatic-install.timer
+
 # Install additional utilities.
 sudo dnf install -y bat asciinema xournal
 
