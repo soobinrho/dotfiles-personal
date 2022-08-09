@@ -9,7 +9,7 @@ each step below.
 These include the dotfiles and
 configuration files I use.
 For example, `.purelines.conf`
-and `.bashrc` can give you the same
+and `.bashrc` will give you the same
 look as the image shown above.
 Also included are all the softwares
 I use daily.
@@ -50,7 +50,7 @@ e.g. 190GB for Fedora and 50GB for Windows.
 <br>
 
 ## Steps
-[1.](#1-dotfiles-and-dev-tools) Dotfiles and Dev Toolss<br>
+[1.](#1-dotfiles-and-dev-tools) Dotfiles and Dev Tools<br>
 &#160;&#160;&#160;&#160;[A.](#installation) Installation<br>
 &#160;&#160;&#160;&#160;[B.](#bash-configs) Bash Configs<br>
 &#160;&#160;&#160;&#160;[C.](#vim-configs) Vim Configs<br>
@@ -86,7 +86,8 @@ dotbot -c ./install.conf.yaml
 # The command above installs all dotfiles
 # in this repository. If you'd like to
 # install only a part of it, then you can
-# eitehr `cp ... ~/` or edit `install.conf.yaml`
+# eitehr cp individually one by one
+# or edit `install.conf.yaml`
 ```
 
 <br>
@@ -162,11 +163,11 @@ sudo yum install -y glow
 [[GitHub](https://github.com/nvm-sh/nvm#installing-and-updating)]**
 
 ```bash
-# Install npm.
+# Install nvm.
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
 # Close the bash and reopen.
-# Install nodejs.
+# Install nodejs and npm.
 nvm install node
 
 # Install yarn.
@@ -301,10 +302,9 @@ So, here's how I set up SSH server on my second laptop.
 # Start the SSH server.
 sudo service sshd start
 
-# Stop sshd. Note that sshd will be
-# stopped automatically after rebooting.
-# However, we can manually stop it by:
-sudo service sshd stop
+# sshd will be stopped automatically 
+# after rebooting. However, we can manually 
+# stop it with `sudo service sshd stop`
 ```
 
 <br>
@@ -324,7 +324,8 @@ PasswordAuthentication no
 PermitRootLogin no
 
 # Restart SSH.
-sudo service ssh restart
+sudo service sshd restart    # Fedora
+sudo service ssh restart    # Ubuntu
 ```
 
 <br>
@@ -377,8 +378,8 @@ ssh-copy-id root@ip_address
 [[Original Answer by laur](https://unix.stackexchange.com/questions/708206/ssh-timeout-does-not-happen-and-not-disconnect)]**
 
 ```bash
-# Configuring your SSH client
-# to never timeout.
+# Configuring your SSH client to
+# time-out less frequently.
 cat >> ~/.ssh/config
 Host *
   ServerAliveInterval 15
@@ -386,7 +387,7 @@ Host *
 
 # Creating an alias so that we can
 # `ssh myserver` instead of `ssh main@ip_address`
-# It's nice to be able to ssh without ip_address
+# It's nice to be able to ssh without ip_address.
 cat >> ~/.ssh/config
 Host myserver
     HostName ip_address
