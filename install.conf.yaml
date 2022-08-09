@@ -2,8 +2,19 @@
     link:
       create: true
       relink: true
+      force: true
 
 - clean: ['~', '~/.config', '~/.local']
+
+- create:
+    ~/.config/nvim:
+      mode: 0755
+    ~/.gnupg:
+      mode: 0700
+    ~/.local/share/konsole:
+      mode: 0755
+    ~/.vim:
+      mode: 0755
 
 - link:
     ~/.bashrc: home/soobinrho/.bashrc
