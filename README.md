@@ -114,7 +114,7 @@ goes, installing all of the softwares I use:
 
 ```bash
 # Install programming environments.
-sudo dnf install -y neovim python3-neovim steghide gh git-lfs
+sudo dnf install -y neovim python3-neovim steghide gh git-lfs vim
 
 # Install Chrome.
 # https://www.google.com/intl/en_us/chrome/
@@ -293,6 +293,8 @@ However, there was a time in which I needed
 to SSH into my second laptop from my primary laptop.
 So, here's how I set up SSH server on my second laptop.
 
+<br>
+
 **Server-side SSH configuration I use on my second laptop
 [[Original article by Justin Ellingwood](https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys)]**
 
@@ -394,7 +396,7 @@ Host myserver
 
 <br>
 
-**Disableing updates for specific packages
+**(Optional) Disableing updates for specific packages
 [[Original Article by Techmint](https://www.tecmint.com/exclude-package-updates-yum-dnf-command/)]**
 
 If you by any chance have to disable
@@ -412,7 +414,9 @@ exclude=package-name-version18*
 
 # 3. (Optional) Virtual Private Server Configs
 
-Here's how I configure VPS's for my web apps.
+Here's how I configure my VPS's for web apps.
+
+<br>
 
 **Initializing an Ubuntu server on DigitalOcean
 [[Original article by Brian Boucheron](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-20-04)]**
