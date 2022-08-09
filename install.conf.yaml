@@ -8,11 +8,11 @@
 
 - link:
     ~/.bashrc: home/soobinrho/.bashrc
-    ~/.config/: home/soobinrho/.config/
+    ~/.config/nvim/init.vim: home/soobinrho/.config/nvim/init.vim
     ~/.editorconfig: home/soobinrho/.editorconfig
-    ~/.gnupg/: home/soobinrho/.gnupg/
-    ~/.local/: home/soobinrho/.local/
+    ~/.gnupg/gpg-agent.conf: home/soobinrho/.gnupg/gpg-agent.conf
+    ~/.local/share/konsole/Profile1.profile: home/soobinrho/.local/share/konsole/Profile1.profile
     ~/.pureline.conf: home/soobinrho/.pureline.conf
-    ~/.vim/: home/soobinrho/.vim/
+    ~/.vim/plugins.vim: home/soobinrho/.vim/plugins.vim
     ~/.vimrc: home/soobinrho/.vimrc
 
