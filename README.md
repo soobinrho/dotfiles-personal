@@ -63,7 +63,12 @@ changes twice both in `~/` directory
 dotfiles and in `dotfiles-personal` directory.
 Instead, we can just make all changes
 in this repository directory and just
-rerun dotbot with `dotbot -c ./install.conf.yaml`.
+rerun dotbot with
+
+```bash
+# Reinstall the dotfiles if you made any change.
+`dotbot -c ./install.conf.yaml`.
+```
 
 Now, all dotfiles have been installed.
 In addition, here's how the rest of my setup
