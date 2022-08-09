@@ -3,7 +3,7 @@
 </p>
 
 ***How exactly do you use this repository?***
-Whenever I reset my devices
+Whenever I reinstall my devices
 for whatever reason, I go through
 each step below.
 These include the dotfiles and
@@ -24,8 +24,6 @@ My second laptop, however, has
 only one SSD, so it's
 divided into two partitions --
 e.g. 190GB for Fedora and 50GB for Windows.
-
-
 
 ```bash
 # Repository Structure
@@ -51,12 +49,12 @@ e.g. 190GB for Fedora and 50GB for Windows.
 <br>
 
 ## Steps
-[1.](#1-dev-tools-configs) Dotfiles and Dev Toolss<br>
-&#160;&#160;&#160;&#160;[A.](#dotfiles) Installation<br>
-&#160;&#160;&#160;&#160;[B.](#bash) Bash Configs<br>
-&#160;&#160;&#160;&#160;[C.](#vim) Vim Configs<br>
-&#160;&#160;&#160;&#160;[D.](#git) Git Configs<br>
-[2.](#2-optional-ssh-configs) (Optional) SSH Server Configs<br>
+[1.](#1-dotfiles-and-dev-tools) Dotfiles and Dev Toolss<br>
+&#160;&#160;&#160;&#160;[A.](#installation) Installation<br>
+&#160;&#160;&#160;&#160;[B.](#bash-configs) Bash Configs<br>
+&#160;&#160;&#160;&#160;[C.](#vim-configs) Vim Configs<br>
+&#160;&#160;&#160;&#160;[D.](#git-configs) Git Configs<br>
+[2.](#2-optional-ssh-server-configs) (Optional) SSH Server Configs<br>
 [3.](#3-optional-virtual-private-server-configs) (Optional) Virtual Private Server Configs<br>
 
 
@@ -65,47 +63,54 @@ e.g. 190GB for Fedora and 50GB for Windows.
 
 # 1. Dotfiles and Dev Tools
 
-## Dotfiles
+## Installation
 
-I use Dotbot
-[**[GitHub](https://github.com/anishathalye/dotbot)**]
-to manage my dotfiles.
-Here's what I use whenever
-I reset my computers in order to
-reinstall my dotfiles in this repository:
+I use Dotbot for
+managing my dotfiles.
+**[[GitHub](https://github.com/anishathalye/dotbot)]**
 
 ```bash
 # Install git.
 sudo dnf install -y git
 
-# Install dotbot.
+# Install Dotbot.
 pip install dotbot
 
-# Install the dotfiles.
+# Install all the dotfiles.
 mkdir ~/git
 cd ~/git
 git clone https://github.com/soobinrho/dotfiles-personal.git
 cd dotfiles-personal
 dotbot -c ./install.conf.yaml
+
+# The command above installs all dotfiles
+# in this repository. If you'd like to
+# install only a part of it, then you can
+# eitehr `cp ... ~/` or edit `install.conf.yaml`
 ```
 
-dotbot works by creating symlinks
+<br>
+
+Now, Dotbot created symlinks
 to the dotfiles located in this repository.
+For example, Dotbot just created `~/.bashrc`,
+which is a symlink to
+`~/git/dotfiles-personal/home/soobinrho/.bashrc`.
 We therefore do not have to make
 changes twice both in `~/` directory
 dotfiles and in `dotfiles-personal` directory.
-Instead, we can just make all changes
-in this repository directory and just
-rerun dotbot with
+Thanks to Dotbot, we can just modify
+any dotfile here and then rerun Dotbot with
 
 ```bash
-# Reinstall the dotfiles if you made any change.
-`dotbot -c ./install.conf.yaml`.
+# If you made any change to the dotfiles:
+dotbot -c ./install.conf.yaml
 ```
 
-Now, all dotfiles have been installed.
+<br>
+
 In addition, here's how the rest of my setup
-goes, installing all the software I use:
+goes, installing all of the softwares I use:
 
 ```bash
 # Install programming environments.
@@ -120,7 +125,7 @@ sudo dnf install -y neovim python3-neovim npm steghide gh
 # Install Java.
 # https://www.oracle.com/java/technologies/downloads/
 
-# Install tex environment.
+# Install LaTex environment.
 sudo dnf install -y texlive texstudio
 
 # Install system monitoring tools.
@@ -130,17 +135,18 @@ sudo dnf install -y htop ncdu
 sudo dnf install -y bat asciinema xournal vlc obs
 
 # Install fzf.
-# cat **<Tab>
+# My favorite option for fzf: `cat **<Tab>`
 # https://github.com/junegunn/fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
 # Install z.lua
+# My favorite option for z.lua: `z dotfiles`
 # https://github.com/skywind3000/z.lua.git
 git clone https://github.com/skywind3000/z.lua.git ~/.local/z.lua/
 
 # Install glow.
-# glow -p README.md
+# My favorite option for glow: `glow -p README.md`
 # https://github.com/charmbracelet/glow
 echo '[charm]
 name=Charm
@@ -150,7 +156,10 @@ gpgcheck=0' | sudo tee /etc/yum.repos.d/charm.repo
 sudo yum install -y glow
 ```
 
-## Bash
+<br>
+<br>
+
+## Bash Configs
 
 **Setting up PureLine
 [[GitHub](https://github.com/chris-marsh/pureline)]**
@@ -159,24 +168,18 @@ sudo yum install -y glow
 # Install PureLine.
 cd ~
 git clone https://github.com/chris-marsh/pureline.git
-cp pureline/configs/powerline_full_256col.conf ~/.pureline.conf
-
-# Add the following lines to anywhere on ~/.bashrc
-if [ "$TERM" != "linux" ]; then
-    source ~/pureline/pureline ~/.pureline.conf
-fi
 ```
 
 <br>
+<br>
 
-## Vim
+## Vim Configs
 
 **Adding Vim Plugins
 [[Original article by Alex Hunt](https://medium.com/@huntie/10-essential-vim-plugins-for-2018-39957190b7a9)]**
 
 ```bash
 # Install vim-plug.
-# https://github.com/junegunn/vim-plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
@@ -190,18 +193,19 @@ cd YouCompleteMe
 python3 install.py --all
 
 # Install vim-prettier.
-# https://github.com/prettier/vim-prettier
 npm install prettier -g
 mkdir -p ~/.vim/pack/plugins/start
 git clone https://github.com/prettier/vim-prettier ~/.vim/pack/plugins/start/vim-prettier
 
-# Install the plugins.
+# Install rest of the plugins listed at
+# `./home/soobinrho/.vim/plugins.vim`
 vim
 :PlugInstall
 ```
 <br>
+<br>
 
-## Git
+## Git Configs
 
 **Install Git Large File Storage
 [[Git LFS](https://git-lfs.github.com/)]**
@@ -217,16 +221,13 @@ git lfs install
 ```
 
 <br>
+<br>
 
 **Signing git commits with a GPG key
 [[Original article by Wouter De Schuyter](https://wouterdeschuyter.be/blog/verified-signed-commits-on-github)]**
 
 ```bash
-# Copy and paste .bashrc
-cd git/dotfiles-personal/home/soobinrho
-cp .bashrc ~/.bashrc
-
-# First, create a GPG key.
+# Create a GPG key.
 gpg --full-generate-key
 
 # Select RSA and RSA.
@@ -288,7 +289,7 @@ rsync --archive /home/soobinrho/.gnupg soobinrho@ip_address:/home/soobinrho
 
 <br>
 
-**Creating a key for SSH
+**Creating a key as a SSH client
 [[Original article by Brian Boucheron](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-20-04)]**
 
 ```bash
@@ -315,19 +316,24 @@ rsync --archive ~/.ssh/id_rsa.pub soobinrho@ip_address:~/.ssh/id_rsa.pub
 <br>
 <br>
 
-[2.](#2-optional-ssh-configs) (Optional) SSH Server Configs<br>
-[3.](#3-optional-virtual-private-server-configs) (Optional) Virtual Private Server Configs<br>
+# 2. (Optional) SSH Server Configs
 
-# 3. SSH Configs for my Laptops
+***What kind of SSH server do I use?***
+I try to use SSH servers only on
+virtual private servers because I don't want
+to expose port 22 on my personal device.
+However, there was a time in which I needed
+to SSH into my second laptop from my primary laptop.
+So, here's how I set up SSH server on my second laptop.
 
-**Using a Fedora machine as a temporary SSH server
+**Server-side SSH configuration I use on my second laptop
 [[Original article by Justin Ellingwood](https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys)]**
 
 ```bash
 # Start the SSH server.
 sudo service sshd start
 
-# (Optional) Stop sshd. Note that sshd will be
+# Stop sshd. Note that sshd will be
 # stopped automatically after rebooting.
 # However, we can manually stop it by:
 sudo service sshd stop
@@ -335,7 +341,7 @@ sudo service sshd stop
 
 <br>
 
-**Client-side configuration
+**Client-side SSH configuration I use on my primary laptop
 [[Original StackExchange by laur](https://unix.stackexchange.com/questions/708206/ssh-timeout-does-not-happen-and-not-disconnect)]**
 
 ```bash
@@ -357,7 +363,7 @@ Host myserver
 
 <br>
 
-**Disableing Updates for Specific Packages
+**Disableing updates for specific packages
 [[Original Article by Techmint](https://www.tecmint.com/exclude-package-updates-yum-dnf-command/)]**
 
 If you by any chance have to disable
@@ -370,7 +376,12 @@ sudo vim /etc/dnf/dnf.conf
 exclude=package-name-version18*
 ```
 
-# 3. Virtual Private Server Configs
+<br>
+<br>
+
+# 3. (Optional) Virtual Private Server Configs
+
+Here's how I configure VPS's for my web apps.
 
 **Initializing an Ubuntu server on DigitalOcean
 [[Original article by Brian Boucheron](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-20-04)]**
@@ -391,7 +402,7 @@ usermod -aG sudo main
 # to the user that we just created.
 rsync --archive --chown=main:main /root/.ssh /home/main
 ```
-<br>
+
 <br>
 
 **Installing Docker Engine on Ubuntu
@@ -473,11 +484,6 @@ PermitRootLogin no
 # Restart SSH.
 sudo service ssh restart
 ```
-
-<br>
-<br>
-
-
 
 <br>
 <br>
