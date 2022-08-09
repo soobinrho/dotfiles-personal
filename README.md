@@ -294,7 +294,7 @@ to SSH into my second laptop from my primary laptop.
 
 So, here's how I set up a SSH server on my second laptop.
 Port 22 is likely to be secure as long as it is updated
-to the latest version, and `sshd_config` is configured
+to the latest version and `sshd_config` is configured
 securely as shown two sections below. Nevertheless,
 the best way to prevent a malicious hacker from getting
 into port 22 is to make it unavailable. So,
