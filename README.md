@@ -2,7 +2,7 @@
   <img src="https://user-images.githubusercontent.com/19341857/181281095-b56a803b-9530-4cd3-bc57-27bb0239d823.png" width="600">
 </p>
 
-***How do I use this repository?***
+***How exactly do you use this repository?***
 Whenever I reset my devices
 for whatever reason, I go through
 each step below.
@@ -14,12 +14,27 @@ look as the image shown above.
 Also included are all the softwares
 I use daily.
 
+***Which OS do you use?***
+I dual-boot on KDE Fedora and Windows.
+On my primary laptop which has
+two SSD's, I install Fedora
+on the bigger disk and Windows on
+the smaller disk, since Fedora is my main drive.
+My second laptop, however, has
+only one SSD, so it's
+divided into two partitions --
+e.g. 190GB for Fedora and 50GB for Windows.
+
+
+
 ```bash
-# tree -a
+# Repository Structure
+# You can get this with `tree -a`
 ├── home
 │   └── soobinrho
 │       ├── .bashrc
 │       ├── .editorconfig
+│       ├── global_extra_conf.py
 │       ├── .gnupg
 │       │   └── gpg-agent.conf
 │       ├── .local
@@ -35,13 +50,15 @@ I use daily.
 <br>
 <br>
 
-## Configuration Files and Dotfiles
-[1.](#1-dev-tools-configs) Dev Tools Configs<br>
-&#160;&#160;&#160;&#160;[A.](#bash) Bash<br>
-&#160;&#160;&#160;&#160;[B.](#vim) Vim<br>
-&#160;&#160;&#160;&#160;[C.](#git) Git<br>
-[2.](#2-virtual-private-server-configs) Virtual Private Server Configs<br>
-[3.](#3-ssh-configs-for-my-laptops) SSH Configs for my Laptops<br>
+## Steps
+[1.](#1-dev-tools-configs) Dotfiles and Dev Toolss<br>
+&#160;&#160;&#160;&#160;[A.](#dotfiles) Installation<br>
+&#160;&#160;&#160;&#160;[B.](#bash) Bash Configs<br>
+&#160;&#160;&#160;&#160;[C.](#vim) Vim Configs<br>
+&#160;&#160;&#160;&#160;[D.](#git) Git Configs<br>
+[2.](#2-optional-ssh-configs) (Optional) SSH Configs<br>
+[3.](#3-optional-virtual-private-server-configs) (Optional) Virtual Private Server Configs<br>
+
 
 <br>
 <br>
