@@ -39,6 +39,13 @@ configuration files I use personally.
 
 # 1. Dev Tools Configs
 
+I use Dotbot
+[**[GitHub](https://github.com/anishathalye/dotbot)**]
+to manage my dotfiles.
+Here's what I use whenever
+I reset my computers in order to
+reinstall my dotfiles in this repository:
+
 ```bash
 # Install the dotfiles.
 mkdir ~/git
@@ -47,7 +54,22 @@ git clone https://github.com/soobinrho/dotfiles-personal.git
 cd dotfiles-personal
 pip install dotbot
 dotbot -c ./install.conf.yaml
+```
 
+dotbot works by creating symlinks
+to the dotfiles located in this repository.
+We therefore do not have to make
+changes twice both in `~/` directory
+dotfiles and in `dotfiles-personal` directory.
+Instead, we can just make all changes
+in this repository directory and just
+rerun dotbot with `dotbot -c ./install.conf.yaml`.
+
+Now, all dotfiles have been installed.
+In addition, here's how the rest of my setup
+goes, installing all the software I use:
+
+```bash
 # Install programming environment.
 sudo dnf install -y neovim python3-neovim npm steghide gh
 
