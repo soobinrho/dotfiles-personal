@@ -164,6 +164,9 @@ sudo yum install -y glow
 ```bash
 # Install npm.
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+
+# Close the bash and reopen.
+# Install nodejs.
 nvm install node
 
 # Install yarn.
