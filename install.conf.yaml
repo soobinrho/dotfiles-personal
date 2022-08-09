@@ -5,6 +5,8 @@
       force: true
 
 - create:
+    ~/.config/htop:
+      mode: 0755
     ~/.config/nvim:
       mode: 0755
     ~/.gnupg:
@@ -18,6 +20,7 @@
 
 - link:
     ~/.bashrc: home/soobinrho/.bashrc
+    ~/.config/htop/htoprc: home/soobinrho/.config/htop/htoprc
     ~/.config/nvim/init.vim: home/soobinrho/.vimrc
     ~/.editorconfig: home/soobinrho/.editorconfig
     ~/.gnupg/gpg-agent.conf: home/soobinrho/.gnupg/gpg-agent.conf
