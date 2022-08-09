@@ -311,7 +311,7 @@ sudo service sshd start
 
 # When you're done with SSH, stop the SSH server.
 # Actually, it stops automaticaly when you reboot
-# but you can stop it without rebooting with:
+# but you can stop it without rebooting.
 sudo service sshd stop
 ```
 
