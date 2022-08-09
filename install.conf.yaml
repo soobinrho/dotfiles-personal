@@ -21,6 +21,7 @@
     ~/.config/nvim/init.vim: home/soobinrho/.vimrc
     ~/.editorconfig: home/soobinrho/.editorconfig
     ~/.gnupg/gpg-agent.conf: home/soobinrho/.gnupg/gpg-agent.conf
+    ~/.local/share/konsole/Breeze.colorscheme: home/soobinrho/.local/share/konsole/Breeze.colorscheme
     ~/.local/share/konsole/Profile1.profile: home/soobinrho/.local/share/konsole/Profile1.profile
     ~/.pureline.conf: home/soobinrho/.pureline.conf
     ~/.vim/plugins.vim: home/soobinrho/.vim/plugins.vim
