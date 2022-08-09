@@ -292,7 +292,7 @@ to expose port 22 on my personal device.
 However, there was a time in which I needed
 to SSH into my second laptop from my primary laptop.
 
-So, here's how I set up SSH server on my second laptop.
+So, here's how I set up a SSH server on my second laptop.
 Port 22 is likely to be secure as long as it is updated
 to the latest version, and `sshd_config` is configured
 securely as shown two sections below. Nevertheless,
