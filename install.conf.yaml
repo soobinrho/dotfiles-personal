@@ -4,8 +4,6 @@
       relink: true
       force: true
 
-- clean: ['~', '~/.config', '~/.local']
-
 - create:
     ~/.config/nvim:
       mode: 0755
@@ -14,6 +12,8 @@
     ~/.local/share/konsole:
       mode: 0755
     ~/.vim:
+      mode: 0755
+    ~/.vim/plugged:
       mode: 0755
 
 - link:

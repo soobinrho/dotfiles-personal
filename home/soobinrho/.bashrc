@@ -75,7 +75,7 @@ fi
 # Loading z.lua
 # https://github.com/skywind3000/z.lua
 # ------------------------------------- #
-eval "$(lua ~/.local/z.lua/z.lua --init bash)"
+eval "$(lua ~/.local/z.lua/z.lua --init bash enhanced once fzf)"
 
 # ------------------------------------- #
 # Loading fzf

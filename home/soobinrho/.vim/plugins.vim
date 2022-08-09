@@ -11,5 +11,6 @@ Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
 Plug 'jamespwilliams/bat.vim'
 Plug 'ycm-core/YouCompleteMe'
+Plug 'tpope/vim-fugitive'
 
 call plug#end()

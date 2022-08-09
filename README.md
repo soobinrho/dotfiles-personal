@@ -65,11 +65,10 @@ e.g. 190GB for Fedora and 50GB for Windows.
 
 ## Installation
 
-I use Dotbot for
-managing my dotfiles.
-**[[GitHub](https://github.com/anishathalye/dotbot)]**
-
 ```bash
+# Add yourself to the sudo group.
+sudo usermod -aG wheel $(whoami)
+
 # Install git.
 sudo dnf install -y git
 
@@ -95,7 +94,7 @@ Now, Dotbot created symlinks
 to the dotfiles located in this repository.
 For example, Dotbot just created `~/.bashrc`,
 which is a symlink to
-`~/git/dotfiles-personal/home/soobinrho/.bashrc`.
+`~/git/dotfiles-personal/home/soobinrho/bashrc`.
 We therefore do not have to make
 changes twice both in `~/` directory
 dotfiles and in `dotfiles-personal` directory.
@@ -114,7 +113,7 @@ goes, installing all of the softwares I use:
 
 ```bash
 # Install programming environments.
-sudo dnf install -y neovim python3-neovim npm steghide gh
+sudo dnf install -y neovim python3-neovim steghide gh git-lfs
 
 # Install Chrome.
 # https://www.google.com/intl/en_us/chrome/
@@ -132,7 +131,7 @@ sudo dnf install -y texlive texstudio
 sudo dnf install -y htop ncdu
 
 # Install additional utilities.
-sudo dnf install -y bat asciinema xournal vlc obs
+sudo dnf install -y bat asciinema xournal
 
 # Install fzf.
 # My favorite option for fzf: `cat **<Tab>`
@@ -157,6 +156,23 @@ sudo yum install -y glow
 ```
 
 <br>
+
+**Installing npm
+[[GitHub](http://npm.github.io/installation-setup-docs/installing/a-note-on-permissions.html)]**
+
+```bash
+# Install npm.
+# If you want to install another version,
+# run `dnf module list`
+sudo dnf module install -y nodejs:18/common
+
+# Set permissions for npm packages.
+sudo chown -R $(whoami) $(npm config get prefix)/{lib/node_modules,bin,share}
+
+# Install yarn.
+npm install yarn -g
+```
+
 <br>
 
 ## Bash Configs
@@ -170,7 +186,6 @@ cd ~
 git clone https://github.com/chris-marsh/pureline.git
 ```
 
-<br>
 <br>
 
 ## Vim Configs
@@ -188,45 +203,34 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 # Install YouCompleteMe.
 sudo dnf install -y cmake gcc-c++ make python3-devel golang
 cd ~/.vim/plugged
-git clone https://github.com/ycm-core/YouCompleteMe.git
+git clone --recurse-submodules https://github.com/ycm-core/YouCompleteMe.git
 cd YouCompleteMe
 python3 install.py --all
 
 # Install vim-prettier.
 npm install prettier -g
 mkdir -p ~/.vim/pack/plugins/start
-git clone https://github.com/prettier/vim-prettier ~/.vim/pack/plugins/start/vim-prettier
+cd ~/.vim/pack/plugins/start
+git clone https://github.com/prettier/vim-prettier
 
 # Install rest of the plugins listed at
-# `./home/soobinrho/.vim/plugins.vim`
+# `./home/$(whoami)/.vim/plugins.vim`
 vim
 :PlugInstall
 ```
-<br>
+
 <br>
 
 ## Git Configs
 
-**Install Git Large File Storage
-[[Git LFS](https://git-lfs.github.com/)]**
-
-```bash
-# Download the binaries from the
-# Git LFS website. After that,
-git lfs install
-
-# Now, for example, we can tell LFS
-# to track .pdf files using LFS:
-# git lfs track "*.pdf"
-```
-
-<br>
-<br>
-
-**Signing git commits with a GPG key
+**(Optional) Signing git commits with a GPG key
 [[Original article by Wouter De Schuyter](https://wouterdeschuyter.be/blog/verified-signed-commits-on-github)]**
 
 ```bash
+# Set up git name and email.
+git config --global user.name "Soobin Rho"
+git config --global user.email "soobinrho@gmail.com"
+
 # Create a GPG key.
 gpg --full-generate-key
 
@@ -276,44 +280,6 @@ git config --global init.defaultBranch main
 ```
 
 <br>
-
-**Copying both the public GPG key and private GPG key
-to my second laptop via rsync and SSH**
-
-```bash
-# The --archive option preserves
-# all permissions, modification times, and
-# everytihng inside the directory recursively.
-rsync --archive /home/soobinrho/.gnupg soobinrho@ip_address:/home/soobinrho
-```
-
-<br>
-
-**Creating a key as a SSH client
-[[Original article by Brian Boucheron](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-20-04)]**
-
-```bash
-# Create a key with the length of 4096 bits.
-ssh-keygen -b 4096
-
-# Copy the public key to the SSH server.
-ssh-copy-id root@ip_address
-```
-
-<br>
-
-**Copying both the public SSH key and private SSH key
-to my second laptop via rsync and SSH**
-
-```bash
-# Copy the private SSH key.
-rsync --archive ~/.ssh/id_rsa soobinrho@ip_address:~/.ssh/id_rsa
-
-# Copy the public SSH key.
-rsync --archive ~/.ssh/id_rsa.pub soobinrho@ip_address:~/.ssh/id_rsa.pub
-```
-
-<br>
 <br>
 
 # 2. (Optional) SSH Server Configs
@@ -341,8 +307,72 @@ sudo service sshd stop
 
 <br>
 
-**Client-side SSH configuration I use on my primary laptop
-[[Original StackExchange by laur](https://unix.stackexchange.com/questions/708206/ssh-timeout-does-not-happen-and-not-disconnect)]**
+**Configuring `sshd_config`
+[[Original article by Justin Ellingwood](https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys)]**
+
+```bash
+# Open the config file.
+sudo vim /etc/ssh/sshd_config
+
+# Disallow password authentication
+# so that only the RSA SSH key can be used.
+PasswordAuthentication no
+
+# Disable root login.
+PermitRootLogin no
+
+# Restart SSH.
+sudo service ssh restart
+```
+
+<br>
+
+**(DANGER) Copying both the public GPG key and private GPG key
+to my second laptop via rsync and SSH**
+
+```bash
+# (DANGER) Copy both the private and public GPG keys.
+# Note that I'm copying my private key as well
+# because both the SSH server and client are my personal laptops.
+# Never transfer your private keys, unless you absolutely need to.
+rsync --archive ~/.gnupg $(whoami)@ip_address:~
+
+# The --archive option preserves
+# all permissions, modification times, and
+# everytihng inside the directory recursively.
+
+```
+
+<br>
+
+**(DANGER) Copying both the public SSH key and private SSH key
+to my second laptop via rsync and SSH**
+
+```bash
+# (DANGER) Copy both the private and public SSH keys.
+# This also copies `authorized_keys`, `config`, and `known_hosts`.
+# Again, never transfer your private keys, unless you absolutely need to.
+rsync --archive ~/.ssh $(whoami)@ip_address:~
+rsync --archive ~/.gitconfig $(whoami)@ip_address:~/.gitconfig
+```
+
+<br>
+
+**(Optional) Creating a key as a SSH client
+[[Original article by Brian Boucheron](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-20-04)]**
+
+```bash
+# Create a key with the length of 4096 bits.
+ssh-keygen -b 4096
+
+# Copy the public key to the SSH server.
+ssh-copy-id root@ip_address
+```
+
+<br>
+
+**(Optional) Client-side SSH configuration I use on my primary laptop
+[[Original Answer by laur](https://unix.stackexchange.com/questions/708206/ssh-timeout-does-not-happen-and-not-disconnect)]**
 
 ```bash
 # Configuring your SSH client
@@ -463,26 +493,6 @@ sudo usermod -aG docker $USER
 
 # Re-login so that the changes can be applied.
 su -l $USER
-```
-
-<br>
-
-**Configuring `sshd_config` on an Ubuntu server
-[[Original article by Justin Ellingwood](https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys)]**
-
-```bash
-# Open the config file.
-sudo vim /etc/ssh/sshd_config
-
-# Disallow password authentication
-# so that only the RSA SSH key can be used.
-PasswordAuthentication no
-
-# Disable root login.
-PermitRootLogin no
-
-# Restart SSH.
-sudo service ssh restart
 ```
 
 <br>
