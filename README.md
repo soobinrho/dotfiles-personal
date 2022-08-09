@@ -40,6 +40,14 @@ configuration files I use personally.
 # 1. Dev Tools Configs
 
 ```bash
+# Install the dotfiles.
+mkdir ~/git
+cd ~/git
+git clone https://github.com/soobinrho/dotfiles-personal.git
+cd dotfiles-personal
+pip install dotbot
+dotbot -c ./install.conf.yaml
+
 # Install programming environment.
 sudo dnf install -y neovim python3-neovim npm steghide gh
 
