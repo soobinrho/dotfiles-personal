@@ -297,8 +297,8 @@ Port 22 is likely to be secure as long as it is updated
 to the latest version and `sshd_config` is configured
 securely as shown two sections below. Nevertheless,
 the best way to prevent a malicious hacker from getting
-into port 22 is to make it unavailable. So,
-close it as soon as all SSH needs are done.
+into port 22 is to make it unavailable. So,stop the
+SSH server as soon as you're done.
 
 <br>
 
