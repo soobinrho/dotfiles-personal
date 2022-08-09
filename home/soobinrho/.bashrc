@@ -64,7 +64,7 @@ alias BuildJava=~/git/college-programming/summer-2022/computer-science-II/BuildJ
 export GPG_TTY=$(tty)
 
 # ------------------------------------- #
-# Sourcing for Bash Powerline
+# Sourcing for Bash PureLine.
 # https://github.com/chris-marsh/pureline
 # ------------------------------------- #
 if [ "$TERM" != "linux" ]; then
