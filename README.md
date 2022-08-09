@@ -100,20 +100,18 @@ to the dotfiles located in this repository.
 For example, Dotbot just created `~/.bashrc`,
 which is a symlink to
 `~/git/dotfiles-personal/home/soobinrho/bashrc`.
-We therefore do not have to make
+
+Therefore, whenever you want to
+modify any of the dotfiles, we
+do not have to make
 changes twice both in `~/` directory
 dotfiles and in `dotfiles-personal` directory.
-Thanks to Dotbot, we can just modify
-any dotfile here and then rerun Dotbot with
-
-```bash
-# If you made any change to the dotfiles:
-dotbot -c ./install.conf.yaml
-```
+Just modify any dotfile here 
+in `dotfiles-personal`.
 
 <br>
 
-In addition, here's how the rest of my setup
+Here's how the rest of my setup
 goes, installing all of the softwares I use:
 
 ```bash
