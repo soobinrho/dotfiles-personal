@@ -38,7 +38,8 @@ e.g. 190GB for Fedora and 50GB for Windows.
 │       ├── .local
 │       │   └── share
 │       │       └── konsole
-│       │           └── Profile 1.profile
+│       │           ├── Breeze.colorscheme
+│       │           └── Profile1.profile
 │       ├── .pureline.conf
 │       ├── .vim
 │       │   └── plugins.vim
