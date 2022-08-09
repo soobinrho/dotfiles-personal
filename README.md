@@ -291,7 +291,14 @@ virtual private servers because I don't want
 to expose port 22 on my personal device.
 However, there was a time in which I needed
 to SSH into my second laptop from my primary laptop.
+
 So, here's how I set up SSH server on my second laptop.
+Port 22 is likely to be secure as long as it is updated
+to the latest version, and `sshd_config` is configured
+securely as shown two sections below. Nevertheless,
+the best way to prevent a malicious hacker from getting
+into port 22 is to make it unavailable. So,
+close it as soon as all SSH needs are done.
 
 <br>
 
@@ -302,9 +309,10 @@ So, here's how I set up SSH server on my second laptop.
 # Start the SSH server.
 sudo service sshd start
 
-# sshd will be stopped automatically 
-# after rebooting. However, we can manually 
-# stop it with `sudo service sshd stop`
+# When you're done with SSH, stop the SSH server.
+# Actually, it stops automaticaly when you reboot
+# but you can stop it without rebooting with:
+sudo service sshd stop
 ```
 
 <br>
