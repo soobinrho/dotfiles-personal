@@ -56,14 +56,16 @@ e.g. 190GB for Fedora and 50GB for Windows.
 &#160;&#160;&#160;&#160;[B.](#bash) Bash Configs<br>
 &#160;&#160;&#160;&#160;[C.](#vim) Vim Configs<br>
 &#160;&#160;&#160;&#160;[D.](#git) Git Configs<br>
-[2.](#2-optional-ssh-configs) (Optional) SSH Configs<br>
+[2.](#2-optional-ssh-configs) (Optional) SSH Server Configs<br>
 [3.](#3-optional-virtual-private-server-configs) (Optional) Virtual Private Server Configs<br>
 
 
 <br>
 <br>
 
-# 1. Dev Tools Configs
+# 1. Dotfiles and Dev Tools
+
+## Dotfiles
 
 I use Dotbot
 [**[GitHub](https://github.com/anishathalye/dotbot)**]
@@ -73,12 +75,17 @@ I reset my computers in order to
 reinstall my dotfiles in this repository:
 
 ```bash
+# Install git.
+sudo dnf install -y git
+
+# Install dotbot.
+pip install dotbot
+
 # Install the dotfiles.
 mkdir ~/git
 cd ~/git
 git clone https://github.com/soobinrho/dotfiles-personal.git
 cd dotfiles-personal
-pip install dotbot
 dotbot -c ./install.conf.yaml
 ```
 
@@ -101,8 +108,11 @@ In addition, here's how the rest of my setup
 goes, installing all the software I use:
 
 ```bash
-# Install programming environment.
+# Install programming environments.
 sudo dnf install -y neovim python3-neovim npm steghide gh
+
+# Install Chrome.
+# https://www.google.com/intl/en_us/chrome/
 
 # Install Anaconda.
 # https://www.anaconda.com/
@@ -138,11 +148,6 @@ baseurl=https://repo.charm.sh/yum/
 enabled=1
 gpgcheck=0' | sudo tee /etc/yum.repos.d/charm.repo
 sudo yum install -y glow
-
-# Install chrome.
-sudo dnf install fedora-workstation-repositories
-sudo dnf config-manager --set-enabled google-chrome
-sudo dnf install -y google-chrome-stable
 ```
 
 ## Bash
@@ -310,7 +315,62 @@ rsync --archive ~/.ssh/id_rsa.pub soobinrho@ip_address:~/.ssh/id_rsa.pub
 <br>
 <br>
 
-# 2. Virtual Private Server Configs
+[2.](#2-optional-ssh-configs) (Optional) SSH Server Configs<br>
+[3.](#3-optional-virtual-private-server-configs) (Optional) Virtual Private Server Configs<br>
+
+# 3. SSH Configs for my Laptops
+
+**Using a Fedora machine as a temporary SSH server
+[[Original article by Justin Ellingwood](https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys)]**
+
+```bash
+# Start the SSH server.
+sudo service sshd start
+
+# (Optional) Stop sshd. Note that sshd will be
+# stopped automatically after rebooting.
+# However, we can manually stop it by:
+sudo service sshd stop
+```
+
+<br>
+
+**Client-side configuration
+[[Original StackExchange by laur](https://unix.stackexchange.com/questions/708206/ssh-timeout-does-not-happen-and-not-disconnect)]**
+
+```bash
+# Configuring your SSH client
+# to never timeout.
+cat >> ~/.ssh/config
+Host *
+  ServerAliveInterval 15
+  ServerAliveCountMax 3
+
+# Creating an alias so that we can
+# `ssh myserver` instead of `ssh main@ip_address`
+# It's nice to be able to ssh without ip_address
+cat >> ~/.ssh/config
+Host myserver
+    HostName ip_address
+    User main
+```
+
+<br>
+
+**Disableing Updates for Specific Packages
+[[Original Article by Techmint](https://www.tecmint.com/exclude-package-updates-yum-dnf-command/)]**
+
+If you by any chance have to disable
+dnf updates on specific packages:
+
+```bash
+sudo vim /etc/dnf/dnf.conf
+
+# Add the following line:
+exclude=package-name-version18*
+```
+
+# 3. Virtual Private Server Configs
 
 **Initializing an Ubuntu server on DigitalOcean
 [[Original article by Brian Boucheron](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-20-04)]**
@@ -417,57 +477,7 @@ sudo service ssh restart
 <br>
 <br>
 
-# 3. SSH Configs for my Laptops
 
-**Using a Fedora machine as a temporary SSH server
-[[Original article by Justin Ellingwood](https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys)]**
-
-```bash
-# Start the SSH server.
-sudo service sshd start
-
-# (Optional) Stop sshd. Note that sshd will be
-# stopped automatically after rebooting.
-# However, we can manually stop it by:
-sudo service sshd stop
-```
-
-<br>
-
-**Client-side configuration
-[[Original StackExchange by laur](https://unix.stackexchange.com/questions/708206/ssh-timeout-does-not-happen-and-not-disconnect)]**
-
-```bash
-# Configuring your SSH client
-# to never timeout.
-cat >> ~/.ssh/config
-Host *
-  ServerAliveInterval 15
-  ServerAliveCountMax 3
-
-# Creating an alias so that we can
-# `ssh myserver` instead of `ssh main@ip_address`
-# It's nice to be able to ssh without ip_address
-cat >> ~/.ssh/config
-Host myserver
-    HostName ip_address
-    User main
-```
-
-<br>
-
-**Disableing Updates for Specific Packages
-[[Original Article by Techmint](https://www.tecmint.com/exclude-package-updates-yum-dnf-command/)]**
-
-If you by any chance have to disable
-dnf updates on specific packages:
-
-```bash
-sudo vim /etc/dnf/dnf.conf
-
-# Add the following line:
-exclude=package-name-version18*
-```
 
 <br>
 <br>
