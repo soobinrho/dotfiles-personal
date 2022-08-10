@@ -185,6 +185,9 @@ baseurl=https://repo.charm.sh/yum/
 enabled=1
 gpgcheck=0' | sudo tee /etc/yum.repos.d/charm.repo
 sudo yum install -y glow
+
+# Install http-tanker.
+curl -sSL https://raw.githubusercontent.com/PierreKieffer/http-tanker/master/install/install_tanker64_linux.sh | bash
 ```
 
 <br>
