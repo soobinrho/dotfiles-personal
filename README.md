@@ -156,8 +156,9 @@ sudo dnf install -y \
 sudo dnf install -y bat asciinema xournal obs-studio vlc simplescreenrecorder hstr
 
 # Install Nerd Fonts.
-git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git ~/nerd-fonts
-~/nerd-fonts/install.sh
+git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git
+nerd-fonts/install.sh
+rm -rf nerd-fonts
 
 # Install colorls.
 sudo dnf install -y ruby-devel
