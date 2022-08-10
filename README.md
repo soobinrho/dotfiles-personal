@@ -128,6 +128,10 @@ sudo dnf install -y neovim python3-neovim steghide gh git-lfs vim
 # You can fix this with the following command.
 conda config --set auto_activate_base false
 
+# Now, your shell startup time will be normal again.
+# Whenever you need Anaconda, run
+# `conda activate`
+
 # Install Java.
 # https://www.oracle.com/java/technologies/downloads/
 
