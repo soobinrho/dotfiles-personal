@@ -11,6 +11,8 @@
       mode: 0755
     ~/.config/nvim:
       mode: 0755
+    ~/.config/obs-studio/basic/profiles/terminal:
+      mode: 0755
     ~/.gnupg:
       mode: 0700
     ~/.local/share/konsole:
@@ -25,6 +27,9 @@
     ~/.config/htop/htoprc: home/soobinrho/.config/htop/htoprc
     ~/.config/neofetch/config.conf: home/soobinrho/.config/neofetch/config.conf
     ~/.config/nvim/init.vim: home/soobinrho/.vimrc
+    ~/.config/obs-studio/basic/profiles/terminal/basic.ini: home/soobinrho/.config/obs-studio/basic/profiles/terminal/basic.ini
+    ~/.config/obs-studio/basic/profiles/terminal/recordEncoder.json: home/soobinrho/.config/obs-studio/basic/profiles/terminal/recordEncoder.json
+    ~/.config/obs-studio/basic/profiles/terminal/service.json: home/soobinrho/.config/obs-studio/basic/profiles/terminal/service.json
     ~/.editorconfig: home/soobinrho/.editorconfig
     ~/.gnupg/gpg-agent.conf: home/soobinrho/.gnupg/gpg-agent.conf
     ~/.local/share/konsole/Breeze.colorscheme: home/soobinrho/.local/share/konsole/Breeze.colorscheme
