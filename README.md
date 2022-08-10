@@ -71,17 +71,13 @@ e.g. 190GB for Fedora and 50GB for Windows.
 
 ## Installation
 
+**Enabling automatic dnf updates**
+
 ```bash
 # Install dnf-automatic
 # so that dnf updates everyday automatically.
 sudo dnf install -y dnf-automatic
 sudo systemctl enable --now dnf-automatic-install.timer
-
-# Enable RPM Fusion repositories.
-sudo dnf install -y \
-  https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
-sudo dnf install -y \
-  https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 ```
 
 <br>
@@ -103,6 +99,12 @@ nvm install node
 **Installing programming environments**
 
 ```bash
+# Enable RPM Fusion repositories.
+sudo dnf install -y \
+  https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf install -y \
+  https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+
 # Install neovim: more extensible fork of vim.
 sudo dnf install -y neovim python3-neovim vim
 
