@@ -34,6 +34,7 @@ e.g. 190GB for Fedora and 50GB for Windows.
 │       ├── .config
 │       │   ├── htop
 │       │   │   └── htoprc
+│       │   ├── konsolerc
 │       │   └── neofetch
 │       │       └── config.conf
 │       ├── .editorconfig
