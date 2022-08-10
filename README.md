@@ -153,7 +153,16 @@ sudo dnf install -y \
   https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
 # Install additional utilities.
-sudo dnf install -y bat asciinema xournal obs-studio vlc simplescreenrecorder
+sudo dnf install -y bat asciinema xournal obs-studio vlc simplescreenrecorder hstr
+
+# Install Nerd Fonts.
+git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git ~/nerd-fonts
+~/nerd-fonts/install.sh
+
+# Install colorls.
+sudo dnf install -y ruby-devel
+sudo dnf group install -y "C Development Tools and Libraries"
+gem install colorls
 
 # Install fzf.
 # My favorite option for fzf: `cat **<Tab>`
@@ -191,7 +200,10 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 nvm install node
 
 # Install yarn.
-npm install yarn -g
+npm install -g yarn
+
+# Install tldr.
+npm install -g tldr
 ```
 
 <br>
@@ -229,7 +241,7 @@ cd YouCompleteMe
 python3 install.py --all
 
 # Install vim-prettier.
-npm install prettier -g
+npm install -g prettier
 mkdir -p ~/.vim/pack/plugins/start
 cd ~/.vim/pack/plugins/start
 git clone https://github.com/prettier/vim-prettier

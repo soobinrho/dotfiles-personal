@@ -54,6 +54,7 @@ unset __conda_setup
 # ------------------------------------- #
 alias vim=nvim
 alias oldvim=\vim
+alias ls='colorls -A'
 alias PullGitAll=~/git/bash-git-pull-in-every-folder/PullGitAll
 alias StatusGitAll=~/git/bash-git-pull-in-every-folder/optional-scripts/StatusGitAll
 alias BuildJava=~/git/college-programming/summer-2022/computer-science-II/BuildJava
