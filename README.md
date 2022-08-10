@@ -123,6 +123,10 @@ sudo dnf install -y neovim python3-neovim steghide gh git-lfs vim
 
 # Install Anaconda.
 # https://www.anaconda.com/
+# In my case, because of Anaconda,
+# my shell startup time became slower.
+# You can fix this with the following command.
+conda config --set auto_activate_base false
 
 # Install Java.
 # https://www.oracle.com/java/technologies/downloads/
