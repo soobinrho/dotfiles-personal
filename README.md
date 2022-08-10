@@ -114,12 +114,60 @@ in `dotfiles-personal`.
 Here's how the rest of my setup
 goes, installing all of the softwares I use:
 
+**Installing system utilities**
+
 ```bash
-# Install programming environments.
-sudo dnf install -y neovim python3-neovim steghide gh git-lfs vim
+# Install dnf-automatic
+# so that dnf updates everyday automatically.
+sudo dnf install -y dnf-automatic
+sudo systemctl enable --now dnf-automatic-install.timer
+
+# Enable RPM Fusion repositories.
+sudo dnf install -y \
+  https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf install -y \
+  https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+```
+
+<br>
+
+**Installing Node.js**
+
+```bash
+# Install nvm: Node version manager.
+# After installing nvm, close and reopen terminal,
+# in order for new paths to take effect.
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+
+# Install Node.js: JavaScript runtime.
+nvm install node
+```
+
+<br>
+
+**Installing programming environments**
+
+```bash
+# Install neovim: more extensible fork of vim.
+sudo dnf install -y neovim python3-neovim vim
+
+# Install steghide: steganography library.
+sudo dnf install -y steghide
+
+# Install gh: GitHub CLI.
+sudo dnf install -y gh
+
+# Install git-lfs: Git Large File Storage.
+sudo dnf install -y git-lfs
 
 # Install Chrome.
 # https://www.google.com/intl/en_us/chrome/
+
+# Install Java.
+# https://www.oracle.com/java/technologies/downloads/
+
+# Install LaTex environment.
+sudo dnf install -y texlive-scheme-full texstudio
 
 # Install Anaconda.
 # https://www.anaconda.com/
@@ -131,29 +179,35 @@ conda config --set auto_activate_base false
 # Now, your shell startup time will be normal again.
 # Whenever you need Anaconda, run
 # `conda activate`
+```
 
-# Install Java.
-# https://www.oracle.com/java/technologies/downloads/
+<br>
 
-# Install LaTex environment.
-sudo dnf install -y texlive-scheme-full texstudio
+**Installing additional utilities**
 
-# Install system monitoring tools.
+```bash
+# Install neofetch: system information viewer.
+sudo dnf install -y neofetch
+
+# Install htop:
 sudo dnf install -y htop ncdu
 
-# Install dnf-automatic
-# so that dnf updates everyday automatically.
-sudo dnf install -y dnf-automatic
-sudo systemctl enable --now dnf-automatic-install.timer
+# Install yarn.
+npm install -g yarn
 
-# Enable RPM Fusion repositories.
-sudo dnf install -y \
-  https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
-sudo dnf install -y \
-  https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+# Install tldr.
+npm install -g tldr
 
-# Install additional utilities.
-sudo dnf install -y bat asciinema xournal obs-studio vlc simplescreenrecorder hstr
+
+# Install bat: colored, cooler version of cat.
+sudo dnf install -y bat
+
+# Install asciinema: terminal session recording tool.
+sudo dnf install -y asciinema
+
+# Install
+
+xournal obs-studio vlc simplescreenrecorder hstr
 
 # Install Nerd Fonts.
 git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git
@@ -188,26 +242,6 @@ sudo yum install -y glow
 
 # Install http-tanker.
 curl -sSL https://raw.githubusercontent.com/PierreKieffer/http-tanker/master/install/install_tanker64_linux.sh | bash
-```
-
-<br>
-
-**Installing npm
-[[GitHub](https://github.com/nvm-sh/nvm#installing-and-updating)]**
-
-```bash
-# Install nvm.
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-
-# Close the bash and reopen.
-# Install nodejs and npm.
-nvm install node
-
-# Install yarn.
-npm install -g yarn
-
-# Install tldr.
-npm install -g tldr
 ```
 
 <br>
