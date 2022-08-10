@@ -531,3 +531,18 @@ su -l $USER
 <br>
 <br>
 <br>
+
+<!--
+**Converting a video into a gif file with high quality
+[[GitHub](https://github.com/ImageOptim/gifski)]**
+
+```bash
+# 1. First, go to their GitHub page and then build from source.
+
+# 2. Convert the video into png.
+ffmpeg -i example.mkv frame%04d.png
+
+# 3. COnvert to gif.
+~/gifski/target/release/gifski -o output.gif frame*.png --repeat 0 -Q 100 --fps 60 -W 1920 -H 1080
+```
+-->
