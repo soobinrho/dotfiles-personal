@@ -189,15 +189,14 @@ conda config --set auto_activate_base false
 # Install neofetch: system information viewer.
 sudo dnf install -y neofetch
 
-# Install htop:
+# Install htop: process viewer.
 sudo dnf install -y htop ncdu
 
-# Install yarn.
+# Install yarn: faster, parallel package manager.
 npm install -g yarn
 
-# Install tldr.
+# Install tldr: like man, but with simple examples.
 npm install -g tldr
-
 
 # Install bat: colored, cooler version of cat.
 sudo dnf install -y bat
@@ -205,32 +204,43 @@ sudo dnf install -y bat
 # Install asciinema: terminal session recording tool.
 sudo dnf install -y asciinema
 
-# Install
+# Install xournal: pdf annotation tool.
+sudo dnf install -y xournal
 
-xournal obs-studio vlc simplescreenrecorder hstr
+# Install obs-studio: screencasting tool.
+sudo dnf install -y obs-studio
 
-# Install Nerd Fonts.
-git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git
-nerd-fonts/install.sh
-rm -rf nerd-fonts
+# Install simplescreenrecorder: light-weight screencasting tool.
+sudo dnf install -y simplescreenrecorder
 
-# Install colorls.
+# Install vlc: video player.
+sudo dnf install -y vlc
+
+# Install hstr: shell history search tool.
+sudo dnf install -y hstr
+
+# Install colorls: colored, cooler version of ls.
 sudo dnf install -y ruby-devel
 sudo dnf group install -y "C Development Tools and Libraries"
 gem install colorls
 
-# Install fzf.
+# Install nerd-fonts: fonts with better icons support.
+git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git
+nerd-fonts/install.sh
+rm -rf nerd-fonts
+
+# Install fzf: shell fuzzy finder.
 # My favorite option for fzf: `cat **<Tab>`
 # https://github.com/junegunn/fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
-# Install z.lua
+# Install z.lua: faster, cooler version of cd.
 # My favorite option for z.lua: `z dotfiles`
 # https://github.com/skywind3000/z.lua.git
 git clone https://github.com/skywind3000/z.lua.git ~/.local/z.lua/
 
-# Install glow.
+# Install glow: markdown reader.
 # My favorite option for glow: `glow -p README.md`
 # https://github.com/charmbracelet/glow
 echo '[charm]
@@ -240,7 +250,7 @@ enabled=1
 gpgcheck=0' | sudo tee /etc/yum.repos.d/charm.repo
 sudo yum install -y glow
 
-# Install http-tanker.
+# Install http-tanker: interactive http-requests tool.
 curl -sSL https://raw.githubusercontent.com/PierreKieffer/http-tanker/master/install/install_tanker64_linux.sh | bash
 ```
 
