@@ -136,7 +136,7 @@ conda config --set auto_activate_base false
 # https://www.oracle.com/java/technologies/downloads/
 
 # Install LaTex environment.
-sudo dnf install -y texlive texstudio
+sudo dnf install -y texlive-scheme-full texstudio
 
 # Install system monitoring tools.
 sudo dnf install -y htop ncdu
