@@ -32,8 +32,10 @@ e.g. 190GB for Fedora and 50GB for Windows.
 │   └── soobinrho
 │       ├── .bashrc
 │       ├── .config
-│       │   └── htop
-│       │       └── htoprc
+│       │   ├── htop
+│       │   │   └── htoprc
+│       │   └── neofetch
+│       │       └── config.conf
 │       ├── .editorconfig
 │       ├── global_extra_conf.py
 │       ├── .gnupg
