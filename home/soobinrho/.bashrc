@@ -54,7 +54,7 @@ unset __conda_setup
 # ------------------------------------- #
 alias vim=nvim
 alias oldvim=\vim
-alias ls='colorls -A'
+alias ls='colorls -a'
 alias glow='glow -p'
 alias PullGitAll=~/git/bash-git-pull-in-every-folder/PullGitAll
 alias StatusGitAll=~/git/bash-git-pull-in-every-folder/optional-scripts/StatusGitAll

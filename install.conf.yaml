@@ -30,3 +30,5 @@
     ~/.vim/plugins.vim: home/soobinrho/.vim/plugins.vim
     ~/.vimrc: home/soobinrho/.vimrc
 
+- shell:
+    - cp home/soobinrho/.config/konsolerc ~/.config/konsolerc
