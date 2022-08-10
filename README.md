@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/19341857/184023990-acf2b4ef-a0fd-42df-9f67-56d40e815adc.gif" width="600">
+  <img src="https://user-images.githubusercontent.com/19341857/184023990-acf2b4ef-a0fd-42df-9f67-56d40e815adc.gif">
 </p>
 
 ***How exactly do you use this repository?***
