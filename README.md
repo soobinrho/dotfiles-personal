@@ -605,4 +605,8 @@ ffmpeg -i example.mkv frame%04d.png
 **Resizing a window**
 
 [Windows] + LMB
+
+**Opening a terminal**
+
+ctrl + alt + T
 -->
