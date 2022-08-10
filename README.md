@@ -55,7 +55,7 @@ e.g. 190GB for Fedora and 50GB for Windows.
 <br>
 
 ## Steps
-[1.](#1-dotfiles-and-dev-tools) Dotfiles and Dev Tools<br>
+[1.](#1-dev-tools-and-dotfiles) Dev Tools and Dotfiles<br>
 &#160;&#160;&#160;&#160;[A.](#installation) Installation<br>
 &#160;&#160;&#160;&#160;[C.](#vim-configs) Vim Configs<br>
 &#160;&#160;&#160;&#160;[D.](#git-configs) Git Configs<br>
@@ -66,56 +66,9 @@ e.g. 190GB for Fedora and 50GB for Windows.
 <br>
 <br>
 
-# 1. Dotfiles and Dev Tools
+# 1. Dev Tools and Dotfiles
 
 ## Installation
-
-```bash
-# Add yourself to the sudo group.
-sudo usermod -aG wheel $(whoami)
-
-# Install git.
-sudo dnf install -y git
-
-# Install Dotbot.
-pip install dotbot
-
-# Install all the dotfiles.
-mkdir ~/git
-cd ~/git
-git clone https://github.com/soobinrho/dotfiles-personal.git
-cd dotfiles-personal
-dotbot -c ./install.conf.yaml
-
-# The command above installs all dotfiles
-# in this repository. If you'd like to
-# install only a part of it, then you can
-# eitehr cp individually one by one
-# or edit `install.conf.yaml`
-```
-
-<br>
-
-Now, Dotbot created symlinks
-to the dotfiles located in this repository.
-For example, Dotbot just created `~/.bashrc`,
-which is a symlink to
-`~/git/dotfiles-personal/home/soobinrho/bashrc`.
-
-Therefore, whenever you want to
-modify any of the dotfiles, we
-do not have to make
-changes twice both in `~/` directory
-dotfiles and in `dotfiles-personal` directory.
-Just modify any dotfile here
-in `dotfiles-personal`.
-
-<br>
-
-Here's how the rest of my setup
-goes, installing all of the softwares I use:
-
-**Installing system utilities**
 
 ```bash
 # Install dnf-automatic
@@ -201,6 +154,9 @@ npm install -g tldr
 
 # Install bat: colored, cooler version of cat.
 sudo dnf install -y bat
+
+# Install loadtest: server load testing tool.
+npm install -g loadtest
 
 # Install asciinema: terminal session recording tool.
 sudo dnf install -y asciinema
@@ -353,6 +309,48 @@ git config --global alias.c 'commit -s'
 # instead of master.
 git config --global init.defaultBranch main
 ```
+
+**Loading dotfiles**
+
+```bash
+# Add yourself to the sudo group.
+sudo usermod -aG wheel $(whoami)
+
+# Install git.
+sudo dnf install -y git
+
+# Install Dotbot.
+pip install dotbot
+
+# Install all the dotfiles.
+mkdir ~/git
+cd ~/git
+git clone https://github.com/soobinrho/dotfiles-personal.git
+cd dotfiles-personal
+dotbot -c ./install.conf.yaml
+
+# The command above installs all dotfiles
+# in this repository. If you'd like to
+# install only a part of it, then you can
+# eitehr cp individually one by one
+# or edit `install.conf.yaml`
+```
+
+<br>
+
+Now, Dotbot created symlinks
+to the dotfiles located in this repository.
+For example, Dotbot just created `~/.bashrc`,
+which is a symlink to
+`~/git/dotfiles-personal/home/soobinrho/bashrc`.
+
+Therefore, whenever you want to
+modify any of the dotfiles, we
+do not have to make
+changes twice both in `~/` directory
+dotfiles and in `dotfiles-personal` directory.
+Just modify any dotfile here
+in `dotfiles-personal`.
 
 <br>
 <br>
