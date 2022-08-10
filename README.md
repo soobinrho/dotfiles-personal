@@ -138,8 +138,14 @@ sudo dnf install -y htop ncdu
 sudo dnf install -y dnf-automatic
 sudo systemctl enable --now dnf-automatic-install.timer
 
+# Enable RPM Fusion repositories.
+sudo dnf install -y \
+  https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf install -y \
+  https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+
 # Install additional utilities.
-sudo dnf install -y bat asciinema xournal
+sudo dnf install -y bat asciinema xournal obs-studio vlc simplescreenrecorder
 
 # Install fzf.
 # My favorite option for fzf: `cat **<Tab>`
@@ -161,12 +167,6 @@ baseurl=https://repo.charm.sh/yum/
 enabled=1
 gpgcheck=0' | sudo tee /etc/yum.repos.d/charm.repo
 sudo yum install -y glow
-
-# Enable RPM Fusion repositories.
-sudo dnf install -y \
-  https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
-sudo dnf install -y \
-  https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 ```
 
 <br>
