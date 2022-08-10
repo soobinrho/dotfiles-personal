@@ -1,6 +1,6 @@
 [Appearance]
 ColorScheme=Breeze
-Font=RobotoMono Nerd Font,11,-1,5,50,0,0,0,0,0
+Font=RobotoMono Nerd Font Mono,10,-1,5,50,0,0,0,0,0
 
 [General]
 Name=Profile1
