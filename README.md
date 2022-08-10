@@ -106,7 +106,7 @@ modify any of the dotfiles, we
 do not have to make
 changes twice both in `~/` directory
 dotfiles and in `dotfiles-personal` directory.
-Just modify any dotfile here 
+Just modify any dotfile here
 in `dotfiles-personal`.
 
 <br>
@@ -161,6 +161,12 @@ baseurl=https://repo.charm.sh/yum/
 enabled=1
 gpgcheck=0' | sudo tee /etc/yum.repos.d/charm.repo
 sudo yum install -y glow
+
+# Enable RPM Fusion repositories.
+sudo dnf install \
+  https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf install \
+  https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 ```
 
 <br>
