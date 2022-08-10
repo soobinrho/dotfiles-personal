@@ -591,7 +591,7 @@ a gif file with high quality
 [[GitHub](https://github.com/ImageOptim/gifski)]**
 
 ```bash
-# 1. Screencast with the simplescreenrecorder package.
+# 1. Screencast with the simplescreenrecorder or obs-studio.
 
 # 2. First, go to gifski's GitHub page and then build from source.
 
@@ -599,7 +599,7 @@ a gif file with high quality
 ffmpeg -i example.mkv frame%04d.png
 
 # 4. COnvert to gif.
-~/gifski/target/release/gifski -o output.gif frame*.png --repeat 0 -Q 100 --fps 60 -W 1920 -H 1080
+~/gifski/target/release/gifski -o output.gif frame*.png --repeat 0 -Q 100 --fps 50 -W 1920 -H 1080
 ```
 
 **Resizing a window**
