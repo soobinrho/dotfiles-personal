@@ -57,7 +57,6 @@ e.g. 190GB for Fedora and 50GB for Windows.
 ## Steps
 [1.](#1-dotfiles-and-dev-tools) Dotfiles and Dev Tools<br>
 &#160;&#160;&#160;&#160;[A.](#installation) Installation<br>
-&#160;&#160;&#160;&#160;[B.](#bash-configs) Bash Configs<br>
 &#160;&#160;&#160;&#160;[C.](#vim-configs) Vim Configs<br>
 &#160;&#160;&#160;&#160;[D.](#git-configs) Git Configs<br>
 [2.](#2-optional-ssh-server-configs) (Optional) SSH Server Configs<br>
@@ -162,14 +161,14 @@ sudo dnf install -y gh
 # Install git-lfs: Git Large File Storage.
 sudo dnf install -y git-lfs
 
+# Install LaTex environment.
+sudo dnf install -y texlive-scheme-full texstudio
+
 # Install Chrome.
 # https://www.google.com/intl/en_us/chrome/
 
 # Install Java.
 # https://www.oracle.com/java/technologies/downloads/
-
-# Install LaTex environment.
-sudo dnf install -y texlive-scheme-full texstudio
 
 # Install Anaconda.
 # https://www.anaconda.com/
@@ -205,6 +204,9 @@ sudo dnf install -y bat
 
 # Install asciinema: terminal session recording tool.
 sudo dnf install -y asciinema
+
+# Install svg-term-cli: asciinema to svg converter.
+npm install -g svg-term-cli
 
 # Install xournal: pdf annotation tool.
 sudo dnf install -y xournal
@@ -254,19 +256,9 @@ sudo yum install -y glow
 
 # Install http-tanker: interactive http-requests tool.
 curl -sSL https://raw.githubusercontent.com/PierreKieffer/http-tanker/master/install/install_tanker64_linux.sh | bash
-```
 
-<br>
-
-## Bash Configs
-
-**Setting up PureLine
-[[GitHub](https://github.com/chris-marsh/pureline)]**
-
-```bash
-# Install PureLine.
-cd ~
-git clone https://github.com/chris-marsh/pureline.git
+# Install PureLine: bash powerline.
+git clone https://github.com/chris-marsh/pureline.git ~/pureline
 ```
 
 <br>
