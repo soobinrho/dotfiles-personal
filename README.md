@@ -596,9 +596,7 @@ su -l $USER
 <br>
 <br>
 
-<p align="center">
-  <code>How to make a screencast gif</code>
-</p>
+# `How to make a screencast gif`
 
 ```bash
 # 1. Screencast with the simplescreenrecorder or obs-studio.
@@ -613,6 +611,15 @@ ffmpeg -i example.mkv frame%04d.png
 ~/gifski/target/release/gifski -o example.gif frame*.png --repeat 0 -Q 100 --fps 50 -W 960 -H 516
 ```
 
+<br>
+<br>
+
+# `Relatively-unknown useful Fedora keyboard shortcuts`
+
+- `Windows` + `LMB` Move a window.
+- `Windows` + `RMB` Resize a window.
+- `ctrl` + `alt` + `T` Open a terminal.
+
 
 <br>
 <br>
@@ -620,11 +627,110 @@ ffmpeg -i example.mkv frame%04d.png
 
 <!--
 
-**Resizing a window**
+###
+# June 3, 2022
+# Learned about git using `info gittutorial'.
+# summary of what i learned today:
+# ```
+# git init
+# git add readme.md
+# git commit -am 'description'
+# git push
+#
+# git status
+# git diff
+# ```
+###
 
-[Windows] + LMB
+###
+# june 4, 2022 
+# shell scripts can have the file extension of `.sh` but it can 
+# be more useful to leave it without any extension. instead, 
+# just put the shebang `#!/bin/bash` at the first one.  
+# plus, use `chmod +x` to make this script executable.
+#
+# also, apparently, this convention called shebang is not used
+# on windows. `.sh` convention is used in windows. since i'm using
+# fedora, i'm going to stick to the shebang convention.
+#
+# source: https://stackoverflow.com/questions/27813563/what-is-the-bash-file-extension
+###
 
-**Opening a terminal**
+###
+# June 21, 2022
+# For my Calc II midterm exam, I needed a proctor service.
+# So, I was filling out the Examination Proctor Agreement form,
+# which was a pdf. However, okular, the default pdf viewer for
+# Fedora happens to have a not-so-perfect annotation functionality.
+# The annotations I make in okular would not be visible in any
+# other software than okular itself. So, I tried to find
+# pdf editing softwares with good annotation functionality.
+# Here's what I found and used and liked: xournal
+# 
+# sudo dnf install -y xournal
+# 
 
-ctrl + alt + T
+###
+# June 21, 2022
+# For the README.MD for my "Latex Template for College Assignments"
+# I had to add an example image. After x, y, and z, I decided
+# that I needed to add a light grey (HTML Color Code F6F8FA)
+# border around the picture so that it doesn't just blend in too much
+# with a white background -- e.g. GitHub on desktop.
+# I used Gimp. 'Filter' 'Decor' 'Border' size 4, D value 1
+#
+# Plus, you can see the HTML color code on any website on Chrome
+# on Chrome Developer's mode by typing Ctrl + Shift + c
+
+###
+# June 22, 2022
+# Building Unreal Engine 5
+# When executing GenerateProjectFiles.sh, my computer
+# kept throwing an error related to SSL certs.
+# Solution turns out to be this:
+# https://forums.unrealengine.com/t/error-compiling-unreal-engine-on-arch-linux/549637/12
+# sudo dnf reinstall openssl
+# sudo mkdir /usr/local/ssl
+# sudo ln -s /etc/ssl/certs /usr/local/ssl
+# sudo mkdir /usr/lib/ssl
+# sudo ln -s /etc/ssl/certs /usr/lib/ssl
+
+###
+# July 24, 2022
+# ctrl + shift + u and then type unicode and then space
+# 2192 = right arrow →
+
+###
+# by the way, you can copy something on to the clipboard on vim 
+# and then paste it onto another console by
+# ```
+# v
+# "+y
+# ctrl+shift+v
+# ```
+# this functionality is not available on normal vim though.
+# on fedora, you can use this functionality by installing
+# `vimx` and - of course - by using vimx to edit the files.
+
+# I am so glad to have found the "top of the INFO tree."
+# It has documentations for everything, including
+# core file manipulation, Gzip, grep, etc.
+# `info '(dir)Top'`, or `info bash` and 'u'.
+
+# *cut* command
+# This command is useful for filtering data.
+# `who | cut -c 1-8' outputs the first eight characters.
+# 'who | cut -d' ' -f1,2' sets the delimiter as ' ' and
+# outputs the first and second columns.
+
+# *sort* command
+# Example: 'who | cut -d' ' -f2 | sort -r' outputs
+# the data in the reversed order.
+
+# *uniq* command
+# Example: 'who | cut -d' ' -f1 | uniq' removes
+# all the dulplicates and outputs only the unique data.
+
+![Calc II Tips](https://user-images.githubusercontent.com/19341857/184079510-d7899b35-e114-4f50-a8a8-ab0c3a1384d5.png)
+
 -->
