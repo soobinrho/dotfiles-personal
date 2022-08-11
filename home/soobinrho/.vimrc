@@ -24,9 +24,6 @@ noremap N Nzz
 " Better search autocompletion.
 set wildmode=longest,full
 
-" vim-polyglot configs.
-let g:polyglot_disabled = ['autoindent']
-
 " Macros for building java, python, etc
 " Script taken from @rekinyz
 " https://stackoverflow.com/questions/6411979/compiling-java-code-in-vim-more-efficiently
@@ -111,10 +108,15 @@ let g:airline_symbols.linenr = ' :'
 let g:airline_symbols.maxlinenr = '☰ '
 let g:airline_symbols.dirty='⚡'
 
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#branch#format = 2
+
+let g:airline_extensions = []
 
 let g:airline_section_b = '%-0.10{FugitiveHead()}'
 let g:airline_section_c = '%t'
 let g:airline_section_x = airline#section#create(['filetype'])
+let g:airline_section_y = 'hello world'
 let g:airline_section_z = '%l:%c %p%% %L☰'
 
 let g:airline_mode_map = {
@@ -137,7 +139,3 @@ let g:airline_mode_map = {
     \ 'V'      : 'V',
     \ ''     : 'V',
     \ }
-
-let g:airline#extensions#branch#enabled = 1
-let g:airline#extensions#branch#format = 2
-

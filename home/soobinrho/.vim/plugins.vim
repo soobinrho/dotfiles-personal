@@ -1,3 +1,6 @@
+" vim-polyglot configs.
+let g:polyglot_disabled = ['autoindent']
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'editorconfig/editorconfig-vim'
