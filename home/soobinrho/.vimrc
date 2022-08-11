@@ -8,9 +8,6 @@ set encoding=utf-8
 " Keep 8 lines above or above when scrolling.
 set scrolloff=8
 
-" Don't throw warnings when closing buffers.
-set hidden
-
 " Better `j` `k` binding that works even for wrapped lines.
 vmap j gj
 vmap k gk

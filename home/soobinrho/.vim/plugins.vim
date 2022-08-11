@@ -3,18 +3,19 @@ let g:polyglot_disabled = ['autoindent']
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'editorconfig/editorconfig-vim'
+Plug 'w0rp/ale'
 Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
 Plug 'mattn/emmet-vim'
+Plug 'ap/vim-css-color'
+Plug 'tpope/vim-repeat'
+Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
-Plug 'w0rp/ale'
-Plug 'jamespwilliams/bat.vim'
 Plug 'tpope/vim-commentary'
-Plug 'nathanaelkane/vim-indent-guides'
 Plug 'ycm-core/YouCompleteMe'
+Plug 'jamespwilliams/bat.vim'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'nathanaelkane/vim-indent-guides'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
 " airline plugins
