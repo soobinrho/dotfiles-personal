@@ -62,7 +62,7 @@ e.g. 190GB for Fedora and 50GB for Windows.
 &#160;&#160;&#160;&#160;[D.](#git-configs) Git Configs<br>
 [2.](#2-optional-ssh-server-configs) (Optional) SSH Server Configs<br>
 [3.](#3-optional-virtual-private-server-configs) (Optional) Virtual Private Server Configs<br>
-[4.](#4-random-tips-i-find-useful) Random Tips I Find Useful
+[4.](#4-optional-random-tips-i-find-useful) (Optional) Random Tips I Find Useful
 
 
 <br>
@@ -707,7 +707,7 @@ su -l $USER
 
 -->
 
-# Random Tips I find Useful
+# 4. (Optional) Random Tips I find Useful
 
 ### `How to make a screencast gif`
 
