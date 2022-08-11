@@ -15,6 +15,7 @@ Plug 'jamespwilliams/bat.vim'
 Plug 'tpope/vim-commentary'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'ycm-core/YouCompleteMe'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
 " airline plugins
 Plug 'vim-airline/vim-airline'

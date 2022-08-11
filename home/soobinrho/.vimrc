@@ -21,9 +21,6 @@ nmap k gk
 noremap n nzz
 noremap N Nzz
 
-" Better search autocompletion.
-set wildmode=longest,full
-
 " Macros for building java, python, etc
 " Script taken from @rekinyz
 " https://stackoverflow.com/questions/6411979/compiling-java-code-in-vim-more-efficiently
