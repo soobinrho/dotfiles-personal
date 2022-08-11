@@ -11,6 +11,7 @@ Plug 'w0rp/ale'
 Plug 'jamespwilliams/bat.vim'
 Plug 'ycm-core/YouCompleteMe'
 Plug 'tpope/vim-commentary'
+Plug 'nathanaelkane/vim-indent-guides'
 
 " git integrations
 Plug 'tpope/vim-fugitive'

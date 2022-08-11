@@ -52,6 +52,8 @@ endfunc
 
 set number
 
+set guioptions=eg
+
 " Load vim-prettier package.
 " https://github.com/prettier/vim-prettier
 packloadall
@@ -61,15 +63,20 @@ packloadall
 set termguicolors
 colorscheme bat
 
-" vim-gitgutter configuration.
+" Hightlight the current line.
+set cursorline
+
+" vim-gitgutter configs.
 set updatetime=100
 highlight SignColumn guibg=#373737
 set signcolumn=number
 
-" Hightlight the current line.
-set cursorline
+" vim-indent-guides configs.
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
 
-" YouCompleteMe Python configuration.
+" YouCompleteMe Python configs.
 let g:ycm_python_interpreter_path = ''
 let g:ycm_python_sys_path = []
 let g:ycm_extra_conf_vim_data = [
