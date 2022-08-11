@@ -85,12 +85,10 @@ let g:airline_symbols.linenr = ' :'
 let g:airline_symbols.maxlinenr = '☰ '
 let g:airline_symbols.dirty='⚡'
 
-" call airline#parts#define_function('filetype', 'GetFileType')
-" call airline#parts#define_minwidth('filetype', 50)
 
 let g:airline_section_b = '%-0.10{FugitiveHead()}'
 let g:airline_section_c = '%t'
-" let g:airline_section_x = airline#section#create(['filetype'])
+let g:airline_section_x = airline#section#create(['filetype'])
 let g:airline_section_z = '%l:%c %p%% %L☰'
 
 let g:airline_mode_map = {

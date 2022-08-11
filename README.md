@@ -57,9 +57,10 @@ e.g. 190GB for Fedora and 50GB for Windows.
 
 ## Steps
 [1.](#1-dev-tools-and-dotfiles) Dev Tools and Dotfiles<br>
-&#160;&#160;&#160;&#160;[A.](#installation) Installation<br>
+&#160;&#160;&#160;&#160;[A.](#dev-tools) Dev Tools<br>
+&#160;&#160;&#160;&#160;[B.](#git-configs) Git Configs<br>
 &#160;&#160;&#160;&#160;[C.](#vim-configs) Vim Configs<br>
-&#160;&#160;&#160;&#160;[D.](#git-configs) Git Configs<br>
+&#160;&#160;&#160;&#160;[D.](#dotfiles-installation) Dotfiles Installation<br>
 [2.](#2-optional-ssh-server-configs) (Optional) SSH Server Configs<br>
 [3.](#3-optional-virtual-private-server-configs) (Optional) Virtual Private Server Configs<br>
 [4.](#4-optional-random-tips-i-find-useful) (Optional) Random Tips I Find Useful
@@ -70,11 +71,14 @@ e.g. 190GB for Fedora and 50GB for Windows.
 
 # 1. Dev Tools and Dotfiles
 
-## Installation
+## Dev Tools
 
 **Enabling automatic dnf updates**
 
 ```bash
+# Add yourself to the sudo group.
+sudo usermod -aG wheel $(whoami)
+
 # dnf-automatic updates everyday automatically.
 sudo dnf install -y dnf-automatic
 sudo systemctl enable --now dnf-automatic-install.timer
@@ -99,6 +103,9 @@ nvm install node
 **Installing programming environments**
 
 ```bash
+# Install git.
+sudo dnf install -y git
+
 # Enable RPM Fusion repositories.
 sudo dnf install -y \
   https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
@@ -224,50 +231,6 @@ git clone https://github.com/chris-marsh/pureline.git ~/pureline
 ```
 
 <br>
-
-**Installing dotfiles**
-
-```bash
-# Add yourself to the sudo group.
-sudo usermod -aG wheel $(whoami)
-
-# Install git.
-sudo dnf install -y git
-
-# Install Dotbot.
-pip install dotbot
-
-# Install all the dotfiles.
-mkdir ~/git
-cd ~/git
-git clone https://github.com/soobinrho/dotfiles-personal.git
-cd dotfiles-personal
-dotbot -c ./install.conf.yaml
-
-# The command above installs all dotfiles
-# in this repository. If you'd like to
-# install only a part of it, then you can
-# eitehr cp individually one by one
-# or edit `install.conf.yaml`
-```
-
-<br>
-
-Now, Dotbot created symlinks
-to the dotfiles located in this repository.
-For example, Dotbot just created `~/.bashrc`,
-which is a symlink to
-`~/git/dotfiles-personal/home/soobinrho/bashrc`.
-
-Therefore, whenever you want to
-modify any of the dotfiles, we
-do not have to make
-changes twice both in `~/` directory
-dotfiles and in `dotfiles-personal` directory.
-Just modify any dotfile here
-in `dotfiles-personal`.
-
-<br>
 <br>
 
 ## Git Configs
@@ -361,6 +324,45 @@ git clone https://github.com/prettier/vim-prettier
 vim
 :PlugInstall
 ```
+
+<br>
+<br>
+
+##Dotfiles Installation
+
+```bash
+# Install Dotbot.
+pip install dotbot
+
+# Install all the dotfiles.
+mkdir ~/git
+cd ~/git
+git clone https://github.com/soobinrho/dotfiles-personal.git
+cd dotfiles-personal
+dotbot -c ./install.conf.yaml
+
+# The command above installs all dotfiles
+# in this repository. If you'd like to
+# install only a part of it, then you can
+# eitehr cp individually one by one
+# or edit `install.conf.yaml`
+```
+
+<br>
+
+Now, Dotbot created symlinks
+to the dotfiles located in this repository.
+For example, Dotbot just created `~/.bashrc`,
+which is a symlink to
+`~/git/dotfiles-personal/home/soobinrho/bashrc`.
+
+Therefore, whenever you want to
+modify any of the dotfiles, we
+do not have to make
+changes twice both in `~/` directory
+dotfiles and in `dotfiles-personal` directory.
+Just modify any dotfile here
+in `dotfiles-personal`.
 
 <br>
 <br>

@@ -21,6 +21,8 @@
       mode: 0755
     ~/.vim/plugged:
       mode: 0755
+    ~/.vim/plugged/vim-airline/autoload/airline:
+      mode: 0755
 
 - link:
     ~/.bashrc: home/soobinrho/.bashrc
@@ -34,6 +36,7 @@
     ~/.gnupg/gpg-agent.conf: home/soobinrho/.gnupg/gpg-agent.conf
     ~/.local/share/konsole/Breeze.colorscheme: home/soobinrho/.local/share/konsole/Breeze.colorscheme
     ~/.pureline.conf: home/soobinrho/.pureline.conf
+    ~/.vim/plugged/vim-airline/autoload/airline/parts.vim: home/soobinrho/.vim/plugged/vim-airline/autoload/airline/parts.vim
     ~/.vim/plugins.vim: home/soobinrho/.vim/plugins.vim
     ~/.vimrc: home/soobinrho/.vimrc
 
