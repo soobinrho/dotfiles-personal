@@ -8,6 +8,9 @@ set encoding=utf-8
 " Keep 8 lines above or above when scrolling.
 set scrolloff=8
 
+" vim-neomake configs.
+let neomake_verbose = 2
+
 " Better `j` `k` binding that works even for wrapped lines.
 vmap j gj
 vmap k gk
