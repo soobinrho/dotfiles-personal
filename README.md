@@ -147,7 +147,10 @@ conda config --set auto_activate_base false
 sudo dnf install -y neofetch
 
 # Install htop: process viewer.
-sudo dnf install -y htop ncdu
+sudo dnf install -y htop
+
+# Install ncdu: disk usage viewer.
+sudo dnf install -y ncdu
 
 # Install yarn: faster, parallel package manager.
 npm install -g yarn
