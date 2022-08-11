@@ -6,13 +6,14 @@ Plug 'junegunn/fzf.vim'
 Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 Plug 'w0rp/ale'
 Plug 'jamespwilliams/bat.vim'
 Plug 'tpope/vim-commentary'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'ycm-core/YouCompleteMe'
 
-" airline plugins.
+" airline plugins
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -20,6 +21,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
+" Syntax highlighting
+Plug 'sheerun/vim-polyglot'
 
 " NERDTree plugins
 Plug 'scrooloose/nerdtree'

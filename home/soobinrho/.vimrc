@@ -1,5 +1,31 @@
 " Load plugins.
+set nocompatible
 so ~/.vim/plugins.vim
+
+" Enforce utf-8 encoding.
+set encoding=utf-8
+
+" Keep 8 lines above or above when scrolling.
+set scrolloff=8
+
+" Don't throw warnings when closing buffers.
+set hidden
+
+" Better `j` `k` binding that works even for wrapped lines.
+vmap j gj
+vmap k gk
+nmap j gj
+nmap k gk
+
+" Automatically center on search results.
+noremap n nzz
+noremap N Nzz
+
+" Better search autocompletion.
+set wildmode=longest,full
+
+" vim-polyglot configs.
+let g:polyglot_disabled = ['autoindent']
 
 " Macros for building java, python, etc
 " Script taken from @rekinyz
