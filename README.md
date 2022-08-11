@@ -736,11 +736,19 @@ svg-term --cast=11345 --out example.svg
 
 <br>
 
-### `Relatively-unknown useful Fedora keyboard shortcuts`
+### `My favorite keyboard shortcuts`
 
+**Fedora**
 - `Windows` + `LMB` Move a window.
 - `Windows` + `RMB` Resize a window.
 - `ctrl` + `alt` + `T` Open a terminal.
+
+**Vim**
+- `g` + `c` Comment visual mode.
+- `g` + `c` + `c` Comment out a line.
+- `g` + `c` + `a` + `p` Comment out a line.
+- `:7,17Commentary` Comment out command.
+
 
 ```bash
 # Shutdown.

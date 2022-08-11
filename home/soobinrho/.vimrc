@@ -61,6 +61,14 @@ packloadall
 set termguicolors
 colorscheme bat
 
+" vim-gitgutter configuration.
+set updatetime=100
+highlight SignColumn guibg=#373737
+set signcolumn=number
+
+" Hightlight the current line.
+set cursorline
+
 " YouCompleteMe Python configuration.
 let g:ycm_python_interpreter_path = ''
 let g:ycm_python_sys_path = []
