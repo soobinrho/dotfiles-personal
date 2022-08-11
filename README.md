@@ -725,7 +725,6 @@ ffmpeg -i example.mkv frame%04d.png
 ```
 
 <br>
-<br>
 
 ### `Relatively-unknown useful Fedora keyboard shortcuts`
 
