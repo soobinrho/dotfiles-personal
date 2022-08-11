@@ -735,7 +735,7 @@ using asciinema and svg-term-cli.
 asciinema rec
 
 # Convert the asciinema into a svg file.
-svg-term --cast=11345 --out examples.svg
+svg-term --cast=11345 --out example.svg
 ```
 
 <br>
