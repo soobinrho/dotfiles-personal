@@ -731,6 +731,8 @@ ffmpeg -i example.mkv frame%04d.png
 - `Windows` + `LMB` Move a window.
 - `Windows` + `RMB` Resize a window.
 - `ctrl` + `alt` + `T` Open a terminal.
+- `poweroff` Shutdown.
+- `systemctl suspend -i` Suspend.
 
 
 <br>
