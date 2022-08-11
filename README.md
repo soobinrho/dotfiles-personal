@@ -596,35 +596,6 @@ su -l $USER
 <br>
 <br>
 
-# `How to make a screencast gif`
-
-```bash
-# 1. Screencast with the simplescreenrecorder or obs-studio.
-
-# 2. First, go to gifski's GitHub page and then build from source.
-#    https://github.com/ImageOptim/gifski
-
-# 3. Convert the screencast video into png.
-ffmpeg -i example.mkv frame%04d.png
-
-# 4. Convert to gif.
-~/gifski/target/release/gifski -o example.gif frame*.png --repeat 0 -Q 100 --fps 50 -W 960 -H 516
-```
-
-<br>
-<br>
-
-# `Relatively-unknown useful Fedora keyboard shortcuts`
-
-- `Windows` + `LMB` Move a window.
-- `Windows` + `RMB` Resize a window.
-- `ctrl` + `alt` + `T` Open a terminal.
-
-
-<br>
-<br>
-<br>
-
 <!--
 
 ###
@@ -643,10 +614,10 @@ ffmpeg -i example.mkv frame%04d.png
 ###
 
 ###
-# june 4, 2022 
-# shell scripts can have the file extension of `.sh` but it can 
-# be more useful to leave it without any extension. instead, 
-# just put the shebang `#!/bin/bash` at the first one.  
+# june 4, 2022
+# shell scripts can have the file extension of `.sh` but it can
+# be more useful to leave it without any extension. instead,
+# just put the shebang `#!/bin/bash` at the first one.
 # plus, use `chmod +x` to make this script executable.
 #
 # also, apparently, this convention called shebang is not used
@@ -666,9 +637,9 @@ ffmpeg -i example.mkv frame%04d.png
 # other software than okular itself. So, I tried to find
 # pdf editing softwares with good annotation functionality.
 # Here's what I found and used and liked: xournal
-# 
+#
 # sudo dnf install -y xournal
-# 
+#
 
 ###
 # June 21, 2022
@@ -701,7 +672,7 @@ ffmpeg -i example.mkv frame%04d.png
 # 2192 = right arrow →
 
 ###
-# by the way, you can copy something on to the clipboard on vim 
+# by the way, you can copy something on to the clipboard on vim
 # and then paste it onto another console by
 # ```
 # v
@@ -734,3 +705,32 @@ ffmpeg -i example.mkv frame%04d.png
 ![Calc II Tips](https://user-images.githubusercontent.com/19341857/184079510-d7899b35-e114-4f50-a8a8-ab0c3a1384d5.png)
 
 -->
+
+# `How to make a screencast gif`
+
+```bash
+# 1. Screencast with the simplescreenrecorder or obs-studio.
+
+# 2. First, go to gifski's GitHub page and then build from source.
+#    https://github.com/ImageOptim/gifski
+
+# 3. Convert the screencast video into png.
+ffmpeg -i example.mkv frame%04d.png
+
+# 4. Convert to gif.
+~/gifski/target/release/gifski -o example.gif frame*.png --repeat 0 -Q 100 --fps 50 -W 960 -H 516
+```
+
+<br>
+<br>
+
+# `Relatively-unknown useful Fedora keyboard shortcuts`
+
+- `Windows` + `LMB` Move a window.
+- `Windows` + `RMB` Resize a window.
+- `ctrl` + `alt` + `T` Open a terminal.
+
+
+<br>
+<br>
+<br>
