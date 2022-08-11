@@ -608,7 +608,7 @@ a gif file with high quality
 ffmpeg -i example.mkv frame%04d.png
 
 # 4. COnvert to gif.
-~/gifski/target/release/gifski -o example.gif frame*.png --repeat 0 -Q 100 --fps 50 -W 1920 -H 1080
+~/gifski/target/release/gifski -o example.gif frame*.png --repeat 0 -Q 100 --fps 50 -W 960 -H 516
 ```
 
 **Resizing a window**
