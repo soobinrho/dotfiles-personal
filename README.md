@@ -62,6 +62,7 @@ e.g. 190GB for Fedora and 50GB for Windows.
 &#160;&#160;&#160;&#160;[D.](#git-configs) Git Configs<br>
 [2.](#2-optional-ssh-server-configs) (Optional) SSH Server Configs<br>
 [3.](#3-optional-virtual-private-server-configs) (Optional) Virtual Private Server Configs<br>
+[4.](#4-random-tips-i-find-useful) Random Tips I Find Useful
 
 
 <br>
@@ -706,7 +707,9 @@ su -l $USER
 
 -->
 
-# `How to make a screencast gif`
+# Random Tips I find Useful
+
+### `How to make a screencast gif`
 
 ```bash
 # 1. Screencast with the simplescreenrecorder or obs-studio.
@@ -724,7 +727,7 @@ ffmpeg -i example.mkv frame%04d.png
 <br>
 <br>
 
-# `Relatively-unknown useful Fedora keyboard shortcuts`
+### `Relatively-unknown useful Fedora keyboard shortcuts`
 
 - `Windows` + `LMB` Move a window.
 - `Windows` + `RMB` Resize a window.
