@@ -724,6 +724,20 @@ ffmpeg -i example.mkv frame%04d.png
 ~/gifski/target/release/gifski -o example.gif frame*.png --repeat 0 -Q 100 --fps 50 -W 960 -H 516
 ```
 
+<bash>
+
+If you're just trying to turn a terminal
+session into a gif, there's a simpler way
+using asciinema and svg-term-cli.
+
+```bash
+# Record a terminal session.
+asciinema rec
+
+# Convert the asciinema into a svg file.
+svg-term --cast=11345 --out examples.svg
+```
+
 <br>
 
 ### `Relatively-unknown useful Fedora keyboard shortcuts`
