@@ -106,7 +106,7 @@ sudo dnf install -y \
   https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
 # Install neovim: more extensible fork of vim.
-sudo dnf install -y neovim python3-neovim vim
+sudo dnf install -y neovim python3-neovim vim wl-clipboard
 
 # Install steghide: steganography library.
 sudo dnf install -y steghide
