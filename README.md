@@ -710,7 +710,7 @@ su -l $USER
 ```bash
 # 1. Screencast with the simplescreenrecorder or obs-studio.
 
-# 2. First, go to gifski's GitHub page and then build from source.
+# 2. Go to gifski's GitHub page and then build from source.
 #    https://github.com/ImageOptim/gifski
 
 # 3. Convert the screencast video into png.
