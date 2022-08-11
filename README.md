@@ -328,7 +328,7 @@ vim
 <br>
 <br>
 
-##Dotfiles Installation
+## Dotfiles installation
 
 ```bash
 # Install Dotbot.
