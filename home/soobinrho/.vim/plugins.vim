@@ -1,7 +1,6 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'editorconfig/editorconfig-vim'
-Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'mattn/emmet-vim'
@@ -9,9 +8,13 @@ Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
 Plug 'jamespwilliams/bat.vim'
-Plug 'ycm-core/YouCompleteMe'
 Plug 'tpope/vim-commentary'
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'ycm-core/YouCompleteMe'
+
+" airline plugins.
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " git integrations
 Plug 'tpope/vim-fugitive'

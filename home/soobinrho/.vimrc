@@ -1,24 +1,5 @@
-" Plugins "
+" Load plugins.
 so ~/.vim/plugins.vim
-
-" Lightline can sometimes be 
-" not activated by default.
-" This line activates it.
-set laststatus=2
-
-" We can copy something on to the clipboard on vim 
-" and then paste it onto another console by
-"
-" ```
-" v
-" "+y
-" ctrl+shift+v
-" ```
-"
-" this functionality is not available on normal vim though.
-" on fedora, you can use this functionality by installing
-" `vimx` and - of course - by using vimx to edit the files.
-set clipboard=unnamedplus
 
 " Macros for building java, python, etc
 " Script taken from @rekinyz
@@ -35,34 +16,26 @@ exec "!time ./%<"
 elseif &filetype == 'java'
 exec "!javac %"
 exec "!time java -cp %:p:h %:t:r"
-elseif &filetype == 'sh'
-exec "!time bash %"
+elseif &filetype == 'sh' exec "!time bash %"
 elseif &filetype == 'python'
-exec "!time python2.7 %"
+exec "!time python %"
 elseif &filetype == 'html'
-exec "!firefox % &"
-elseif &filetype == 'go'
-exec "!go build %<"
-exec "!time go run %"
+exec "!google-chrome % &" elseif &filetype == 'go' exec "!go build %<" exec "!time go run %"
 elseif &filetype == 'mkd'
 exec "!~/.vim/markdown.pl % > %.html &"
-exec "!firefox %.html &"
+exec "!google-chrome %.html &"
 endif
 endfunc
 
+" Enable system clipboard.
+set clipboard=unnamedplus
+
+" Show line numbers.
 set number
 
-set guioptions=eg
-
-" Load vim-prettier package.
-" https://github.com/prettier/vim-prettier
-packloadall
-
 " Load bat(improved version of cat) style color scheme.
-" https://github.com/jamespwilliams/bat.vim
 set termguicolors
 colorscheme bat
-
 " Hightlight the current line.
 set cursorline
 
@@ -84,3 +57,63 @@ let g:ycm_extra_conf_vim_data = [
   \  'g:ycm_python_sys_path'
   \]
 let g:ycm_global_ycm_extra_conf = '~/global_extra_conf.py'
+
+" Load vim-prettier package.
+packloadall
+
+" vim-airline configs.
+set laststatus=2
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+" let g:airline_theme = 'minimalist'
+let g:airline_theme = 'base16_spacemacs'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#branch#displayed_head_limit = 10
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.colnr = ' ℅:'
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ' :'
+let g:airline_symbols.maxlinenr = '☰ '
+let g:airline_symbols.dirty='⚡'
+
+" call airline#parts#define_function('filetype', 'GetFileType')
+" call airline#parts#define_minwidth('filetype', 50)
+
+let g:airline_section_b = '%-0.10{FugitiveHead()}'
+let g:airline_section_c = '%t'
+" let g:airline_section_x = airline#section#create(['filetype'])
+let g:airline_section_z = '%l:%c %p%% %L☰'
+
+let g:airline_mode_map = {
+    \ '__'     : '-',
+    \ 'c'      : 'C',
+    \ 'i'      : 'I',
+    \ 'ic'     : 'I',
+    \ 'ix'     : 'I',
+    \ 'n'      : 'N',
+    \ 'multi'  : 'M',
+    \ 'ni'     : 'N',
+    \ 'no'     : 'N',
+    \ 'R'      : 'R',
+    \ 'Rv'     : 'R',
+    \ 's'      : 'S',
+    \ 'S'      : 'S',
+    \ ''     : 'S',
+    \ 't'      : 'T',
+    \ 'v'      : 'V',
+    \ 'V'      : 'V',
+    \ ''     : 'V',
+    \ }
+
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#branch#format = 2
+
