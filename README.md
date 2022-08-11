@@ -724,7 +724,7 @@ ffmpeg -i example.mkv frame%04d.png
 ~/gifski/target/release/gifski -o example.gif frame*.png --repeat 0 -Q 100 --fps 50 -W 960 -H 516
 ```
 
-<bash>
+<br>
 
 If you're just trying to turn a terminal
 session into a gif, there's a simpler way
