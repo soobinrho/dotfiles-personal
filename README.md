@@ -225,40 +225,7 @@ git clone https://github.com/chris-marsh/pureline.git ~/pureline
 
 <br>
 
-## Vim Configs
-
-**Adding Vim Plugins
-[[Original article by Alex Hunt](https://medium.com/@huntie/10-essential-vim-plugins-for-2018-39957190b7a9)]**
-
-```bash
-# Install vim-plug.
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-
-# Install YouCompleteMe.
-sudo dnf install -y cmake gcc-c++ make python3-devel golang
-cd ~/.vim/plugged
-git clone --recurse-submodules https://github.com/ycm-core/YouCompleteMe.git
-cd YouCompleteMe
-python3 install.py --all
-
-# Install vim-prettier.
-npm install -g prettier
-mkdir -p ~/.vim/pack/plugins/start
-cd ~/.vim/pack/plugins/start
-git clone https://github.com/prettier/vim-prettier
-
-# Install rest of the plugins listed at
-# `./home/$(whoami)/.vim/plugins.vim`
-vim
-:PlugInstall
-```
-
-<br>
-
-**Loading dotfiles**
+**Installing dotfiles**
 
 ```bash
 # Add yourself to the sudo group.
@@ -359,6 +326,40 @@ git config --global alias.c 'commit -s'
 # Set default branch name to main
 # instead of master.
 git config --global init.defaultBranch main
+```
+
+<br>
+<br>
+
+## Vim Configs
+
+**Adding Vim Plugins
+[[Original article by Alex Hunt](https://medium.com/@huntie/10-essential-vim-plugins-for-2018-39957190b7a9)]**
+
+```bash
+# Install vim-plug.
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+# Install YouCompleteMe.
+sudo dnf install -y cmake gcc-c++ make python3-devel golang
+cd ~/.vim/plugged
+git clone --recurse-submodules https://github.com/ycm-core/YouCompleteMe.git
+cd YouCompleteMe
+python3 install.py --all
+
+# Install vim-prettier.
+npm install -g prettier
+mkdir -p ~/.vim/pack/plugins/start
+cd ~/.vim/pack/plugins/start
+git clone https://github.com/prettier/vim-prettier
+
+# Install rest of the plugins listed at
+# `./home/$(whoami)/.vim/plugins.vim`
+vim
+:PlugInstall
 ```
 
 <br>
