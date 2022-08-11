@@ -75,8 +75,7 @@ e.g. 190GB for Fedora and 50GB for Windows.
 **Enabling automatic dnf updates**
 
 ```bash
-# Install dnf-automatic
-# so that dnf updates everyday automatically.
+# dnf-automatic updates everyday automatically.
 sudo dnf install -y dnf-automatic
 sudo systemctl enable --now dnf-automatic-install.timer
 ```
