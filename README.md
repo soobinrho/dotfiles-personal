@@ -176,6 +176,9 @@ sudo dnf install -y xournal
 # Install obs-studio: screencasting tool.
 sudo dnf install -y obs-studio
 
+# Install FFmpeg: multimedia encoding/decoding tool.
+sudo dnf install -y ffmpeg
+
 # Install simplescreenrecorder: light-weight screencasting tool.
 sudo dnf install -y simplescreenrecorder
 
@@ -592,24 +595,30 @@ su -l $USER
 
 <br>
 <br>
-<br>
 
-<!--
-**Converting a screencast video into
-a gif file with high quality
-[[GitHub](https://github.com/ImageOptim/gifski)]**
+<p align="center">
+  <code>How to make a screencast gif</code>
+</p>
 
 ```bash
 # 1. Screencast with the simplescreenrecorder or obs-studio.
 
 # 2. First, go to gifski's GitHub page and then build from source.
+#    https://github.com/ImageOptim/gifski
 
-# 3. Convert the video into png.
+# 3. Convert the screencast video into png.
 ffmpeg -i example.mkv frame%04d.png
 
-# 4. COnvert to gif.
+# 4. Convert to gif.
 ~/gifski/target/release/gifski -o example.gif frame*.png --repeat 0 -Q 100 --fps 50 -W 960 -H 516
 ```
+
+
+<br>
+<br>
+<br>
+
+<!--
 
 **Resizing a window**
 
