@@ -752,7 +752,7 @@ svg-term --cast=11345 --out example.svg
 - `:7,17Commentary` Comment out with line numbers.
 - `q:` Open command-history buffer.
 - `:ene|e` Edit a file in a new buffer, short for `:enew|edit`.
-- `:Start` Open a terminal. This will work only if you've installed vim-dispatch. If you followed the steps above, vim-dispatch is already installed.
+- `:Start` Open a terminal. This will work only if you've installed vim-dispatch. If you followed the steps above, vim-dispatch is already installed. However, if you'd like an alternative, use `:! konsole`.
 
 **Bash**
 ```bash
