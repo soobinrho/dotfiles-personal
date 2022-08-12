@@ -703,6 +703,10 @@ su -l $USER
 
 ![Calc II Tips](https://user-images.githubusercontent.com/19341857/184079510-d7899b35-e114-4f50-a8a8-ab0c3a1384d5.png)
 
+Codes should describe what they do themselves.
+Comments, in the other hand, should describe
+why those codes are there.
+
 -->
 
 # 4. (Optional) Random Tips I find Useful
@@ -764,6 +768,10 @@ systemctl suspend -i
 
 # Execute the last command.
 `ctrl` + `p`
+
+# Go to top level of internal documentation.
+info bash
+u
 ```
 
 
