@@ -763,7 +763,7 @@ svg-term --cast=11345 --out example.svg
 - `g` + `c` + `a` + `p` Comment out a paragraph.
 - `:7,17Commentary` Comment out command.
 
-
+**Bash**
 ```bash
 # Shutdown.
 poweroff
