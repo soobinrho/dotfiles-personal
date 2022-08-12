@@ -24,6 +24,10 @@ nmap k gk
 noremap n nzz
 noremap N Nzz
 
+" Open help files in a new buffer.
+" Example: `:H Nerd-Font`
+command! -nargs=1 -complete=help H help <args> | only | setlocal buflisted
+
 " Macros for building java, python, etc
 " Script taken from @rekinyz
 " https://stackoverflow.com/questions/6411979/compiling-java-code-in-vim-more-efficiently

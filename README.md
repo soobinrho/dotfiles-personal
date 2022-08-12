@@ -751,6 +751,7 @@ svg-term --cast=11345 --out example.svg
 - `gcap` Comment out a paragraph.
 - `:7,17Commentary` Comment out command.
 - `q:` Open command-history buffer.
+- `:ene|e` Edit a file in a new buffer, short for `:enew | edit`.
 
 **Bash**
 ```bash
