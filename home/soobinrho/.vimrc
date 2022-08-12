@@ -30,22 +30,21 @@ noremap N Nzz
 map <F5> :call CompileRunGcc()<CR>
 func! CompileRunGcc()
     exec "w"
-    if &filetype == 'c'
+    if &filetype == 'python'
+        exec "Start! -wait=always time python %"
+    elseif &filetype == 'c'
         exec "Start! -wait=always gcc % -o %< && time ./%<"
     elseif &filetype == 'cpp'
         exec "Start! -wait=always g++ % -o %< && time ./%<"
-    elseif &filetype == 'java'
-        exec "Start! -wait=always javac % && time java -cp %:p:h %:t:r"
-    elseif &filetype == 'sh' 
-        exec "Start! -wait=always time bash %"
-    elseif &filetype == 'python'
-        exec "Start! -wait=always time python %"
     elseif &filetype == 'html'
         exec "!google-chrome % &" 
-    elseif &filetype == 'go' 
-        exec "Start! -wait-always go build %< && time go run %"
     elseif &filetype == 'markdown'
         exec "Start! -wait=always glow %"
+    elseif &filetype == 'sh' 
+        exec "Start! -wait=always time bash %"
+    elseif &filetype == 'java'
+    elseif &filetype == 'go' 
+        exec "Start! -wait-always go build %< && time go run %"
     endif
 endfunc
 
@@ -55,9 +54,6 @@ set clipboard=unnamedplus
 " Show line numbers.
 set number
 
-" Load bat(improved version of cat) style color scheme.
-set termguicolors
-colorscheme bat
 " Hightlight the current line.
 set cursorline
 
@@ -94,17 +90,17 @@ let g:airline_powerline_fonts = 1
 
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
+    let g:airline_symbols.branch = ''
+    let g:airline_symbols.colnr = ' ℅:'
+    let g:airline_symbols.readonly = ''
+    let g:airline_symbols.linenr = ' :'
+    let g:airline_symbols.maxlinenr = '☰ '
+    let g:airline_symbols.dirty='⚡'
 endif
 let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.colnr = ' ℅:'
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ' :'
-let g:airline_symbols.maxlinenr = '☰ '
-let g:airline_symbols.dirty='⚡'
 
 let g:airline_section_b = '%-0.10{FugitiveHead()}'
 let g:airline_section_c = '%t'
@@ -134,3 +130,7 @@ let g:airline_mode_map = {
     \ 'V'      : 'V',
     \ ''     : 'V',
     \ }
+
+" Load bat(improved version of cat) style color scheme.
+set termguicolors
+colorscheme bat
