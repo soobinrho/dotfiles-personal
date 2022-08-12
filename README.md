@@ -760,6 +760,9 @@ poweroff
 
 # Suspend.
 systemctl suspend -i
+
+# Execute the last command.
+`ctrl` + `p`
 ```
 
 
