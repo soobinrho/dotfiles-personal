@@ -43,6 +43,7 @@ func! CompileRunGcc()
     elseif &filetype == 'sh' 
         exec "Start! -wait=always time bash %"
     elseif &filetype == 'java'
+        exec "Start! -wait=always javac % && time java -cp %:p:h %:t:r"
     elseif &filetype == 'go' 
         exec "Start! -wait-always go build %< && time go run %"
     endif
