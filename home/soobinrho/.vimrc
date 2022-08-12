@@ -14,10 +14,6 @@ let neomake_verbose = 2
 " Enable syntax highlighting.
 syntax on
 
-" Ale configs.
-let g:ale_sign_error = ''
-let g:ale_sign_warning = ''
-
 " Better `j` `k` binding that works even for wrapped lines.
 vmap j gj
 vmap k gk
@@ -61,11 +57,6 @@ set number
 
 " Hightlight the current line.
 set cursorline
-
-" vim-gitgutter configs.
-set updatetime=100
-highlight SignColumn guibg=#373737
-set signcolumn=number
 
 " vim-indent-guides configs.
 let g:indent_guides_enable_on_vim_startup = 1
@@ -111,7 +102,7 @@ let g:airline_section_b = '%-0.10{FugitiveHead()}'
 let g:airline_section_c = '%t'
 let g:airline_section_x = airline#section#create(['filetype'])
 let g:airline_section_y = ''
-let g:airline_section_z = '%l:%c %p%% %L☰'
+let g:airline_section_z = '%l:%c %p%% %L'
 let g:airline_section_error = ''
 let g:airline_section_warning = ''
 
@@ -139,3 +130,22 @@ let g:airline_mode_map = {
 " Load bat(improved version of cat) style color scheme.
 set termguicolors
 colorscheme bat
+
+" Ale configs.
+let g:ale_sign_error = ''
+let g:ale_sign_warning = ''
+let g:ale_set_highlights = 0
+highlight ALEErrorSign guibg=#373737
+highlight ALEWarningSign guibg=#373737
+
+" vim-gitgutter configs.
+set updatetime=100
+set signcolumn=number
+highlight SignColumn guibg=#373737
+let g:gitgutter_sign_added = '+'
+let g:gitgutter_sign_modified = ''
+let g:gitgutter_sign_removed = ''
+let g:gitgutter_sign_removed_first_line = ''
+let g:gitgutter_sign_removed_above_and_below = ''
+let g:gitgutter_sign_modified_removed = ''
+
