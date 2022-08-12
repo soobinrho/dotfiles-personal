@@ -727,7 +727,7 @@ su -l $USER
 # 2. Go to gifski's GitHub page and then build from source.
 #    https://github.com/ImageOptim/gifski
 
-# 3. Convert the screencast video into png.
+# 3. Convert the screencast video into png files.
 ffmpeg -i example.mkv frame%04d.png
 
 # 4. Convert to gif.
@@ -760,7 +760,7 @@ svg-term --cast=11345 --out example.svg
 **Vim**
 - `g` + `c` Comment visual mode.
 - `g` + `c` + `c` Comment out a line.
-- `g` + `c` + `a` + `p` Comment out a line.
+- `g` + `c` + `a` + `p` Comment out a paragraph.
 - `:7,17Commentary` Comment out command.
 
 
