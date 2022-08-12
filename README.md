@@ -250,9 +250,10 @@ git clone https://github.com/chris-marsh/pureline.git ~/pureline
 ### `(Optional) Signing git commits with a GPG key` [[Source](https://wouterdeschuyter.be/blog/verified-signed-commits-on-github)]
 
 ```bash
-# Set up git name and email.
+# Set up git name, email, and default editor.
 git config --global user.name "Soobin Rho"
 git config --global user.email "soobinrho@gmail.com"
+git config --global core.editor vim
 
 # Create a GPG key.
 gpg --full-generate-key
