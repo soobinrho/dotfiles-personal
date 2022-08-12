@@ -28,28 +28,40 @@ e.g. 190GB for Fedora and 50GB for Windows.
 ```bash
 # Repository Structure
 # You can get this with `tree -a`
-├── home
-│   └── soobinrho
-│       ├── .bashrc
-│       ├── .config
-│       │   ├── htop
-│       │   │   └── htoprc
-│       │   ├── konsolerc
-│       │   └── neofetch
-│       │       └── config.conf
-│       ├── .editorconfig
-│       ├── global_extra_conf.py
-│       ├── .gnupg
-│       │   └── gpg-agent.conf
-│       ├── .local
-│       │   └── share
-│       │       └── konsole
-│       │           ├── Breeze.colorscheme
-│       │           └── Profile1.profile
-│       ├── .pureline.conf
-│       ├── .vim
-│       │   └── plugins.vim
-│       └── .vimrc
+└── home
+    └── soobinrho
+        ├── .bashrc
+        ├── .config
+        │   ├── htop
+        │   │   └── htoprc
+        │   ├── konsolerc
+        │   └── neofetch
+        │       └── config.conf
+        ├── obs-studio
+        │   └── basic
+        │       └── profiles
+        │           └── terminal
+        │               ├── basic.ini
+        │               ├── recordEncoder.json
+        │               └── service.json
+        ├── .editorconfig
+        ├── global_extra_conf.py
+        ├── .gnupg
+        │   └── gpg-agent.conf
+        ├── .local
+        │   └── share
+        │       └── konsole
+        │           ├── Breeze.colorscheme
+        │           └── Profile1.profile
+        ├── .pureline.conf
+        ├── .vim
+        ├── plugged
+        │   └── vim-airline
+        │       └── autoload
+        │           └── airline
+        │               └── parts.vim
+        └── plugins.vim
+        └── .vimrc
 ```
 
 <br>
