@@ -749,7 +749,7 @@ svg-term --cast=11345 --out example.svg
 - `gc` Comment visual mode.
 - `gcc` Comment out a line.
 - `gcap` Comment out a paragraph.
-- `:7,17Commentary` Comment out command.
+- `:7,17Commentary` Comment out with line numbers.
 - `q:` Open command-history buffer.
 - `:ene|e` Edit a file in a new buffer, short for `:enew | edit`.
 
