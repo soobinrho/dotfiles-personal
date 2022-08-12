@@ -14,6 +14,10 @@ let neomake_verbose = 2
 " Enable syntax highlighting.
 syntax on
 
+" Ale configs.
+let g:ale_sign_error = ''
+let g:ale_sign_warning = ''
+
 " Better `j` `k` binding that works even for wrapped lines.
 vmap j gj
 vmap k gk
