@@ -14,9 +14,6 @@ let neomake_verbose = 2
 " Enable syntax highlighting.
 syntax on
 
-" vim-rooter configs.
-let g:rooter_targets = '/,*'
-
 " Better `j` `k` binding that works even for wrapped lines.
 vmap j gj
 vmap k gk
