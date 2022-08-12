@@ -11,6 +11,9 @@ set scrolloff=8
 " vim-neomake configs.
 let neomake_verbose = 2
 
+" Enable syntax highlighting.
+syntax on
+
 " Better `j` `k` binding that works even for wrapped lines.
 vmap j gj
 vmap k gk
@@ -26,25 +29,24 @@ noremap N Nzz
 " https://stackoverflow.com/questions/6411979/compiling-java-code-in-vim-more-efficiently
 map <F5> :call CompileRunGcc()<CR>
 func! CompileRunGcc()
-exec "w"
-if &filetype == 'c'
-exec "!gcc % -o %<"
-exec "!time ./%<"
-elseif &filetype == 'cpp'
-exec "!g++ % -o %<"
-exec "!time ./%<"
-elseif &filetype == 'java'
-exec "!javac %"
-exec "!time java -cp %:p:h %:t:r"
-elseif &filetype == 'sh' exec "!time bash %"
-elseif &filetype == 'python'
-exec "!time python %"
-elseif &filetype == 'html'
-exec "!google-chrome % &" elseif &filetype == 'go' exec "!go build %<" exec "!time go run %"
-elseif &filetype == 'mkd'
-exec "!~/.vim/markdown.pl % > %.html &"
-exec "!google-chrome %.html &"
-endif
+    exec "w"
+    if &filetype == 'c'
+        exec "Start! -wait=always gcc % -o %< && time ./%<"
+    elseif &filetype == 'cpp'
+        exec "Start! -wait=always g++ % -o %< && time ./%<"
+    elseif &filetype == 'java'
+        exec "Start! -wait=always javac % && time java -cp %:p:h %:t:r"
+    elseif &filetype == 'sh' 
+        exec "Start! -wait=always time bash %"
+    elseif &filetype == 'python'
+        exec "Start! -wait=always time python %"
+    elseif &filetype == 'html'
+        exec "!google-chrome % &" 
+    elseif &filetype == 'go' 
+        exec "Start! -wait-always go build %< && time go run %"
+    elseif &filetype == 'markdown'
+        exec "Start! -wait=always glow %"
+    endif
 endfunc
 
 " Enable system clipboard.
