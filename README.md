@@ -746,10 +746,11 @@ svg-term --cast=11345 --out example.svg
 - `ctrl` + `alt` + `T` Open a terminal.
 
 **Vim**
-- `g` + `c` Comment visual mode.
-- `g` + `c` + `c` Comment out a line.
-- `g` + `c` + `a` + `p` Comment out a paragraph.
+- `gc` Comment visual mode.
+- `gcc` Comment out a line.
+- `gcap` Comment out a paragraph.
 - `:7,17Commentary` Comment out command.
+- `q:` Open command-history buffer.
 
 **Bash**
 ```bash
