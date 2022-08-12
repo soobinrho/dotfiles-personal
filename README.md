@@ -2,7 +2,7 @@
   <img src="https://user-images.githubusercontent.com/19341857/184075267-9818b003-480e-4ceb-a172-f7e6a1d686c7.gif">
 </p>
 
-***How exactly do you use this repository?***
+***How exactly do you use this repository?***<br>
 Whenever I reinstall my devices
 for whatever reason, I go through
 each step below.
@@ -14,7 +14,7 @@ look as the image shown above.
 Also included are all the softwares
 I use daily.
 
-***Which OS do you use?***
+***Which OS do you use?***<br>
 I dual-boot on KDE Fedora and Windows.
 On my primary laptop which has
 two SSD's, I install Fedora
@@ -85,7 +85,7 @@ e.g. 190GB for Fedora and 50GB for Windows.
 
 ## Dev Tools
 
-**Enabling automatic dnf updates**
+### `Enabling automatic dnf updates`
 
 ```bash
 # Add yourself to the sudo group.
@@ -98,7 +98,7 @@ sudo systemctl enable --now dnf-automatic-install.timer
 
 <br>
 
-**Installing Node.js**
+### `Installing Node.js`
 
 ```bash
 # Install nvm: Node version manager.
@@ -112,7 +112,7 @@ nvm install node
 
 <br>
 
-**Installing programming environments**
+### `Installing programming environments`
 
 ```bash
 # Install git.
@@ -159,7 +159,7 @@ conda config --set auto_activate_base false
 
 <br>
 
-**Installing additional utilities**
+### `Installing additional utilities`
 
 ```bash
 # Install neofetch: system information viewer.
@@ -247,8 +247,7 @@ git clone https://github.com/chris-marsh/pureline.git ~/pureline
 
 ## Git Configs
 
-**(Optional) Signing git commits with a GPG key
-[[Original article by Wouter De Schuyter](https://wouterdeschuyter.be/blog/verified-signed-commits-on-github)]**
+### `(Optional) Signing git commits with a GPG key` [[Source](https://wouterdeschuyter.be/blog/verified-signed-commits-on-github)]
 
 ```bash
 # Set up git name and email.
@@ -308,8 +307,7 @@ git config --global init.defaultBranch main
 
 ## Vim Configs
 
-**Adding Vim Plugins
-[[Original article by Alex Hunt](https://medium.com/@huntie/10-essential-vim-plugins-for-2018-39957190b7a9)]**
+### `Adding Vim Plugins` [[Source](https://medium.com/@huntie/10-essential-vim-plugins-for-2018-39957190b7a9)]
 
 ```bash
 # Install vim-plug.
@@ -340,7 +338,7 @@ vim
 <br>
 <br>
 
-## Dotfiles Installation
+### `Dotfiles Installation`
 
 ```bash
 # Install Dotbot.
@@ -381,7 +379,7 @@ in `dotfiles-personal`.
 
 # 2. (Optional) SSH Server Configs
 
-***Why do you use a SSH server?***
+***Why do you use a SSH server?***<br>
 I try to use SSH servers only on
 virtual private servers because I don't want
 to expose port 22 on my personal device.
@@ -398,8 +396,7 @@ SSH server as soon as you're done.
 
 <br>
 
-**Starting a SSH server on my second laptop
-[[Original article by Justin Ellingwood](https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys)]**
+### `Starting a SSH server on my second laptop` [[Source](https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys)]
 
 ```bash
 # Start the SSH server.
@@ -413,8 +410,7 @@ sudo service sshd stop
 
 <br>
 
-**Configuring `sshd_config`
-[[Original article by Justin Ellingwood](https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys)]**
+### `Configuring sshd_config` [[Source](https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys)]
 
 ```bash
 # Open the config file.
@@ -434,8 +430,7 @@ sudo service ssh restart    # Ubuntu
 
 <br>
 
-**(DANGER) Copying both the public GPG key and private GPG key
-from my primary laptop to my second laptop**
+### `(DANGER) Copying both the public GPG key and private GPG key from my primary laptop to my second laptop`
 
 ```bash
 # (DANGER) Copy both the private and public GPG keys.
@@ -452,8 +447,7 @@ rsync --archive ~/.gnupg $(whoami)@ip_address:~
 
 <br>
 
-**(DANGER) Copying both the public SSH key and private SSH key
-from my primary laptop to my second laptop**
+### `(DANGER) Copying both the public SSH key and private SSH key from my primary laptop to my second laptop`
 
 ```bash
 # (DANGER) Copy both the private and public SSH keys.
@@ -465,8 +459,7 @@ rsync --archive ~/.gitconfig $(whoami)@ip_address:~/.gitconfig
 
 <br>
 
-**(Optional) Creating a key as a SSH client on my primary laptop
-[[Original article by Brian Boucheron](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-20-04)]**
+### `(Optional) Creating a key as a SSH client on my primary laptop` [[Source](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-20-04)]
 
 ```bash
 # Create a key with the length of 4096 bits.
@@ -478,8 +471,7 @@ ssh-copy-id root@ip_address
 
 <br>
 
-**(Optional) Client-side SSH configuration I use on my primary laptop
-[[Original Answer by laur](https://unix.stackexchange.com/questions/708206/ssh-timeout-does-not-happen-and-not-disconnect)]**
+### `(Optional) Client-side SSH configuration I use on my primary laptop` [[Source](https://unix.stackexchange.com/questions/708206/ssh-timeout-does-not-happen-and-not-disconnect)]
 
 ```bash
 # Configuring your SSH client to
@@ -500,8 +492,7 @@ Host myserver
 
 <br>
 
-**(Optional) Disableing updates for specific packages
-[[Original Article by Techmint](https://www.tecmint.com/exclude-package-updates-yum-dnf-command/)]**
+### `(Optional) Disableing updates for specific packages` [[Source](https://www.tecmint.com/exclude-package-updates-yum-dnf-command/)]
 
 If you by any chance have to disable
 dnf updates on specific packages:
@@ -522,8 +513,7 @@ Here's how I configure my VPS's for web apps.
 
 <br>
 
-**Initializing an Ubuntu server on DigitalOcean
-[[Original article by Brian Boucheron](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-20-04)]**
+### `Initializing an Ubuntu server on DigitalOcean` [[Source](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-20-04)]
 
 ```bash
 # SSH into the server.
@@ -544,8 +534,7 @@ rsync --archive --chown=main:main /root/.ssh /home/main
 
 <br>
 
-**Installing Docker Engine on Ubuntu
-[[Original article by Docker](https://docs.docker.com/engine/install/ubuntu/)]**
+### `Installing Docker Engine on Ubuntu` [[Source](https://docs.docker.com/engine/install/ubuntu/)]
 
 ```bash
 # Update apt.
@@ -578,8 +567,7 @@ su -l $USER
 
 <br>
 
-**Installing Docker Engine on Fedora
-[[Original article by Docker](https://docs.docker.com/engine/install/fedora/)]**
+### `Installing Docker Engine on Fedora` [[Source](https://docs.docker.com/engine/install/fedora/)]
 
 ```bash
 # Add the official Docker repository to dnf.
