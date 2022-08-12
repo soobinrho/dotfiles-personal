@@ -127,6 +127,12 @@ sudo dnf install -y \
 # Install neovim: more extensible fork of vim.
 sudo dnf install -y neovim python3-neovim vim wl-clipboard xclip
 
+# Install Visual Studio Code.
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
+dnf check-update
+sudo dnf install code
+
 # Install steghide: steganography library.
 sudo dnf install -y steghide
 
