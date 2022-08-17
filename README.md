@@ -106,8 +106,11 @@ sudo systemctl enable --now dnf-automatic-install.timer
 # in order for new paths to take effect.
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
-# Install Node.js: JavaScript runtime.
+# Install Node.js
 nvm install node
+
+# Install TypeScript.
+npm install -g typescript
 ```
 
 <br>
