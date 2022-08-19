@@ -756,6 +756,11 @@ svg-term --cast=11345 --out example.svg
 - `Windows` + `RMB` Resize a window.
 - `ctrl` + `alt` + `T` Open a terminal.
 
+```bash
+# Enable multiple audio outputs.
+pactl load-module module-combine-sink
+```
+
 **Vim**
 - `gc` Comment visual mode.
 - `gcc` Comment out a line.
