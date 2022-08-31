@@ -81,4 +81,4 @@ tab_width = 4
 
 [*.{cpp,cc,c++,cxx,hpp,c}]
 indent_style = tab
-indent_size = 2
+indent_size = 4
