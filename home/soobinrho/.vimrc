@@ -61,6 +61,7 @@ set number
 
 " Hightlight the current line.
 set cursorline
+set cursorcolumn
 
 " vim-indent-guides configs.
 let g:indent_guides_enable_on_vim_startup = 1
