@@ -39,7 +39,7 @@ func! CompileRunGcc()
     elseif &filetype == 'c'
         exec "Start! -wait=always gcc % -o %< && time ./%<"
     elseif &filetype == 'cpp'
-        exec "Start! -wait=always g++ % -o %< && time ./%< && rm %:r"
+        exec "Start! -wait=always g++ % -o _%< && time ./_%< && rm _%:r"
     elseif &filetype == 'html'
         exec "!google-chrome % &" 
     elseif &filetype == 'markdown'
