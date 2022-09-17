@@ -82,3 +82,7 @@ tab_width = 4
 [*.{cpp,cc,c++,cxx,hpp,c}]
 indent_style = space
 indent_size = 4
+
+[*.txt]
+indent_style = space
+indent_size = 4
