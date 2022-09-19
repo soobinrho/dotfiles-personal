@@ -798,6 +798,9 @@ systemctl suspend -i
 # Go to top level of internal documentation.
 info bash
 u
+
+# Find files containing a certain text/
+egrep -ir "Certain text"
 ```
 
 <!---
