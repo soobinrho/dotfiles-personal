@@ -11,6 +11,13 @@ set scrolloff=8
 " vim-neomake configs.
 let neomake_verbose = 2
 
+" vim-session configs.
+let g:session_default_overwrite = 1
+let g:session_autosave_periodic = 10
+let g:session_autosave_silent = 1
+let g:session_autosave = 'yes'
+let g:session_autoload = 'yes'
+
 " Enable syntax highlighting.
 syntax on
 

@@ -19,6 +19,11 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
+" Plugin for automatically saving open buffers
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-session'
+
+
 " airline plugins
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
