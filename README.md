@@ -166,6 +166,18 @@ conda config --set auto_activate_base false
 # `conda activate`
 ```
 
+<!--
+# Install MariaDB.
+sudo dnf install -y mariadb
+
+# Install MariaDB server.
+sudo dnf install -y mariadb-server
+
+# Install MariaDB ODBC.
+sudo dnf install -y mariadb-connector-odbc
+
+-->
+
 <br>
 
 ### `Installing additional utilities`
