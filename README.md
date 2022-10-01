@@ -249,6 +249,9 @@ curl -sSL https://raw.githubusercontent.com/PierreKieffer/http-tanker/master/ins
 
 # Install PureLine: bash powerline.
 git clone https://github.com/chris-marsh/pureline.git ~/pureline
+
+# Remove nano in order to make vim the default editor.
+sudo dnf remove -y nano
 ```
 
 <br>
@@ -772,13 +775,13 @@ pactl load-module module-combine-sink
 - `m[A-Z]` Set a marker and `'[A-Z]` go to the marker.
 - `q:` Open command-history buffer.
 - `:ene|e` Edit a file in a new buffer, short for `:enew|edit`.
-- `:Start` Open a terminal. 
-This will work only if you've installed 
-vim-dispatch. If you followed the 
-steps above, vim-dispatch is 
-already installed. However, if you'd like 
+- `:Start` Open a terminal.
+This will work only if you've installed
+vim-dispatch. If you followed the
+steps above, vim-dispatch is
+already installed. However, if you'd like
 an alternative that works without
-vin-dispatch or any other plugin, 
+vin-dispatch or any other plugin,
 `:! konsole` works too, but
 `:! konsole` defaults back to the vanilla
 Konsole look, while `:Start` looks amazing
@@ -801,6 +804,9 @@ u
 
 # Find files containing a certain text/
 egrep -ir "Certain text"
+
+# Edit files with sudo access
+sudoedit ...
 ```
 
 <!---
