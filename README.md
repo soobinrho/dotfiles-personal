@@ -828,6 +828,8 @@ Vim commands
 visual-mode-selection + :s/^/#   |   Comment block
 ctrl + v + shift + i   |   Visual block mode
 
+A good example of bash installation script
+https://github.com/IBM-Cloud/ibm-cloud-cli-release/releases/
 -->
 
 
