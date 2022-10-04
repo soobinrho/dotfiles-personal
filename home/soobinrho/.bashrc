@@ -1,8 +1,8 @@
 # .bashrc
 
-# ------------------------------------- #
+# ----------------------------------------- #
 # Default .bashrc
-# ------------------------------------- #
+# ----------------------------------------- #
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
@@ -30,9 +30,9 @@ fi
 
 unset rc
 
-# ------------------------------------- #
+# ----------------------------------------- #
 # Anaconda
-# ------------------------------------- #
+# ----------------------------------------- #
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -49,9 +49,9 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-# ------------------------------------- #
+# ----------------------------------------- #
 # Aliases
-# ------------------------------------- #
+# ----------------------------------------- #
 alias vim=nvim
 alias oldvim=\vim
 alias ls=colorls
@@ -60,35 +60,40 @@ alias PullGitAll=~/git/bash-git-pull-in-every-folder/PullGitAll
 alias StatusGitAll=~/git/bash-git-pull-in-every-folder/optional-scripts/StatusGitAll
 alias BuildJava=~/git/college-programming/summer-2022/computer-science-II/BuildJava
 
-# ------------------------------------- #
+# ----------------------------------------- #
 # GNU GPG Configuration
-# ------------------------------------- #
+# ----------------------------------------- #
 export GPG_TTY=$(tty)
 
-# ------------------------------------- #
+# ----------------------------------------- #
 # Sourcing for Bash PureLine.
 # https://github.com/chris-marsh/pureline
-# ------------------------------------- #
+# ----------------------------------------- #
 if [ "$TERM" != "linux" ]; then
     source ~/pureline/pureline ~/.pureline.conf
 fi
 
-# ------------------------------------- #
+# ----------------------------------------- #
 # Loading z.lua
 # https://github.com/skywind3000/z.lua
-# ------------------------------------- #
+# ----------------------------------------- #
 eval "$(lua ~/.local/z.lua/z.lua --init bash enhanced once fzf)"
 
-# ------------------------------------- #
+# ----------------------------------------- #
 # Loading fzf
 # https://github.com/junegunn/fzf.git
-# ------------------------------------- #
+# ----------------------------------------- #
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-# ------------------------------------- #
+# ----------------------------------------- #
 # Configuring nvm.
 # https://github.com/nvm-sh/nvm#installing-and-updating
-# ------------------------------------- #
+# ----------------------------------------- #
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# ----------------------------------------- #
+# Enabling autocompletion for IBM Cloud CLI
+# ----------------------------------------- #
+[[ -f /usr/local/ibmcloud/autocomplete/bash_autocomplete ]] && source /usr/local/ibmcloud/autocomplete/bash_autocomplete
