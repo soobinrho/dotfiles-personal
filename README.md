@@ -602,7 +602,7 @@ sudo dnf config-manager \
     https://download.docker.com/linux/fedora/docker-ce.repo
 
 # Install Docker Engine.
-sudo dnf install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+sudo dnf install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
 
 # On Ubuntu, Docker service starts automatically,
 # but on Fedora, Docker service should be started with
