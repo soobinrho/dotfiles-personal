@@ -35,15 +35,12 @@ e.g. 190GB for Fedora and 50GB for Windows.
         │   ├── htop
         │   │   └── htoprc
         │   ├── konsolerc
-        │   └── neofetch
-        │       └── config.conf
-        ├── obs-studio
-        │   └── basic
-        │       └── profiles
-        │           └── terminal
-        │               ├── basic.ini
-        │               ├── recordEncoder.json
-        │               └── service.json
+        │   ├── neofetch
+        │   │   └── config.conf
+        │   └── obs-studio
+        │       └── basic
+        │           └── scenes
+        │               └── rhetorics_practice.json
         ├── .editorconfig
         ├── global_extra_conf.py
         ├── .gnupg
