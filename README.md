@@ -830,6 +830,14 @@ ctrl + v + shift + i   |   Visual block mode
 
 A good example of bash installation script
 https://github.com/IBM-Cloud/ibm-cloud-cli-release/releases/
+
+
+OBS Studio Settings
+Settings - Stream - Server:
+rtmp://127.0.0.1:1935/live
+
+This rhetorics settings requires Nginx server.
+The installation is described in my Google Docs
 -->
 
 
