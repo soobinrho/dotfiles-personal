@@ -819,6 +819,9 @@ egrep -ir "Certain text"
 
 # Edit files with sudo access
 sudoedit ...
+
+# Read in hexadecimal
+xxd ...
 ```
 
 <!---
