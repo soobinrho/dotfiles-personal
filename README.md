@@ -124,8 +124,19 @@ sudo dnf install -y \
 sudo dnf install -y \
   https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
+# Install Rust.
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+# Install Alacritty, a fast, OpenGL terminal emulator.
+sudo dnf install -y cmake freetype-devel fontconfig-devel libxcb-devel libxkbcommon-devel g++
+cargo install alacritty -- -y
+sudo ln -s ~/.cargo/bin/alacritty /usr/bin/alacritty
+
 # Install neovim: more extensible fork of vim.
 sudo dnf install -y neovim python3-neovim vim wl-clipboard xclip
+
+# Install Lunarvim
+bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
 
 # Install Visual Studio Code.
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
@@ -329,6 +340,9 @@ git config --global init.defaultBranch main
 
 ## Vim Configs
 
+
+
+<!-- NOTE: nvim without Lunarvim configs. Keeping just as a backup
 ### `Adding Vim Plugins` [[Source](https://medium.com/@huntie/10-essential-vim-plugins-for-2018-39957190b7a9)]
 
 ```bash
@@ -356,6 +370,7 @@ git clone https://github.com/prettier/vim-prettier
 vim
 :PlugInstall
 ```
+-->
 
 <br>
 <br>
