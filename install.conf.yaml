@@ -11,6 +11,8 @@
       mode: 0755
     ~/.config/nvim:
       mode: 0755
+    ~/.config/nvim/lua:
+      mode: 0755
     ~/.config/obs-studio/basic/scenes:
       mode: 0755
     ~/.gnupg:
@@ -29,7 +31,9 @@
     ~/.bashrc: home/soobinrho/.bashrc
     ~/.config/htop/htoprc: home/soobinrho/.config/htop/htoprc
     ~/.config/neofetch/config.conf: home/soobinrho/.config/neofetch/config.conf
-    ~/.config/nvim/init.vim: home/soobinrho/.vimrc
+    ~/.config/nvim/init.lua: home/soobinrho/.config/nvim/init.lua
+    ~/.config/nvim/lua/plugins.lua: home/soobinrho/.config/nvim/lua/plugins.lua
+    ~/.config/nvim/lua/settings.lua: home/soobinrho/.config/nvim/lua/settings.lua
     ~/.config/obs-studio/basic/scenes/rhetorics_practice.json: home/soobinrho/.config/obs-studio/basic/scenes/rhetorics_practice.json
     ~/.editorconfig: home/soobinrho/.editorconfig
     ~/.gnupg/gpg-agent.conf: home/soobinrho/.gnupg/gpg-agent.conf
@@ -37,7 +41,6 @@
     ~/.pureline.conf: home/soobinrho/.pureline.conf
     ~/.vim/plugged/vim-airline/autoload/airline/parts.vim: home/soobinrho/.vim/plugged/vim-airline/autoload/airline/parts.vim
     ~/.vim/plugins.vim: home/soobinrho/.vim/plugins.vim
-    ~/.vimrc: home/soobinrho/.vimrc
 
 - shell:
     - cp home/soobinrho/.config/konsolerc ~/.config/konsolerc

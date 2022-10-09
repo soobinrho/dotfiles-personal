@@ -85,3 +85,7 @@ indent_size = 4
 
 [*.txt]
 indent_style = tab
+
+[*.lua]
+indent_style = space
+indent_size = 2

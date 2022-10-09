@@ -23,7 +23,6 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 
-
 " airline plugins
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -35,9 +34,8 @@ Plug 'airblade/vim-gitgutter'
 " Syntax highlighting
 Plug 'sheerun/vim-polyglot'
 
-" NERDTree plugins
-Plug 'scrooloose/nerdtree'
-Plug 'ryanoasis/vim-devicons'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+" nvim-tree
+Plug 'nvim-tree/nvim-web-devicons'
+Plug 'nvim-tree/nvim-tree.lua'
 
 call plug#end()

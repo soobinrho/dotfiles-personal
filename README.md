@@ -335,6 +335,20 @@ git config --global init.defaultBranch main
 
 ## Vim Configs
 
+```bash
+# Install Packer
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
+
+
+
+
+# Install plugins listed at ~/.nvim/lua/plugins.lua
+# [Inside nvim]
+:PackerCompile
+:PackerInstall
+```
 
 
 <!-- NOTE: nvim without Lunarvim configs. Keeping just as a backup
