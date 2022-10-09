@@ -127,12 +127,6 @@ sudo dnf install -y \
 # Install Rust.
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
-# Install Alacritty, a fast, OpenGL terminal emulator.
-sudo dnf install -y cmake freetype-devel fontconfig-devel libxcb-devel libxkbcommon-devel g++
-sudo dnf install -y alacritty
-
-# Open "Custom Shortcuts" and then make alacritty default.
-
 # Install neovim: more extensible fork of vim.
 sudo dnf install -y neovim python3-neovim vim wl-clipboard xclip
 
