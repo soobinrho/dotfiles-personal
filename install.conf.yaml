@@ -25,6 +25,7 @@
       mode: 0755
 
 - link:
+    ~/.alacritty.yml: home/soobinrho/.alacritty.yml
     ~/.bashrc: home/soobinrho/.bashrc
     ~/.config/htop/htoprc: home/soobinrho/.config/htop/htoprc
     ~/.config/neofetch/config.conf: home/soobinrho/.config/neofetch/config.conf
