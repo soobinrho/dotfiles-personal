@@ -35,6 +35,10 @@
     ~/.local/share/konsole/Breeze.colorscheme: home/soobinrho/.local/share/konsole/Breeze.colorscheme
     ~/.pureline.conf: home/soobinrho/.pureline.conf
 
+# Mostly, I link my dotfiles. Here, however, I just copy them instead of
+# linking them because the dotfiles below almost always have to change
+# depending on the screen size of each device.
+# e.g. terminal font size, window size, window position, ...
 - shell:
     - cp home/soobinrho/.config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
     - cp home/soobinrho/.config/konsolerc ~/.config/konsolerc
