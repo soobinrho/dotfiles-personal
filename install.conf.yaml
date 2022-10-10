@@ -19,15 +19,8 @@
       mode: 0700
     ~/.local/share/konsole:
       mode: 0755
-    ~/.vim:
-      mode: 0755
-    ~/.vim/plugged:
-      mode: 0755
-    ~/.vim/plugged/vim-airline/autoload/airline:
-      mode: 0755
 
 - link:
-    ~/.alacritty.yml: home/soobinrho/.alacritty.yml
     ~/.bashrc: home/soobinrho/.bashrc
     ~/.config/htop/htoprc: home/soobinrho/.config/htop/htoprc
     ~/.config/neofetch/config.conf: home/soobinrho/.config/neofetch/config.conf
@@ -39,8 +32,6 @@
     ~/.gnupg/gpg-agent.conf: home/soobinrho/.gnupg/gpg-agent.conf
     ~/.local/share/konsole/Breeze.colorscheme: home/soobinrho/.local/share/konsole/Breeze.colorscheme
     ~/.pureline.conf: home/soobinrho/.pureline.conf
-    ~/.vim/plugged/vim-airline/autoload/airline/parts.vim: home/soobinrho/.vim/plugged/vim-airline/autoload/airline/parts.vim
-    ~/.vim/plugins.vim: home/soobinrho/.vim/plugins.vim
 
 - shell:
     - cp home/soobinrho/.config/konsolerc ~/.config/konsolerc
