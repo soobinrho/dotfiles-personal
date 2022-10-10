@@ -23,7 +23,6 @@
       mode: 0755
 
 - link:
-    ~/.config/alacritty/alacritty.yml: home/soobinrho/.config/alacritty/alacritty.yml
     ~/.bashrc: home/soobinrho/.bashrc
     ~/.config/htop/htoprc: home/soobinrho/.config/htop/htoprc
     ~/.config/neofetch/config.conf: home/soobinrho/.config/neofetch/config.conf
@@ -37,5 +36,6 @@
     ~/.pureline.conf: home/soobinrho/.pureline.conf
 
 - shell:
+    - cp home/soobinrho/.config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
     - cp home/soobinrho/.config/konsolerc ~/.config/konsolerc
     - cp home/soobinrho/.local/share/konsole/Profile1.profile ~/.local/share/konsole/Profile1.profile

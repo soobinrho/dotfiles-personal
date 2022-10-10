@@ -148,6 +148,8 @@ sudo cp target/release/alacritty /usr/local/bin # or anywhere else in $PATH
 sudo cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
 sudo desktop-file-install extra/linux/Alacritty.desktop
 sudo update-desktop-database
+cd ..
+rm -rf ./alacritty
 
 # Install neovim: more extensible fork of vim.
 sudo dnf install -y vim wl-clipboard xclip ripgrep fd-find
