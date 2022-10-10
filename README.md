@@ -127,6 +127,9 @@ sudo dnf install -y \
 # Install Rust.
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
+# Install R
+sudo dnf install -y R
+
 # Install neovim: more extensible fork of vim.
 bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/rolling/utils/installer/install-neovim-from-release)
 sudo dnf install -y python3-neovim vim wl-clipboard xclip ripgrep fd-find
