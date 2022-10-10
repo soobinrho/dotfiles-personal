@@ -128,7 +128,7 @@ sudo dnf install -y \
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 # Install neovim: more extensible fork of vim.
-sudo dnf install -y neovim python3-neovim vim wl-clipboard xclip
+sudo dnf install -y neovim python3-neovim vim wl-clipboard xclip ripgrep fd-find
 
 # Install Lunarvim
 bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
@@ -346,8 +346,7 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim\
 
 # Install plugins listed at ~/.nvim/lua/plugins.lua
 # [Inside nvim]
-:PackerCompile
-:PackerInstall
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 ```
 
 

@@ -1,8 +1,9 @@
--- ##############################
+---
 -- Basic Settings
--- ##############################
+---
 -- Taken from:
 -- https://github.com/arnvald/viml-to-lua/blob/main/lua/settings.lua
+require('impatient') -- enable plugins cache files for faster loading
 vim.g.loaded = 1
 vim.g.loaded_netrwPlugin = 1
 HOME = os.getenv("HOME")
@@ -20,6 +21,7 @@ vim.api.nvim_set_keymap('n', 'j', 'gj', { noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', 'k', 'gk', { noremap = true, silent = true})
 
 -- Display
+vim.o.termguicolors = true
 vim.o.showmatch  = true -- show matching brackets
 vim.o.scrolloff = 8 -- always show 8 rows from edge of the screen
 vim.o.synmaxcol = 300 -- stop syntax highlight after x lines for performance
@@ -34,9 +36,6 @@ vim.o.numberwidth = 3 -- always reserve 3 spaces for line number
 vim.o.signcolumn = 'yes' -- keep 1 column for coc.vim  check
 vim.o.modelines = 0
 vim.o.showcmd = true -- display command in bottom bar
-
--- nvim-tree configs
-require("nvim-tree").setup()
 
 -- Search
 vim.o.incsearch = true -- starts searching as soon as typing, without enter needed
@@ -53,6 +52,17 @@ vim.o.directory = '/.vim/tmp/swap//'   -- swap files
 
 -- Commands mode
 vim.o.wildmenu = true -- on TAB, complete options for system command
+
+-- Only show cursorline in the current window and in normal mode
+vim.cmd([[
+  augroup cline
+      au!
+      au WinLeave * set nocursorline
+      au WinEnter * set cursorline
+      au InsertEnter * set nocursorline
+      au InsertLeave * set cursorline
+  augroup END
+]])
 
 -- Press <F5> to compile and run
 vim.cmd([[
@@ -88,7 +98,238 @@ vim.cmd([[
 ]])
 
 
--- ##############################
--- Basic Settings
--- ##############################
+---
+-- Plugins Initialization
+---
 
+require("nvim-tree").setup()
+require("nvim_comment").setup()
+require("colorizer").setup()
+require("indent_blankline").setup({
+  show_first_indent_level = false,
+  use_treesitter = true,
+  show_current_context = false
+})
+
+---
+-- LSP configs
+---
+require("mason").setup()
+require("mason-lspconfig").setup({
+  ensure_installed = {
+    "angularls", "awk_ls", "bashls",
+    "clangd", "cmake", "cssls",
+    "dockerls", "gopls", "html",
+    "jsonls", "ltex", "phpactor",
+    "powershell_es", "pyright", "r_language_server",
+    "rust_analyzer", "sqlls", "tsserver",
+    "volar", "lemminx", "yamlls"
+  },
+  automatic_installation = true;
+})
+
+---
+-- LSP Initialization
+---
+require'lspconfig'.angularls.setup{}
+require'lspconfig'.awk_ls.setup{}
+require'lspconfig'.bashls.setup{}
+require'lspconfig'.clangd.setup{}
+require'lspconfig'.cmake.setup{}
+require'lspconfig'.cssls.setup{}
+require'lspconfig'.dockerls.setup{}
+require'lspconfig'.gopls.setup{}
+require'lspconfig'.html.setup{}
+require'lspconfig'.jsonls.setup{}
+require'lspconfig'.ltex.setup{}
+require'lspconfig'.phpactor.setup{}
+require'lspconfig'.powershell_es.setup{}
+require'lspconfig'.pyright.setup{}
+require'lspconfig'.r_language_server.setup{}
+require'lspconfig'.rust_analyzer.setup{}
+require'lspconfig'.sqlls.setup{}
+require'lspconfig'.tsserver.setup{}
+require'lspconfig'.volar.setup{}
+require'lspconfig'.lemminx.setup{}
+require'lspconfig'.yamlls.setup{}
+
+---
+-- nvim-cmp and lunasnip configs
+---
+-- from:
+-- https://vonheikemen.github.io/devlog/tools/setup-nvim-lspconfig-plus-nvim-cmp/
+vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
+require('luasnip.loaders.from_vscode').lazy_load()
+local cmp = require('cmp')
+local luasnip = require('luasnip')
+
+local select_opts = {behavior = cmp.SelectBehavior.Select}
+
+cmp.setup({
+  snippet = {
+    expand = function(args)
+      luasnip.lsp_expand(args.body)
+    end
+  },
+  sources = {
+    {name = 'path'},
+    {name = 'nvim_lsp', keyword_length = 3},
+    {name = 'buffer', keyword_length = 3},
+    {name = 'luasnip', keyword_length = 2},
+  },
+  window = {
+    documentation = cmp.config.window.bordered()
+  },
+  formatting = {
+    fields = {'menu', 'abbr', 'kind'},
+    format = function(entry, item)
+      local menu_icon = {
+        nvim_lsp = 'λ',
+        luasnip = '⋗',
+        buffer = 'Ω',
+        path = '🖫',
+      }
+
+      item.menu = menu_icon[entry.source.name]
+      return item
+    end,
+  },
+  mapping = {
+    ['<Up>'] = cmp.mapping.select_prev_item(select_opts),
+    ['<Down>'] = cmp.mapping.select_next_item(select_opts),
+
+    ['<C-p>'] = cmp.mapping.select_prev_item(select_opts),
+    ['<C-n>'] = cmp.mapping.select_next_item(select_opts),
+
+    ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+
+    ['<C-e>'] = cmp.mapping.abort(),
+    ['<CR>'] = cmp.mapping.confirm({select = true}),
+
+    ['<C-d>'] = cmp.mapping(function(fallback)
+      if luasnip.jumpable(1) then
+        luasnip.jump(1)
+      else
+        fallback()
+      end
+    end, {'i', 's'}),
+
+    ['<C-b>'] = cmp.mapping(function(fallback)
+      if luasnip.jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end, {'i', 's'}),
+
+    ['<Tab>'] = cmp.mapping(function(fallback)
+      local col = vim.fn.col('.') - 1
+
+      if cmp.visible() then
+        cmp.select_next_item(select_opts)
+      elseif col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
+        fallback()
+      else
+        cmp.complete()
+      end
+    end, {'i', 's'}),
+
+    ['<S-Tab>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item(select_opts)
+      else
+        fallback()
+      end
+    end, {'i', 's'}),
+  },
+})
+
+local sign = function(opts)
+  vim.fn.sign_define(opts.name, {
+    texthl = opts.name,
+    text = opts.text,
+    numhl = ''
+  })
+end
+
+sign({name = 'DiagnosticSignError', text = '✘'})
+sign({name = 'DiagnosticSignWarn', text = '▲'})
+sign({name = 'DiagnosticSignHint', text = '⚑'})
+sign({name = 'DiagnosticSignInfo', text = ''})
+
+vim.diagnostic.config({
+  virtual_text = true,
+  severity_sort = true,
+  float = {
+    border = 'rounded',
+    source = 'always',
+    header = '',
+    prefix = '',
+  },
+})
+
+vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
+  vim.lsp.handlers.hover,
+  {border = 'rounded'}
+)
+
+vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
+  vim.lsp.handlers.signature_help,
+  {border = 'rounded'}
+)
+
+---
+-- LSP Keybindings
+---
+vim.api.nvim_create_autocmd('User', {
+  pattern = 'LspAttached',
+  group = group,
+  desc = 'LSP actions',
+  callback = function()
+    local bufmap = function(mode, lhs, rhs)
+      local opts = {buffer = true}
+      vim.keymap.set(mode, lhs, rhs, opts)
+    end
+
+    -- You can search each function in the help page.
+    -- For example :help vim.lsp.buf.hover()
+
+    bufmap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>')
+    bufmap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>')
+    bufmap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>')
+    bufmap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>')
+    bufmap('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>')
+    bufmap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>')
+    bufmap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<cr>')
+    bufmap('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>')
+    bufmap('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>')
+    bufmap('x', '<F4>', '<cmd>lua vim.lsp.buf.range_code_action()<cr>')
+    bufmap('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>')
+    bufmap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
+    bufmap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>')
+  end
+})
+
+---
+-- Treesitter configs
+---
+require('nvim-treesitter.configs').setup {
+  -- one of "all", "maintained" (parsers with maintainers),
+  -- or a list of languages
+  ensure_installed = { "python", "java", "cpp",
+                       "javascript", "comment", "bash",
+                       "bibtex", "c", "c_sharp",
+                       "cmake", "css", "dockerfile",
+                       "dot", "gitattributes", "go",
+                       "help", "hjson", "html",
+                       "jsdoc", "json", "json5",
+                       "jsonc", "julia", "kotlin",
+                       "latex", "lua", "make",
+                       "markdown", "php", "r",
+                       "regex", "rst", "scss",
+                       "scheme", "sql", "toml",
+                       "typescript", "yaml"},
+  auto_install = true,
+  highlight = { enable = true }
+}
