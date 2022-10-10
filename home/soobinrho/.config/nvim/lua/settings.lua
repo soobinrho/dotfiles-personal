@@ -180,30 +180,6 @@ require("mason-lspconfig").setup({
 })
 
 ---
--- LSP initialization
----
-require'lspconfig'.angularls.setup{}
-require'lspconfig'.awk_ls.setup{}
-require'lspconfig'.bashls.setup{}
-require'lspconfig'.clangd.setup{}
-require'lspconfig'.cmake.setup{}
-require'lspconfig'.cssls.setup{}
-require'lspconfig'.dockerls.setup{}
-require'lspconfig'.gopls.setup{}
-require'lspconfig'.html.setup{}
-require'lspconfig'.jsonls.setup{}
-require'lspconfig'.ltex.setup{}
-require'lspconfig'.phpactor.setup{}
-require'lspconfig'.powershell_es.setup{}
-require'lspconfig'.pyright.setup{}
-require'lspconfig'.yamlls.setup{}
-require'lspconfig'.rust_analyzer.setup{}
-require'lspconfig'.sqlls.setup{}
-require'lspconfig'.tsserver.setup{}
-require'lspconfig'.volar.setup{}
-require'lspconfig'.lemminx.setup{}
-
----
 -- nvim-cmp and lunasnip configs
 ---
 -- from:
@@ -383,3 +359,29 @@ require('nvim-treesitter.configs').setup {
   auto_install = true,
   highlight = { enable = true }
 }
+
+---
+-- LSP servers initialization
+---
+require'lspconfig'.angularls.setup{}
+require'lspconfig'.awk_ls.setup{}
+require'lspconfig'.bashls.setup{}
+require'lspconfig'.clangd.setup{}
+require'lspconfig'.cmake.setup{}
+require'lspconfig'.cssls.setup{}
+require'lspconfig'.dockerls.setup{}
+require'lspconfig'.gopls.setup{}
+require'lspconfig'.html.setup{}
+require'lspconfig'.jsonls.setup{}
+require'lspconfig'.ltex.setup{}
+require'lspconfig'.phpactor.setup{}
+require'lspconfig'.powershell_es.setup{}
+require'lspconfig'.pyright.setup{}
+require'lspconfig'.yamlls.setup{}
+require'lspconfig'.rust_analyzer.setup{}
+require'lspconfig'.sqlls.setup{}
+require'lspconfig'.tsserver.setup{}
+require'lspconfig'.volar.setup{}
+require'lspconfig'.lemminx.setup{}
+
+
