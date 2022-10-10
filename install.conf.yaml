@@ -40,6 +40,6 @@
 # depending on the screen size of each device.
 # e.g. terminal font size, window size, window position, ...
 - shell:
-    - cp home/soobinrho/.config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
-    - cp home/soobinrho/.config/konsolerc ~/.config/konsolerc
-    - cp home/soobinrho/.local/share/konsole/Profile1.profile ~/.local/share/konsole/Profile1.profile
+    - cp -f home/soobinrho/.config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
+    - cp -f home/soobinrho/.config/konsolerc ~/.config/konsolerc
+    - cp -f home/soobinrho/.local/share/konsole/Profile1.profile ~/.local/share/konsole/Profile1.profile
