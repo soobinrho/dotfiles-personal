@@ -52,7 +52,9 @@ unset __conda_setup
 # ----------------------------------------- #
 # Aliases
 # ----------------------------------------- #
-alias vim=nvim
+vim() {
+    alacritty --command nvim "$1" &
+}
 alias oldvim=\vim
 alias ls=colorls
 alias glow='glow -p'
