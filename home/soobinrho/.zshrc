@@ -6,7 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -122,6 +122,30 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# --------------------------------------------
+# Aliases
+# --------------------------------------------
+vim() {
+        (alacritty --command nvim "$1" &)
+}
+alias ls="colorls"
+alias glow="glow -p"
+alias PullGitAll="~/git/bash-git-pull-in-every-folder/PullGitAll"
+alias StatusGitAll="~/git/bash-git-pull-in-every-folder/optional-scripts/StatusGitAll"
+alias BuildJava="~/git/college-programming/summer-2022/computer-science-II/BuildJava"
+
+# --------------------------------------------
+# nvm configs: node version manager
+# --------------------------------------------
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm 
+
+# --------------------------------------------
+# z.lua configs: a faster version of cd
+# --------------------------------------------
+eval "$(lua ~/.local/z.lua/z.lua --init zsh)"
+
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
