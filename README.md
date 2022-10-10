@@ -32,11 +32,18 @@ e.g. 190GB for Fedora and 50GB for Windows.
     └── soobinrho
         ├── .bashrc
         ├── .config
+        │   ├── alacritty
+        │   │   └── alacritty.yml
         │   ├── htop
         │   │   └── htoprc
         │   ├── konsolerc
         │   ├── neofetch
         │   │   └── config.conf
+        │   ├── nvim
+        │   │   ├── init.lua
+        │   │   └── lua
+        │   │       └── plugins.lua
+        │   │           └── settings.lua
         │   └── obs-studio
         │       └── basic
         │           └── scenes
@@ -50,15 +57,9 @@ e.g. 190GB for Fedora and 50GB for Windows.
         │       └── konsole
         │           ├── Breeze.colorscheme
         │           └── Profile1.profile
-        ├── .pureline.conf
-        ├── .vim
-        ├── plugged
-        │   └── vim-airline
-        │       └── autoload
-        │           └── airline
-        │               └── parts.vim
-        └── plugins.vim
-        └── .vimrc
+        ├── .p10k.zsh
+        ├── pureline.conf
+        └── .zshrc
 ```
 
 <br>
