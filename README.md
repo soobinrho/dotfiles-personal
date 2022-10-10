@@ -136,7 +136,11 @@ sudo rpm -Uvh https://packages.microsoft.com/config/centos/8/packages-microsoft-
 sudo dnf update -y
 sudo dnf install -y powershell
 
-# Install Alacritty, a fast OpenGL terminal emulator
+# Install Alacritty, a fast OpenGL terminal emulator.
+# I normally use Konsole because - unlike Alacritty - Konsole
+# remembers the last window position. When I need speed, however,
+# Alacritty tends to be better smoother and faster because
+# it knows how to use both the CPU and the graphics cards.
 git clone https://github.com/alacritty/alacritty.git
 cd alacritty
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
