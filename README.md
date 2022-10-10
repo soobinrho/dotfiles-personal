@@ -136,6 +136,9 @@ sudo rpm -Uvh https://packages.microsoft.com/config/centos/8/packages-microsoft-
 sudo dnf update -y
 sudo dnf install -y powershell
 
+# Install zsh
+sudo dnf install -y zsh
+
 # Install Alacritty, a fast OpenGL terminal emulator.
 # I normally use Konsole because - unlike Alacritty - Konsole
 # remembers the last window position. When I need speed, however,
@@ -448,7 +451,7 @@ sudo service sshd stop
 # Open the config file
 sudo vim /etc/ssh/sshd_config
 
-# Disallow password authentication 
+# Disallow password authentication
 # so that only the RSA SSH key can be used
 PasswordAuthentication no
 
