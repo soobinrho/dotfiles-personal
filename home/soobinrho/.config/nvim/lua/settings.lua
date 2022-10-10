@@ -30,6 +30,7 @@ vim.g.material_style = "oceanic"
 vim.o.cursorline = true
 vim.o.cursorcolumn = true
 vim.cmd 'colorscheme material'
+vim.cmd 'hi Normal guibg=NONE'
 
 -- Sidebar
 vim.o.number = true -- line number on the left
@@ -306,38 +307,6 @@ vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
 )
 
 ---
--- LSP Keybindings
----
-vim.api.nvim_create_autocmd('User', {
-  pattern = 'LspAttached',
-  group = group,
-  desc = 'LSP actions',
-  callback = function()
-    local bufmap = function(mode, lhs, rhs)
-      local opts = {buffer = true}
-      vim.keymap.set(mode, lhs, rhs, opts)
-    end
-
-    -- You can search each function in the help page.
-    -- For example :help vim.lsp.buf.hover()
-
-    bufmap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>')
-    bufmap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>')
-    bufmap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>')
-    bufmap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>')
-    bufmap('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>')
-    bufmap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>')
-    bufmap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<cr>')
-    bufmap('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>')
-    bufmap('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>')
-    bufmap('x', '<F4>', '<cmd>lua vim.lsp.buf.range_code_action()<cr>')
-    bufmap('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>')
-    bufmap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
-    bufmap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>')
-  end
-})
-
----
 -- Treesitter configs
 ---
 require('nvim-treesitter.configs').setup {
@@ -363,6 +332,75 @@ require('nvim-treesitter.configs').setup {
 ---
 -- LSP servers initialization
 ---
+
+
+-- vim.api.nvim_create_autocmd('User', {
+--   pattern = 'LspAttached',
+--   group = group,
+--   desc = 'LSP actions',
+--   callback = function()
+--     local bufmap = function(mode, lhs, rhs)
+--       local opts = {buffer = true}
+--       vim.keymap.set(mode, lhs, rhs, opts)
+--     end
+--
+--     -- You can search each function in the help page.
+--     -- For example :help vim.lsp.buf.hover()
+--
+--     bufmap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>')
+--     bufmap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>')
+--     bufmap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>')
+--     bufmap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>')
+--     bufmap('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>')
+--     bufmap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>')
+--     bufmap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<cr>')
+--     bufmap('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>')
+--     bufmap('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>')
+--     bufmap('x', '<F4>', '<cmd>lua vim.lsp.buf.range_code_action()<cr>')
+--     bufmap('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>')
+--     bufmap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
+--     bufmap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>')
+--   end
+-- })
+--
+
+
+
+-- Mappings.
+-- See `:help vim.diagnostic.*` for documentation on any of the below functions
+local opts = { noremap=true, silent=true }
+vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
+
+-- Use an on_attach function to only map the following keys
+-- after the language server attaches to the current buffer
+local on_attach = function(client, bufnr)
+  -- Enable completion triggered by <c-x><c-o>
+  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+  -- Mappings.
+  -- See `:help vim.lsp.*` for documentation on any of the below functions
+  local bufopts = { noremap=true, silent=true, buffer=bufnr }
+  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+  vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+  vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+  vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
+  vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
+  vim.keymap.set('n', '<space>wl', function()
+    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+  end, bufopts)
+  vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
+  vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
+  vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
+  vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+  vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
+end
+
+
 require'lspconfig'.angularls.setup{}
 require'lspconfig'.awk_ls.setup{}
 require'lspconfig'.bashls.setup{}

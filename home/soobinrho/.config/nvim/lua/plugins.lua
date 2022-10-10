@@ -9,7 +9,7 @@ local ensure_packer = function()
   return false
 end
 
-local packer_bootstrap = ensure_packer()
+local panmnr_bootstram = ensure_packer()
 
 -- Load Packer
 return require('packer').startup(function(use)

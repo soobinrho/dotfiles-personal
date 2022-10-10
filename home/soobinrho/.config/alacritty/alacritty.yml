@@ -1,0 +1,11 @@
+window:
+  dimensions:
+    columns: 75
+    lines: 20
+  decorations: none
+  opacity: 0.9
+
+font:
+  normal:
+    family: RobotoMono Nerd Font Mono
+  size: 8.0
