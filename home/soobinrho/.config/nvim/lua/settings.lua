@@ -3,6 +3,8 @@
 -- ##############################
 -- Taken from:
 -- https://github.com/arnvald/viml-to-lua/blob/main/lua/settings.lua
+vim.g.loaded = 1
+vim.g.loaded_netrwPlugin = 1
 HOME = os.getenv("HOME")
 vim.o.encoding = "utf-8"
 vim.o.history = 1000
@@ -24,6 +26,9 @@ vim.o.numberwidth = 3 -- always reserve 3 spaces for line number
 vim.o.signcolumn = 'yes' -- keep 1 column for coc.vim  check
 vim.o.modelines = 0
 vim.o.showcmd = true -- display command in bottom bar
+
+-- nvim-tree configs
+require("nvim-tree").setup()
 
 -- Search
 vim.o.incsearch = true -- starts searching as soon as typing, without enter needed

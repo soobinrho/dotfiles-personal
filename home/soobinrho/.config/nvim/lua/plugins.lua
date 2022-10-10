@@ -9,6 +9,12 @@ return require('packer').startup(function(use)
   use 'bronson/vim-trailing-whitespace'
   use 'andymass/vim-matchup'
 
+  -- File explorer
+  use {
+    'nvim-tree/nvim-tree.lua',
+    requires = {'nvim-tree/nvim-web-devicons'}
+  }
+
   -- Colorscheme
   use 'marko-cerovac/material.nvim'
   vim.cmd 'colorscheme material'
@@ -31,7 +37,7 @@ return require('packer').startup(function(use)
       },
       ignore_focus = {},
       always_divide_middle = true,
-      globalstatus = false,
+      globalstatus = true,
       refresh = {
         statusline = 1000,
         tabline = 1000,
@@ -40,9 +46,9 @@ return require('packer').startup(function(use)
     },
     sections = {
       lualine_a = {'mode'},
-      lualine_b = {'branch', 'diff', 'diagnostics'},
+      lualine_b = {'branch', 'diff'},
       lualine_c = {'filename'},
-      lualine_x = {'encoding', 'fileformat', 'filetype'},
+      lualine_x = {'filetype'},
       lualine_y = {'progress'},
       lualine_z = {'location'}
     },
@@ -54,17 +60,24 @@ return require('packer').startup(function(use)
       lualine_y = {},
       lualine_z = {}
     },
-    tabline = {},
+    tabline = {
+      lualine_a = {
+        {
+          'buffers',
+          mode = 4, -- 4: Shows buffer name + buffer number
+        }
+      }
+    },
     winbar = {},
     inactive_winbar = {},
-    extensions = {}
+    extensions = {'nvim-tree'}
   }
 
   -- See commit messages
   use 'rhysd/git-messenger.vim'
 
   -- Git status signs
-  use { 'lewis6991/gitsigns.nvim', 
+  use { 'lewis6991/gitsigns.nvim',
     requires = { 'nvim-lua/plenary.nvim' },
     config = function()
       require('gitsigns').setup({
