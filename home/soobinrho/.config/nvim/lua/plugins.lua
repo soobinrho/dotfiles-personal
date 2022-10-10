@@ -72,7 +72,6 @@ use {
 
   -- Colorscheme
   use 'marko-cerovac/material.nvim'
-  vim.cmd 'colorscheme material'
 
   -- Statusline at the bottom
   use {

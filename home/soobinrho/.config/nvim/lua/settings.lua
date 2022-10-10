@@ -29,6 +29,7 @@ vim.o.laststatus = 2 -- always show status line
 vim.g.material_style = "oceanic"
 vim.o.cursorline = true
 vim.o.cursorcolumn = true
+vim.cmd 'colorscheme material'
 
 -- Sidebar
 vim.o.number = true -- line number on the left
