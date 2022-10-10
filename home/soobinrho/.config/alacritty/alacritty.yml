@@ -8,4 +8,4 @@ window:
 font:
   normal:
     family: RobotoMono Nerd Font Mono
-  size: 8.0    # 12.0 works for my big laptop. 8.0 works for my smalllaptop.
+  size: 8.0    # 12.0 works for my big laptop. 8.0 works for my small laptop.
