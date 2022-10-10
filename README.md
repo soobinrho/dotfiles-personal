@@ -85,10 +85,10 @@ e.g. 190GB for Fedora and 50GB for Windows.
 ### `Enabling automatic dnf updates`
 
 ```bash
-# Add yourself to the sudo group.
+# Add yourself to the sudo group
 sudo usermod -aG wheel $(whoami)
 
-# dnf-automatic updates everyday automatically.
+# dnf-automatic updates everyday automatically
 sudo dnf install -y dnf-automatic
 sudo systemctl enable --now dnf-automatic-install.timer
 ```
@@ -106,7 +106,7 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 # Install Node.js
 nvm install node
 
-# Install TypeScript.
+# Install TypeScript
 npm install -g typescript
 ```
 
@@ -115,16 +115,16 @@ npm install -g typescript
 ### `Installing programming environments`
 
 ```bash
-# Install git.
+# Install git
 sudo dnf install -y git
 
-# Enable RPM Fusion repositories.
+# Enable RPM Fusion repositories
 sudo dnf install -y \
   https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
 sudo dnf install -y \
   https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
-# Install Rust.
+# Install Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 # Install R
@@ -155,32 +155,32 @@ sudo update-desktop-database
 cd ..
 rm -rf ./alacritty
 
-# Install neovim: more extensible fork of vim.
+# Install neovim: more extensible fork of vim
 sudo dnf install -y vim wl-clipboard xclip ripgrep fd-find
 bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/rolling/utils/installer/install-neovim-from-release)
 
-# Install Visual Studio Code.
+# Install Visual Studio Code
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
 dnf check-update
 sudo dnf install code
 
-# Install steghide: steganography library.
+# Install steghide: steganography library
 sudo dnf install -y steghide
 
-# Install gh: GitHub CLI.
+# Install gh: GitHub CLI
 sudo dnf install -y gh
 
-# Install git-lfs: Git Large File Storage.
+# Install git-lfs: Git Large File Storage
 sudo dnf install -y git-lfs
 
-# Install LaTex environment.
+# Install LaTex environment
 sudo dnf install -y texlive-scheme-full texstudio
 
-# Install Chrome.
+# Install Chrome
 # https://www.google.com/intl/en_us/chrome/
 
-# Install Java.
+# Install Java
 # https://www.oracle.com/java/technologies/downloads/
 
 # Install Anaconda.
@@ -196,13 +196,13 @@ conda config --set auto_activate_base false
 ```
 
 <!--
-# Install MariaDB.
+# Install MariaDB
 sudo dnf install -y mariadb
 
-# Install MariaDB server.
+# Install MariaDB server
 sudo dnf install -y mariadb-server
 
-# Install MariaDB ODBC.
+# Install MariaDB ODBC
 sudo dnf install -y mariadb-connector-odbc
 
 -->
@@ -212,72 +212,72 @@ sudo dnf install -y mariadb-connector-odbc
 ### `Installing additional utilities`
 
 ```bash
-# Install neofetch: system information viewer.
+# Install neofetch: system information viewer
 sudo dnf install -y neofetch
 
-# Install htop: process viewer.
+# Install htop: process viewer
 sudo dnf install -y htop
 
-# Install ncdu: disk usage viewer.
+# Install ncdu: disk usage viewer
 sudo dnf install -y ncdu
 
-# Install yarn: faster, parallel package manager.
+# Install yarn: a faster, parallel package manager
 npm install -g yarn
 
-# Install tldr: like man, but with simple examples.
+# Install tldr: similar to [man], but with simple examples
 npm install -g tldr
 
-# Install bat: colored, cooler version of cat.
+# Install bat: colored, cooler version of cat
 sudo dnf install -y bat
 
-# Install loadtest: server load testing tool.
+# Install loadtest: server load testing tool
 npm install -g loadtest
 
-# Install asciinema: terminal session recording tool.
+# Install asciinema: terminal session recording tool
 sudo dnf install -y asciinema
 
-# Install svg-term-cli: asciinema to svg converter.
+# Install svg-term-cli: asciinema to svg converter
 npm install -g svg-term-cli
 
-# Install xournal: pdf annotation tool.
+# Install xournal: pdf annotation tool
 sudo dnf install -y xournal
 
-# Install obs-studio: screencasting tool.
+# Install obs-studio: screencasting/streaming tool
 sudo dnf install -y obs-studio
 
-# Install FFmpeg: multimedia encoding/decoding tool.
+# Install FFmpeg: multimedia encoding/decoding tool
 sudo dnf install -y ffmpeg
 
-# Install simplescreenrecorder: light-weight screencasting tool.
+# Install simplescreenrecorder: light-weight screencasting tool
 sudo dnf install -y simplescreenrecorder
 
-# Install vlc: video player.
+# Install vlc: video player
 sudo dnf install -y vlc
 
-# Install hstr: shell history search tool.
+# Install hstr: shell history search tool
 sudo dnf install -y hstr
 
-# Install colorls: colored, cooler version of ls.
+# Install colorls: colored, cooler version of ls
 sudo dnf install -y ruby-devel
 sudo dnf group install -y "C Development Tools and Libraries"
 gem install colorls
 
-# Install nerd-fonts: fonts with better icons support.
+# Install nerd-fonts: fonts with better icons support
 git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git
 nerd-fonts/install.sh
 rm -rf nerd-fonts
 
-# Install fzf: shell fuzzy finder.
+# Install fzf: shell fuzzy finder
 # My favorite option for fzf: `cat **<Tab>`
 # https://github.com/junegunn/fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
-# Install z.lua: faster, cooler version of cd.
+# Install z.lua: a faster, cooler version of cd
 # My favorite option for z.lua: `z dotfiles`
 git clone https://github.com/skywind3000/z.lua.git ~/.local/z.lua/
 
-# Install glow: markdown reader.
+# Install glow: markdown reader
 echo '[charm]
 name=Charm
 baseurl=https://repo.charm.sh/yum/
@@ -285,13 +285,13 @@ enabled=1
 gpgcheck=0' | sudo tee /etc/yum.repos.d/charm.repo
 sudo yum install -y glow
 
-# Install http-tanker: interactive http-requests tool.
+# Install http-tanker: interactive http-requests tool
 curl -sSL https://raw.githubusercontent.com/PierreKieffer/http-tanker/master/install/install_tanker64_linux.sh | bash
 
-# Install PureLine: bash powerline.
+# Install PureLine: bash powerline
 git clone https://github.com/chris-marsh/pureline.git ~/pureline
 
-# Remove nano in order to make vim the default editor.
+# Remove nano in order to make vim the default editor
 sudo dnf remove -y nano
 ```
 
@@ -303,25 +303,24 @@ sudo dnf remove -y nano
 ### `(Optional) Signing git commits with a GPG key` [[Source](https://wouterdeschuyter.be/blog/verified-signed-commits-on-github)]
 
 ```bash
-# Set up git name, email, and default editor.
+# Set up git name, email, and default editor
 git config --global user.name "Soobin Rho"
 git config --global user.email "soobinrho@gmail.com"
 git config --global core.editor vim
 
-# Create a GPG key.
+# Create a GPG key
 gpg --full-generate-key
 
-# Select RSA and RSA.
+# Select RSA and RSA
 1
 
-# Select the length to be 4096.
+# Select the length to be 4096
 4096
 
-# Set the key to never expire.
+# Set the key to never expire
 0
 
-# Set the key's user ID as my name and
-# GitHub email address.
+# Set the key's user ID as my name and GitHub email address
 Soobin Rho
 soobinrho@gmail.com
 
@@ -331,11 +330,10 @@ soobinrho@gmail.com
 # BC0596A444D39F64 is the key ID.
 gpg --list-secret-keys --keyid-format LONG
 
-# Copy and paste the key's public key
-# to GitHub's GPG Key section settings.
+# Copy and paste the key's public key to GitHub's GPG Key section settings
 gpg --armor --export BC0596A444D39F64
 
-# Configure git to sign all commits with the key.
+# Configure git to sign all commits with the key
 git config --global user.signingkey BC0596A444D39F64
 git config --global commit.gpgSign true
 
@@ -351,8 +349,7 @@ git config --global alias.c 'commit -s'
 # Your commits will be signed with
 # both your GPG key and the DCO.
 
-# Set default branch name to main
-# instead of master.
+# Set default branch name to main instead of master
 git config --global init.defaultBranch main
 ```
 
@@ -367,40 +364,8 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
 # Install plugins listed at ~/.nvim/lua/plugins.lua
-# [Inside nvim]
 nvim -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 ```
-
-
-<!-- NOTE: nvim without Lunarvim configs. Keeping just as a backup
-### `Adding Vim Plugins` [[Source](https://medium.com/@huntie/10-essential-vim-plugins-for-2018-39957190b7a9)]
-
-```bash
-# Install vim-plug.
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-
-# Install YouCompleteMe.
-sudo dnf install -y cmake gcc-c++ make python3-devel golang
-cd ~/.vim/plugged
-git clone --recurse-submodules https://github.com/ycm-core/YouCompleteMe.git
-cd YouCompleteMe
-python3 install.py --all
-
-# Install vim-prettier.
-npm install -g prettier
-mkdir -p ~/.vim/pack/plugins/start
-cd ~/.vim/pack/plugins/start
-git clone https://github.com/prettier/vim-prettier
-
-# Install rest of the plugins listed at
-# `./home/$(whoami)/.vim/plugins.vim`
-vim
-:PlugInstall
-```
--->
 
 <br>
 <br>
@@ -408,10 +373,10 @@ vim
 ### `Dotfiles Installation`
 
 ```bash
-# Install Dotbot.
+# Install Dotbot
 pip install dotbot
 
-# Install all the dotfiles.
+# Install all the dotfiles
 mkdir ~/git
 cd ~/git
 git clone https://github.com/soobinrho/dotfiles-personal.git
@@ -466,7 +431,7 @@ SSH server as soon as you're done.
 ### `Starting a SSH server on my second laptop` [[Source](https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys)]
 
 ```bash
-# Start the SSH server.
+# Start the SSH server
 sudo service sshd start
 
 # When you're done with SSH, stop the SSH server.
@@ -480,17 +445,17 @@ sudo service sshd stop
 ### `Configuring sshd_config` [[Source](https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys)]
 
 ```bash
-# Open the config file.
+# Open the config file
 sudo vim /etc/ssh/sshd_config
 
-# Disallow password authentication
-# so that only the RSA SSH key can be used.
+# Disallow password authentication 
+# so that only the RSA SSH key can be used
 PasswordAuthentication no
 
-# Disable root login.
+# Disable root login
 PermitRootLogin no
 
-# Restart SSH.
+# Restart SSH
 sudo service sshd restart    # Fedora
 sudo service ssh restart    # Ubuntu
 ```
@@ -508,8 +473,7 @@ rsync --archive ~/.gnupg $(whoami)@ip_address:~
 
 # The --archive option preserves
 # all permissions, modification times, and
-# everytihng inside the directory recursively.
-
+# everytihng inside the directory recursively
 ```
 
 <br>
@@ -529,10 +493,10 @@ rsync --archive ~/.gitconfig $(whoami)@ip_address:~/.gitconfig
 ### `(Optional) Creating a key as a SSH client on my primary laptop` [[Source](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-20-04)]
 
 ```bash
-# Create a key with the length of 4096 bits.
+# Create a key with the length of 4096 bits
 ssh-keygen -b 4096
 
-# Copy the public key to the SSH server.
+# Copy the public key to the SSH server
 ssh-copy-id root@ip_address
 ```
 
@@ -541,8 +505,7 @@ ssh-copy-id root@ip_address
 ### `(Optional) Client-side SSH configuration I use on my primary laptop` [[Source](https://unix.stackexchange.com/questions/708206/ssh-timeout-does-not-happen-and-not-disconnect)]
 
 ```bash
-# Configuring your SSH client to
-# time-out less frequently.
+# Configuring your SSH client to time-out less frequently
 cat >> ~/.ssh/config
 Host *
   ServerAliveInterval 15
@@ -583,19 +546,18 @@ Here's how I configure my VPS's for web apps.
 ### `Initializing an Ubuntu server on DigitalOcean` [[Source](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-20-04)]
 
 ```bash
-# SSH into the server.
+# SSH into the server
 ssh root@ip_address
 
-# Set up the firewall.
+# Set up the firewall
 ufw allow OpenSSH
 ufw enable
 
-# Create a user account.
+# Create a user account
 adduser main
 usermod -aG sudo main
 
-# Copy the public key from the root
-# to the user that we just created.
+# Copy the public key from the root to the user that we just created
 rsync --archive --chown=main:main /root/.ssh /home/main
 ```
 
@@ -604,10 +566,10 @@ rsync --archive --chown=main:main /root/.ssh /home/main
 ### `Installing Docker Engine on Ubuntu` [[Source](https://docs.docker.com/engine/install/ubuntu/)]
 
 ```bash
-# Update apt.
+# Update apt
 sudo apt update
 
-# Add the official Docker repository to apt.
+# Add the official Docker repository to apt
 sudo apt install \
     ca-certificates \
     curl \
@@ -637,25 +599,24 @@ su -l $USER
 ### `Installing Docker Engine on Fedora` [[Source](https://docs.docker.com/engine/install/fedora/)]
 
 ```bash
-# Add the official Docker repository to dnf.
+# Add the official Docker repository to dnf
 sudo dnf -y install dnf-plugins-core
 sudo dnf config-manager \
     --add-repo \
     https://download.docker.com/linux/fedora/docker-ce.repo
 
-# Install Docker Engine.
+# Install Docker Engine
 sudo dnf install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
 
 # On Ubuntu, Docker service starts automatically,
 # but on Fedora, Docker service should be started with
 sudo systemctl start docker
 
-# Add your account to the group docker
-# so that you can use it without sudo.
+# Add your account to the group docker so that you can use it without sudo
 sudo groupadd docker
 sudo usermod -aG docker $USER
 
-# Re-login so that the changes can be applied.
+# Re-login so that the changes can be applied
 su -l $USER
 ```
 
@@ -800,10 +761,10 @@ session into a gif, there's a simpler way
 using asciinema and svg-term-cli.
 
 ```bash
-# Record a terminal session.
+# Record a terminal session
 asciinema rec
 
-# Convert the asciinema into a svg file.
+# Convert the asciinema into a svg file
 svg-term --cast=11345 --out example.svg
 ```
 
@@ -843,16 +804,16 @@ since it's able to load all our styles.
 
 **Bash**
 ```bash
-# Shutdown.
+# Shutdown
 poweroff
 
-# Suspend.
-systemctl suspend -i
+# Suspend
+systemctl suspend
 
-# Execute the last command.
+# Execute the last command
 `ctrl` + `p`
 
-# Go to top level of internal documentation.
+# Go to top level of internal documentation
 info bash
 u
 
@@ -884,7 +845,6 @@ rtmp://127.0.0.1:1935/live
 This rhetorics settings requires Nginx server.
 The installation is described in my Google Docs
 -->
-
 
 <br>
 <br>
