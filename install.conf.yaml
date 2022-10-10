@@ -24,6 +24,7 @@
 
 - link:
     ~/.bashrc: home/soobinrho/.bashrc
+    ~/.p10k.zsh: home/soobinrho/.p10k.zsh
     ~/.config/htop/htoprc: home/soobinrho/.config/htop/htoprc
     ~/.config/neofetch/config.conf: home/soobinrho/.config/neofetch/config.conf
     ~/.config/nvim/init.lua: home/soobinrho/.config/nvim/init.lua
