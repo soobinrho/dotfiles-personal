@@ -172,9 +172,9 @@ require("mason-lspconfig").setup({
     "clangd", "cmake", "cssls",
     "dockerls", "gopls", "html",
     "jsonls", "ltex", "phpactor",
-    "powershell_es", "pyright", "r_language_server",
+    "powershell_es", "pyright", "yamlls",
     "rust_analyzer", "sqlls", "tsserver",
-    "volar", "lemminx", "yamlls"
+    "volar", "lemminx"
   },
   automatic_installation = true;
 })
@@ -196,13 +196,12 @@ require'lspconfig'.ltex.setup{}
 require'lspconfig'.phpactor.setup{}
 require'lspconfig'.powershell_es.setup{}
 require'lspconfig'.pyright.setup{}
-require'lspconfig'.r_language_server.setup{}
+require'lspconfig'.yamlls.setup{}
 require'lspconfig'.rust_analyzer.setup{}
 require'lspconfig'.sqlls.setup{}
 require'lspconfig'.tsserver.setup{}
 require'lspconfig'.volar.setup{}
 require'lspconfig'.lemminx.setup{}
-require'lspconfig'.yamlls.setup{}
 
 ---
 -- nvim-cmp and lunasnip configs
