@@ -34,6 +34,7 @@
     ~/.gnupg/gpg-agent.conf: home/soobinrho/.gnupg/gpg-agent.conf
     ~/.local/share/konsole/Breeze.colorscheme: home/soobinrho/.local/share/konsole/Breeze.colorscheme
     ~/.pureline.conf: home/soobinrho/.pureline.conf
+    ~/.zshrc: home/soobinrho/.zshrc
 
 # Mostly, I link my dotfiles. Here, however, I just copy them instead of
 # linking them because the dotfiles below almost always have to change

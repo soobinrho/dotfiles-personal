@@ -138,6 +138,10 @@ sudo dnf install -y powershell
 
 # Install zsh
 sudo dnf install -y zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# Install zsh theme: powerlevel10k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
 # Install Alacritty, a fast OpenGL terminal emulator.
 # I normally use Konsole because - unlike Alacritty - Konsole
