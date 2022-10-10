@@ -53,7 +53,7 @@ unset __conda_setup
 # Aliases
 # ----------------------------------------- #
 vim() {
-    alacritty --command nvim "$1" &
+	(alacritty --command nvim "$1" &)
 }
 alias oldvim=\vim
 alias ls=colorls
@@ -99,3 +99,4 @@ export NVM_DIR="$HOME/.nvm"
 # Enabling autocompletion for IBM Cloud CLI
 # ----------------------------------------- #
 [[ -f /usr/local/ibmcloud/autocomplete/bash_autocomplete ]] && source /usr/local/ibmcloud/autocomplete/bash_autocomplete
+. "$HOME/.cargo/env"

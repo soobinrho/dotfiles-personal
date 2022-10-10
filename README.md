@@ -136,6 +136,19 @@ sudo rpm -Uvh https://packages.microsoft.com/config/centos/8/packages-microsoft-
 sudo dnf update -y
 sudo dnf install -y powershell
 
+# Install Alacritty, a fast OpenGL terminal emulator
+git clone https://github.com/alacritty/alacritty.git
+cd alacritty
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+rustup override set stable
+rustup update stable
+dnf install -y cmake freetype-devel fontconfig-devel libxcb-devel libxkbcommon-devel g++
+cargo build --release
+sudo cp target/release/alacritty /usr/local/bin # or anywhere else in $PATH
+sudo cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
+sudo desktop-file-install extra/linux/Alacritty.desktop
+sudo update-desktop-database
+
 # Install neovim: more extensible fork of vim.
 bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/rolling/utils/installer/install-neovim-from-release)
 sudo dnf install -y python3-neovim vim wl-clipboard xclip ripgrep fd-find

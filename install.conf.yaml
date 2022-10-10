@@ -5,6 +5,8 @@
       force: true
 
 - create:
+    ~/.config/alacritty:
+      mode: 0755
     ~/.config/htop:
       mode: 0755
     ~/.config/neofetch:
@@ -21,6 +23,7 @@
       mode: 0755
 
 - link:
+    ~/.config/alacritty/alacritty.yml: home/soobinrho/.config/alacritty/alacritty.yml
     ~/.bashrc: home/soobinrho/.bashrc
     ~/.config/htop/htoprc: home/soobinrho/.config/htop/htoprc
     ~/.config/neofetch/config.conf: home/soobinrho/.config/neofetch/config.conf
