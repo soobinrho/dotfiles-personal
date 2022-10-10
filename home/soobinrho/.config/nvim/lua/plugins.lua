@@ -9,6 +9,9 @@ return require('packer').startup(function(use)
   use 'bronson/vim-trailing-whitespace'
   use 'andymass/vim-matchup'
 
+  -- Required for <F5> for compile & run
+  use 'tpope/vim-dispatch'
+
   -- File explorer
   use {
     'nvim-tree/nvim-tree.lua',

@@ -13,12 +13,20 @@ vim.o.ttimeout = true
 vim.o.ttimeoutlen = 100
 vim.o.showbreak= '↪' -- character to show when line is broken
 
+-- More convinient key mappings
+vim.api.nvim_set_keymap('n', 'n', 'nzz', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', 'N', 'Nzz', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', 'j', 'gj', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', 'k', 'gk', { noremap = true, silent = true})
+
 -- Display
 vim.o.showmatch  = true -- show matching brackets
 vim.o.scrolloff = 8 -- always show 8 rows from edge of the screen
 vim.o.synmaxcol = 300 -- stop syntax highlight after x lines for performance
 vim.o.laststatus = 2 -- always show status line
 vim.g.material_style = "oceanic"
+vim.o.cursorline = true
+vim.o.cursorcolumn = true
 
 -- Sidebar
 vim.o.number = true -- line number on the left
@@ -45,17 +53,6 @@ vim.o.directory = '/.vim/tmp/swap//'   -- swap files
 
 -- Commands mode
 vim.o.wildmenu = true -- on TAB, complete options for system command
-
--- Only show cursorline in the current window and in normal mode
-vim.cmd([[
-  augroup cline
-      au!
-      au WinLeave * set nocursorline
-      au WinEnter * set cursorline
-      au InsertEnter * set nocursorline
-      au InsertLeave * set cursorline
-  augroup END
-]])
 
 -- Press <F5> to compile and run
 vim.cmd([[

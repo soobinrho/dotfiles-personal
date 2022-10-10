@@ -27,8 +27,8 @@ nmap j gj
 nmap k gk
 
 " Automatically center on search results.
-noremap n nzz
-noremap N Nzz
+map('n', 'n', 'nzz')
+map('n', 'N', 'Nzz')
 
 " Open help files in a new buffer.
 " Example: `:H Nerd-Font`
