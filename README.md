@@ -128,7 +128,8 @@ sudo dnf install -y \
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 # Install neovim: more extensible fork of vim.
-sudo dnf install -y neovim python3-neovim vim wl-clipboard xclip ripgrep fd-find
+bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/rolling/utils/installer/install-neovim-from-release)
+sudo dnf install -y python3-neovim vim wl-clipboard xclip ripgrep fd-find
 
 # Install Visual Studio Code.
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
