@@ -1,6 +1,8 @@
 [Appearance]
 ColorScheme=Breeze
 Font=RobotoMono Nerd Font Mono,13,-1,5,50,0,0,0,0,0
+/* For my big laptop: */
+/* Font=RobotoMono Nerd Font Mono,12,-1,5,50,0,0,0,0,0 */
 
 [Cursor Options]
 CursorShape=0
