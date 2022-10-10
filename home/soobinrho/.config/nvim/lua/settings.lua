@@ -383,5 +383,3 @@ require'lspconfig'.sqlls.setup{}
 require'lspconfig'.tsserver.setup{}
 require'lspconfig'.volar.setup{}
 require'lspconfig'.lemminx.setup{}
-
-

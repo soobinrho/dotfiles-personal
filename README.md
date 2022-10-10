@@ -130,6 +130,12 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 # Install R
 sudo dnf install -y R
 
+# Install PowerShell
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+sudo rpm -Uvh https://packages.microsoft.com/config/centos/8/packages-microsoft-prod.rpm
+sudo dnf update -y
+sudo dnf install -y powershell
+
 # Install neovim: more extensible fork of vim.
 bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/rolling/utils/installer/install-neovim-from-release)
 sudo dnf install -y python3-neovim vim wl-clipboard xclip ripgrep fd-find
