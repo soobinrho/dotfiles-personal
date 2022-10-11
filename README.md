@@ -83,15 +83,15 @@ e.g. 190GB for Fedora and 50GB for Windows.
 
 ## Dev Tools
 
-### `Enabling automatic dnf updates`
+### `Installing zsh`
 
 ```bash
-# Add yourself to the sudo group
-sudo usermod -aG wheel $(whoami)
+# Install zsh
+sudo dnf install -y zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-# dnf-automatic updates everyday automatically
-sudo dnf install -y dnf-automatic
-sudo systemctl enable --now dnf-automatic-install.timer
+# Install zsh theme: powerlevel10k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 ```
 
 <br>
@@ -116,6 +116,13 @@ npm install -g typescript
 ### `Installing programming environments`
 
 ```bash
+# Add yourself to the sudo group
+sudo usermod -aG wheel $(whoami)
+
+# dnf-automatic updates everyday automatically
+sudo dnf install -y dnf-automatic
+sudo systemctl enable --now dnf-automatic-install.timer
+
 # Install git
 sudo dnf install -y git
 
@@ -136,13 +143,6 @@ sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 sudo rpm -Uvh https://packages.microsoft.com/config/centos/8/packages-microsoft-prod.rpm
 sudo dnf update -y
 sudo dnf install -y powershell
-
-# Install zsh
-sudo dnf install -y zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-# Install zsh theme: powerlevel10k
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
 # Install Alacritty, a fast OpenGL terminal emulator.
 # I normally use Konsole because - unlike Alacritty - Konsole
