@@ -13,6 +13,7 @@ vim.o.timeout = false
 vim.o.ttimeout = true
 vim.o.ttimeoutlen = 100
 vim.o.showbreak= '↪' -- character to show when line is broken
+vim.cmd [[set mouse=]]
 
 -- More convinient key mappings
 vim.api.nvim_set_keymap('n', 'n', 'nzz', { noremap = true, silent = true})
