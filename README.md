@@ -144,6 +144,11 @@ sudo rpm -Uvh https://packages.microsoft.com/config/centos/8/packages-microsoft-
 sudo dnf update -y
 sudo dnf install -y powershell
 
+# Install kubectl
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+sudo chmod +x kubectl
+sudo mv kubectl /usr/bin/kubectl
+
 # Install Alacritty, a fast OpenGL terminal emulator.
 # I normally use Konsole because - unlike Alacritty - Konsole
 # remembers the last window position. When I need speed, however,
