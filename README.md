@@ -144,11 +144,6 @@ sudo rpm -Uvh https://packages.microsoft.com/config/centos/8/packages-microsoft-
 sudo dnf update -y
 sudo dnf install -y powershell
 
-# Install kubectl
-curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
-rm kubectl
-
 # Install Alacritty, a fast OpenGL terminal emulator.
 # I normally use Konsole because - unlike Alacritty - Konsole
 # remembers the last window position. When I need speed, however,
@@ -633,6 +628,30 @@ sudo usermod -aG docker $USER
 # Re-login so that the changes can be applied
 su -l $USER
 ```
+
+### `Installing Kubernetes on Fedora` [[Source](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/)
+
+```bash
+cat <<EOF | sudo tee /etc/yum.repos.d/kubernetes.repo
+[kubernetes]
+name=Kubernetes
+baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-\$basearch
+enabled=1
+gpgcheck=1
+gpgkey=https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+exclude=kubelet kubeadm kubectl
+EOF
+
+# Set SELinux in permissive mode (effectively disabling it)
+sudo setenforce 0
+sudo sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
+
+sudo yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
+
+sudo systemctl enable --now kubelet
+```
+
+
 
 <br>
 <br>
