@@ -877,6 +877,9 @@ rtmp://127.0.0.1:1935/live
 
 This rhetorics settings requires Nginx server.
 The installation is described in my Google Docs
+
+Extracting a high quality audio from a video file
+ffmpeg -i sample.avi -q:a 0 -map a sample.mp3
 -->
 
 <br>
