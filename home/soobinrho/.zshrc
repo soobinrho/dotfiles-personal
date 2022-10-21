@@ -140,6 +140,7 @@ alias glow="glow -p"
 alias PullGitAll="~/git/bash-git-pull-in-every-folder/PullGitAll"
 alias StatusGitAll="~/git/bash-git-pull-in-every-folder/optional-scripts/StatusGitAll"
 alias BuildJava="~/git/college-programming/summer-2022/computer-science-II/BuildJava"
+alias dockerrm="docker ps -aq | xargs docker stop | xargs docker rm"
 
 # --------------------------------------------
 # nvm configs: node version manager
