@@ -141,6 +141,7 @@ alias PullGitAll="~/git/bash-git-pull-in-every-folder/PullGitAll"
 alias StatusGitAll="~/git/bash-git-pull-in-every-folder/optional-scripts/StatusGitAll"
 alias BuildJava="~/git/college-programming/summer-2022/computer-science-II/BuildJava"
 alias dockerrm="docker ps -aq | xargs docker stop | xargs docker rm"
+alias dockervolumerm="docker volume ls -q | xargs docker volume rm"
 
 # --------------------------------------------
 # nvm configs: node version manager
