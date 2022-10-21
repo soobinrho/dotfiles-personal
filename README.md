@@ -858,6 +858,9 @@ sudoedit ...
 
 # Read in hexadecimal
 xxd ...
+
+# Git rebase
+git rebase -i HEAD~2
 ```
 
 <!---
