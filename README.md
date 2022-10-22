@@ -861,6 +861,9 @@ xxd ...
 
 # Git rebase
 git rebase -i HEAD~2
+
+# ncat: check if a port is exposed
+nc -vz <HOSTNAME> 9000
 ```
 
 <!---
