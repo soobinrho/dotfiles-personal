@@ -266,14 +266,19 @@ sudo dnf install -y vlc
 # Install hstr: shell history search tool
 sudo dnf install -y hstr
 
-# Install colorls: colored, cooler version of ls
+# Install Ruby
+# Source:
+#   https://github.com/rbenv/ruby-build/wiki#suggested-build-environment
 curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer | bash
 ~/.rbenv/bin/rbenv init
 rbenv install 3.1.2
 rbenv global 3.1.2
 gem install bundler
 rbenv rehash
+dnf install -y gcc rust patch make bzip2 openssl-devel libyaml-devel libffi-devel readline-devel zlib-devel gdbm-devel ncurses-devel
 sudo dnf group install -y "C Development Tools and Libraries"
+
+# Install colorls: colored, cooler version of ls
 gem install colorls
 
 # Install nerd-fonts: fonts with better icons support
