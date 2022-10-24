@@ -142,12 +142,13 @@ alias StatusGitAll="~/git/bash-git-pull-in-every-folder/optional-scripts/StatusG
 alias BuildJava="~/git/college-programming/summer-2022/computer-science-II/BuildJava"
 alias dockerrm="docker ps -aq | xargs docker stop | xargs docker rm"
 alias dockervolumerm="docker volume ls -q | xargs docker volume rm"
+aliast dockerrmi="docker images -q | xargs docker rmi -f"
 
 # --------------------------------------------
 # nvm configs: node version manager
 # --------------------------------------------
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm 
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 # --------------------------------------------
 # z.lua configs: a faster version of cd
