@@ -267,7 +267,10 @@ sudo dnf install -y vlc
 sudo dnf install -y hstr
 
 # Install colorls: colored, cooler version of ls
-sudo dnf install -y ruby-devel
+curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer | bash
+~/.rbenv/bin/rbenv init
+rbenv install 3.1.2
+rbenv global 3.1.2
 sudo dnf group install -y "C Development Tools and Libraries"
 gem install colorls
 

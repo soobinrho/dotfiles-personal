@@ -158,3 +158,8 @@ eval "$(lua ~/.local/z.lua/z.lua --init zsh)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# --------------------------------------------
+# Ruby configs
+# --------------------------------------------
+eval "$(/home/soobinrho/.rbenv/bin/rbenv init - zsh)"
