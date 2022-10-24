@@ -271,6 +271,7 @@ curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer
 ~/.rbenv/bin/rbenv init
 rbenv install 3.1.2
 rbenv global 3.1.2
+gem install bundler
 sudo dnf group install -y "C Development Tools and Libraries"
 gem install colorls
 
