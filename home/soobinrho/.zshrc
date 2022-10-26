@@ -144,6 +144,11 @@ alias dockerrm="docker ps -aq | xargs docker stop | xargs docker rm"
 alias dockervolumerm="docker volume ls -q | xargs docker volume rm"
 alias dockerrmi="docker images -q | xargs docker rmi -f"
 
+# Source:
+#   https://github.com/surajssd/dotfiles/blob/master/configs/zshrc
+alias gs="git status"
+alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
 # --------------------------------------------
 # nvm configs: node version manager
 # --------------------------------------------
