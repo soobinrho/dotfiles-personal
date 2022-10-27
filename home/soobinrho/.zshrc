@@ -166,5 +166,10 @@ eval "$(lua ~/.local/z.lua/z.lua --init zsh)"
 
 # --------------------------------------------
 # Ruby configs
+# Source:
+#   https://github.com/surajssd/dotfiles/blob/master/configs/zshrc
 # --------------------------------------------
-eval "$(/home/soobinrho/.rbenv/bin/rbenv init - zsh)"
+which rbenv > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+    eval "$(/home/soobinrho/.rbenv/bin/rbenv init - zsh)"
+fi
