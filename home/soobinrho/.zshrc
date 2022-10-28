@@ -169,7 +169,8 @@ eval "$(lua ~/.local/z.lua/z.lua --init zsh)"
 # Source:
 #   https://github.com/surajssd/dotfiles/blob/master/configs/zshrc
 # --------------------------------------------
-which rbenv > /dev/null 2>&1
-if [ $? -eq 0 ]; then
-    eval "$(/home/soobinrho/.rbenv/bin/rbenv init - zsh)"
-fi
+# which rbenv > /dev/null 2>&1
+# if [ $? -eq 0 ]; then
+#     eval "$(/home/soobinrho/.rbenv/bin/rbenv init - zsh)"
+# fi
+eval "$(/home/soobinrho/.rbenv/bin/rbenv init - zsh)"
