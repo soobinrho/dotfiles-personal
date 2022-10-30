@@ -17,7 +17,6 @@ return require('packer').startup(function(use)
 
   -- Load essential plugins
   use 'nvim-lua/plenary.nvim'
-  use 'jiangmiao/auto-pairs'
   use 'AndrewRadev/tagalong.vim'
   use 'terrortylor/nvim-comment'
   use 'andymass/vim-matchup'
