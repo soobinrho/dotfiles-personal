@@ -178,7 +178,4 @@ eval "$(/home/soobinrho/.rbenv/bin/rbenv init - zsh)"
 # -------------------------------------------
 # Conda configs
 # -------------------------------------------
-which conda > /dev/null 2>&1
-if [ $? -eq 0 ]; then
-    eval "$(~/anaconda3/bin/conda shell.zsh hook)"
-fi
+eval "$(~/anaconda3/bin/conda shell.zsh hook)"
