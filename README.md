@@ -197,7 +197,10 @@ sudo dnf install -y texlive-scheme-full texstudio
 # In my case, because of Anaconda,
 # my shell startup time became slower.
 # You can fix this with the following command.
+conda init
 conda config --set auto_activate_base false
+conda update anaconda
+conda update jupyterlab
 
 # Now, your shell startup time will be normal again.
 # Whenever you need Anaconda, run
