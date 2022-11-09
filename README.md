@@ -192,8 +192,8 @@ sudo dnf install -y texlive-scheme-full texstudio
 # Install Java
 # https://www.oracle.com/java/technologies/downloads/
 
-# Install Anaconda.
-# https://www.anaconda.com/
+# Install Anaconda:
+#   https://www.anaconda.com/
 # In my case, because of Anaconda,
 # my shell startup time became slower.
 # You can fix this with the following command.
