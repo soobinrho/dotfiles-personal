@@ -474,9 +474,6 @@ sudo vim /etc/ssh/sshd_config
 # so that only the RSA SSH key can be used
 PasswordAuthentication no
 
-# Disable root login
-PermitRootLogin no
-
 # Restart SSH
 sudo service sshd restart    # Fedora
 sudo service ssh restart    # Ubuntu
@@ -642,6 +639,8 @@ sudo usermod -aG docker $USER
 su -l $USER
 ```
 
+<br>
+
 ### `Installing Kubernetes on Fedora` [[Source](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/)
 
 ```bash
@@ -664,7 +663,56 @@ sudo yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
 sudo systemctl enable --now kubelet
 ```
 
+<br>
 
+### `Installing Cloudflare Tunnel on Fedora` [[Source](https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/use_cases/ssh/#connect-to-ssh-server-with-cloudflared-access)]
+
+```bash
+# Install Cloudflared from
+#   https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/installation/
+
+# Install Cloudflare Tunnel on your server
+#   https://one.dash.cloudflare.com/
+#   Installation script is available at the `Access - Tunnels` setting.
+
+# Edit ssh config so that ssh command authenticates using Cloudflared
+vim ~/.ssh/config
+```
+```
+Host ssh.example.com
+ProxyCommand /usr/local/bin/cloudflared access ssh --hostname %h
+
+Host devserver
+    HostName ssh.example.com
+    User myusername
+```
+```bash
+# Block all IP's and then only allow Cloudflare IP addresses,
+# so that the server is only accessible through Cloudflare Tunnel,
+# and direct access to the server is blocked for better security.
+# Source:
+#   https://github.com/Paul-Reed/cloudflare-ufw
+sudo ufw disable
+sudo ufw reset
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw allow from 127.0.0.1/24
+sudo ufw allow ssh
+sudo ufw ufw enable
+
+# Allow Cloudflare's IP addresses
+# Source:
+cd ~
+git clone https://github.com/Paul-Reed/cloudflare-ufw.git
+sudo ~/cloudflare-ufw/cloudflare-ufw.sh
+sudo crontab -e
+
+# Confirm all IP rules have been set
+sudo ufw status verbose
+```
+```
+0 0 * * 1 /home/<Your user name>/cloudflare-ufw/cloudflare-ufw.sh > /dev/null 2>&1
+```
 
 <br>
 <br>
