@@ -680,6 +680,8 @@ sudo systemctl enable --now kubelet
 vim ~/.ssh/config
 ```
 ```
+# Edit example.com to your server's domain name and
+# edit myusername to your user name
 Host ssh.example.com
 ProxyCommand /usr/local/bin/cloudflared access ssh --hostname %h
 
