@@ -696,9 +696,9 @@ sudo ufw disable
 sudo ufw reset
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
-sudo ufw allow from 127.0.0.1/24
+sudo ufw allow from 192.168.1.0/24
 sudo ufw allow ssh
-sudo ufw ufw enable
+sudo ufw enable
 
 # Allow Cloudflare's IP addresses
 # Source:
