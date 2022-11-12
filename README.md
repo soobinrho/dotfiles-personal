@@ -706,7 +706,7 @@ sudo ~/cloudflare-ufw/cloudflare-ufw.sh
 sudo crontab -e
 ```
 ```
-0 0 * * 1 /home/<Your user name>/cloudflare-ufw/cloudflare-ufw.sh > /dev/null 2>&1
+0 0 * * 1 /home/myusername/cloudflare-ufw/cloudflare-ufw.sh > /dev/null 2>&1
 ```
 ```bash
 # Confirm all IP rules have been set
