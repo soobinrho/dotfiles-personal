@@ -676,6 +676,11 @@ sudo systemctl enable --now kubelet
 #   https://one.dash.cloudflare.com/
 #   Installation script is available at the `Access - Tunnels` setting.
 
+# Add Public hostname: `ssh.example.com` and
+# Service: ssh://localhost:22
+# at the `Access - Tunnels - Configure` setting at
+#   https://one.dash.cloudflare.com/
+
 # Edit ssh config so that ssh command authenticates using Cloudflared
 vim ~/.ssh/config
 ```
