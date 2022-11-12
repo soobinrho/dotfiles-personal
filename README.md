@@ -668,7 +668,8 @@ sudo systemctl enable --now kubelet
 ### `Installing Cloudflare Tunnel` [[Source](https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/use_cases/ssh/#connect-to-ssh-server-with-cloudflared-access)]
 
 ```bash
-# Install Cloudflared from
+# Install Cloudflared on the computer,
+# from which you're accessing the server
 #   https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/installation/
 
 # Install Cloudflare Tunnel on your server
