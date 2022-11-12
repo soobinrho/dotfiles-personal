@@ -665,7 +665,7 @@ sudo systemctl enable --now kubelet
 
 <br>
 
-### `Installing Cloudflare Tunnel on Fedora` [[Source](https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/use_cases/ssh/#connect-to-ssh-server-with-cloudflared-access)]
+### `Installing Cloudflare Tunnel` [[Source](https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/use_cases/ssh/#connect-to-ssh-server-with-cloudflared-access)]
 
 ```bash
 # Install Cloudflared from
