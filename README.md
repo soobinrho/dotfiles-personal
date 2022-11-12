@@ -697,8 +697,6 @@ sudo ufw reset
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
 sudo ufw allow from 192.168.1.0/24
-sudo ufw allow ssh
-sudo ufw enable
 
 # Allow Cloudflare's IP addresses
 # Source:
@@ -712,6 +710,7 @@ sudo crontab -e
 ```
 ```bash
 # Confirm all IP rules have been set
+sudo ufw enable
 sudo ufw status verbose
 ```
 
