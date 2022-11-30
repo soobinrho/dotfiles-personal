@@ -148,6 +148,7 @@ alias dockerrmi="docker images -q | xargs docker rmi -f"
 #   https://github.com/surajssd/dotfiles/blob/master/configs/zshrc
 alias gs="git status"
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias gpp="g++ -o _ *.cpp"
 
 # --------------------------------------------
 # nvm configs: node version manager
