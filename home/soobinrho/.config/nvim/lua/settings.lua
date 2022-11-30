@@ -68,6 +68,7 @@ vim.cmd([[
 ]])
 
 -- Press <F5> to compile and run
+-- BACKUP: exec "Start! -wait=always g++ ./%:r*.cpp -o ./_%:r && time ./_%:r && rm ./_%:r"
 vim.cmd([[
   map <F5> :call CompileRunGcc()<CR>
   func! CompileRunGcc()
@@ -77,7 +78,7 @@ vim.cmd([[
     elseif &filetype == 'c'
         exec "Start! -wait=always gcc % -o %< && time ./%<"
     elseif &filetype == 'cpp'
-        exec "Start! -wait=always g++ ./%:r*.cpp -o ./_%:r && time ./_%:r && rm ./_%:r"
+        exec "Start! -wait=always g++ ./*.cpp -o ./_%:r && time ./_%:r && rm ./_%:r"
     elseif &filetype == 'html'
         exec "!google-chrome % &"
     elseif &filetype == 'markdown'
