@@ -380,6 +380,7 @@ git config --global init.defaultBranch main
 
 ## Vim Configs
 
+<!--
 ```bash
 # Install Packer
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
@@ -387,6 +388,25 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim\
 
 # Install plugins listed at ~/.nvim/lua/plugins.lua
 nvim -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+```
+-->
+```bash
+# Install Astrovim
+git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim
+nvim +PackerSync
+
+# Open nvim
+nvim
+
+# Install specific LSP servers and language parsers
+# Source:
+#   https://astronvim.github.io/
+:LspInstall
+:TSInstall <Name of the language>
+
+# Install debugger
+# Follow instructions at:
+#   https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation
 ```
 
 <br>
