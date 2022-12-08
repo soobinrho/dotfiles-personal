@@ -143,7 +143,7 @@ alias BuildJava="~/git/college-programming/summer-2022/computer-science-II/Build
 alias dockerrm="docker ps -aq | xargs docker stop | xargs docker rm"
 alias dockervolumerm="docker volume ls -q | xargs docker volume rm"
 alias dockerrmi="docker images -q | xargs docker rmi -f"
-alias gpp="g++ -o _ *.cpp"
+alias gpp="g++ -o _ *.cpp && ./_"
 
 # Git aliases
 # Source:
