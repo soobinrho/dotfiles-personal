@@ -929,10 +929,16 @@ rtmp {
 }
 ```
 ```bash
-# How to start Nginx
+# Start Nginx
 sudo /usr/local/nginx/sbin/nginx
 
-# How to stop Nginx
+# HOW TO PLAY THE STREAM WITH VLC
+# 1. Open VLC
+# 2. Click "Play", the triangle thingy
+# 3. Click "Network"
+# 4. Enter rtmp://127.0.0.1:1935/live
+
+# Stop Nginx when you're done
 sudo /usr/local/nginx/sbin/nginx -s stop
 ```
 
