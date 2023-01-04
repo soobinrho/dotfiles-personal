@@ -892,6 +892,52 @@ svg-term --cast=11345 --out example.svg
 
 <br>
 
+### `How to stream OBS to yourself using Nginx` [[Source](https://obsproject.com/forum/resources/how-to-set-up-your-own-private-rtmp-server-using-nginx.50)]
+
+```bash
+# Download the latest mainline Nginx
+wget http://nginx.org/download/nginx-1.23.3.tar.gz
+
+# Download the Nginx RTMP module
+wget https://github.com/sergey-dryabzhinsky/nginx-rtmp-module/archive/dev.zip
+
+tar -zxvf nginx-1.23.3.tar.gz
+unzip dev.zip
+cd nginx-1.23.3
+
+./configure --with-http_ssl_module --add-module=../nginx-rtmp-module-dev
+make
+sudo make install
+
+# Add rtmp to the Nginx conf file
+vim /usr/local/nginx/conf/nginx.conf
+```
+
+Copy and paste the following to the end of the file.
+
+```
+rtmp {
+        server {
+                listen 1935;
+                chunk_size 4096;
+
+                application live {
+                        live on;
+                        record off;
+                }
+        }
+}
+```
+```bash
+# How to start Nginx
+sudo /usr/local/nginx/sbin/nginx
+
+# How to stop Nginx
+sudo /usr/local/nginx/sbin/nginx -s stop
+```
+
+<br>
+
 ### `My favorite keyboard shortcuts`
 
 **Fedora**
