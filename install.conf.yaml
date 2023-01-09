@@ -33,7 +33,6 @@
     #~/.config/nvim/init.lua: home/soobinrho/.config/nvim/init.lua
     #~/.config/nvim/lua/plugins.lua: home/soobinrho/.config/nvim/lua/plugins.lua
     #~/.config/nvim/lua/settings.lua: home/soobinrho/.config/nvim/lua/settings.lua
-    ~/.config/obs-studio/basic/scenes/rhetorics_practice.json: home/soobinrho/.config/obs-studio/basic/scenes/rhetorics_practice.json
     ~/.editorconfig: home/soobinrho/.editorconfig
     ~/.gnupg/gpg-agent.conf: home/soobinrho/.gnupg/gpg-agent.conf
     ~/.local/share/konsole/Breeze.colorscheme: home/soobinrho/.local/share/konsole/Breeze.colorscheme
@@ -45,6 +44,9 @@
 # depending on the screen size of each device.
 # e.g. terminal font size, window size, window position, ...
 - shell:
+    - cp -f home/soobinrho/.config/obs-studio/basic/profiles/rhetorics_practice/basic.ini ~/.config/obs-studio/basic/profiles/rhetorics_practice/basic.ini
+    - cp -f home/soobinrho/.config/obs-studio/basic/profiles/rhetorics_practice/service.json ~/.config/obs-studio/basic/profiles/rhetorics_practice/service.json
+    - cp -f home/soobinrho/.config/obs-studio/basic/scenes/rhetorics_practice.json ~/.config/obs-studio/basic/scenes/rhetorics_practice.json
     - cp -f home/soobinrho/.config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
     - cp -f home/soobinrho/.config/konsolerc ~/.config/konsolerc
     - cp -f home/soobinrho/.local/share/konsole/Profile1.profile ~/.local/share/konsole/Profile1.profile
