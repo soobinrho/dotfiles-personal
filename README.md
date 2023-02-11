@@ -685,36 +685,13 @@ sudo systemctl enable --now kubelet
 
 <br>
 
-### `Installing Cloudflare Tunnel` [[Source](https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/use_cases/ssh/#connect-to-ssh-server-with-cloudflared-access)]
+### `Installing Cloudflare Tunnel on the Server`
 
 ```bash
-# Install Cloudflared on the computer,
-# from which you're accessing the server
-#   https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/installation/
-
-# Install Cloudflare Tunnel on your server
+# Install Cloudflare Tunnel on the server
 #   https://one.dash.cloudflare.com/
 #   Installation script is available at the `Access - Tunnels` setting.
 
-# Add Public hostname: `ssh.example.com` and
-# Service: ssh://localhost:22
-# at the `Access - Tunnels - Configure` setting at
-#   https://one.dash.cloudflare.com/
-
-# Edit ssh config so that ssh command authenticates using Cloudflared
-vim ~/.ssh/config
-```
-```
-# Edit example.com to your server's domain name and
-# edit myusername to your user name
-Host ssh.example.com
-ProxyCommand /usr/local/bin/cloudflared access ssh --hostname %h
-
-Host devserver
-    HostName ssh.example.com
-    User myusername
-```
-```bash
 # Block all IP's and then only allow Cloudflare IP addresses,
 # so that the server is only accessible through Cloudflare Tunnel,
 # and direct access to the server is blocked for better security.
@@ -740,6 +717,34 @@ sudo crontab -e
 # Confirm all IP rules have been set
 sudo ufw enable
 sudo ufw status verbose
+```
+
+<br>
+
+### `Installing Cloudflared Client for SSH Users`
+
+```bash
+# Install Cloudflared on the computer,
+# from which you're accessing the server
+#   https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/use_cases/ssh/#2-connect-as-a-user
+
+# Add Public hostname: `ssh.example.com` and
+# Service: ssh://localhost:22
+# at the `Access - Tunnels - Configure` setting at
+#   https://one.dash.cloudflare.com/
+
+# Edit ssh config so that ssh command authenticates using Cloudflared
+vim ~/.ssh/config
+```
+```
+# Edit example.com to your server's domain name and
+# edit myusername to your user name
+Host ssh.example.com
+ProxyCommand /usr/local/bin/cloudflared access ssh --hostname %h
+
+Host devserver
+    HostName ssh.example.com
+    User myusername
 ```
 
 <br>
