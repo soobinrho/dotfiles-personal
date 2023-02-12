@@ -749,10 +749,15 @@ Host devserver
 
 <br>
 
-### `Ubuntu Server Installation and Configurations`
+### `Disabling GUI in Ubuntu`
 
 ```bash
-sudo apt install wireless-tools
+# Disable the GUI
+sudo apt remove lightdm
+
+# Re-enable the GUI
+sudo apt install lightdm
+reboot
 ```
 
 <br>
