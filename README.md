@@ -977,6 +977,12 @@ sudo /usr/local/nginx/sbin/nginx -s stop
 
 <br>
 
+### `School WIFI`
+
+https://cat.eduroam.org
+
+<br>
+
 ### `My favorite keyboard shortcuts`
 
 **Fedora**
