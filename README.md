@@ -768,6 +768,7 @@ reboot
 # Install Windows, Ubuntu, and then Fedora
 
 # How to make a Fedora / Ubuntu installation USB
+lsblk -e7
 sudo dd if=Fedora-KDE.iso of=/dev/sdb bs=16M oflag=direct; sync
 
 # How to make a Windows installation USB
