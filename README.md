@@ -768,7 +768,7 @@ reboot
 # Install Windows, Ubuntu, and then Fedora
 
 # How to make a Fedora / Ubuntu installation USB
-sudo dd if=Fedora-KDE.iso of=/dev/sdb bs=16M oflag=direct; sync; hdparm -W 0 /dev/sdb
+sudo dd if=Fedora-KDE.iso of=/dev/sdb bs=16M oflag=direct; sync
 
 # How to make a Windows installation USB
 sudo dnf install WoeUSB
