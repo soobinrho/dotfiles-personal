@@ -748,6 +748,14 @@ Host devserver
 ```
 
 <br>
+
+### `Ubuntu Server Installation and Configurations`
+
+```bash
+sudo apt install wireless-tools
+```
+
+<br>
 <br>
 
 <!--
