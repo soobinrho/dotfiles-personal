@@ -761,6 +761,21 @@ reboot
 ```
 
 <br>
+
+### `Fedora, Ubuntu, and Windows Triple Boot`
+
+```bash
+# Install Windows, Ubuntu, and then Fedora
+
+# How to make a Fedora / Ubuntu installation USB
+sudo dd if=Fedora-KDE.iso of=/dev/sdb bs=16M oflag=direct; sync; hdparm -W 0 /dev/sdb
+
+# How to make a Windows installation USB
+sudo dnf install WoeUSB
+sudo woeusb --device Win10.iso /dev/sdb --target-filesystem ntfs
+```
+
+<br>
 <br>
 
 <!--
