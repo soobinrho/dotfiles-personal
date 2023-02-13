@@ -966,12 +966,14 @@ rtmp {
         server {
                 listen 1935;
                 chunk_size 4096;
-                deny all;
-                allow 127.0.0.1;
 
                 application live {
                         live on;
                         record off;
+                        allow publish 127.0.0.1;
+                        deny publish all;
+                        allow play 127.0.0.1;
+                        deny play all;
                 }
         }
 }
