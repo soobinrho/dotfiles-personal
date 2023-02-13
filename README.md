@@ -73,7 +73,8 @@ e.g. 190GB for Fedora and 50GB for Windows.
 &#160;&#160;&#160;&#160;[D.](#dotfiles-installation) Dotfiles Installation<br>
 [2.](#2-optional-ssh-server-configs) (Optional) SSH Server Configs<br>
 [3.](#3-optional-virtual-private-server-configs) (Optional) Virtual Private Server Configs<br>
-[4.](#4-optional-random-tips-i-find-useful) (Optional) Random Tips I Find Useful
+[4.](#4-optional-bare-metal-server-configs) (Optional) Bare Metal Server Configs
+[5.](#5-optional-random-tips-i-find-useful) (Optional) Random Tips I Find Useful
 
 
 <br>
@@ -754,19 +755,12 @@ Host devserver
 ```
 
 <br>
-
-### `Disabling GUI in Ubuntu`
-
-```bash
-# Disable the GUI
-sudo apt remove lightdm
-
-# Re-enable the GUI
-sudo apt install lightdm
-reboot
-```
-
 <br>
+
+# 4. (Optional) Bare Metal Server Configs
+
+To save development costs, I turned one of my spare laptops into a server,
+and here are the configurations I use for my server.
 
 ### `Fedora, Ubuntu, and Windows Triple Boot`
 
@@ -780,6 +774,18 @@ sudo dd if=Fedora-KDE.iso of=/dev/sdb bs=16M oflag=direct; sync
 # How to make a Windows installation USB
 sudo dnf install WoeUSB
 sudo woeusb --device Win10.iso /dev/sdb --target-filesystem ntfs
+```
+<br>
+
+### `Disabling GUI in Ubuntu`
+
+```bash
+# Disable the GUI
+sudo apt remove lightdm
+
+# Re-enable the GUI
+sudo apt install lightdm
+reboot
 ```
 
 <br>
@@ -899,7 +905,7 @@ why those codes are there.
 
 -->
 
-# 4. (Optional) Random Tips I find Useful
+# 5. (Optional) Random Tips I find Useful
 
 ### `How to make a screencast gif`
 
