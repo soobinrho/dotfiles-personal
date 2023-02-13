@@ -113,6 +113,12 @@ npm install -g typescript
 
 <br>
 
+### `Installing Nvidia Driver for Quadro T1000`
+
+https://developer.nvidia.com/cuda-toolkit
+
+<br>
+
 ### `Installing programming environments`
 
 ```bash
