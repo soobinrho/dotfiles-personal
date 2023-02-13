@@ -746,11 +746,40 @@ vim ~/.ssh/config
 # Edit example.com to your server's domain name and
 # edit myusername to your user name
 Host ssh.example.com
-ProxyCommand /usr/local/bin/cloudflared access ssh --hostname %h
+ProxyCommand /usr/bin/cloudflared access ssh --hostname %h
 
 Host devserver
     HostName ssh.example.com
     User myusername
+```
+
+<br>
+
+### `Disabling GUI in Ubuntu`
+
+```bash
+# Disable the GUI
+sudo apt remove lightdm
+
+# Re-enable the GUI
+sudo apt install lightdm
+reboot
+```
+
+<br>
+
+### `Fedora, Ubuntu, and Windows Triple Boot`
+
+```bash
+# Install Windows, Ubuntu, and then Fedora
+
+# How to make a Fedora / Ubuntu installation USB
+lsblk -e7
+sudo dd if=Fedora-KDE.iso of=/dev/sdb bs=16M oflag=direct; sync
+
+# How to make a Windows installation USB
+sudo dnf install WoeUSB
+sudo woeusb --device Win10.iso /dev/sdb --target-filesystem ntfs
 ```
 
 <br>
@@ -952,6 +981,12 @@ sudo /usr/local/nginx/sbin/nginx
 # Stop Nginx when you're done
 sudo /usr/local/nginx/sbin/nginx -s stop
 ```
+
+<br>
+
+### `School WIFI`
+
+https://cat.eduroam.org
 
 <br>
 
