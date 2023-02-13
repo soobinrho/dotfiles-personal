@@ -1018,6 +1018,17 @@ https://cat.eduroam.org
 
 <br>
 
+### `Securely delete files`
+
+```bash
+# -u = Remove after overwriting
+# -v = Verbose
+# -z = Overwrite with zeros
+shred -uvz folder/*
+```
+
+<br>
+
 ### `My favorite keyboard shortcuts`
 
 **Fedora**
