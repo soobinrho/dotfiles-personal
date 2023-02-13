@@ -1000,6 +1000,18 @@ sudo /usr/local/nginx/sbin/nginx -s stop
 
 <br>
 
+### `Resolve Thinkpad P17 going black screen after update`
+
+```bash
+# Open a virtual TTY by typing ctrl + alt + F3 first
+# and then type startx.
+# Source:
+#   https://www.reddit.com/r/kdeneon/comments/swkraq/black_screen_after_update/
+startx
+```
+
+<br>
+
 ### `School WIFI`
 
 https://cat.eduroam.org
