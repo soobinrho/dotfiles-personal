@@ -934,6 +934,12 @@ svg-term --cast=11345 --out example.svg
 
 ### `How to stream OBS to yourself using Nginx` [[Source](https://obsproject.com/forum/resources/how-to-set-up-your-own-private-rtmp-server-using-nginx.50)]
 
+For gaining practice on my rhetorics,
+I needed a way to listen to my own speech.
+I needed a program that will play what’s recorded into the
+mic with a delay of around five seconds. The best solution for my
+use cases turned out to be OBS and a private rtmp server.
+
 ```bash
 # Download the latest mainline Nginx
 wget http://nginx.org/download/nginx-1.23.3.tar.gz
@@ -960,6 +966,8 @@ rtmp {
         server {
                 listen 1935;
                 chunk_size 4096;
+                deny all;
+                allow 127.0.0.1;
 
                 application live {
                         live on;
