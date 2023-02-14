@@ -240,6 +240,9 @@ sudo dnf install -y htop
 # Install ncdu: disk usage viewer
 sudo dnf install -y ncdu
 
+# Install glances: system resources viewer
+sudo dnf install -y glances
+
 # Install yarn: a faster, parallel package manager
 npm install -g yarn
 
