@@ -1049,6 +1049,7 @@ pactl load-module module-combine-sink
 - `gcc` Comment out a line.
 - `gcap` Comment out a paragraph.
 - `:7,17Commentary` Comment out with line numbers.
+- `<Select multiple lines with visual mode> :norm! @a` Execute a macro on multiple lines.
 - `m[A-Z]` Set a marker and `'[A-Z]` go to the marker.
 - `q:` Open command-history buffer.
 - `:ene|e` Edit a file in a new buffer, short for `:enew|edit`.

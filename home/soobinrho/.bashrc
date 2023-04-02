@@ -100,3 +100,7 @@ export NVM_DIR="$HOME/.nvm"
 # ----------------------------------------- #
 [[ -f /usr/local/ibmcloud/autocomplete/bash_autocomplete ]] && source /usr/local/ibmcloud/autocomplete/bash_autocomplete
 . "$HOME/.cargo/env"
+
+export PATH=$PATH:/home/soobinrho/bin
+
+source '/home/soobinrho/lib/azure-cli/az.completion'
