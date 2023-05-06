@@ -231,6 +231,17 @@ sudo dnf install -y mariadb-connector-odbc
 ### `Installing additional utilities`
 
 ```bash
+# Install irssi: irs client
+sudo dnf install -y irssi
+
+# Add default channel and enable auto log-in
+# Source:
+#   https://irssi.org/documentation/manual/automation/
+irssi
+/SERVER MODIFY -auto irc.libera.chat
+/CHANNEL ADD -auto #freebsd-soc liberachat
+/NETWORK ADD -sasl_username yourname -sasl_password yourpassword -sasl_mechanism PLAIN liberachat
+
 # Install neofetch: system information viewer
 sudo dnf install -y neofetch
 
