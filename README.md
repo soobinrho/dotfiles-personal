@@ -241,6 +241,7 @@ irssi
 /SERVER MODIFY -auto irc.libera.chat
 /CHANNEL ADD -auto #freebsd-soc liberachat
 /NETWORK ADD -sasl_username yourname -sasl_password yourpassword -sasl_mechanism PLAIN liberachat
+/SET window_default_hidelevel hidden joins parts quits
 
 # Install neofetch: system information viewer
 sudo dnf install -y neofetch
