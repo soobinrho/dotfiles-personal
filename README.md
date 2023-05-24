@@ -231,6 +231,9 @@ sudo dnf install -y mariadb-connector-odbc
 ### `Installing additional utilities`
 
 ```bash
+# Install jpegoptim: jpeg compressor
+sudo dnf install -y jpegoptim
+
 # Install irssi: irs client
 sudo dnf install -y irssi
 
