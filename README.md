@@ -231,6 +231,9 @@ sudo dnf install -y mariadb-connector-odbc
 ### `Installing additional utilities`
 
 ```bash
+# Install wipe: file/folder eraser
+sudo dnf install -y wipe
+
 # Install jpegoptim: jpeg compressor
 sudo dnf install -y jpegoptim
 
