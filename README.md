@@ -1043,10 +1043,40 @@ https://cat.eduroam.org
 ### `Securely delete files`
 
 ```bash
-# -u = Remove after overwriting
-# -v = Verbose
-# -z = Overwrite with zeros
-shred -uvz folder/*
+wipe -r ./folder
+```
+
+<br>
+
+### `Encrypt and decrypt using GPG`
+
+```bash
+# Encrypt
+gpg -e important_document.pdf
+
+# Decrypt
+gpg important_document.pdf.gpg
+```
+
+<br>
+
+### `How to backup GPG config files and keys`
+
+```bash
+# WARNING: Do not share with anyone else.
+
+# Copy the GPG config files and keys.
+cd ~/backups
+cp --dereference -r ~/.gnupg ./
+cd .gnupg
+
+# Delete the revocation certificates.
+# Deleting these is a good security practice because, otherwise,
+# malicious actors can revoke my public key and impersonate me.
+# Source:
+#   https://serverfault.com/questions/86048/how-to-backup-gpg
+wipe -rf ./.gnupg/openpgp-revocs.d
+#
 ```
 
 <br>
