@@ -126,9 +126,10 @@ sudo dnf install -y \
 
 # Install the Nvidia drivers.
 # Source:
-#   https://rpmfusion.org/Howto/NVIDIA#Current_GeForce.2FQuadro.2FTesla
-sudo dnf update -y
-sudo dnf install akmod-nvidia
+#   https://discussion.fedoraproject.org/t/fedora-37-nvidia-kernel-module-missing-falling-back-to-nouveau/71372/6
+sudo dnf remove *nvidia* --noautoremove --exclude=nvidia-gpu-firmware
+sudo dnf install akmod-nvidia-470xx --disablerepo rpmfusion-nonfree-nvidia-driver --enablerepo rpmfusion-nonfree
+# Wait 5 minutes for the drivers to finish building in the background, and reboot.
 ```
 
 <br>
