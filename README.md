@@ -116,7 +116,21 @@ npm install -g typescript
 
 ### `Installing Nvidia Driver for Quadro T1000`
 
-https://developer.nvidia.com/cuda-toolkit
+```bash
+# Enable RPM Fusion repositories
+sudo dnf install -y \
+  https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+
+sudo dnf install -y \
+  https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+
+# Install the Nvidia drivers.
+# Source:
+#   https://rpmfusion.org/Howto/NVIDIA#Current_GeForce.2FQuadro.2FTesla
+sudo dnf update -y
+sudo dnf install akmod-nvidia
+sudo dnf install xorg-x11-drv-nvidia-cuda #optional for cuda/nvdec/nvenc support
+```
 
 <br>
 
@@ -132,12 +146,6 @@ sudo systemctl enable --now dnf-automatic-install.timer
 
 # Install git
 sudo dnf install -y git
-
-# Enable RPM Fusion repositories
-sudo dnf install -y \
-  https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
-sudo dnf install -y \
-  https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
 # Install Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
