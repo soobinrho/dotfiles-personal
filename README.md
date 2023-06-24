@@ -128,7 +128,7 @@ sudo dnf install -y \
 # Source:
 #   https://discussion.fedoraproject.org/t/fedora-37-nvidia-kernel-module-missing-falling-back-to-nouveau/71372/6
 sudo dnf remove *nvidia* --noautoremove --exclude=nvidia-gpu-firmware
-sudo dnf install akmod-nvidia-470xx --disablerepo rpmfusion-nonfree-nvidia-driver --enablerepo rpmfusion-nonfree
+sudo dnf install akmod-nvidia --disablerepo rpmfusion-nonfree-nvidia-driver --enablerepo rpmfusion-nonfree
 # Wait 5 minutes for the drivers to finish building in the background, and reboot.
 ```
 
@@ -1113,6 +1113,9 @@ since it's able to load all our styles.
 
 **Bash**
 ```bash
+# Reconfigure GRUB
+sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+
 # Shutdown
 poweroff
 
