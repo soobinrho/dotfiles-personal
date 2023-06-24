@@ -129,7 +129,6 @@ sudo dnf install -y \
 #   https://rpmfusion.org/Howto/NVIDIA#Current_GeForce.2FQuadro.2FTesla
 sudo dnf update -y
 sudo dnf install akmod-nvidia
-sudo dnf install xorg-x11-drv-nvidia-cuda #optional for cuda/nvdec/nvenc support
 ```
 
 <br>
