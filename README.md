@@ -1078,6 +1078,25 @@ wipe -rf ./.gnupg/openpgp-revocs.d
 
 <br>
 
+### `~/.ssh/config`
+
+```
+Host dev
+    HostName <server address>
+    User <username>
+
+Host testing
+    HostName <server address>
+    IdentityFile ~/.ssh/id_rsa_testing
+    User <username>
+
+Host *
+  ServerAliveInterval 600
+  ServerAliveCountMax 3
+```
+
+<br>
+
 ### `My favorite keyboard shortcuts`
 
 **Fedora**
