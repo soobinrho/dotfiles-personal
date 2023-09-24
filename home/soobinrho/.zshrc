@@ -128,14 +128,12 @@ fi
 # --------------------------------------------
 setopt MENU_COMPLETE
 
-
 # --------------------------------------------
 # Aliases
 # --------------------------------------------
 vim() {
-        (alacritty --command nvim "$1" &)
+        (alacritty --command nvim "$1" &) > /dev/null 2>&1
 }
-alias ls="colorls"
 alias glow="glow -p"
 alias PullGitAll="~/git/bash-git-pull-in-every-folder/PullGitAll"
 alias StatusGitAll="~/git/bash-git-pull-in-every-folder/optional-scripts/StatusGitAll"
@@ -151,33 +149,5 @@ alias gpp="g++ -o _ *.cpp && ./_"
 alias gs="git status"
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
-# --------------------------------------------
-# nvm configs: node version manager
-# --------------------------------------------
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-
-# --------------------------------------------
-# z.lua configs: a faster version of cd
-# --------------------------------------------
-eval "$(lua ~/.local/z.lua/z.lua --init zsh)"
-
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# --------------------------------------------
-# Ruby configs
-# Source:
-#   https://github.com/surajssd/dotfiles/blob/master/configs/zshrc
-# --------------------------------------------
-which conda > /dev/null 2>&1
-# if [ $? -eq 0 ]; then
-#     eval "$(/home/soobinrho/.rbenv/bin/rbenv init - zsh)"
-# fi
-eval "$(/home/soobinrho/.rbenv/bin/rbenv init - zsh)"
-
-# -------------------------------------------
-# Conda configs
-# -------------------------------------------
-eval "$(~/anaconda3/bin/conda shell.zsh hook)"
