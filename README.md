@@ -2,29 +2,6 @@
   <img src="https://user-images.githubusercontent.com/19341857/184075267-9818b003-480e-4ceb-a172-f7e6a1d686c7.gif">
 </p>
 
-***How exactly do you use this repository?***<br>
-Whenever I reinstall my devices
-for whatever reason, I go through
-each step below.
-These include the dotfiles and
-configuration files I use.
-For example, `.purelines.conf`
-and `.bashrc` will give you the same
-look as the image shown above.
-Also included are all the softwares
-I use daily.
-
-***Which OS do you use?***<br>
-I dual-boot on KDE Fedora and Windows.
-On my primary laptop which has
-two SSD's, I install Fedora
-on the bigger disk and Windows on
-the smaller disk, since Fedora is my main drive.
-My second laptop, however, has
-only one SSD, so it's
-divided into two partitions --
-e.g. 190GB for Fedora and 50GB for Windows.
-
 ```bash
 # Repository Structure
 # You can get this with `tree -a`
@@ -58,7 +35,6 @@ e.g. 190GB for Fedora and 50GB for Windows.
         │           ├── Breeze.colorscheme
         │           └── Profile1.profile
         ├── .p10k.zsh
-        ├── pureline.conf
         └── .zshrc
 ```
 
@@ -335,9 +311,6 @@ sudo yum install -y glow
 
 # Install http-tanker: interactive http-requests tool
 curl -sSL https://raw.githubusercontent.com/PierreKieffer/http-tanker/master/install/install_tanker64_linux.sh | bash
-
-# Install PureLine: bash powerline
-git clone https://github.com/chris-marsh/pureline.git ~/pureline
 
 # Remove nano in order to make vim the default editor
 sudo dnf remove -y nano
