@@ -271,35 +271,10 @@ sudo dnf install -y vlc
 # Install hstr: shell history search tool
 sudo dnf install -y hstr
 
-# Install Ruby
-# Source:
-#   https://github.com/rbenv/ruby-build/wiki#suggested-build-environment
-curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer | bash
-~/.rbenv/bin/rbenv init
-rbenv install 3.1.2
-rbenv global 3.1.2
-gem install bundler
-rbenv rehash
-dnf install -y gcc rust patch make bzip2 openssl-devel libyaml-devel libffi-devel readline-devel zlib-devel gdbm-devel ncurses-devel
-sudo dnf group install -y "C Development Tools and Libraries"
-
-# Install colorls: colored, cooler version of ls
-gem install colorls
-
 # Install nerd-fonts: fonts with better icons support
 git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git
 nerd-fonts/install.sh
 rm -rf nerd-fonts
-
-# Install fzf: shell fuzzy finder
-# My favorite option for fzf: `cat **<Tab>`
-# https://github.com/junegunn/fzf
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install
-
-# Install z.lua: a faster, cooler version of cd
-# My favorite option for z.lua: `z dotfiles`
-git clone https://github.com/skywind3000/z.lua.git ~/.local/z.lua/
 
 # Install glow: markdown reader
 echo '[charm]
