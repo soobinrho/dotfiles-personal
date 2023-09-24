@@ -164,19 +164,10 @@ sudo dnf install -y powershell
 # remembers the last window position. When I need speed, however,
 # Alacritty tends to be better smoother and faster because
 # it knows how to use both the CPU and the graphics cards.
-git clone https://github.com/alacritty/alacritty.git
-cd alacritty
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 rustup override set stable
 rustup update stable
-sudo dnf install -y cmake freetype-devel fontconfig-devel libxcb-devel libxkbcommon-devel g++
-cargo build --release
-sudo cp target/release/alacritty /usr/local/bin # or anywhere else in $PATH
-sudo cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
-sudo desktop-file-install extra/linux/Alacritty.desktop
-sudo update-desktop-database
-cd ..
-rm -rf ./alacritty
+cargo install alacritty
 
 # Install neovim: more extensible fork of vim
 sudo dnf install -y vim wl-clipboard xclip ripgrep fd-find
