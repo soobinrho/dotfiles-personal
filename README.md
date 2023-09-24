@@ -73,7 +73,7 @@ e.g. 190GB for Fedora and 50GB for Windows.
 &#160;&#160;&#160;&#160;[D.](#dotfiles-installation) Dotfiles Installation<br>
 [2.](#2-optional-ssh-server-configs) (Optional) SSH Server Configs<br>
 [3.](#3-optional-virtual-private-server-configs) (Optional) Virtual Private Server Configs<br>
-[4.](#4-optional-bare-metal-server-configs) (Optional) Bare Metal Server Configs
+[4.](#4-optional-bare-metal-server-configs) (Optional) Bare Metal Server Configs<br>
 [5.](#5-optional-random-tips-i-find-useful) (Optional) Random Tips I Find Useful
 
 
