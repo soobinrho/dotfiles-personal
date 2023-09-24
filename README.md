@@ -170,9 +170,7 @@ rustup update stable
 cargo install alacritty
 
 # Install neovim: more extensible fork of vim
-sudo dnf install -y vim wl-clipboard xclip ripgrep fd-find
-bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/rolling/utils/installer/install-neovim-from-release)
-ln -s /home/$USER/.local/bin/nvim /usr/local/bin/nvim
+sudo dnf install -y neovim python3-neovim
 
 # Install Visual Studio Code
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
