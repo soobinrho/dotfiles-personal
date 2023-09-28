@@ -532,8 +532,19 @@ dnf updates on specific packages:
 ```bash
 sudo vim /etc/dnf/dnf.conf
 
-# Add the following line:
+# Add the following line. For example, exclude=kernel*
 exclude=package-name-version18*
+```
+
+<br>
+
+### `How to increase number of kernels retained in Fedora` [[Source](https://discussion.fedoraproject.org/t/how-can-i-change-the-number-of-kernels-retained-when-updating-in-fedora/73863)]
+
+```bash
+sudo vim /etc/dnf/dnf.conf
+
+# Change this:
+installonly_limit=<number>
 ```
 
 <br>
