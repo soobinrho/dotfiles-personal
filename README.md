@@ -231,9 +231,51 @@ nvim
 # 2. How I set up my Ubuntu
 
 ```bash
+# Allow _apt to write to the download folders.
+# Source:
+#   https://askubuntu.com/questions/908800/what-does-this-apt-error-message-download-is-performed-unsandboxed-as-root
+sudo chown -Rv _apt:root /var/cache/apt/archives/partial/
+sudo chmod -Rv 700 /var/cache/apt/archives/partial/
 
+# ---------------------------------------------------------------------
+# Install development tools.
+# ---------------------------------------------------------------------
+sudo apt install -y curl zsh git gh git-lfs wipe bat alacritty neovim \
+    jpegoptim irssi neofetch htop ncdu glances asciinema xournal vlc \
+    pinta gimp obs-studio ffmpeg
 
+sudo apt remove -y nano
 
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git
+nerd-fonts/install.sh
+rm -rf nerd-fonts
+
+# ---------------------------------------------------------------------
+# Install Node.js
+# ---------------------------------------------------------------------
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+nvm install node
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+# Install yarn: a faster, parallel package manager.
+npm install -g yarn
+
+yarn global add typescript ts-node tldr loadtest svg-term-cli
+
+# ---------------------------------------------------------------------
+# Configure git.
+# ---------------------------------------------------------------------
+git config --global user.name "Soobin Rho"
+git config --global user.email "soobinrho@gmail.com"
+git config --global core.editor vim
+git config --global init.defaultBranch main
+git config --global alias.c 'commit -s'
+git config --global user.signingkey BC0596A444D39F64
+git config --global commit.gpgSign true
 ```
 
 <br>
