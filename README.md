@@ -174,15 +174,6 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 # Install zsh theme: powerlevel10k
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
-# Install Chrome
-#   https://www.google.com/intl/en_us/chrome/
-
-# Install Java
-#   https://www.oracle.com/java/technologies/downloads/
-
-# Install VS Code
-#   https://code.visualstudio.com/download
-
 # ---------------------------------------------------------------------
 # Configure git.
 # ---------------------------------------------------------------------
@@ -224,6 +215,15 @@ nvim
 # Install debugger.
 # Follow instructions at:
 #   https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation
+
+# Install Chrome
+#   https://www.google.com/intl/en_us/chrome/
+
+# Install Java
+#   https://www.oracle.com/java/technologies/downloads/
+
+# Install VS Code
+#   https://code.visualstudio.com/download
 ```
 
 <br>
@@ -276,6 +276,34 @@ git config --global init.defaultBranch main
 git config --global alias.c 'commit -s'
 git config --global user.signingkey BC0596A444D39F64
 git config --global commit.gpgSign true
+
+# ---------------------------------------------------------------------
+# Configure nvim.
+# ---------------------------------------------------------------------
+# Install Astrovim.
+git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim
+
+# Open nvim
+nvim
+
+# Install specific LSP servers and language parsers.
+# Source:
+#   https://astronvim.github.io/
+# :LspInstall
+# :TSInstall <Name of the language>
+
+# Install debugger.
+# Follow instructions at:
+#   https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation
+
+# Install Chrome
+#   https://www.google.com/intl/en_us/chrome/
+
+# Install Java
+#   https://www.oracle.com/java/technologies/downloads/
+
+# Install VS Code
+#   https://code.visualstudio.com/download
 ```
 
 <br>
