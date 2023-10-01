@@ -38,25 +38,15 @@
 <br>
 
 ## Steps
-[1.](#1-how-i-set-up-my-ubuntu) How I set up my Ubuntu<br>
-[2.](#2-how-i-set-up-my-fedora) How I set up my Fedora<br>
+[1.](#1-how-i-set-up-my-fedora) How I set up my Fedora<br>
+[2.](#2-how-i-set-up-my-ubuntu) How I set up my Ubuntu<br>
 [3.](#3-workflows-i-find-useful) Workflows I find useful
 
 
 <br>
 <br>
 
-# 1. How I set up my Ubuntu
-
-```bash
-
-
-
-```
-
-<br>
-
-# 2. How I set up my Fedora
+# 1. How I set up my Fedora
 
 ```bash
 # ---------------------------------------------------------------------
@@ -234,6 +224,16 @@ nvim
 # Install debugger.
 # Follow instructions at:
 #   https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation
+```
+
+<br>
+
+# 2. How I set up my Ubuntu
+
+```bash
+
+
+
 ```
 
 <br>
