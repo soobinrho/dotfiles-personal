@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/19341857/184075267-9818b003-480e-4ceb-a172-f7e6a1d686c7.gif">
-</p>
-
 ```bash
 # Repository Structure
 # You can get this with `tree -a`
@@ -42,40 +38,30 @@
 <br>
 
 ## Steps
-[1.](#1-dev-tools-and-dotfiles) Dev Tools and Dotfiles<br>
-&#160;&#160;&#160;&#160;[A.](#dev-tools) Dev Tools<br>
-&#160;&#160;&#160;&#160;[B.](#git-configs) Git Configs<br>
-&#160;&#160;&#160;&#160;[C.](#vim-configs) Vim Configs<br>
-&#160;&#160;&#160;&#160;[D.](#dotfiles-installation) Dotfiles Installation<br>
-[2.](#2-optional-ssh-server-configs) (Optional) SSH Server Configs<br>
-[3.](#3-optional-virtual-private-server-configs) (Optional) Virtual Private Server Configs<br>
-[4.](#4-optional-bare-metal-server-configs) (Optional) Bare Metal Server Configs<br>
-[5.](#5-optional-random-tips-i-find-useful) (Optional) Random Tips I Find Useful
+[1.](#1-how-i-set-up-my-ubuntu) How I set up my Ubuntu<br>
+[2.](#2-how-i-set-up-my-fedora) How I set up my Fedora<br>
+[3.](#3-workflows-i-find-useful) Workflows I find useful
 
 
 <br>
 <br>
 
-# 1. Dev Tools and Dotfiles
-
-## Dev Tools
-
-### `Installing zsh`
+# 1. How I set up my Ubuntu
 
 ```bash
-# Install zsh
-sudo dnf install -y zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-# Install zsh theme: powerlevel10k
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+
 ```
 
 <br>
 
-### `Installing Node.js`
+# 2. How I set up my Fedora
 
 ```bash
+# ---------------------------------------------------------------------
+# Install dev tools.
+# ---------------------------------------------------------------------
 # Install nvm: Node version manager.
 # After installing nvm, close and reopen terminal,
 # in order for new paths to take effect.
@@ -84,37 +70,20 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 # Install Node.js
 nvm install node
 
-# Install TypeScript
-npm install -g typescript
-```
+# Install yarn: a faster, parallel package manager.
+npm install -g yarn
 
-<br>
+# Install TypeScript.
+yarn global add typescript ts-node
 
-### `Installing Nvidia Driver for Quadro T1000`
+# Install tldr: similar to [man], but with simple examples.
+yarn global add tldr
 
-```bash
-# Enable RPM Fusion repositories
-sudo dnf install -y \
-  https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+# Install loadtest: server load testing tool
+yarn global add loadtest
 
-sudo dnf install -y \
-  https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-
-# Install the Nvidia drivers.
-# Source:
-#   https://discussion.fedoraproject.org/t/fedora-37-nvidia-kernel-module-missing-falling-back-to-nouveau/71372/6
-sudo dnf remove *nvidia* --noautoremove --exclude=nvidia-gpu-firmware
-sudo dnf install akmod-nvidia --disablerepo rpmfusion-nonfree-nvidia-driver --enablerepo rpmfusion-nonfree
-# Wait 5 minutes for the drivers to finish building in the background, and reboot.
-```
-
-<br>
-
-### `Installing programming environments`
-
-```bash
-# Add yourself to the sudo group
-sudo usermod -aG wheel $(whoami)
+# Install svg-term-cli: asciinema to svg converter
+yarn global add svg-term-cli
 
 # dnf-automatic updates everyday automatically
 sudo dnf install -y dnf-automatic
@@ -122,9 +91,6 @@ sudo systemctl enable --now dnf-automatic-install.timer
 
 # Install git
 sudo dnf install -y git
-
-# Install Rust
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 # Install R
 sudo dnf install -y R
@@ -140,22 +106,10 @@ sudo dnf install -y powershell
 # remembers the last window position. When I need speed, however,
 # Alacritty tends to be better smoother and faster because
 # it knows how to use both the CPU and the graphics cards.
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-rustup override set stable
-rustup update stable
-cargo install alacritty
+sudo dnf install -y alacritty
 
 # Install neovim: more extensible fork of vim
 sudo dnf install -y neovim python3-neovim
-
-# Install Visual Studio Code
-sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
-sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
-dnf check-update
-sudo dnf install code
-
-# Install steghide: steganography library
-sudo dnf install -y steghide
 
 # Install gh: GitHub CLI
 sudo dnf install -y gh
@@ -163,65 +117,11 @@ sudo dnf install -y gh
 # Install git-lfs: Git Large File Storage
 sudo dnf install -y git-lfs
 
-# Install LaTex environment
-sudo dnf install -y texlive-scheme-full texstudio
-
-# Install Chrome
-# https://www.google.com/intl/en_us/chrome/
-
-# Install Java
-# https://www.oracle.com/java/technologies/downloads/
-
-# Install Anaconda:
-#   https://www.anaconda.com/
-# In my case, because of Anaconda,
-# my shell startup time became slower.
-# You can fix this with the following command.
-conda init
-conda config --set auto_activate_base false
-conda update anaconda
-conda update jupyterlab
-
-# Now, your shell startup time will be normal again.
-# Whenever you need Anaconda, run
-# `conda activate`
-```
-
-<!--
-# Install MariaDB
-sudo dnf install -y mariadb
-
-# Install MariaDB server
-sudo dnf install -y mariadb-server
-
-# Install MariaDB ODBC
-sudo dnf install -y mariadb-connector-odbc
-
--->
-
-<br>
-
-### `Installing additional utilities`
-
-```bash
 # Install wipe: file/folder eraser
 sudo dnf install -y wipe
 
 # Install jpegoptim: jpeg compressor
 sudo dnf install -y jpegoptim
-
-# Install irssi: irs client
-sudo dnf install -y irssi
-
-# Add default channel and enable auto log-in
-# Source:
-#   https://irssi.org/documentation/manual/automation/
-irssi
-/SERVER MODIFY -auto irc.libera.chat
-/CHANNEL ADD -auto #freebsd-soc liberachat
-/NETWORK ADD -sasl_username yourname -sasl_password yourpassword -sasl_mechanism PLAIN liberachat
-/SET window_default_hidelevel hidden joins parts quits
-/SET autolog on
 
 # Install neofetch: system information viewer
 sudo dnf install -y neofetch
@@ -235,23 +135,14 @@ sudo dnf install -y ncdu
 # Install glances: system resources viewer
 sudo dnf install -y glances
 
-# Install yarn: a faster, parallel package manager
-npm install -g yarn
-
-# Install tldr: similar to [man], but with simple examples
-npm install -g tldr
-
 # Install bat: colored, cooler version of cat
 sudo dnf install -y bat
-
-# Install loadtest: server load testing tool
-npm install -g loadtest
 
 # Install asciinema: terminal session recording tool
 sudo dnf install -y asciinema
 
-# Install svg-term-cli: asciinema to svg converter
-npm install -g svg-term-cli
+# Install Pinta and GIMP: image editing tools
+sudo dnf install -y pinta gimp
 
 # Install xournal: pdf annotation tool
 sudo dnf install -y xournal
@@ -262,63 +153,54 @@ sudo dnf install -y obs-studio
 # Install FFmpeg: multimedia encoding/decoding tool
 sudo dnf install -y ffmpeg
 
-# Install simplescreenrecorder: light-weight screencasting tool
-sudo dnf install -y simplescreenrecorder
-
 # Install vlc: video player
 sudo dnf install -y vlc
-
-# Install hstr: shell history search tool
-sudo dnf install -y hstr
 
 # Install nerd-fonts: fonts with better icons support
 git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git
 nerd-fonts/install.sh
 rm -rf nerd-fonts
 
-# Install glow: markdown reader
-echo '[charm]
-name=Charm
-baseurl=https://repo.charm.sh/yum/
-enabled=1
-gpgcheck=0' | sudo tee /etc/yum.repos.d/charm.repo
-sudo yum install -y glow
-
-# Install http-tanker: interactive http-requests tool
-curl -sSL https://raw.githubusercontent.com/PierreKieffer/http-tanker/master/install/install_tanker64_linux.sh | bash
-
 # Remove nano in order to make vim the default editor
 sudo dnf remove -y nano
-```
 
-<br>
-<br>
+# Install irssi: irs client
+sudo dnf install -y irssi
 
-## Git Configs
+# Add default channel and enable auto log-in
+# Source:
+#   https://irssi.org/documentation/manual/automation/
+# irssi
+# /SERVER MODIFY -auto irc.libera.chat
+# /CHANNEL ADD -auto #freebsd-soc liberachat
+# /NETWORK ADD -sasl_username yourname -sasl_password yourpassword -sasl_mechanism PLAIN liberachat
+# /SET window_default_hidelevel hidden joins parts quits
+# /SET autolog on
 
-### `(Optional) Signing git commits with a GPG key` [[Source](https://wouterdeschuyter.be/blog/verified-signed-commits-on-github)]
+# Install zsh
+sudo dnf install -y zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-```bash
-# Set up git name, email, and default editor
+# Install zsh theme: powerlevel10k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+# Install Chrome
+#   https://www.google.com/intl/en_us/chrome/
+
+# Install Java
+#   https://www.oracle.com/java/technologies/downloads/
+
+# Install VS Code
+#   https://code.visualstudio.com/download
+
+# ---------------------------------------------------------------------
+# Configure git.
+# ---------------------------------------------------------------------
 git config --global user.name "Soobin Rho"
 git config --global user.email "soobinrho@gmail.com"
 git config --global core.editor vim
-
-# Create a GPG key
-gpg --full-generate-key
-
-# Select RSA and RSA
-1
-
-# Select the length to be 4096
-4096
-
-# Set the key to never expire
-0
-
-# Set the key's user ID as my name and GitHub email address
-Soobin Rho
-soobinrho@gmail.com
+git config --global init.defaultBranch main
+git config --global alias.c 'commit -s'
 
 # Get the key's key ID.
 # You'll get an output like this:
@@ -326,342 +208,173 @@ soobinrho@gmail.com
 # BC0596A444D39F64 is the key ID.
 gpg --list-secret-keys --keyid-format LONG
 
-# Copy and paste the key's public key to GitHub's GPG Key section settings
+# Copy and paste the key's public key to GitHub's GPG Key section settings.
 gpg --armor --export BC0596A444D39F64
 
-# Configure git to sign all commits with the key
+# Configure git to sign all commits with the key.
 git config --global user.signingkey BC0596A444D39F64
 git config --global commit.gpgSign true
 
-# Yes, your commits are now signed with
-# your GPG key. Furthermore, you might want
-# to signoff your commits for
-# Developer Certificate of Origin (DCO)
-# as well. You can do this by running:
-git config --global alias.c 'commit -s'
+# ---------------------------------------------------------------------
+# Configure nvim.
+# ---------------------------------------------------------------------
 
-# Now, you can commit with
-# git c -am'Commit message.'
-# Your commits will be signed with
-# both your GPG key and the DCO.
-
-# Set default branch name to main instead of master
-git config --global init.defaultBranch main
-```
-
-<br>
-<br>
-
-## Vim Configs
-
-```bash
-# Install Astrovim
+# Install Astrovim.
 git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim
 
 # Open nvim
 nvim
 
-# Install specific LSP servers and language parsers
+# Install specific LSP servers and language parsers.
 # Source:
 #   https://astronvim.github.io/
-:LspInstall
-:TSInstall <Name of the language>
+# :LspInstall
+# :TSInstall <Name of the language>
 
-# Install debugger
+# Install debugger.
 # Follow instructions at:
 #   https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation
 ```
 
 <br>
-<br>
 
-### `Dotfiles Installation`
-
-```bash
-# Install Dotbot
-pip install dotbot
-
-# Install all the dotfiles
-mkdir ~/git
-cd ~/git
-git clone https://github.com/soobinrho/dotfiles-personal.git
-cd dotfiles-personal
-dotbot -c ./install.conf.yaml
-
-# The command above installs all dotfiles
-# in this repository. If you'd like to
-# install only a part of it, then you can
-# eitehr cp individually one by one
-# or edit `install.conf.yaml`
-```
-
-<br>
-
-Now, Dotbot created symlinks
-to the dotfiles located in this repository.
-For example, Dotbot just created `~/.bashrc`,
-which is a symlink to
-`~/git/dotfiles-personal/home/soobinrho/bashrc`.
-
-Therefore, whenever you want to
-modify any of the dotfiles, we
-do not have to make
-changes twice both in `~/` directory
-dotfiles and in `dotfiles-personal` directory.
-Just modify any dotfile here
-in `dotfiles-personal`.
-
-<br>
-<br>
-
-# 2. (Optional) SSH Server Configs
-
-***Why do you use a SSH server?***<br>
-I try to use SSH servers only on
-virtual private servers because I don't want
-to expose port 22 on my personal device.
-However, there was a time in which I needed
-to SSH into my second laptop from my primary laptop.
-
-So, here's how I set up a SSH server on my second laptop.
-Port 22 is likely to be secure as long as it is updated
-to the latest version and `sshd_config` is configured
-securely as shown two sections below. Nevertheless,
-the best way to prevent a malicious hacker from getting
-into port 22 is to make it unavailable. So,stop the
-SSH server as soon as you're done.
-
-<br>
-
-### `Starting a SSH server on my second laptop` [[Source](https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys)]
+# 3. Workflows I find useful
 
 ```bash
-# Start the SSH server
-sudo service sshd start
-
-# When you're done with SSH, stop the SSH server.
-# Actually, it stops automaticaly when you reboot
-# but you can stop it without rebooting.
-sudo service sshd stop
-```
-
-<br>
-
-### `Configuring sshd_config` [[Source](https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys)]
-
-```bash
-# Open the config file
-sudo vim /etc/ssh/sshd_config
-
-# Disallow password authentication
-# so that only the RSA SSH key can be used
-PasswordAuthentication no
-
-# Restart SSH
-sudo service sshd restart    # Fedora
-sudo service ssh restart    # Ubuntu
-```
-
-<br>
-
-### `(DANGER) Copying both the public GPG key and private GPG key from my primary laptop to my second laptop`
-
-```bash
-# (DANGER) Copy both the private and public GPG keys.
-# Note that I'm copying my private key as well
-# because both the SSH server and client are my personal laptops.
-# Never transfer your private keys, unless you absolutely need to.
-rsync --archive ~/.gnupg $(whoami)@ip_address:~
-
-# The --archive option preserves
-# all permissions, modification times, and
-# everytihng inside the directory recursively
-```
-
-<br>
-
-### `(DANGER) Copying both the public SSH key and private SSH key from my primary laptop to my second laptop`
-
-```bash
-# (DANGER) Copy both the private and public SSH keys.
-# This also copies `authorized_keys`, `config`, and `known_hosts`.
-# Again, never transfer your private keys, unless you absolutely need to.
-rsync --archive ~/.ssh $(whoami)@ip_address:~
-rsync --archive ~/.gitconfig $(whoami)@ip_address:~/.gitconfig
-```
-
-<br>
-
-### `(Optional) Creating a key as a SSH client on my primary laptop` [[Source](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-20-04)]
-
-```bash
-# Create a key with the length of 4096 bits
-ssh-keygen -b 4096
-
-# Copy the public key to the SSH server
-ssh-copy-id root@ip_address
-```
-
-<br>
-
-### `(Optional) Client-side SSH configuration I use on my primary laptop` [[Source](https://unix.stackexchange.com/questions/708206/ssh-timeout-does-not-happen-and-not-disconnect)]
-
-```bash
-# Configuring your SSH client to time-out less frequently
-cat >> ~/.ssh/config
-Host *
-  ServerAliveInterval 15
-  ServerAliveCountMax 3
-
-# Creating an alias so that we can
-# `ssh myserver` instead of `ssh main@ip_address`
-# It's nice to be able to ssh without ip_address.
-cat >> ~/.ssh/config
-Host myserver
-    HostName ip_address
-    User main
-```
-
-<br>
-
-### `(Optional) Disableing updates for specific packages` [[Source](https://www.tecmint.com/exclude-package-updates-yum-dnf-command/)]
-
-If you by any chance have to disable
-dnf updates on specific packages:
-
-```bash
+# ---------------------------------------------------------------------
+# How to disable updates for specific packages in dnf.
+# ---------------------------------------------------------------------
 sudo vim /etc/dnf/dnf.conf
 
 # Add the following line. For example, exclude=kernel*
 exclude=package-name-version18*
-```
 
-<br>
-
-### `How to increase number of kernels retained in Fedora` [[Source](https://discussion.fedoraproject.org/t/how-can-i-change-the-number-of-kernels-retained-when-updating-in-fedora/73863)]
-
-```bash
+# ---------------------------------------------------------------------
+# How to increase number of kernels retained in Fedora.
+# ---------------------------------------------------------------------
 sudo vim /etc/dnf/dnf.conf
 
 # Change this:
 installonly_limit=<number>
-```
 
-<br>
-<br>
+# ---------------------------------------------------------------------
+# How to enable ~/.bash_history from multiple shells.
+# ---------------------------------------------------------------------
+echo '# Avoid duplicates
+HISTCONTROL=ignoredups:erasedups
+# When the shell exits, append to the history file instead of overwriting it
+shopt -s histappend
 
-# 3. (Optional) Virtual Private Server Configs
+# After each command, append to the history file and reread it
+PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"' >> ~/.bashrc
 
-Here's how I configure my VPS's for web apps.
+# ---------------------------------------------------------------------
+# How to triple boot in Windows, Ubuntu, and Fedora.
+# ---------------------------------------------------------------------
+# Install Windows, Ubuntu, and then Fedora
 
-<br>
+# How to make a Fedora / Ubuntu installation USB
+lsblk
+sudo dd if=Fedora-KDE.iso of=/dev/sdb bs=16M oflag=direct; sync
 
-### `Initializing an Ubuntu server on DigitalOcean` [[Source](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-20-04)]
+# How to make a Windows installation USB
+sudo dnf install WoeUSB
+sudo woeusb --device Win10.iso /dev/sdb --target-filesystem ntfs
 
-```bash
-# SSH into the server
-ssh root@ip_address
+# ---------------------------------------------------------------------
+# How to disable GUI in Ubuntu.
+# ---------------------------------------------------------------------
+# Disable the GUI
+sudo apt remove lightdm
 
-# Set up the firewall
-ufw allow OpenSSH
-ufw enable
+# Re-enable the GUI
+sudo apt install lightdm
+reboot
 
-# Create a user account
-adduser main
-usermod -aG sudo main
+# ---------------------------------------------------------------------
+# How to extract a high quality audio from a video file.
+# ---------------------------------------------------------------------
+ffmpeg -i sample.avi -q:a 0 -map a sample.mp3
 
-# Copy the public key from the root to the user that we just created
-rsync --archive --chown=main:main /root/.ssh /home/main
-```
+# ---------------------------------------------------------------------
+# How to make a screencast gif.
+# ---------------------------------------------------------------------
+# 1. Screencast with the simplescreenrecorder or obs-studio.
 
-<br>
+# 2. Go to gifski's GitHub page and then build from source.
+#    https://github.com/ImageOptim/gifski
 
-### `Installing Docker Engine on Ubuntu` [[Source](https://docs.docker.com/engine/install/ubuntu/)]
+# 3. Convert the screencast video into png files.
+ffmpeg -i example.mkv frame%04d.png
 
-```bash
-# Update apt
-sudo apt update
+# 4. Convert to gif.
+~/gifski/target/release/gifski -o example.gif frame*.png --repeat 0 -Q 100 --fps 50 -W 960 -H 516
 
-# Add the official Docker repository to apt
-sudo apt install \
-    ca-certificates \
-    curl \
-    gnupg \
-    lsb-release
-sudo mkdir -p /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
-  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+# If you're just trying to turn a terminal session into a gif, there's
+# a simpler way using asciinema and svg-term-cli.
+asciinema rec
+svg-term --cast=11345 --out example.svg
 
-# Install Docker Engine.
-sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+# ---------------------------------------------------------------------
+# How to securely delete files.
+# ---------------------------------------------------------------------
+wipe -r ./folder
 
-# Add your account to the group docker
-# so that you can use it without sudo.
-sudo groupadd docker
-sudo usermod -aG docker $USER
+# ---------------------------------------------------------------------
+# How to encrypt and decypt files using GPG.
+# ---------------------------------------------------------------------
+# Encrypt
+gpg -e important_document.pdf
 
-# Re-login so that the changes can be applied.
-su -l $USER
-```
+# Decrypt
+gpg important_document.pdf.gpg
 
-<br>
+# ---------------------------------------------------------------------
+# Useful system commands.
+# ---------------------------------------------------------------------
+# Go to top level of internal documentation.
+# Run `info bash` and type `u`
 
-### `Installing Docker Engine on Fedora` [[Source](https://docs.docker.com/engine/install/fedora/)]
+# Reconfigure GRUB.
+sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
-```bash
-# Add the official Docker repository to dnf
-sudo dnf -y install dnf-plugins-core
-sudo dnf config-manager \
-    --add-repo \
-    https://download.docker.com/linux/fedora/docker-ce.repo
+# Shutdown.
+poweroff
 
-# Install Docker Engine
-sudo dnf install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
+# Suspend.
+systemctl suspend
 
-# On Ubuntu, Docker service starts automatically,
-# but on Fedora, Docker service should be started with
-sudo systemctl start docker
+# Execute the last command.
+# `ctrl` + `p`
 
-# Add your account to the group docker so that you can use it without sudo
-sudo groupadd docker
-sudo usermod -aG docker $USER
+# Find files containing a certain text.
+egrep -ir "Certain text"
 
-# Re-login so that the changes can be applied
-su -l $USER
-```
+# Read in hexadecimal
+xxd <file name>
 
-<br>
+# Fedora window management:
+# - `Windows` + `LMB` Move a window.
+# - `Windows` + `RMB` Resize a window.
 
-### `Installing Kubernetes on Fedora` [[Source](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/)
+# Enable multiple audio outputs.
+pactl load-module module-combine-sink
 
-```bash
-cat <<EOF | sudo tee /etc/yum.repos.d/kubernetes.repo
-[kubernetes]
-name=Kubernetes
-baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-\$basearch
-enabled=1
-gpgcheck=1
-gpgkey=https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
-exclude=kubelet kubeadm kubectl
-EOF
+# ---------------------------------------------------------------------
+# Useful vim commands.
+# ---------------------------------------------------------------------
+# - `gc` Comment visual mode.
+# - `gcc` Comment out a line.
+# - `gcap` Comment out a paragraph.
+# - `:7,17Commentary` Comment out with line numbers.
+# - `<Select multiple lines with visual mode> :norm! @a` Execute a macro on multiple lines.
+# - `m[A-Z]` Set a marker and `'[A-Z]` go to the marker.
+# - `q:` Open command-history buffer.
+# - `:ene|e` Edit a file in a new buffer, short for `:enew|edit`.
 
-# Set SELinux in permissive mode (effectively disabling it)
-sudo setenforce 0
-sudo sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
-
-sudo yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
-
-sudo systemctl enable --now kubelet
-```
-
-<br>
-
-### `Installing Cloudflare Tunnel on the Server`
-
-```bash
+# ---------------------------------------------------------------------
+# How to install Cloudflare Tunnel.
+# ---------------------------------------------------------------------
 # Install Cloudflare Tunnel on the server
 #   https://one.dash.cloudflare.com/
 #   Installation script is available at the `Access - Tunnels` setting.
@@ -682,22 +395,17 @@ sudo ufw allow from 192.168.1.0/24
 cd ~
 git clone https://github.com/Paul-Reed/cloudflare-ufw.git
 sudo ~/cloudflare-ufw/cloudflare-ufw.sh
-sudo crontab -e
-```
-```
-0 0 * * 1 /home/myusername/cloudflare-ufw/cloudflare-ufw.sh > /dev/null 2>&1
-```
-```bash
+
+# Run `sudo crontab -e` and then add:
+# 0 0 * * 1 /home/myusername/cloudflare-ufw/cloudflare-ufw.sh > /dev/null 2>&1
+
 # Confirm all IP rules have been set
 sudo ufw enable
 sudo ufw status verbose
-```
 
-<br>
-
-### `Installing Cloudflared Client for SSH Users`
-
-```bash
+# ---------------------------------------------------------------------
+# How to install Cloudflared Client for SSH Users.
+# ---------------------------------------------------------------------
 # Install Cloudflared on the computer,
 # from which you're accessing the server
 #   https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/use_cases/ssh/#2-connect-as-a-user
@@ -707,64 +415,107 @@ sudo ufw status verbose
 # at the `Access - Tunnels - Configure` setting at
 #   https://one.dash.cloudflare.com/
 
-# Edit ssh config so that ssh command authenticates using Cloudflared
-vim ~/.ssh/config
-```
-```
-# Edit example.com to your server's domain name and
-# edit myusername to your user name
-Host ssh.example.com
-ProxyCommand /usr/bin/cloudflared access ssh --hostname %h
+# Edit ssh config so that ssh command authenticates using Cloudflared.
+# Run `vim ~/.ssh/config` and add:
+# Host ssh.example.com
+# ProxyCommand /usr/bin/cloudflared access ssh --hostname %h
+#
+# Host devserver
+#     HostName ssh.example.com
+#     User myusername
 
-Host devserver
-    HostName ssh.example.com
-    User myusername
+# ---------------------------------------------------------------------
+# How to stream OBS to yourself using Nginx.
+# ---------------------------------------------------------------------
+# Source:
+#   https://obsproject.com/forum/resources/how-to-set-up-your-own-private-rtmp-server-using-nginx.50
+
+# For gaining practice on my rhetorics,
+# I needed a way to listen to my own speech.
+# I needed a program that will play what’s recorded into the
+# mic with a delay of around five seconds. The best solution for my
+# use cases turned out to be OBS and a private rtmp server.
+
+# Download the latest mainline Nginx
+# https://nginx.org
+
+# Download the Nginx RTMP module
+wget https://github.com/sergey-dryabzhinsky/nginx-rtmp-module/archive/dev.zip
+
+tar -zxvf nginx-1.23.3.tar.gz
+unzip dev.zip
+cd nginx-1.23.3
+
+./configure --with-http_ssl_module --add-module=../nginx-rtmp-module-dev
+make
+sudo make install
+
+# Add rtmp to the Nginx conf file
+# Run `vim /usr/local/nginx/conf/nginx.conf` and add:
+# rtmp {
+#         server {
+#                 listen 1935;
+#                 chunk_size 4096;
+#
+#                 application live {
+#                         live on;
+#                         record off;
+#                         allow publish 127.0.0.1;
+#                         deny publish all;
+#                         allow play 127.0.0.1;
+#                         deny play all;
+#                 }
+#         }
+# }
+
+# Start Nginx
+sudo /usr/local/nginx/sbin/nginx
+
+# OBS Studio Settings
+# Settings - Stream - Server:
+# rtmp://127.0.0.1:1935/live
+
+# HOW TO PLAY THE STREAM WITH VLC
+# 1. Open VLC
+# 2. Click "Play", the triangle thingy
+# 3. Click "Network"
+# 4. Enter rtmp://127.0.0.1:1935/live
+
+# Stop Nginx when you're done
+sudo /usr/local/nginx/sbin/nginx -s stop
+
+# ---------------------------------------------------------------------
+# Useful `~/.ssh/config` example.
+# ---------------------------------------------------------------------
+# Host dev
+#     HostName <server address>
+#     User <username>
+#
+# Host testing
+#     HostName <server address>
+#     IdentityFile ~/.ssh/id_rsa_testing
+#     User <username>
+#
+# Host *
+#   ServerAliveInterval 600
+#   ServerAliveCountMax 3
 ```
 
 <br>
-<br>
 
-# 4. (Optional) Bare Metal Server Configs
-
-To save development costs, I turned one of my spare laptops into a server,
-and here are the configurations I use for my server.
-
-### `Fedora, Ubuntu, and Windows Triple Boot`
-
-```bash
-# Install Windows, Ubuntu, and then Fedora
-
-# How to make a Fedora / Ubuntu installation USB
-lsblk -e7
-sudo dd if=Fedora-KDE.iso of=/dev/sdb bs=16M oflag=direct; sync
-
-# How to make a Windows installation USB
-sudo dnf install WoeUSB
-sudo woeusb --device Win10.iso /dev/sdb --target-filesystem ntfs
+<details open>
+<summary>
+  <b>
+    Journal on extra random tips
+  </b>
+</summary>
+  
 ```
-<br>
-
-### `Disabling GUI in Ubuntu`
-
-```bash
-# Disable the GUI
-sudo apt remove lightdm
-
-# Re-enable the GUI
-sudo apt install lightdm
-reboot
-```
-
-<br>
-<br>
-
-<!--
-
 ###
 # June 3, 2022
 # Learned about git using `info gittutorial'.
 # summary of what i learned today:
-# ```
+
 # git init
 # git add readme.md
 # git commit -am 'description'
@@ -869,270 +620,9 @@ reboot
 Codes should describe what they do themselves.
 Comments, in the other hand, should describe
 why those codes are there.
-
--->
-
-# 5. (Optional) Random Tips I find Useful
-
-### `How to make a screencast gif`
-
-```bash
-# 1. Screencast with the simplescreenrecorder or obs-studio.
-
-# 2. Go to gifski's GitHub page and then build from source.
-#    https://github.com/ImageOptim/gifski
-
-# 3. Convert the screencast video into png files.
-ffmpeg -i example.mkv frame%04d.png
-
-# 4. Convert to gif.
-~/gifski/target/release/gifski -o example.gif frame*.png --repeat 0 -Q 100 --fps 50 -W 960 -H 516
 ```
 
-<br>
-
-If you're just trying to turn a terminal
-session into a gif, there's a simpler way
-using asciinema and svg-term-cli.
-
-```bash
-# Record a terminal session
-asciinema rec
-
-# Convert the asciinema into a svg file
-svg-term --cast=11345 --out example.svg
-```
-
-<br>
-
-### `How to stream OBS to yourself using Nginx` [[Source](https://obsproject.com/forum/resources/how-to-set-up-your-own-private-rtmp-server-using-nginx.50)]
-
-For gaining practice on my rhetorics,
-I needed a way to listen to my own speech.
-I needed a program that will play what’s recorded into the
-mic with a delay of around five seconds. The best solution for my
-use cases turned out to be OBS and a private rtmp server.
-
-```bash
-# Download the latest mainline Nginx
-wget http://nginx.org/download/nginx-1.23.3.tar.gz
-
-# Download the Nginx RTMP module
-wget https://github.com/sergey-dryabzhinsky/nginx-rtmp-module/archive/dev.zip
-
-tar -zxvf nginx-1.23.3.tar.gz
-unzip dev.zip
-cd nginx-1.23.3
-
-./configure --with-http_ssl_module --add-module=../nginx-rtmp-module-dev
-make
-sudo make install
-
-# Add rtmp to the Nginx conf file
-vim /usr/local/nginx/conf/nginx.conf
-```
-
-Copy and paste the following to the end of the file.
-
-```
-rtmp {
-        server {
-                listen 1935;
-                chunk_size 4096;
-
-                application live {
-                        live on;
-                        record off;
-                        allow publish 127.0.0.1;
-                        deny publish all;
-                        allow play 127.0.0.1;
-                        deny play all;
-                }
-        }
-}
-```
-```bash
-# Start Nginx
-sudo /usr/local/nginx/sbin/nginx
-
-# HOW TO PLAY THE STREAM WITH VLC
-# 1. Open VLC
-# 2. Click "Play", the triangle thingy
-# 3. Click "Network"
-# 4. Enter rtmp://127.0.0.1:1935/live
-
-# Stop Nginx when you're done
-sudo /usr/local/nginx/sbin/nginx -s stop
-```
-
-<br>
-
-### `Resolve Thinkpad P17 going black screen after update`
-
-```bash
-# Open a virtual TTY by typing ctrl + alt + F3 first
-# and then type startx.
-# Source:
-#   https://www.reddit.com/r/kdeneon/comments/swkraq/black_screen_after_update/
-startx
-```
-
-<br>
-
-### `School WIFI`
-
-https://cat.eduroam.org
-
-<br>
-
-### `Securely delete files`
-
-```bash
-wipe -r ./folder
-```
-
-<br>
-
-### `Encrypt and decrypt using GPG`
-
-```bash
-# Encrypt
-gpg -e important_document.pdf
-
-# Decrypt
-gpg important_document.pdf.gpg
-```
-
-<br>
-
-### `How to backup GPG config files and keys`
-
-```bash
-# WARNING: Do not share with anyone else.
-
-# Copy the GPG config files and keys.
-cd ~/backups
-cp --dereference -r ~/.gnupg ./
-cd .gnupg
-
-# Delete the revocation certificates.
-# Deleting these is a good security practice because, otherwise,
-# malicious actors can revoke my public key and impersonate me.
-# Source:
-#   https://serverfault.com/questions/86048/how-to-backup-gpg
-wipe -rf ./.gnupg/openpgp-revocs.d
-#
-```
-
-<br>
-
-### `~/.ssh/config`
-
-```
-Host dev
-    HostName <server address>
-    User <username>
-
-Host testing
-    HostName <server address>
-    IdentityFile ~/.ssh/id_rsa_testing
-    User <username>
-
-Host *
-  ServerAliveInterval 600
-  ServerAliveCountMax 3
-```
-
-<br>
-
-### `My favorite keyboard shortcuts`
-
-**Fedora**
-- `Windows` + `LMB` Move a window.
-- `Windows` + `RMB` Resize a window.
-- `ctrl` + `alt` + `T` Open a terminal.
-
-```bash
-# Enable multiple audio outputs.
-pactl load-module module-combine-sink
-```
-
-**Vim**
-- `gc` Comment visual mode.
-- `gcc` Comment out a line.
-- `gcap` Comment out a paragraph.
-- `:7,17Commentary` Comment out with line numbers.
-- `<Select multiple lines with visual mode> :norm! @a` Execute a macro on multiple lines.
-- `m[A-Z]` Set a marker and `'[A-Z]` go to the marker.
-- `q:` Open command-history buffer.
-- `:ene|e` Edit a file in a new buffer, short for `:enew|edit`.
-- `:Start` Open a terminal.
-This will work only if you've installed
-vim-dispatch. If you followed the
-steps above, vim-dispatch is
-already installed. However, if you'd like
-an alternative that works without
-vin-dispatch or any other plugin,
-`:! konsole` works too, but
-`:! konsole` defaults back to the vanilla
-Konsole look, while `:Start` looks amazing
-since it's able to load all our styles.
-
-**Bash**
-```bash
-# Reconfigure GRUB
-sudo grub2-mkconfig -o /boot/grub2/grub.cfg
-
-# Shutdown
-poweroff
-
-# Suspend
-systemctl suspend
-
-# Execute the last command
-`ctrl` + `p`
-
-# Go to top level of internal documentation
-info bash
-u
-
-# Find files containing a certain text/
-egrep -ir "Certain text"
-
-# Edit files with sudo access
-sudoedit ...
-
-# Read in hexadecimal
-xxd ...
-
-# Git rebase
-git rebase -i HEAD~2
-
-# ncat: check if a port is exposed
-nc -vz <HOSTNAME> 9000
-```
-
-<!---
-Vim commands
-/search-term  |   n   |   shift + n   |   Search
-:%s/search-term/replaceterm/gc   |   Search and replace
-visual-mode-selection + :s/^/#   |   Comment block
-ctrl + v + shift + i   |   Visual block mode
-
-A good example of bash installation script
-https://github.com/IBM-Cloud/ibm-cloud-cli-release/releases/
-
-
-OBS Studio Settings
-Settings - Stream - Server:
-rtmp://127.0.0.1:1935/live
-
-This rhetorics settings requires Nginx server.
-The installation is described in my Google Docs
-
-Extracting a high quality audio from a video file
-ffmpeg -i sample.avi -q:a 0 -map a sample.mp3
--->
+</details>
 
 <br>
 <br>
