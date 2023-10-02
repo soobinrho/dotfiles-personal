@@ -21,8 +21,6 @@
         │       └── basic
         │           └── scenes
         │               └── rhetorics_practice.json
-        ├── .editorconfig
-        ├── global_extra_conf.py
         ├── .gnupg
         │   └── gpg-agent.conf
         ├── .local
@@ -69,23 +67,26 @@ yarn global add typescript ts-node
 # Install tldr: similar to [man], but with simple examples.
 yarn global add tldr
 
-# Install loadtest: server load testing tool
+# Install loadtest: server load testing tool.
 yarn global add loadtest
 
-# Install svg-term-cli: asciinema to svg converter
+# Install svg-term-cli: asciinema to svg converter.
 yarn global add svg-term-cli
 
-# dnf-automatic updates everyday automatically
+# Update everyday automatically.
 sudo dnf install -y dnf-automatic
 sudo systemctl enable --now dnf-automatic-install.timer
 
-# Install git
+# Update.
+sudo dnf update -y
+
+# Install git.
 sudo dnf install -y git
 
-# Install R
+# Install R.
 sudo dnf install -y R
 
-# Install PowerShell
+# Install PowerShell.
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 sudo rpm -Uvh https://packages.microsoft.com/config/centos/8/packages-microsoft-prod.rpm
 sudo dnf update -y
@@ -98,66 +99,66 @@ sudo dnf install -y powershell
 # it knows how to use both the CPU and the graphics cards.
 sudo dnf install -y alacritty
 
-# Install neovim: more extensible fork of vim
+# Install neovim: more extensible fork of vim.
 sudo dnf install -y neovim python3-neovim
 
-# Install gh: GitHub CLI
+# Install gh: GitHub CLI.
 sudo dnf install -y gh
 
-# Install git-lfs: Git Large File Storage
+# Install git-lfs: Git Large File Storage.
 sudo dnf install -y git-lfs
 
-# Install wipe: file/folder eraser
+# Install wipe: file/folder eraser.
 sudo dnf install -y wipe
 
-# Install jpegoptim: jpeg compressor
+# Install jpegoptim: jpeg compressor.
 sudo dnf install -y jpegoptim
 
-# Install neofetch: system information viewer
+# Install neofetch: system information viewer.
 sudo dnf install -y neofetch
 
-# Install htop: process viewer
+# Install htop: process viewer.
 sudo dnf install -y htop
 
-# Install ncdu: disk usage viewer
+# Install ncdu: disk usage viewer.
 sudo dnf install -y ncdu
 
-# Install glances: system resources viewer
+# Install glances: system resources viewer.
 sudo dnf install -y glances
 
-# Install bat: colored, cooler version of cat
+# Install bat: colored, cooler version of cat.
 sudo dnf install -y bat
 
-# Install asciinema: terminal session recording tool
+# Install asciinema: terminal session recording tool.
 sudo dnf install -y asciinema
 
-# Install Pinta and GIMP: image editing tools
+# Install Pinta and GIMP: image editing tools.
 sudo dnf install -y pinta gimp
 
-# Install xournal: pdf annotation tool
+# Install xournal: pdf annotation tool.
 sudo dnf install -y xournal
 
-# Install obs-studio: screencasting/streaming tool
+# Install obs-studio: screencasting/streaming tool.
 sudo dnf install -y obs-studio
 
-# Install FFmpeg: multimedia encoding/decoding tool
+# Install FFmpeg: multimedia encoding/decoding tool.
 sudo dnf install -y ffmpeg
 
-# Install vlc: video player
+# Install vlc: video player.
 sudo dnf install -y vlc
 
-# Install nerd-fonts: fonts with better icons support
+# Install nerd-fonts: fonts with better icons support.
 git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git
 nerd-fonts/install.sh
 rm -rf nerd-fonts
 
-# Remove nano in order to make vim the default editor
+# Remove nano in order to make vim the default editor.
 sudo dnf remove -y nano
 
-# Install irssi: irs client
+# Install irssi: irs client.
 sudo dnf install -y irssi
 
-# Add default channel and enable auto log-in
+# Add default channel and enable auto log-in.
 # Source:
 #   https://irssi.org/documentation/manual/automation/
 # irssi
@@ -167,11 +168,11 @@ sudo dnf install -y irssi
 # /SET window_default_hidelevel hidden joins parts quits
 # /SET autolog on
 
-# Install zsh
+# Install zsh.
 sudo dnf install -y zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-# Install zsh theme: powerlevel10k
+# Install zsh theme: powerlevel10k.
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
 # ---------------------------------------------------------------------
@@ -203,7 +204,7 @@ git config --global commit.gpgSign true
 # Install Astrovim.
 git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim
 
-# Open nvim
+# Open nvim.
 nvim
 
 # Install specific LSP servers and language parsers.
@@ -216,13 +217,13 @@ nvim
 # Follow instructions at:
 #   https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation
 
-# Install Chrome
+# Install Chrome.
 #   https://www.google.com/intl/en_us/chrome/
 
-# Install Java
+# Install Java.
 #   https://www.oracle.com/java/technologies/downloads/
 
-# Install VS Code
+# Install VS Code.
 #   https://code.visualstudio.com/download
 ```
 
@@ -240,9 +241,11 @@ sudo chmod -Rv 700 /var/cache/apt/archives/partial/
 # ---------------------------------------------------------------------
 # Install development tools.
 # ---------------------------------------------------------------------
-sudo apt install -y curl zsh git gh git-lfs wipe bat alacritty neovim \
+sudo apt update -y
+sudo apt upgrade -y
+sudo apt install -y curl zsh git gh git-lfs wipe bat alacritty ffmpeg \
     jpegoptim irssi neofetch htop ncdu glances asciinema xournal vlc \
-    pinta gimp obs-studio ffmpeg
+    pinta gimp obs-studio
 
 sudo apt remove -y nano
 
@@ -280,10 +283,16 @@ git config --global commit.gpgSign true
 # ---------------------------------------------------------------------
 # Configure nvim.
 # ---------------------------------------------------------------------
+# Install neovim.
+cd /usr/bin
+sudo curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+sudo chmod +x nvim.appimage
+sudo ln -s /usr/bin/nvim.appimage /usr/bin/nvim
+
 # Install Astrovim.
 git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim
 
-# Open nvim
+# Open nvim.
 nvim
 
 # Install specific LSP servers and language parsers.
@@ -296,13 +305,13 @@ nvim
 # Follow instructions at:
 #   https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation
 
-# Install Chrome
+# Install Chrome.
 #   https://www.google.com/intl/en_us/chrome/
 
-# Install Java
+# Install Java.
 #   https://www.oracle.com/java/technologies/downloads/
 
-# Install VS Code
+# Install VS Code.
 #   https://code.visualstudio.com/download
 ```
 
@@ -332,32 +341,33 @@ installonly_limit=<number>
 # ---------------------------------------------------------------------
 echo '# Avoid duplicates
 HISTCONTROL=ignoredups:erasedups
-# When the shell exits, append to the history file instead of overwriting it
+
+# When the shell exits, append to the history file instead of overwritting it.
 shopt -s histappend
 
-# After each command, append to the history file and reread it
+# After each command, append to the history file and reread it.
 PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"' >> ~/.bashrc
 
 # ---------------------------------------------------------------------
 # How to triple boot in Windows, Ubuntu, and Fedora.
 # ---------------------------------------------------------------------
-# Install Windows, Ubuntu, and then Fedora
+# Install Windows, Ubuntu, and then Fedora.
 
-# How to make a Fedora / Ubuntu installation USB
+# How to make a Fedora / Ubuntu installation USB.
 lsblk
 sudo dd if=Fedora-KDE.iso of=/dev/sdb bs=16M oflag=direct; sync
 
-# How to make a Windows installation USB
+# How to make a Windows installation USB.
 sudo dnf install WoeUSB
 sudo woeusb --device Win10.iso /dev/sdb --target-filesystem ntfs
 
 # ---------------------------------------------------------------------
 # How to disable GUI in Ubuntu.
 # ---------------------------------------------------------------------
-# Disable the GUI
+# Disable the GUI.
 sudo apt remove lightdm
 
-# Re-enable the GUI
+# How to re-enable the GUI.
 sudo apt install lightdm
 reboot
 
@@ -393,10 +403,10 @@ wipe -r ./folder
 # ---------------------------------------------------------------------
 # How to encrypt and decypt files using GPG.
 # ---------------------------------------------------------------------
-# Encrypt
+# Encrypt.
 gpg -e important_document.pdf
 
-# Decrypt
+# Decrypt.
 gpg important_document.pdf.gpg
 
 # ---------------------------------------------------------------------
@@ -445,7 +455,7 @@ pactl load-module module-combine-sink
 # ---------------------------------------------------------------------
 # How to install Cloudflare Tunnel.
 # ---------------------------------------------------------------------
-# Install Cloudflare Tunnel on the server
+# Install Cloudflare Tunnel on the server.
 #   https://one.dash.cloudflare.com/
 #   Installation script is available at the `Access - Tunnels` setting.
 
@@ -469,20 +479,20 @@ sudo ~/cloudflare-ufw/cloudflare-ufw.sh
 # Run `sudo crontab -e` and then add:
 # 0 0 * * 1 /home/myusername/cloudflare-ufw/cloudflare-ufw.sh > /dev/null 2>&1
 
-# Confirm all IP rules have been set
+# Confirm all IP rules have been set.
 sudo ufw enable
 sudo ufw status verbose
 
 # ---------------------------------------------------------------------
 # How to install Cloudflared Client for SSH Users.
 # ---------------------------------------------------------------------
-# Install Cloudflared on the computer,
-# from which you're accessing the server
+# Install Cloudflared on the computer, from which you're accessing the
+# server.
 #   https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/use_cases/ssh/#2-connect-as-a-user
 
 # Add Public hostname: `ssh.example.com` and
-# Service: ssh://localhost:22
-# at the `Access - Tunnels - Configure` setting at
+# `Service: ssh://localhost:22` at the `Access - Tunnels - Configure`
+# setting at:
 #   https://one.dash.cloudflare.com/
 
 # Edit ssh config so that ssh command authenticates using Cloudflared.
@@ -506,10 +516,10 @@ sudo ufw status verbose
 # mic with a delay of around five seconds. The best solution for my
 # use cases turned out to be OBS and a private rtmp server.
 
-# Download the latest mainline Nginx
+# Download the latest mainline Nginx.
 # https://nginx.org
 
-# Download the Nginx RTMP module
+# Download the Nginx RTMP module.
 wget https://github.com/sergey-dryabzhinsky/nginx-rtmp-module/archive/dev.zip
 
 tar -zxvf nginx-1.23.3.tar.gz
@@ -538,11 +548,11 @@ sudo make install
 #         }
 # }
 
-# Start Nginx
+# Start Nginx.
 sudo /usr/local/nginx/sbin/nginx
 
-# OBS Studio Settings
-# Settings - Stream - Server:
+# OBS Studio Settings:
+# Settings - Stream - Server
 # rtmp://127.0.0.1:1935/live
 
 # HOW TO PLAY THE STREAM WITH VLC
@@ -597,7 +607,7 @@ sudo /usr/local/nginx/sbin/nginx -s stop
 ###
 
 ###
-# june 4, 2022
+# June 4, 2022
 # shell scripts can have the file extension of `.sh` but it can
 # be more useful to leave it without any extension. instead,
 # just put the shebang `#!/bin/bash` at the first one.
