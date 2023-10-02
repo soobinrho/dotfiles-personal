@@ -238,6 +238,11 @@ cp ./.config/alacritty/* ~/.config/alacritty/
 # Konsole configs.
 cp ./.config/konsolerc ~/.config/
 cp ./.local/share/konsole/* ~/.local/share/konsole/
+
+# Font configs.
+mkdir -p ~/.local/share/font
+cp ./.local/share/font/* ~/.local/share/font
+fc-cache -f -v
 ```
 
 <br>
@@ -340,6 +345,11 @@ cp ./.config/alacritty/* ~/.config/alacritty/
 # Konsole configs.
 cp ./.config/konsolerc ~/.config/
 cp ./.local/share/konsole/* ~/.local/share/konsole/
+
+# Font configs.
+mkdir -p ~/.local/share/font
+cp ./.local/share/font/* ~/.local/share/font
+fc-cache -f -v
 ```
 
 <br>
