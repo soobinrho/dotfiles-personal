@@ -200,7 +200,6 @@ git config --global commit.gpgSign true
 # ---------------------------------------------------------------------
 # Configure nvim.
 # ---------------------------------------------------------------------
-
 # Install Astrovim.
 git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim
 
@@ -225,6 +224,20 @@ nvim
 
 # Install VS Code.
 #   https://code.visualstudio.com/download
+
+# ---------------------------------------------------------------------
+# Copy and paste my config files.
+# ---------------------------------------------------------------------
+git clone https://github.com/soobinrho/dotfiles-personal.git
+cd /dotfiles-personal/home/soobinrho
+
+# Alacritty configs.
+mkdir -p ~/.config/alacritty
+cp ./.config/alacritty/* ~/.config/alacritty/
+
+# Konsole configs.
+cp ./.config/konsolerc ~/.config/
+cp ./.local/share/konsole/* ~/.local/share/konsole/
 ```
 
 <br>
@@ -313,6 +326,20 @@ nvim
 
 # Install VS Code.
 #   https://code.visualstudio.com/download
+
+# ---------------------------------------------------------------------
+# Copy and paste my config files.
+# ---------------------------------------------------------------------
+git clone https://github.com/soobinrho/dotfiles-personal.git
+cd /dotfiles-personal/home/soobinrho
+
+# Alacritty configs.
+mkdir -p ~/.config/alacritty
+cp ./.config/alacritty/* ~/.config/alacritty/
+
+# Konsole configs.
+cp ./.config/konsolerc ~/.config/
+cp ./.local/share/konsole/* ~/.local/share/konsole/
 ```
 
 <br>
