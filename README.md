@@ -50,28 +50,29 @@
 # ---------------------------------------------------------------------
 # Install dev tools.
 # ---------------------------------------------------------------------
-# Install nvm: Node version manager.
+# Install pnpm: nvm: Node version manager.
 # After installing nvm, close and reopen terminal,
 # in order for new paths to take effect.
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
 
 # Install Node.js
 nvm install node
 
-# Install yarn: a faster, parallel package manager.
-npm install -g yarn
+# Install pnpm: a faster, parallel package manager.
+npm install -g pnpm
+pnpm setup
 
-# Install TypeScript.
-yarn global add typescript ts-node
+# If you're using zsh:
+source ~/.zshrc
 
+# If you're using bash:
+source ~/.bashrc
+
+# Install TypeScript: a JavaScript superset with types.
 # Install tldr: similar to [man], but with simple examples.
-yarn global add tldr
-
 # Install loadtest: server load testing tool.
-yarn global add loadtest
-
 # Install svg-term-cli: asciinema to svg converter.
-yarn global add svg-term-cli
+pnpm add -g typescript ts-node tldr loadtest svg-term-cli
 
 # Update everyday automatically.
 sudo dnf install -y dnf-automatic
@@ -276,16 +277,23 @@ rm -rf nerd-fonts
 # ---------------------------------------------------------------------
 # Install Node.js
 # ---------------------------------------------------------------------
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
 nvm install node
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-# Install yarn: a faster, parallel package manager.
-npm install -g yarn
+# Install pnpm: a faster, parallel package manager.
+npm install -g pnpm
+pnpm setup
 
-yarn global add typescript ts-node tldr loadtest svg-term-cli
+# If you're using zsh:
+source ~/.zshrc
+
+# If you're using bash:
+source ~/.bashrc
+
+pnpm add -g typescript ts-node tldr loadtest svg-term-cli
 
 # ---------------------------------------------------------------------
 # Configure git.
