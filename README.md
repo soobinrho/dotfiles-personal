@@ -262,7 +262,7 @@ sudo chmod -Rv 700 /var/cache/apt/archives/partial/
 # ---------------------------------------------------------------------
 sudo apt update -y
 sudo apt upgrade -y
-sudo apt install -y curl zsh git gh git-lfs wipe bat alacritty ffmpeg \
+sudo apt install -y curl zsh git gh git-lfs wipe bat ffmpeg \
     jpegoptim irssi neofetch htop ncdu glances asciinema xournal vlc \
     pinta gimp obs-studio
 
