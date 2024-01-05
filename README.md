@@ -268,11 +268,19 @@ sudo apt install -y curl zsh git gh git-lfs wipe bat ffmpeg \
 
 sudo apt remove -y nano
 
+# Execute each line one at a time. Do not copy and paste multiple at a time.
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git
 nerd-fonts/install.sh
 rm -rf nerd-fonts
+
+# ---------------------------------------------------------------------
+# Install Anaconda.
+# ---------------------------------------------------------------------
+# Download https://www.anaconda.com/download and then:
+~/anaconda3/bin/conda init zsh
+conda config --set auto_activate_base false
 
 # ---------------------------------------------------------------------
 # Install Node.js
