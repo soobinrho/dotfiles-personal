@@ -50,7 +50,7 @@
 # ---------------------------------------------------------------------
 # Install dev tools.
 # ---------------------------------------------------------------------
-# Install pnpm: nvm: Node version manager.
+# Install nvm: Node version manager.
 # After installing nvm, close and reopen terminal,
 # in order for new paths to take effect.
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
