@@ -486,6 +486,9 @@ egrep -ir "Certain text"
 # Read in hexadecimal
 xxd <file name>
 
+# Read in binary
+hexdump -b <file name>
+
 # Fedora window management:
 # - `Windows` + `LMB` Move a window.
 # - `Windows` + `RMB` Resize a window.
