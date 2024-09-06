@@ -179,11 +179,9 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 # ---------------------------------------------------------------------
 # (For laptops only)
 # ---------------------------------------------------------------------
-# Install powertop: power consumption monitoring tool.
-sudo dnf install -y powertop
-
-# Install tlp: battery care.
+# Install tlp: power management and battery care.
 sudo dnf install -y tlp tlp-rdw
+sudo dnf remove power-profiles-daemon
 systemctl enable tlp.service
 systemctl mask systemd-rfkill.service systemd-rfkill.socket
 
@@ -207,8 +205,13 @@ systemctl mask systemd-rfkill.service systemd-rfkill.socket
 # Uncomment START_CHARGE_THRESH_BAT0 and others.
 sudo vim /etc/tlp.conf
 
-sudo tlp setcharge
-sudo tlp-stat -b
+sudo tlp start
+
+# See running status of tlp.
+sudo tlp-stat -s
+
+# See power statistics.
+tlp-stat --psup
 
 # ---------------------------------------------------------------------
 # Configure git.
