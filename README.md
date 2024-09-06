@@ -201,6 +201,9 @@ systemctl mask systemd-rfkill.service systemd-rfkill.socket
 # Source:
 #   https://linrunner.de/tlp/faq/battery.html#how-to-choose-good-battery-charge-thresholds
 
+# Note: I don't use my laptop a lot, so 60%/80% threshold.
+# Reminder to change it to 40%/50% once I graduate.
+
 # Uncomment START_CHARGE_THRESH_BAT0 and others.
 sudo vim /etc/tlp.conf
 
