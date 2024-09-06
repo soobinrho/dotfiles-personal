@@ -177,6 +177,23 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
 # ---------------------------------------------------------------------
+# (For laptops only)
+# ---------------------------------------------------------------------
+# Install powertop: power consumption monitoring tool.
+sudo dnf install -y powertop
+
+# Install tlp: power saving and battery care
+sudo dnf install -y tlp tlp-rdw
+systemctl enable tlp.service
+systemctl mask systemd-rfkill.service systemd-rfkill.socket
+
+# Uncomment START_CHARGE_THRESH_BAT0 and others.
+sudo vim /etc/tlp.conf
+
+sudo tlp start
+sudo tlp-stat -b
+
+# ---------------------------------------------------------------------
 # Configure git.
 # ---------------------------------------------------------------------
 git config --global user.name "Soobin Rho"
