@@ -187,6 +187,10 @@ sudo dnf install -y tlp tlp-rdw
 systemctl enable tlp.service
 systemctl mask systemd-rfkill.service systemd-rfkill.socket
 
+> If the laptop is plugged most of the time and rarely unplugged, maximizing battery lifetime at the cost of a greatly reduced runtime may be acceptable, with values like starting charge at 40% and stopping at 50%.
+>
+> On the contrary, if you use it unplugged most of the time, starting charge at 85% and stopping at 90% would allow for a much longer runtime and still give a lifespan benefit over the factory settings. Default TLP settings (only if you uncomment the relevant lines) are slightly more protective regarding lifespan, with 75/80% charge thresholds.
+
 # Uncomment START_CHARGE_THRESH_BAT0 and others.
 sudo vim /etc/tlp.conf
 
