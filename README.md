@@ -306,12 +306,21 @@ sudo apt install -y curl zsh git gh git-lfs wipe ffmpeg \
 
 sudo apt remove -y nano
 
+sudo snap install alacritty --classic
+
 # Execute each line one at a time. Do not copy and paste multiple at a time.
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git
 nerd-fonts/install.sh
 rm -rf nerd-fonts
+
+# ---------------------------------------------------------------------
+# Install bat.
+# ---------------------------------------------------------------------
+sudo apt install -y bat
+mkdir -p ~/.local/bin
+ln -s /usr/bin/batcat ~/.local/bin/bat
 
 # ---------------------------------------------------------------------
 # Install Anaconda.
