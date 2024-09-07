@@ -199,7 +199,7 @@ systemctl mask systemd-rfkill.service systemd-rfkill.socket
 # Source:
 #   https://linrunner.de/tlp/faq/battery.html#how-to-choose-good-battery-charge-thresholds
 
-# Note: I don't use my laptop a lot, so 60%/80% threshold.
+# Note: I don't use my laptop a lot, so 70%/80% threshold.
 # Reminder to change it to 40%/50% once I graduate.
 
 # Uncomment START_CHARGE_THRESH_BAT0 and others.
@@ -239,9 +239,8 @@ git config --global commit.gpgSign true
 # Configure nvim.
 # ---------------------------------------------------------------------
 # Install Astrovim.
-git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim
-
-# Open nvim.
+git clone --depth 1 https://github.com/AstroNvim/template ~/.config/nvim
+rm -rf ~/.config/nvim/.git
 nvim
 
 # Install specific LSP servers and language parsers.
@@ -299,9 +298,9 @@ sudo chmod -Rv 700 /var/cache/apt/archives/partial/
 # ---------------------------------------------------------------------
 sudo apt update -y
 sudo apt upgrade -y
-sudo apt install -y curl zsh git gh git-lfs wipe bat ffmpeg \
-    jpegoptim irssi neofetch htop ncdu glances asciinema xournal vlc \
-    pinta gimp obs-studio
+sudo apt install -y curl zsh git gh git-lfs wipe ffmpeg \
+    jpegoptim irssi neofetch htop ncdu glances asciinema \
+    xournal vlc gimp obs-studio
 
 sudo apt remove -y nano
 
@@ -339,6 +338,24 @@ source ~/.zshrc
 source ~/.bashrc
 
 pnpm add -g typescript ts-node tldr loadtest svg-term-cli
+
+# ---------------------------------------------------------------------
+# (For laptops only)
+# ---------------------------------------------------------------------
+# Install tlp: power management and battery care.
+sudo add-apt-repository ppa:linrunner/tlp
+sudo apt update -y
+sudo apt install -y tlp tlp-rdw
+
+# Uncomment START_CHARGE_THRESH_BAT0 and others.
+sudo vim /etc/tlp.conf
+sudo tlp setcharge
+
+# See running status of tlp.
+sudo tlp-stat -s
+
+# See power statistics.
+tlp-stat --psup
 
 # ---------------------------------------------------------------------
 # Configure git.
@@ -410,6 +427,75 @@ fc-cache -f -v
 # 3. Workflows I find useful
 
 ```bash
+# ---------------------------------------------------------------------
+# DANGER: SSH servers only.
+# How to configure sshd_config
+# Source:
+#   https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys
+# ---------------------------------------------------------------------
+# Open the config file
+sudo vim /etc/ssh/sshd_config
+
+# Disallow password authentication
+# so that only the RSA SSH key can be used
+PasswordAuthentication no
+
+# Restart SSH
+sudo service sshd restart    # Fedora
+sudo service ssh restart    # Ubuntu
+
+# ---------------------------------------------------------------------
+# DANGER: Secure devices only.
+# How to copy both the public and private GPG keys to secondary laptop.
+# ---------------------------------------------------------------------
+# Note that I'm copying my private key as well
+# because both the SSH server and client are my personal laptops.
+# Never transfer your private keys, unless you absolutely need to.
+rsync --archive ~/.gnupg $(whoami)@ip_address:~
+
+# The --archive option preserves
+# all permissions, modification times, and
+# everytihng inside the directory recursively
+
+# ---------------------------------------------------------------------
+# DANGER: Secure devices only.
+# How to copy both the public and private SSH keys to secondary laptop.
+# ---------------------------------------------------------------------
+# This also copies `authorized_keys`, `config`, and `known_hosts`.
+# Again, never transfer your private keys, unless you absolutely need to.
+rsync --archive ~/.ssh $(whoami)@ip_address:~
+rsync --archive ~/.gitconfig $(whoami)@ip_address:~/.gitconfig
+
+# ---------------------------------------------------------------------
+# How to create a new SSH key.
+# Source:
+#   https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-20-04
+# ---------------------------------------------------------------------
+# Create a key with the length of 4096 bits
+ssh-keygen -b 4096
+
+# Copy the public key to the SSH server
+ssh-copy-id root@ip_address
+
+# ---------------------------------------------------------------------
+# How I set up my client-side SSH configs.
+# Source:
+#   https://unix.stackexchange.com/questions/708206/ssh-timeout-does-not-happen-and-not-disconnect
+# ---------------------------------------------------------------------
+# Configuring your SSH client to time-out less frequently.
+cat >> ~/.ssh/config
+Host *
+  ServerAliveInterval 15
+  ServerAliveCountMax 3
+
+# Creating an alias so that we can
+# `ssh myserver` instead of `ssh main@ip_address`
+# It's nice to be able to ssh without ip_address.
+cat >> ~/.ssh/config
+Host myserver
+    HostName ip_address
+    User main
+
 # ---------------------------------------------------------------------
 # How to disable updates for specific packages in dnf.
 # ---------------------------------------------------------------------
@@ -489,6 +575,9 @@ svg-term --cast=11345 --out example.svg
 # How to securely delete files.
 # ---------------------------------------------------------------------
 wipe -r ./folder
+
+# Quick mode (overwrite only 4 times).
+wipe -rq ./folder
 
 # ---------------------------------------------------------------------
 # How to encrypt and decypt files using GPG.
