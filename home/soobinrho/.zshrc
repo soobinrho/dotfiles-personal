@@ -154,6 +154,8 @@ vim() {
         (alacritty --command nvim "$1" &)
 }
 
+alias bat="batcat"
+
 # Git aliases
 # Source:
 #   https://github.com/surajssd/dotfiles/blob/master/configs/zshrc
