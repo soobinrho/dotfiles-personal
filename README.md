@@ -425,6 +425,9 @@ nvim
 git clone https://github.com/soobinrho/dotfiles-personal.git
 cd /dotfiles-personal/home/soobinrho
 
+# zsh configs.
+cp ./.zshrc ~/
+
 # Alacritty configs.
 mkdir -p ~/.config/alacritty
 cp ./.config/alacritty/* ~/.config/alacritty/
@@ -437,6 +440,9 @@ cp ./.local/share/konsole/* ~/.local/share/konsole/
 mkdir -p ~/.local/share/font
 cp ./.local/share/font/* ~/.local/share/font
 fc-cache -f -v
+
+# GPG agent configs.
+cp ./.gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
 ```
 
 <br>
