@@ -314,6 +314,7 @@ sudo apt install -y curl zsh git gh git-lfs wipe ffmpeg \
 sudo apt remove -y nano
 
 sudo snap install alacritty --classic
+sudo snap install pinta
 
 # Install nerd-fonts: fonts with better icons support.
 git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git
