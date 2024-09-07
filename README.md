@@ -286,6 +286,8 @@ fc-cache -f -v
 
 # 2. How I set up my Ubuntu
 
+I personally use https://kubuntu.org/ because I like its style better than Gnome.
+
 ```bash
 # Allow _apt to write to the download folders.
 # Source:
