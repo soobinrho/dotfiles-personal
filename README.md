@@ -453,6 +453,18 @@ cp ./.gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
 
 ```bash
 # ---------------------------------------------------------------------
+# How to reset commit history in a git repository.
+# Source:
+#   https://stackoverflow.com/a/26000395
+# ---------------------------------------------------------------------
+git checkout --orphan latest_branch
+git add -A
+git commit -am"refactor: reset all commit history for security"
+git branch -D main  # Delete the original branch.
+git branch -m main  # Rename the orphan branchto main.
+git push -f origin main
+
+# ---------------------------------------------------------------------
 # DANGER: SSH servers only.
 # How to configure sshd_config
 # Source:
