@@ -6,29 +6,29 @@
         ├── .bashrc
         ├── .config
         │   ├── alacritty
-        │   │   └── alacritty.yml
-        │   ├── htop
-        │   │   └── htoprc
+        │   │   └── alacritty.toml
         │   ├── konsolerc
-        │   ├── neofetch
-        │   │   └── config.conf
-        │   ├── nvim
-        │   │   ├── init.lua
-        │   │   └── lua
-        │   │       └── plugins.lua
-        │   │           └── settings.lua
         │   └── obs-studio
         │       └── basic
+        │           └── profiles
+        │               └── rhetorics_practice
+        │                   ├── basic.ini
+        │                   └── service.json
         │           └── scenes
         │               └── rhetorics_practice.json
         ├── .gnupg
         │   └── gpg-agent.conf
         ├── .local
         │   └── share
+        │       ├── font
+        │           ├── MesloLGS NF Bold Italic.ttf
+        │           ├── MesloLGS NF Bold.ttf
+        │           ├── MesloLGS NF Italic.ttf
+        │           ├── MesloLGS NF Regular.ttf
+        │           └── source.txt
         │       └── konsole
         │           ├── Breeze.colorscheme
         │           └── Profile1.profile
-        ├── .p10k.zsh
         └── .zshrc
 ```
 
@@ -148,11 +148,6 @@ sudo dnf install -y ffmpeg
 # Install vlc: video player.
 sudo dnf install -y vlc
 
-# Install nerd-fonts: fonts with better icons support.
-git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git
-nerd-fonts/install.sh
-rm -rf nerd-fonts
-
 # Remove nano in order to make vim the default editor.
 sudo dnf remove -y nano
 
@@ -169,12 +164,18 @@ sudo dnf install -y irssi
 # /SET window_default_hidelevel hidden joins parts quits
 # /SET autolog on
 
+# Install nerd-fonts: fonts with better icons support.
+git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git
+nerd-fonts/install.sh
+rm -rf nerd-fonts
+
 # Install zsh.
 sudo dnf install -y zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Install zsh theme: powerlevel10k.
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+p10k configure
 
 # ---------------------------------------------------------------------
 # (For laptops only)
@@ -268,6 +269,9 @@ nvim
 git clone https://github.com/soobinrho/dotfiles-personal.git
 cd /dotfiles-personal/home/soobinrho
 
+# zsh configs.
+cp ./.zshrc ~/
+
 # Alacritty configs.
 mkdir -p ~/.config/alacritty
 cp ./.config/alacritty/* ~/.config/alacritty/
@@ -280,6 +284,9 @@ cp ./.local/share/konsole/* ~/.local/share/konsole/
 mkdir -p ~/.local/share/font
 cp ./.local/share/font/* ~/.local/share/font
 fc-cache -f -v
+
+# GPG agent configs.
+cp ./.gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
 ```
 
 <br>
@@ -302,25 +309,24 @@ sudo apt update -y
 sudo apt upgrade -y
 sudo apt install -y curl zsh git gh git-lfs wipe ffmpeg \
     jpegoptim irssi neofetch htop ncdu glances asciinema \
-    xournal vlc gimp obs-studio
+    xournal vlc gimp obs-studio bat tree
 
 sudo apt remove -y nano
 
 sudo snap install alacritty --classic
 
-# Execute each line one at a time. Do not copy and paste multiple at a time.
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+# Install nerd-fonts: fonts with better icons support.
 git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git
 nerd-fonts/install.sh
 rm -rf nerd-fonts
+ 
+# Install zsh.
+sudo dnf install -y zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-# ---------------------------------------------------------------------
-# Install bat.
-# ---------------------------------------------------------------------
-sudo apt install -y bat
-mkdir -p ~/.local/bin
-ln -s /usr/bin/batcat ~/.local/bin/bat
+# Install zsh theme: powerlevel10k.
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+p10k configure
 
 # ---------------------------------------------------------------------
 # Install Anaconda.
