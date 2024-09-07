@@ -1,0 +1,1 @@
+https://github.com/romkatv/powerlevel10k?tab=readme-ov-file#manual-font-installation
