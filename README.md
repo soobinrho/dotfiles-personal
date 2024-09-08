@@ -105,6 +105,8 @@ sudo dnf install -y neovim python3-neovim
 
 # Install gh: GitHub CLI.
 sudo dnf install -y gh
+gh auth setup-git
+gh auth login
 
 # Install git-lfs: Git Large File Storage.
 sudo dnf install -y git-lfs
@@ -307,7 +309,7 @@ sudo chmod -Rv 700 /var/cache/apt/archives/partial/
 # ---------------------------------------------------------------------
 sudo apt update -y
 sudo apt upgrade -y
-sudo apt install -y curl zsh git gh git-lfs wipe ffmpeg \
+sudo apt install -y curl zsh git git-lfs wipe ffmpeg \
     jpegoptim irssi neofetch htop ncdu glances asciinema \
     xournal vlc gimp obs-studio bat tree
 
@@ -316,6 +318,11 @@ sudo apt remove -y nano
 sudo snap install alacritty --classic
 sudo snap install pinta tldr
 tldr -u
+
+# Install gh: GitHub CLI.
+sudo apt install -y gh
+gh auth setup-git
+gh auth login
 
 # Install nerd-fonts: fonts with better icons support.
 git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git
