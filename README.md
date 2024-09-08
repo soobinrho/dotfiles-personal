@@ -216,6 +216,9 @@ sudo tlp-stat -s
 # See power statistics.
 tlp-stat --psup
 
+# Install powerstat: Power consumption viewer.
+sudo dnf install
+
 # ---------------------------------------------------------------------
 # Configure git.
 # ---------------------------------------------------------------------
@@ -311,7 +314,7 @@ sudo apt update -y
 sudo apt upgrade -y
 sudo apt install -y curl zsh git git-lfs wipe ffmpeg \
     jpegoptim irssi neofetch htop ncdu glances asciinema \
-    xournal vlc gimp obs-studio bat tree
+    xournal vlc gimp obs-studio bat tree powerstat
 
 sudo apt remove -y nano
 
