@@ -463,6 +463,16 @@ cp ./.gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
 
 ```bash
 # ---------------------------------------------------------------------
+# How to delete untracked files and folders in git.
+# ---------------------------------------------------------------------
+git clean -fd
+
+# ---------------------------------------------------------------------
+# How to rebase in git, including squashing.
+# ---------------------------------------------------------------------
+git rebase -i HEAD~15
+
+# ---------------------------------------------------------------------
 # How to reset commit history in a git repository.
 # Source:
 #   https://stackoverflow.com/a/26000395
