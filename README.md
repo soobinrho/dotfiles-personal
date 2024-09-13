@@ -465,7 +465,11 @@ cp ./.gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
 # ---------------------------------------------------------------------
 # How to see all git configs
 # ---------------------------------------------------------------------
+# See global configs.
 git config --global --edit
+
+# See local configs.
+git config --edit
 
 # ---------------------------------------------------------------------
 # How to delete untracked files and folders in git.
