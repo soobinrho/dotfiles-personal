@@ -216,8 +216,9 @@ sudo tlp-stat -s
 # See power statistics.
 tlp-stat --psup
 
-# Install powerstat: Power consumption viewer.
-sudo dnf install
+# Install powerstat: Power consumption measurement.
+sudo dnf install -y powerstat  # Fedora
+sudo apt install -y powerstat  # Ubuntu
 
 # ---------------------------------------------------------------------
 # Configure git.
