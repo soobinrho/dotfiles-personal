@@ -853,12 +853,13 @@ sudo /usr/local/nginx/sbin/nginx -s stop
 # Example: 'who | cut -d' ' -f1 | uniq' removes
 # all the dulplicates and outputs only the unique data.
 
-![Calc II Tips](https://user-images.githubusercontent.com/19341857/184079510-d7899b35-e114-4f50-a8a8-ab0c3a1384d5.png)
-
 # Codes should describe what they do themselves.
 # Comments, in the other hand, should describe
 # why those codes are there.
 ```
+
+![Calc II Tips](https://user-images.githubusercontent.com/19341857/184079510-d7899b35-e114-4f50-a8a8-ab0c3a1384d5.png)
+***A random tip for Calc II.***
 
 <br>
 <br>
