@@ -286,6 +286,9 @@ unbind C-b
 # Send Ctrl+a to applications by pressing it twice.
 bind C-a send-prefix
 
+# Enable mouse clicking and scrolling.
+set -g mouse on
+
 # Exit out of vim.
 :wq
 
