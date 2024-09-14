@@ -289,6 +289,10 @@ bind C-a send-prefix
 # Enable mouse clicking and scrolling.
 set -g mouse on
 
+# Open new panes in current directory instead of ~.
+bind '"' split-window -v -c "#{pane_current_path}"
+bind % split-window -h -c "#{pane_current_path}"
+
 # Exit out of vim.
 :wq
 
