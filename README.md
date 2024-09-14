@@ -675,9 +675,9 @@ sudo ufw status verbose
 
 # ---------------------------------------------------------------------
 # How to stream OBS to yourself using Nginx.
-# ---------------------------------------------------------------------
 # Source:
 #   https://obsproject.com/forum/resources/how-to-set-up-your-own-private-rtmp-server-using-nginx.50
+# ---------------------------------------------------------------------
 
 # For gaining practice on my rhetorics,
 # I needed a way to listen to my own speech.
@@ -748,20 +748,12 @@ sudo /usr/local/nginx/sbin/nginx -s stop
 # Host *
 #   ServerAliveInterval 600
 #   ServerAliveCountMax 3
-```
 
-<br>
-
-<details open>
-<summary>
-  <b>
-    Journal on extra random tips
-  </b>
-</summary>
-  
-```
-###
+# ---------------------------------------------------------------------
+# Journal entries on extra random tips.
+# ---------------------------------------------------------------------
 # June 3, 2022
+# ============
 # Learned about git using `info gittutorial'.
 # summary of what i learned today:
 
@@ -773,10 +765,9 @@ sudo /usr/local/nginx/sbin/nginx -s stop
 # git status
 # git diff
 # ```
-###
 
-###
 # June 4, 2022
+# ============
 # shell scripts can have the file extension of `.sh` but it can
 # be more useful to leave it without any extension. instead,
 # just put the shebang `#!/bin/bash` at the first one.
@@ -787,10 +778,9 @@ sudo /usr/local/nginx/sbin/nginx -s stop
 # fedora, i'm going to stick to the shebang convention.
 #
 # source: https://stackoverflow.com/questions/27813563/what-is-the-bash-file-extension
-###
 
-###
 # June 21, 2022
+# =============
 # For my Calc II midterm exam, I needed a proctor service.
 # So, I was filling out the Examination Proctor Agreement form,
 # which was a pdf. However, okular, the default pdf viewer for
@@ -803,8 +793,8 @@ sudo /usr/local/nginx/sbin/nginx -s stop
 # sudo dnf install -y xournal
 #
 
-###
 # June 21, 2022
+# =============
 # For the README.MD for my "Latex Template for College Assignments"
 # I had to add an example image. After x, y, and z, I decided
 # that I needed to add a light grey (HTML Color Code F6F8FA)
@@ -815,8 +805,8 @@ sudo /usr/local/nginx/sbin/nginx -s stop
 # Plus, you can see the HTML color code on any website on Chrome
 # on Chrome Developer's mode by typing Ctrl + Shift + c
 
-###
 # June 22, 2022
+# =============
 # Building Unreal Engine 5
 # When executing GenerateProjectFiles.sh, my computer
 # kept throwing an error related to SSL certs.
@@ -828,12 +818,11 @@ sudo /usr/local/nginx/sbin/nginx -s stop
 # sudo mkdir /usr/lib/ssl
 # sudo ln -s /etc/ssl/certs /usr/lib/ssl
 
-###
 # July 24, 2022
+# =============
 # ctrl + shift + u and then type unicode and then space
 # 2192 = right arrow →
 
-###
 # by the way, you can copy something on to the clipboard on vim
 # and then paste it onto another console by
 # ```
@@ -866,12 +855,10 @@ sudo /usr/local/nginx/sbin/nginx -s stop
 
 ![Calc II Tips](https://user-images.githubusercontent.com/19341857/184079510-d7899b35-e114-4f50-a8a8-ab0c3a1384d5.png)
 
-Codes should describe what they do themselves.
-Comments, in the other hand, should describe
-why those codes are there.
+# Codes should describe what they do themselves.
+# Comments, in the other hand, should describe
+# why those codes are there.
 ```
-
-</details>
 
 <br>
 <br>
