@@ -445,11 +445,6 @@ cp ./.config/alacritty/* ~/.config/alacritty/
 cp ./.config/konsolerc ~/.config/
 cp ./.local/share/konsole/* ~/.local/share/konsole/
 
-# Font configs.
-mkdir -p ~/.local/share/font
-cp ./.local/share/font/* ~/.local/share/font
-fc-cache -f -v
-
 # GPG agent configs.
 cp ./.gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
 
