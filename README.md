@@ -66,13 +66,6 @@ sudo rpm -Uvh https://packages.microsoft.com/config/centos/8/packages-microsoft-
 sudo dnf update -y
 sudo dnf install -y powershell
 
-# Install Alacritty, a fast OpenGL terminal emulator.
-# I normally use Konsole because - unlike Alacritty - Konsole
-# remembers the last window position. When I need speed, however,
-# Alacritty tends to be better smoother and faster because
-# it knows how to use both the CPU and the graphics cards.
-sudo dnf install -y alacritty
-
 # Install neovim: more extensible fork of vim.
 sudo dnf install -y neovim python3-neovim
 
@@ -143,51 +136,6 @@ sudo dnf install -y irssi
 git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git
 nerd-fonts/install.sh
 rm -rf nerd-fonts
-
-# ---------------------------------------------------------------------
-# Install zsh and powerlevel10k theme
-# ---------------------------------------------------------------------
-sudo dnf install -y zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-# Install zsh theme: powerlevel10k.
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-
-# Set ZSH_THEME="powerlevel10k/powerlevel10k" in ~/.zshrc.
-vim ~/.zshrc
-p10k configure
-
-# Install zsh-syntax-highlighting plugin.
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-# Set plugins=( [plugins...] zsh-syntax-highlighting) in ~/.zshrc
-vim ~/.zshrc
-
-# ---------------------------------------------------------------------
-# Install Node.js
-# ---------------------------------------------------------------------
-# Install nvm: Node version manager.
-# After installing nvm, close and reopen terminal,
-# in order for new paths to take effect.
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
-
-# Install Node.js
-nvm install node
-
-# Install pnpm: a faster, parallel package manager.
-npm install -g pnpm
-pnpm setup
-
-# If you're using zsh:
-source ~/.zshrc
-
-# If you're using bash:
-source ~/.bashrc
-
-# Install TypeScript: a JavaScript superset with types.
-# Install tldr: similar to [man], but with simple examples.
-# Install loadtest: server load testing tool.
-# Install svg-term-cli: asciinema to svg converter.
-pnpm add -g typescript ts-node loadtest svg-term-cli
 ```
 
 <br>
@@ -214,7 +162,6 @@ sudo apt install -y curl tree git git-lfs wipe ffmpeg \
 
 sudo apt remove -y nano
 
-sudo snap install alacritty --classic
 sudo snap install pinta tldr
 tldr -u
 
@@ -228,40 +175,6 @@ gh auth setup-git
 git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git
 nerd-fonts/install.sh
 rm -rf nerd-fonts
-
-# ---------------------------------------------------------------------
-# Install zsh and powerlevel10k theme
-# ---------------------------------------------------------------------
-sudo apt install -y zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-# Install zsh theme: powerlevel10k.
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-
-# Set ZSH_THEME="powerlevel10k/powerlevel10k" in ~/.zshrc.
-vim ~/.zshrc
-p10k configure
-
-# ---------------------------------------------------------------------
-# Install Node.js
-# ---------------------------------------------------------------------
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
-nvm install node
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-
-# Install pnpm: a faster, parallel package manager.
-npm install -g pnpm
-pnpm setup
-
-# If you're using zsh:
-source ~/.zshrc
-
-# If you're using bash:
-source ~/.bashrc
-
-pnpm add -g typescript ts-node loadtest svg-term-cli
 ```
 
 <br>
@@ -278,31 +191,18 @@ pnpm add -g typescript ts-node loadtest svg-term-cli
 sudo dnf install -y tmux  # Fedora
 sudo apt install -y tmux  # Ubuntu
 
-# Change the prefix keybinding from Ctrl + b to Ctrl + a because
-# Ctrl + b already is assigned to page up in vim.
-vim ~/.tmux.conf
+# Apply my tmux configs.
+git clone https://github.com/soobinrho/dotfiles-personal.git
+cd /dotfiles-personal/home/soobinrho
+cp ./.tmux.conf ~/
 
-# Set the prefix to Ctrl+a.
-set -g prefix C-a
+# Install the plugin manager.
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-# Remove the old prefix.
-unbind C-b
-
-# Send Ctrl+a to applications by pressing it twice.
-bind C-a send-prefix
-
-# Enable mouse clicking and scrolling.
-set -g mouse on
-
-# Open new panes in current directory instead of ~.
-bind '"' split-window -v -c "#{pane_current_path}"
-bind % split-window -h -c "#{pane_current_path}"
-
-# Exit out of vim.
-:wq
-
-# How to reload a config file.
+# Reload tmux configs that includes tmux plugins installation list.
 tmux source ~/.tmux.conf
+
+# Press Ctrl + i to install the plugins.
 
 # How to see all sessions.
 tmux ls
@@ -329,6 +229,92 @@ tmux new-session
 # Ctrl+a <0|1|2|3|4|5|6|7|8|9> = Move to window using index.
 # Ctrl+a n = Move to the next window.
 # Ctrl+a p = Move to the previous window.
+
+# ---------------------------------------------------------------------
+# How to install zsh and powerlevel10k theme.
+# ---------------------------------------------------------------------
+sudo dnf install -y zsh  # Fedora
+sudo apt install -y zsh  # Ubuntu
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# Install zsh-syntax-highlighting plugin.
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+# Apply my zsh configs.
+git clone https://github.com/soobinrho/dotfiles-personal.git
+cd /dotfiles-personal/home/soobinrho
+cp ./.zshrc ~/
+
+# Install zsh theme: powerlevel10k.
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+p10k configure
+
+# ---------------------------------------------------------------------
+# How to install Alacritty.
+# ---------------------------------------------------------------------
+# Alacritty is a fast OpenGL terminal emulator.
+sudo dnf install -y alacritty  # Fedora
+sudo snap install alacritty --classic  # Ubuntu
+
+# Apply my Alacritty configs.
+git clone https://github.com/soobinrho/dotfiles-personal.git
+cd /dotfiles-personal/home/soobinrho
+mkdir -p ~/.config/alacritty
+cp ./.config/alacritty/* ~/.config/alacritty/
+
+# ---------------------------------------------------------------------
+# How to install nvim and Astrovim.
+# ---------------------------------------------------------------------
+# Install Astrovim.
+git clone --depth 1 https://github.com/AstroNvim/template ~/.config/nvim
+rm -rf ~/.config/nvim/.git
+nvim
+
+# Install specific LSP servers and language parsers.
+# Source:
+#   https://astronvim.github.io/
+# :LspInstall
+# :TSInstall <Name of the language>
+
+# ---------------------------------------------------------------------
+# How to install Node.js
+# ---------------------------------------------------------------------
+# Install nvm: Node version manager.
+# After installing nvm, close and reopen terminal,
+# in order for new paths to take effect.
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
+
+# Install Node.js
+nvm install node
+
+# Install pnpm: a faster, parallel package manager.
+npm install -g pnpm
+pnpm setup
+
+# If you're using zsh:
+source ~/.zshrc
+
+# Install TypeScript: a JavaScript superset with types.
+# Install tldr: similar to [man], but with simple examples.
+# Install loadtest: server load testing tool.
+# Install svg-term-cli: asciinema to svg converter.
+pnpm add -g typescript ts-node svg-term-cli
+
+# ---------------------------------------------------------------------
+# Copy and paste my config files.
+# ---------------------------------------------------------------------
+git clone https://github.com/soobinrho/dotfiles-personal.git
+cd /dotfiles-personal/home/soobinrho
+
+# Konsole configs.
+cp ./.config/konsolerc ~/.config/
+cp ./.local/share/konsole/* ~/.local/share/konsole/
+
+# GPG agent configs.
+cp ./.gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
+
+# Go to Shortcuts settings and unbind Konsole's Ctrl + Alt + t shortcut.
+# Bind alacritty to Ctrl + Alt + t.
 
 # ---------------------------------------------------------------------
 # (For laptops only) Laptop battery healthcare.
@@ -375,20 +361,22 @@ tlp-stat --psup
 sudo dnf install -y powerstat  # Fedora
 
 # ---------------------------------------------------------------------
-# Install Anaconda and disable automatic activation.
+# How to install Anaconda and disable automatic activation.
 # ---------------------------------------------------------------------
 # Download https://www.anaconda.com/download and then:
 ~/anaconda3/bin/conda init zsh
 conda config --set auto_activate_base false
 
 # ---------------------------------------------------------------------
-# How to see all git configs.
+# How to create a new SSH key.
+# Source:
+#   https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-20-04
 # ---------------------------------------------------------------------
-# See global configs.
-git config --global --edit
+# Create a key with the length of 4096 bits
+ssh-keygen -b 4096
 
-# See local configs.
-git config --edit
+# Copy the public key to the SSH server
+ssh-copy-id root@ip_address
 
 # ---------------------------------------------------------------------
 # How to configure git.
@@ -413,73 +401,13 @@ git config --global user.signingkey BC0596A444D39F64
 git config --global commit.gpgSign true
 
 # ---------------------------------------------------------------------
-# How to fix the bug in which git commit always asks for username.
+# How to see all git configs.
 # ---------------------------------------------------------------------
-vim ~/.gitconfig
+# See global configs.
+git config --global --edit
 
-# After installing gh, the config file will look like this:
-# [credential "https://github.com"]
-# 	helper =
-# 	helper = !/usr/bin/gh auth git-credential
-# [credential "https://gist.github.com"]
-# 	helper =
-# 	helper = !/usr/bin/gh auth git-credential
-
-# The bug will be fixed by deleting the empty lines as such:
-# [credential "https://github.com"]
-# 	helper = !/usr/bin/gh auth git-credential
-# [credential "https://gist.github.com"]
-# 	helper = !/usr/bin/gh auth git-credential
-
-# ---------------------------------------------------------------------
-# Configure nvim.
-# ---------------------------------------------------------------------
-# Install Astrovim.
-git clone --depth 1 https://github.com/AstroNvim/template ~/.config/nvim
-rm -rf ~/.config/nvim/.git
-nvim
-
-# Install specific LSP servers and language parsers.
-# Source:
-#   https://astronvim.github.io/
-# :LspInstall
-# :TSInstall <Name of the language>
-
-# Install debugger.
-# Follow instructions at:
-#   https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation
-
-# Install Chrome.
-#   https://www.google.com/intl/en_us/chrome/
-
-# Install Java.
-#   https://www.oracle.com/java/technologies/downloads/
-
-# Install VS Code.
-#   https://code.visualstudio.com/download
-
-# ---------------------------------------------------------------------
-# Copy and paste my config files.
-# ---------------------------------------------------------------------
-git clone https://github.com/soobinrho/dotfiles-personal.git
-cd /dotfiles-personal/home/soobinrho
-
-# zsh configs.
-cp ./.zshrc ~/
-
-# Alacritty configs.
-mkdir -p ~/.config/alacritty
-cp ./.config/alacritty/* ~/.config/alacritty/
-
-# Go to Shortcuts settings and unbind Konsole's Ctrl + Alt + t shortcut.
-# Bind alacritty to Ctrl + Alt + t.
-
-# Konsole configs.
-cp ./.config/konsolerc ~/.config/
-cp ./.local/share/konsole/* ~/.local/share/konsole/
-
-# GPG agent configs.
-cp ./.gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
+# See local configs.
+git config --edit
 
 # ---------------------------------------------------------------------
 # How to delete untracked files and folders in git.
@@ -521,6 +449,25 @@ sudo service sshd restart    # Fedora
 sudo service ssh restart    # Ubuntu
 
 # ---------------------------------------------------------------------
+# How I set up my client-side SSH configs.
+# Source:
+#   https://unix.stackexchange.com/questions/708206/ssh-timeout-does-not-happen-and-not-disconnect
+# ---------------------------------------------------------------------
+# Configuring your SSH client to time-out less frequently.
+cat >> ~/.ssh/config
+Host *
+  ServerAliveInterval 15
+  ServerAliveCountMax 3
+
+# Creating an alias so that we can
+# `ssh myserver` instead of `ssh main@ip_address`
+# It's nice to be able to ssh without ip_address.
+cat >> ~/.ssh/config
+Host myserver
+    HostName ip_address
+    User main
+
+# ---------------------------------------------------------------------
 # DANGER: Secure devices only.
 # How to copy both the public and private GPG keys to secondary laptop.
 # ---------------------------------------------------------------------
@@ -543,36 +490,6 @@ rsync --archive ~/.ssh $(whoami)@ip_address:~
 rsync --archive ~/.gitconfig $(whoami)@ip_address:~/.gitconfig
 
 # ---------------------------------------------------------------------
-# How to create a new SSH key.
-# Source:
-#   https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-20-04
-# ---------------------------------------------------------------------
-# Create a key with the length of 4096 bits
-ssh-keygen -b 4096
-
-# Copy the public key to the SSH server
-ssh-copy-id root@ip_address
-
-# ---------------------------------------------------------------------
-# How I set up my client-side SSH configs.
-# Source:
-#   https://unix.stackexchange.com/questions/708206/ssh-timeout-does-not-happen-and-not-disconnect
-# ---------------------------------------------------------------------
-# Configuring your SSH client to time-out less frequently.
-cat >> ~/.ssh/config
-Host *
-  ServerAliveInterval 15
-  ServerAliveCountMax 3
-
-# Creating an alias so that we can
-# `ssh myserver` instead of `ssh main@ip_address`
-# It's nice to be able to ssh without ip_address.
-cat >> ~/.ssh/config
-Host myserver
-    HostName ip_address
-    User main
-
-# ---------------------------------------------------------------------
 # How to disable updates for specific packages in dnf.
 # ---------------------------------------------------------------------
 sudo vim /etc/dnf/dnf.conf
@@ -587,18 +504,6 @@ sudo vim /etc/dnf/dnf.conf
 
 # Change this:
 installonly_limit=<number>
-
-# ---------------------------------------------------------------------
-# How to enable ~/.bash_history from multiple shells.
-# ---------------------------------------------------------------------
-echo '# Avoid duplicates
-HISTCONTROL=ignoredups:erasedups
-
-# When the shell exits, append to the history file instead of overwritting it.
-shopt -s histappend
-
-# After each command, append to the history file and reread it.
-PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"' >> ~/.bashrc
 
 # ---------------------------------------------------------------------
 # How to triple boot in Windows, Ubuntu, and Fedora.
