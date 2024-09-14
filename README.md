@@ -105,8 +105,8 @@ sudo dnf install -y neovim python3-neovim
 
 # Install gh: GitHub CLI.
 sudo dnf install -y gh
-gh auth setup-git
 gh auth login
+gh auth setup-git
 
 # Install git-lfs: Git Large File Storage.
 sudo dnf install -y git-lfs
@@ -181,6 +181,9 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 # Set ZSH_THEME="powerlevel10k/powerlevel10k" in ~/.zshrc.
 vim ~/.zshrc
 p10k configure
+
+# Install tmux: terminal multiplexer.
+sudo dnf install -y tmux
 
 # ---------------------------------------------------------------------
 # (For laptops only)
@@ -318,7 +321,7 @@ sudo apt update -y
 sudo apt upgrade -y
 sudo apt install -y curl zsh git git-lfs wipe ffmpeg \
     jpegoptim irssi neofetch htop ncdu glances asciinema \
-    xournal vlc gimp obs-studio bat tree powerstat
+    xournal vlc gimp obs-studio bat tree powerstat tmux
 
 sudo apt remove -y nano
 
@@ -328,8 +331,8 @@ tldr -u
 
 # Install gh: GitHub CLI.
 sudo apt install -y gh
-gh auth setup-git
 gh auth login
+gh auth setup-git
 
 # Install nerd-fonts: fonts with better icons support.
 git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git
