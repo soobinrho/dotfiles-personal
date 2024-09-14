@@ -214,6 +214,7 @@ sudo snap install pinta tldr
 tldr -u
 
 # Install gh: GitHub CLI.
+sudo apt remove -y ksshaskpass
 sudo apt install -y gh
 gh auth login
 gh auth setup-git
