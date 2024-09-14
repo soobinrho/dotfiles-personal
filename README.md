@@ -47,33 +47,6 @@
 # 1. How I set up my Fedora
 
 ```bash
-# ---------------------------------------------------------------------
-# Install dev tools.
-# ---------------------------------------------------------------------
-# Install nvm: Node version manager.
-# After installing nvm, close and reopen terminal,
-# in order for new paths to take effect.
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
-
-# Install Node.js
-nvm install node
-
-# Install pnpm: a faster, parallel package manager.
-npm install -g pnpm
-pnpm setup
-
-# If you're using zsh:
-source ~/.zshrc
-
-# If you're using bash:
-source ~/.bashrc
-
-# Install TypeScript: a JavaScript superset with types.
-# Install tldr: similar to [man], but with simple examples.
-# Install loadtest: server load testing tool.
-# Install svg-term-cli: asciinema to svg converter.
-pnpm add -g typescript ts-node tldr loadtest svg-term-cli
-
 # Update everyday automatically.
 sudo dnf install -y dnf-automatic
 sudo systemctl enable --now dnf-automatic-install.timer
@@ -171,7 +144,9 @@ git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git
 nerd-fonts/install.sh
 rm -rf nerd-fonts
 
-# Install zsh.
+# ---------------------------------------------------------------------
+# Install zsh and powerlevel10k theme
+# ---------------------------------------------------------------------
 sudo dnf install -y zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
@@ -182,17 +157,178 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 vim ~/.zshrc
 p10k configure
 
-# Install tmux: terminal multiplexer.
-sudo dnf install -y tmux
+# ---------------------------------------------------------------------
+# Install Node.js
+# ---------------------------------------------------------------------
+# Install nvm: Node version manager.
+# After installing nvm, close and reopen terminal,
+# in order for new paths to take effect.
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
+
+# Install Node.js
+nvm install node
+
+# Install pnpm: a faster, parallel package manager.
+npm install -g pnpm
+pnpm setup
+
+# If you're using zsh:
+source ~/.zshrc
+
+# If you're using bash:
+source ~/.bashrc
+
+# Install TypeScript: a JavaScript superset with types.
+# Install tldr: similar to [man], but with simple examples.
+# Install loadtest: server load testing tool.
+# Install svg-term-cli: asciinema to svg converter.
+pnpm add -g typescript ts-node loadtest svg-term-cli
+```
+
+<br>
+
+# 2. How I set up my Ubuntu
+
+I personally use https://kubuntu.org/ because I like its style better than Gnome.
+
+```bash
+# Allow _apt to write to the download folders.
+# Source:
+#   https://askubuntu.com/questions/908800/what-does-this-apt-error-message-download-is-performed-unsandboxed-as-root
+sudo chown -Rv _apt:root /var/cache/apt/archives/partial/
+sudo chmod -Rv 700 /var/cache/apt/archives/partial/
 
 # ---------------------------------------------------------------------
-# (For laptops only)
+# Install development tools.
+# ---------------------------------------------------------------------
+sudo apt update -y
+sudo apt upgrade -y
+sudo apt install -y curl tree git git-lfs wipe ffmpeg \
+    jpegoptim irssi neofetch htop ncdu glances asciinema \
+    xournal vlc gimp obs-studio bat powerstat
+
+sudo apt remove -y nano
+
+sudo snap install alacritty --classic
+sudo snap install pinta tldr
+tldr -u
+
+# Install gh: GitHub CLI.
+sudo apt install -y gh
+gh auth login
+gh auth setup-git
+
+# Install nerd-fonts: fonts with better icons support.
+git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git
+nerd-fonts/install.sh
+rm -rf nerd-fonts
+
+# ---------------------------------------------------------------------
+# Install zsh and powerlevel10k theme
+# ---------------------------------------------------------------------
+sudo apt install -y zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# Install zsh theme: powerlevel10k.
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+# Set ZSH_THEME="powerlevel10k/powerlevel10k" in ~/.zshrc.
+vim ~/.zshrc
+p10k configure
+
+# ---------------------------------------------------------------------
+# Install Node.js
+# ---------------------------------------------------------------------
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
+nvm install node
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+# Install pnpm: a faster, parallel package manager.
+npm install -g pnpm
+pnpm setup
+
+# If you're using zsh:
+source ~/.zshrc
+
+# If you're using bash:
+source ~/.bashrc
+
+pnpm add -g typescript ts-node loadtest svg-term-cli
+```
+
+<br>
+
+# 3. Workflows I find useful
+
+```bash
+# ---------------------------------------------------------------------
+# tmux workflows
+# Source:
+#   https://www.redhat.com/sysadmin/introduction-tmux-linux
+# ---------------------------------------------------------------------
+# Install tmux: the best terminal multiplexer.
+sudo dnf install -y tmux  # Fedora
+sudo apt install -y tmux  # Ubuntu
+
+# Change the prefix keybinding from Ctrl + b to Ctrl + a because
+# Ctrl + b already is assigned to page up in vim.
+vim ~/.tmux.conf
+
+# Set the prefix to Ctrl+a.
+set -g prefix C-a
+
+# Remove the old prefix.
+unbind C-b
+
+# Send Ctrl+a to applications by pressing it twice.
+bind C-a send-prefix
+
+# Exit out of vim.
+:wq
+
+# How to see all sessions.
+tmux ls
+
+# How to attach to existing session.
+tmux attach
+
+# How to create a new session.
+tmux new-session
+
+# How to reload a config file.
+tmux source ~/.tmux.conf
+
+# My favorite keybindings
+# =======================
+# Ctrl+a d = Detach from current session.
+# =======================
+# Ctrl+a Alt+<3|4|5> = Useful preset pane arrangements. 
+# Ctrl+a % = Split the window into two panes horizontally.
+# Ctrl+a " = Split the window into two panes vertically.
+# Ctrl+a <left|right|up|down> = Move between panes.
+# Ctrl+a Ctrl+<left|right|up|down> = Resize pane.
+# Ctrl+a x = Close pane.
+# =======================
+# Ctrl+a c = Create a new window.
+# Ctrl+a w = See all windows. Here, you can press x to close window.
+# Ctrl+a <0|1|2|3|4|5|6|7|8|9> = Move to window using index.
+# Ctrl+a n = Move to the next window.
+# Ctrl+a p = Move to the previous window.
+
+# ---------------------------------------------------------------------
+# (For laptops only) Laptop battery healthcare.
 # ---------------------------------------------------------------------
 # Install tlp: power management and battery care.
-sudo dnf install -y tlp tlp-rdw
-sudo dnf remove power-profiles-daemon
-systemctl enable tlp.service
-systemctl mask systemd-rfkill.service systemd-rfkill.socket
+sudo dnf install -y tlp tlp-rdw  # Fedora only
+sudo dnf remove power-profiles-daemon  # Fedora only
+systemctl enable tlp.service  # Fedora only
+systemctl mask systemd-rfkill.service systemd-rfkill.socket  # Fedora only
+
+sudo add-apt-repository ppa:linrunner/tlp  # Ubuntu only
+sudo apt update -y  # Ubuntu only
+sudo apt install -y tlp tlp-rdw  # Ubuntu only
 
 # "If the laptop is plugged most of the time and rarely unplugged,
 # maximizing battery lifetime at the cost of a greatly reduced runtime
@@ -224,7 +360,13 @@ tlp-stat --psup
 
 # Install powerstat: Power consumption measurement.
 sudo dnf install -y powerstat  # Fedora
-sudo apt install -y powerstat  # Ubuntu
+
+# ---------------------------------------------------------------------
+# Install Anaconda and disable automatic activation
+# ---------------------------------------------------------------------
+# Download https://www.anaconda.com/download and then:
+~/anaconda3/bin/conda init zsh
+conda config --set auto_activate_base false
 
 # ---------------------------------------------------------------------
 # Configure git.
@@ -299,177 +441,7 @@ fc-cache -f -v
 
 # GPG agent configs.
 cp ./.gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
-```
 
-<br>
-
-# 2. How I set up my Ubuntu
-
-I personally use https://kubuntu.org/ because I like its style better than Gnome.
-
-```bash
-# Allow _apt to write to the download folders.
-# Source:
-#   https://askubuntu.com/questions/908800/what-does-this-apt-error-message-download-is-performed-unsandboxed-as-root
-sudo chown -Rv _apt:root /var/cache/apt/archives/partial/
-sudo chmod -Rv 700 /var/cache/apt/archives/partial/
-
-# ---------------------------------------------------------------------
-# Install development tools.
-# ---------------------------------------------------------------------
-sudo apt update -y
-sudo apt upgrade -y
-sudo apt install -y curl zsh git git-lfs wipe ffmpeg \
-    jpegoptim irssi neofetch htop ncdu glances asciinema \
-    xournal vlc gimp obs-studio bat tree powerstat tmux
-
-sudo apt remove -y nano
-
-sudo snap install alacritty --classic
-sudo snap install pinta tldr
-tldr -u
-
-# Install gh: GitHub CLI.
-sudo apt install -y gh
-gh auth login
-gh auth setup-git
-
-# Install nerd-fonts: fonts with better icons support.
-git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git
-nerd-fonts/install.sh
-rm -rf nerd-fonts
- 
-# Install Oh My Zsh.
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-# Install zsh theme: powerlevel10k.
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-
-# Set ZSH_THEME="powerlevel10k/powerlevel10k" in ~/.zshrc.
-vim ~/.zshrc
-p10k configure
-
-# ---------------------------------------------------------------------
-# Install Anaconda.
-# ---------------------------------------------------------------------
-# Download https://www.anaconda.com/download and then:
-~/anaconda3/bin/conda init zsh
-conda config --set auto_activate_base false
-
-# ---------------------------------------------------------------------
-# Install Node.js
-# ---------------------------------------------------------------------
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
-nvm install node
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-
-# Install pnpm: a faster, parallel package manager.
-npm install -g pnpm
-pnpm setup
-
-# If you're using zsh:
-source ~/.zshrc
-
-# If you're using bash:
-source ~/.bashrc
-
-pnpm add -g typescript ts-node loadtest svg-term-cli
-
-# ---------------------------------------------------------------------
-# (For laptops only)
-# ---------------------------------------------------------------------
-# Install tlp: power management and battery care.
-sudo add-apt-repository ppa:linrunner/tlp
-sudo apt update -y
-sudo apt install -y tlp tlp-rdw
-
-# Uncomment START_CHARGE_THRESH_BAT0 and others.
-sudo vim /etc/tlp.conf
-sudo tlp setcharge
-
-# See running status of tlp.
-sudo tlp-stat -s
-
-# See power statistics.
-tlp-stat --psup
-
-# ---------------------------------------------------------------------
-# Configure git.
-# ---------------------------------------------------------------------
-git config --global user.name "Soobin Rho"
-git config --global user.email "soobinrho@gmail.com"
-git config --global core.editor vim
-git config --global init.defaultBranch main
-git config --global alias.c 'commit -s'
-git config --global user.signingkey BC0596A444D39F64
-git config --global commit.gpgSign true
-
-# ---------------------------------------------------------------------
-# Configure nvim.
-# ---------------------------------------------------------------------
-# Install neovim.
-cd /usr/bin
-sudo curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
-sudo chmod +x nvim.appimage
-sudo ln -s /usr/bin/nvim.appimage /usr/bin/nvim
-
-# Install Astrovim.
-git clone --depth 1 https://github.com/AstroNvim/template ~/.config/nvim
-rm -rf ~/.config/nvim/.git
-nvim
-
-# Install specific LSP servers and language parsers.
-# Source:
-#   https://astronvim.github.io/
-# :LspInstall
-# :TSInstall <Name of the language>
-
-# Install debugger.
-# Follow instructions at:
-#   https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation
-
-# Install Chrome.
-#   https://www.google.com/intl/en_us/chrome/
-
-# Install Java.
-#   https://www.oracle.com/java/technologies/downloads/
-
-# Install VS Code.
-#   https://code.visualstudio.com/download
-
-# ---------------------------------------------------------------------
-# Copy and paste my config files.
-# ---------------------------------------------------------------------
-git clone https://github.com/soobinrho/dotfiles-personal.git
-cd /dotfiles-personal/home/soobinrho
-
-# zsh configs.
-cp ./.zshrc ~/
-
-# Alacritty configs.
-mkdir -p ~/.config/alacritty
-cp ./.config/alacritty/* ~/.config/alacritty/
-
-# Konsole configs.
-cp ./.config/konsolerc ~/.config/
-cp ./.local/share/konsole/* ~/.local/share/konsole/
-
-# Font configs.
-mkdir -p ~/.local/share/font
-cp ./.local/share/font/* ~/.local/share/font
-fc-cache -f -v
-
-# GPG agent configs.
-cp ./.gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
-```
-
-<br>
-
-# 3. Workflows I find useful
-
-```bash
 # ---------------------------------------------------------------------
 # How to see all git configs
 # ---------------------------------------------------------------------
