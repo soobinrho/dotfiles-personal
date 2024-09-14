@@ -66,8 +66,11 @@ else
   export EDITOR='nvim'
 fi
 
-# By default, in wsl Ubuntu, it was set to 16.
-export TERM="screen-256color"
+# Uncomment this if p10k color scheme doesn't work.
+# For example, in wsl Ubuntu, it used to be 16 colors by default.
+# Uncommenting this will fix it. However, if it does work by default,
+# leave it commented because tmux-256 is better if it works.
+# export TERM="screen-256color"
 
 # ---------------------------------------------------------------------
 # Aliases
