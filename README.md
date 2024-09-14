@@ -413,9 +413,8 @@ sudo chmod +x nvim.appimage
 sudo ln -s /usr/bin/nvim.appimage /usr/bin/nvim
 
 # Install Astrovim.
-git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim
-
-# Open nvim.
+git clone --depth 1 https://github.com/AstroNvim/template ~/.config/nvim
+rm -rf ~/.config/nvim/.git
 nvim
 
 # Install specific LSP servers and language parsers.
