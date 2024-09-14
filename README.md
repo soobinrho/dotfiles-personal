@@ -375,14 +375,23 @@ tlp-stat --psup
 sudo dnf install -y powerstat  # Fedora
 
 # ---------------------------------------------------------------------
-# Install Anaconda and disable automatic activation
+# Install Anaconda and disable automatic activation.
 # ---------------------------------------------------------------------
 # Download https://www.anaconda.com/download and then:
 ~/anaconda3/bin/conda init zsh
 conda config --set auto_activate_base false
 
 # ---------------------------------------------------------------------
-# Configure git.
+# How to see all git configs.
+# ---------------------------------------------------------------------
+# See global configs.
+git config --global --edit
+
+# See local configs.
+git config --edit
+
+# ---------------------------------------------------------------------
+# How to configure git.
 # ---------------------------------------------------------------------
 git config --global user.name "Soobin Rho"
 git config --global user.email "soobinrho@gmail.com"
@@ -402,6 +411,25 @@ gpg --armor --export BC0596A444D39F64
 # Configure git to sign all commits with the key.
 git config --global user.signingkey BC0596A444D39F64
 git config --global commit.gpgSign true
+
+# ---------------------------------------------------------------------
+# How to fix the bug in which git commit always asks for username.
+# ---------------------------------------------------------------------
+vim ~/.gitconfig
+
+# After installing gh, the config file will look like this:
+# [credential "https://github.com"]
+# 	helper =
+# 	helper = !/usr/bin/gh auth git-credential
+# [credential "https://gist.github.com"]
+# 	helper =
+# 	helper = !/usr/bin/gh auth git-credential
+
+# The bug will be fixed by deleting the empty lines as such:
+# [credential "https://github.com"]
+# 	helper = !/usr/bin/gh auth git-credential
+# [credential "https://gist.github.com"]
+# 	helper = !/usr/bin/gh auth git-credential
 
 # ---------------------------------------------------------------------
 # Configure nvim.
@@ -452,15 +480,6 @@ cp ./.local/share/konsole/* ~/.local/share/konsole/
 
 # GPG agent configs.
 cp ./.gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
-
-# ---------------------------------------------------------------------
-# How to see all git configs
-# ---------------------------------------------------------------------
-# See global configs.
-git config --global --edit
-
-# See local configs.
-git config --edit
 
 # ---------------------------------------------------------------------
 # How to delete untracked files and folders in git.
@@ -644,6 +663,12 @@ gpg -e important_document.pdf
 
 # Decrypt.
 gpg important_document.pdf.gpg
+
+# Encrypt all files recursively.
+find . -type f -not -name "*.gpg" -not -path '*/.*' | xargs gpg -v --batch --yes --recipient soobinrho@gmail.com --encrypt-files
+
+# Decrypt all files recursively.
+find . -type f -name "*.gpg" | xargs gpg -v --batch --decrypt-files
 
 # ---------------------------------------------------------------------
 # Useful system commands.
