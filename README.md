@@ -333,8 +333,7 @@ git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git
 nerd-fonts/install.sh
 rm -rf nerd-fonts
  
-# Install zsh.
-sudo dnf install -y zsh
+# Install Oh My Zsh.
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Install zsh theme: powerlevel10k.
