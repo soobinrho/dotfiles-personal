@@ -177,6 +177,9 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 # Install zsh theme: powerlevel10k.
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+# Set ZSH_THEME="powerlevel10k/powerlevel10k" in ~/.zshrc.
+vim ~/.zshrc
 p10k configure
 
 # ---------------------------------------------------------------------
@@ -338,6 +341,9 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 # Install zsh theme: powerlevel10k.
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+# Set ZSH_THEME="powerlevel10k/powerlevel10k" in ~/.zshrc.
+vim ~/.zshrc
 p10k configure
 
 # ---------------------------------------------------------------------
