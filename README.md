@@ -202,7 +202,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # Reload tmux configs that includes tmux plugins installation list.
 tmux source ~/.tmux.conf
 
-# Press Ctrl + i to install the plugins.
+# Press Ctrl+a I to install the plugins.
 
 # How to see all sessions.
 tmux ls
