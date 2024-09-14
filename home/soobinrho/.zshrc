@@ -33,6 +33,7 @@ plugins=(
     zsh-syntax-highlighting
 )
 
+ZSH_HIGHLIGHT_STYLES[path]='none'
 ZSH_TMUX_AUTOSTART=true
 
 # The source line must come after ZSH_TMUX lines.
