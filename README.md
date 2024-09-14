@@ -288,6 +288,9 @@ bind C-a send-prefix
 # Exit out of vim.
 :wq
 
+# How to reload a config file.
+tmux source ~/.tmux.conf
+
 # How to see all sessions.
 tmux ls
 
@@ -296,9 +299,6 @@ tmux attach
 
 # How to create a new session.
 tmux new-session
-
-# How to reload a config file.
-tmux source ~/.tmux.conf
 
 # My favorite keybindings
 # =======================
