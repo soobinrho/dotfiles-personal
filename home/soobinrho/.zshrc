@@ -60,12 +60,16 @@ setopt HIST_VERIFY               # Don't execute immediately upon history expans
 # ---------------------------------------------------------------------
 # Customizations
 # ---------------------------------------------------------------------
-# Preferred editor for local and remote sessions
+# Preferred editor for local and remote sessions.
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='nvim'
 else
   export EDITOR='nvim'
 fi
+
+# I delete ksshaskpass, so I unset this variable. Otherwise, git commit
+# will always ask for it instead of using the credentials from gh CLI.
+unset SSH_ASKPASS
 
 # Uncomment this if p10k color scheme doesn't work.
 # For example, in wsl Ubuntu, it used to be 16 colors by default.
