@@ -431,6 +431,9 @@ cp ./.zshrc ~/
 mkdir -p ~/.config/alacritty
 cp ./.config/alacritty/* ~/.config/alacritty/
 
+# Go to Shortcuts settings and unbind Konsole's Ctrl + Alt + t shortcut.
+# Bind alacritty to Ctrl + Alt + t.
+
 # Konsole configs.
 cp ./.config/konsolerc ~/.config/
 cp ./.local/share/konsole/* ~/.local/share/konsole/

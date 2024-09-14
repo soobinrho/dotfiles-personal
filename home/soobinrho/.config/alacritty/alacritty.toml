@@ -3,3 +3,8 @@ size = 8.0
 
 [window]
 decorations = "none"
+startup_mode = "Maximized"
+opacity = 0.93
+
+[scrolling]
+history = 100000
