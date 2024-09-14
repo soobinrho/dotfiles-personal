@@ -33,6 +33,7 @@ plugins=(
     zsh-syntax-highlighting
 )
 
+typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[path]='none'
 ZSH_TMUX_AUTOSTART=true
 
