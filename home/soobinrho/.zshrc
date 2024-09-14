@@ -61,6 +61,9 @@ else
   export EDITOR='nvim'
 fi
 
+# By default, in wsl Ubuntu, it was set to 16.
+export TERM="screen-256color"
+
 # ---------------------------------------------------------------------
 # Aliases
 # ---------------------------------------------------------------------
