@@ -1,6 +1,11 @@
 # ---------------------------------------------------------------------
 # Oh My Zsh Configs
 # ---------------------------------------------------------------------
+# Solve WSL git commit sign prompt bug.
+# Source:
+#   https://stackoverflow.com/questions/57619460/trying-to-sign-commits-on-git-using-gpg-on-wsl-but-does-not-work
+export GPG_TTY=$TTY
+
 # P10k config for tmux autostart. Must stay above p10k-instant-prompt.
 # Source:
 #   https://github.com/romkatv/powerlevel10k/issues/1203#issuecomment-754805535
