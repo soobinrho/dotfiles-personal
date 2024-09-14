@@ -157,6 +157,11 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 vim ~/.zshrc
 p10k configure
 
+# Install zsh-syntax-highlighting plugin.
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+# Set plugins=( [plugins...] zsh-syntax-highlighting) in ~/.zshrc
+vim ~/.zshrc
+
 # ---------------------------------------------------------------------
 # Install Node.js
 # ---------------------------------------------------------------------

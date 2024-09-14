@@ -30,6 +30,7 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 plugins=(
     tmux
     colored-man-pages
+    zsh-syntax-highlighting
 )
 
 ZSH_TMUX_AUTOSTART=true
