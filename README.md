@@ -249,6 +249,12 @@ cp ./.zshrc ~/
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 p10k configure
 
+# If on Windows, install Oh My Posh for Powershell:
+#   https://ohmyposh.dev/
+
+# On Windows Oh My Posh, I personally like this config for `$PROFILE`:
+#   oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/powerlevel10k_rainbow.omp.json" | Invoke-Expression
+
 # ---------------------------------------------------------------------
 # How to install Alacritty.
 # ---------------------------------------------------------------------
