@@ -203,6 +203,10 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 tmux source ~/.tmux.conf
 
 # Press Ctrl+a I to install the plugins.
+# If tmux-mem-cpu-load installation exits with a cmake error,
+# then install cmake with
+sudo dnf install -y cmake  # Fedora
+sudo apt install -y cmake  # Ubuntu
 
 # How to see all sessions.
 tmux ls
