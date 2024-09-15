@@ -215,6 +215,8 @@ tmux new-session
 # =======================
 # Ctrl+a d = Detach from current session.
 # Ctrl+a w = See all sessions, windows, and panes. Here, you can press x to kill.
+# Ctrl+a s = Save session. This is from the tmux-resurrect plugin.
+# Ctrl+a r = Restore session. This is from the tmux-resurrect plugin.
 # =======================
 # Ctrl+a Alt+<3|4|5> = Useful preset pane arrangements. 
 # Ctrl+a % = Split the window into two panes horizontally.
