@@ -20,12 +20,6 @@
         │   └── gpg-agent.conf
         ├── .local
         │   └── share
-        │       ├── font
-        │           ├── MesloLGS NF Bold Italic.ttf
-        │           ├── MesloLGS NF Bold.ttf
-        │           ├── MesloLGS NF Italic.ttf
-        │           ├── MesloLGS NF Regular.ttf
-        │           └── source.txt
         │       └── konsole
         │           ├── Breeze.colorscheme
         │           └── Profile1.profile
