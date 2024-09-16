@@ -1,29 +1,28 @@
 ```bash
 # Repository Structure
 # You can get this with `tree -a`
-└── home
-    └── soobinrho
-        ├── .bashrc
-        ├── .config
-        │   ├── alacritty
-        │   │   └── alacritty.toml
-        │   ├── konsolerc
-        │   └── obs-studio
-        │       └── basic
-        │           └── profiles
-        │               └── rhetorics_practice
-        │                   ├── basic.ini
-        │                   └── service.json
-        │           └── scenes
-        │               └── rhetorics_practice.json
-        ├── .gnupg
-        │   └── gpg-agent.conf
-        ├── .local
-        │   └── share
-        │       └── konsole
-        │           ├── Breeze.colorscheme
-        │           └── Profile1.profile
-        └── .zshrc
+  ├── .config
+  │   ├── alacritty
+  │   │   └── alacritty.toml
+  │   ├── konsolerc
+  │   └── obs-studio
+  │       └── basic
+  │           └── profiles
+  │               └── rhetorics_practice
+  │                   ├── basic.ini
+  │                   └── service.json
+  │           └── scenes
+  │               └── rhetorics_practice.json
+  ├── .gnupg
+  │   └── gpg-agent.conf
+  ├── .local
+  │   └── share
+  │       └── konsole
+  │           ├── Breeze.colorscheme
+  │           └── Profile1.profile
+  ├── .bashrc
+  ├── .tmux.conf
+  └── .zshrc
 ```
 
 <br>
