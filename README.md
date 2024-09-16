@@ -252,8 +252,15 @@ p10k configure
 # If on Windows, install Oh My Posh for Powershell:
 #   https://ohmyposh.dev/
 
+# Create the profile file:
+#   New-Item -Path $PROFILE -Type File -Force
+
 # On Windows Oh My Posh, I personally like this config for `$PROFILE`:
 #   oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/powerlevel10k_rainbow.omp.json" | Invoke-Expression
+
+# Also, set opacity as 93% on Windows terminals settings, and set the
+# font as MesloLGM Nerd Font, which you can download with:
+#   oh-my-posh font install meslo
 
 # ---------------------------------------------------------------------
 # How to install Alacritty.
