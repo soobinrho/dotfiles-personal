@@ -288,6 +288,36 @@ nvim
 # :LspInstall
 # :TSInstall <Name of the language>
 
+# Default key shortcuts:
+#   https://docs.astronvim.com/mappings
+
+# My favorite key shortcuts:
+# ==========================
+# \ = Horizontal split
+# | = Vertical split
+# Ctrl{h|j|k|l} = Window navigation
+# :q = Close window
+# ---------------------------------------------------------------------
+# Space + e = Neotree toggle
+# Space + o = Neotree focus
+# ---------------------------------------------------------------------
+# :bnew = New buffer
+# [b = Previous buffer
+# ]b = Next buffer
+# :bd = Close buffer
+
+# Useful vim commands.
+# ====================
+# gc = Comment visual mode.
+# gcc = Comment out a line.
+# gcap = Comment out a paragraph.
+# :7,17Commentary = Comment out with line numbers.
+# ---------------------------------------------------------------------
+# m[A-Z] = Set a marker and `'[A-Z]` go to the marker.
+# <Select multiple lines with visual mode> :norm! @a = Execute a macro on multiple lines.
+# q: = Open command-history buffer.
+# :ene|e = Edit a file in a new buffer, short for `:enew|edit`.
+
 # ---------------------------------------------------------------------
 # How to install Node.js
 # ---------------------------------------------------------------------
@@ -620,18 +650,6 @@ hexdump -b <file name>
 
 # Enable multiple audio outputs.
 pactl load-module module-combine-sink
-
-# ---------------------------------------------------------------------
-# Useful vim commands.
-# ---------------------------------------------------------------------
-# - `gc` Comment visual mode.
-# - `gcc` Comment out a line.
-# - `gcap` Comment out a paragraph.
-# - `:7,17Commentary` Comment out with line numbers.
-# - `<Select multiple lines with visual mode> :norm! @a` Execute a macro on multiple lines.
-# - `m[A-Z]` Set a marker and `'[A-Z]` go to the marker.
-# - `q:` Open command-history buffer.
-# - `:ene|e` Edit a file in a new buffer, short for `:enew|edit`.
 
 # ---------------------------------------------------------------------
 # How to install Cloudflare Tunnel.
