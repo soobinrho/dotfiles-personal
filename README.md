@@ -31,7 +31,8 @@
 ## Steps
 [1.](#1-how-i-set-up-my-fedora) How I set up my Fedora<br>
 [2.](#2-how-i-set-up-my-ubuntu) How I set up my Ubuntu<br>
-[3.](#3-workflows-i-find-useful) Workflows I find useful
+[3.](#3-how-i-set-up-my-vps) How I set up my VPS<br>
+[4.](#4-workflows-i-find-useful) Workflows I find useful
 
 
 <br>
@@ -172,7 +173,35 @@ rm -rf nerd-fonts
 
 <br>
 
-# 3. Workflows I find useful
+# 3. How I set up my VPS
+
+## Infrastructure
+
+| ***Program*** | ***Purpose*** |
+| ---- | ---- |
+| ***Hetzner*** | I use this for hosting my VPS (3 vCPU, 4GB RAM, 80GB disk). |
+| ***rsyslog*** | "The rocket-fast system for log processing." I use this for collecting all logs. |
+| ***Tarsnap*** | "Online backups for the truly paranoid [or for anyone who works in cybersecurity]." I use this to make regular backups. |
+| ***Dokku*** | Docker deployment and scaling with useful features like SSL certificate management for https. I use this to manage all of my applications' deployment. |
+
+## Applications
+
+| ***Program*** | ***Purpose*** |
+| ---- | ---- |
+| ***[Nsustain](https://github.com/nsustain)*** | Help the e[N]vironment and [sustain]ability by coding for anyone who works in the field. |
+| ***[BeeMovr](https://github.com/soobinrho/BeeMovr)*** | Help beekeepers by coding whatever they need for their bees. |
+| ***[Good Life Farms](https://github.com/soobinrho/good-life-farms)*** | Help local producers (farmers, beekeeprs, florists, and so on) by giving them a free, low-maintenance platform to sell their goods. Deisnged to be as self-sustainable as possible: the UI is Google Sheets and Google Forms instead of fancy, expensive databases. |
+
+```bash
+# 1. Create a VPS at Hetzner and setup an SSH access.
+# Install lnav: the logfile navigator.
+sudo snap install -y lnav
+
+```
+
+<br>
+
+# 4. Workflows I find useful
 
 ```bash
 # ---------------------------------------------------------------------
