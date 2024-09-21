@@ -179,23 +179,84 @@ rm -rf nerd-fonts
 
 | ***Program*** | ***Purpose*** |
 | ---- | ---- |
-| ***Hetzner*** | I use this for hosting my VPS (3 vCPU, 4GB RAM, 80GB disk). |
-| ***rsyslog*** | "The rocket-fast system for log processing." I use this for collecting all logs. |
-| ***Tarsnap*** | "Online backups for the truly paranoid [or for anyone who works in cybersecurity]." I use this to make regular backups. |
-| ***Dokku*** | Docker deployment and scaling with useful features like SSL certificate management for https. I use this to manage all of my applications' deployment. |
+| ***Hetzner*** | I use this for hosting my servers. Main server = 3 vCPU, 4GB RAM, 80GB disk. Security logging and monitoring server = 2 vCPU, 4GB RAM, 40GB disk. |
+| ***syslog-ng*** | I use this for collecting all logs. |
+| ***Dokku*** | Docker deployment with useful features like SSL certificate management for https. I use this to manage all of my applications' deployment. Vastly simplifies deploying more than one application in one server using subdomains. |
+
+> [!NOTE]  
+> syslog is a plaintext logging system, [1] while journald is a binary
+> logging system. journald was created more recently, but I chose to
+> use syslog-ng because syslog is said to be better at remote logging
+> at central logging & monitoring server than journald.
+> [1] https://datatracker.ietf.org/doc/html/rfc5424
 
 ## Applications
 
 | ***Program*** | ***Purpose*** |
 | ---- | ---- |
-| ***[Nsustain](https://github.com/nsustain)*** | Help the e[N]vironment and [sustain]ability by coding for anyone who works in the field. |
+| ***[Nsustain](https://github.com/nsustain)*** | Help the e[N]vironment and [sustain]ability by coding for anyone who works in the field. Open to any programmer who wants to contribute to environmental sustainability. |
 | ***[BeeMovr](https://github.com/soobinrho/BeeMovr)*** | Help beekeepers by coding whatever they need for their bees. |
-| ***[Good Life Farms](https://github.com/soobinrho/good-life-farms)*** | Help local producers (farmers, beekeeprs, florists, and so on) by giving them a free, low-maintenance platform to sell their goods. Deisnged to be as self-sustainable as possible: the UI is Google Sheets and Google Forms instead of fancy, expensive databases. |
+| ***[Good Life Farms](https://github.com/soobinrho/good-life-farms)*** | Help local producers (farmers, beekeeprs, florists, and so on) by giving them a free, low-maintenance platform to sell their goods to local consumers. Deisnged to be as self-sustainable as possible: the UI is Google Sheets and Google Forms instead of fancy, expensive databases. |
 
 ```bash
-# 1. Create a VPS at Hetzner and setup an SSH access.
+# 1. Create a VPS at Hetzner and setup an SSH access:
+#      https://docs.digitalocean.com/products/droplets/how-to/add-ssh-keys/to-existing-droplet/
+
+# ---------------------------------------------------------------------
+# DANGER: SSH servers only.
+# How to configure sshd_config
+# Source:
+#   https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys
+# ---------------------------------------------------------------------
+# Open the config file
+sudo vim /etc/ssh/sshd_config
+
+# Disallow password authentication
+# so that only the RSA SSH key can be used
+PasswordAuthentication no
+
+# Restart SSH
+sudo service sshd restart    # Fedora
+sudo service ssh restart    # Ubuntu
+
+# ---------------------------------------------------------------------
+# How I set up my client-side SSH configs.
+# Source:
+#   https://unix.stackexchange.com/questions/708206/ssh-timeout-does-not-happen-and-not-disconnect
+# ---------------------------------------------------------------------
+# Configuring your SSH client to time-out less frequently.
+cat >> ~/.ssh/config
+Host *
+  ServerAliveInterval 15
+  ServerAliveCountMax 3
+
+# Creating an alias so that we can
+# `ssh myserver` instead of `ssh main@ip_address`
+# It's nice to be able to ssh without ip_address.
+cat >> ~/.ssh/config
+Host myserver
+    HostName ip_address
+    User main
+
+# 2. On Hetzner firewall settings, Allow any inbound IPv4 or IPv6 for
+#    port 80 and 443, but only allow your whitelisted IP address for
+#    incoming port 22 traffic.
+
+# How to get your public IP address.
+curl https://ipinfo.io/ip
+
+
+# 3. Install programs for logging and monitoring.
+
+
 # Install lnav: the logfile navigator.
 sudo snap install -y lnav
+
+
+# 4. Install Dokku.
+
+
+
 
 ```
 
@@ -501,42 +562,6 @@ git commit -am"refactor: reset all commit history for security"
 git branch -D main  # Delete the original branch.
 git branch -m main  # Rename the orphan branchto main.
 git push -f origin main
-
-# ---------------------------------------------------------------------
-# DANGER: SSH servers only.
-# How to configure sshd_config
-# Source:
-#   https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys
-# ---------------------------------------------------------------------
-# Open the config file
-sudo vim /etc/ssh/sshd_config
-
-# Disallow password authentication
-# so that only the RSA SSH key can be used
-PasswordAuthentication no
-
-# Restart SSH
-sudo service sshd restart    # Fedora
-sudo service ssh restart    # Ubuntu
-
-# ---------------------------------------------------------------------
-# How I set up my client-side SSH configs.
-# Source:
-#   https://unix.stackexchange.com/questions/708206/ssh-timeout-does-not-happen-and-not-disconnect
-# ---------------------------------------------------------------------
-# Configuring your SSH client to time-out less frequently.
-cat >> ~/.ssh/config
-Host *
-  ServerAliveInterval 15
-  ServerAliveCountMax 3
-
-# Creating an alias so that we can
-# `ssh myserver` instead of `ssh main@ip_address`
-# It's nice to be able to ssh without ip_address.
-cat >> ~/.ssh/config
-Host myserver
-    HostName ip_address
-    User main
 
 # ---------------------------------------------------------------------
 # DANGER: Secure devices only.
