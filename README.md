@@ -204,34 +204,35 @@ rm -rf nerd-fonts
 
 # ---------------------------------------------------------------------
 # DANGER: SSH servers only.
-# How to configure sshd_config
+# How to configure sshd
 # Source:
 #   https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys
 # ---------------------------------------------------------------------
-# Open the config file
-sudo vim /etc/ssh/sshd_config
-
-# Disallow password authentication
-# so that only the RSA SSH key can be used
-PasswordAuthentication no
-
-# Restart SSH
-sudo service sshd restart    # Fedora
-sudo service ssh restart    # Ubuntu
-
-# How to change the hostname.
-hostnamectl set-hostname newHostName
-
-# How to add a user.
+# Add a new user.
 adduser soobinrho sudo
 
-# How to copy the authorized ssh pub key from root to new user.
+# Change the hostname if desired.
+hostnamectl set-hostname newHostName
+
+# Copy the authorized ssh pub key from root to new user.
 mkdir /home/soobinrho/.ssh
 cp ~/.ssh/authorized_keys /home/soobinrho/.ssh/
 chown -R soobinrho:soobinrho /home/soobinrho/.ssh
 
-# How to login to a different user.
+# Login to the new user.
 su - soobinrho
+
+# Test ssh connection to the new user.
+# Then, open the sshd config file for more secure settings.
+sudo vim /etc/ssh/sshd_config
+
+# Add these two lines at the end of the config file:
+PasswordAuthentication no
+PermitRootLogin no
+
+# Restart SSH
+sudo service sshd restart    # Fedora
+sudo service ssh restart    # Ubuntu
 
 # ---------------------------------------------------------------------
 # How I set up my client-side SSH configs.
