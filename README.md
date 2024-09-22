@@ -219,6 +219,20 @@ PasswordAuthentication no
 sudo service sshd restart    # Fedora
 sudo service ssh restart    # Ubuntu
 
+# How to change the hostname.
+hostnamectl set-hostname newHostName
+
+# How to add a user.
+adduser soobinrho sudo
+
+# How to copy the authorized ssh pub key from root to new user.
+mkdir /home/soobinrho/.ssh
+cp ~/.ssh/authorized_keys /home/soobinrho/.ssh/
+chown -R soobinrho:soobinrho /home/soobinrho/.ssh
+
+# How to login to a different user.
+su - soobinrho
+
 # ---------------------------------------------------------------------
 # How I set up my client-side SSH configs.
 # Source:
@@ -261,6 +275,10 @@ sudo snap install -y lnav
 
 
 
+# ---------------------------------------------------------------------
+# How to check the https header on command line.
+# ---------------------------------------------------------------------
+curl --insecure -vvI https://nsustain.com 2>&1
 ```
 
 <br>
