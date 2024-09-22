@@ -181,7 +181,7 @@ rm -rf nerd-fonts
 | ---- | ---- |
 | ***Hetzner*** | I use this for hosting my servers. Main server = 3 vCPU, 4GB RAM, 80GB disk. Security logging and monitoring server = 2 vCPU, 4GB RAM, 40GB disk. |
 | ***syslog-ng*** | I use this for collecting all logs. |
-| ***Dokku*** | Docker deployment with useful features like SSL certificate management for https. I use this to manage all of my applications' deployment. Vastly simplifies deploying more than one application in one server using subdomains. |
+| ***Coolify*** | Docker deployment with useful features like SSL certificate management for https. I use this to manage all of my applications' deployment. Vastly simplifies deploying more than one application in one server using subdomains. |
 
 > [!NOTE]  
 > syslog is a plaintext logging system, [1] while journald is a binary
@@ -245,6 +245,8 @@ Host myserver
 # How to get your public IP address.
 curl https://ipinfo.io/ip
 
+# How to see which process is listening on port 80:
+sudo netstat -pna | grep 80
 
 # 3. Install programs for logging and monitoring.
 
@@ -253,7 +255,8 @@ curl https://ipinfo.io/ip
 sudo snap install -y lnav
 
 
-# 4. Install Dokku.
+# 4. Install Coolify:
+#      https://coolify.io/docs/quickstart
 
 
 

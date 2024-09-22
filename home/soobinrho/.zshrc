@@ -73,6 +73,11 @@ fi
 # will always ask for it instead of using the credentials from gh CLI.
 unset SSH_ASKPASS
 
+# Fixes the enter key returning ^M.
+# Source:
+#   https://askubuntu.com/a/454663
+stty icrnl
+
 # Uncomment this if p10k color scheme doesn't work.
 # For example, in wsl Ubuntu, it used to be 16 colors by default.
 # Uncommenting this will fix it. However, if it does work by default,
