@@ -303,6 +303,9 @@ docker compose up -d
 # Confirm Docker's logging driver is correctly configured to syslog.
 docker inspect <containerName> | grep -A 5 LogConfig
 
+# How to check if rsyslog server is listening.
+echo "This is a test log message." | nc <server_ip> <port>
+
 # Configure logrotate so that logs don't take too much space.
 # ===========================================================
 sudo vim /etc/logrotate.d/docker
