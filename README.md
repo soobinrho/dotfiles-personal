@@ -361,9 +361,17 @@ sudo systemctl restart rsyslog
 #   https://www.rsyslog.com/doc/historical/stunnel.html
 #   https://www.linuxhowtos.org/Security/stunnel.htm
 
-# Useful workflows.
-# =================
+# ---------------------------------------------------------------------
+# 4. Run Docker Compose.
+# ---------------------------------------------------------------------
+git clone https://github.com/soobinrho/deploy-nsustain.com.git
+cd deploy-nsustain.com
+docker compose build
+docker compose up -d
 
+# ---------------------------------------------------------------------
+# 5. Useful workflows.
+# ---------------------------------------------------------------------
 # How to see which process is listening on port 80.
 sudo netstat -pna | grep 80
 
