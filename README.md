@@ -281,6 +281,8 @@ curl https://ipinfo.io/ip
 sudo systemctl start rsyslog
 sudo systemctl enable rsyslog
 
+# TODO: Procedures for the rsyslog server.
+
 # Configure the client's Docker settings.
 # =======================================
 # Change the Docker's default logging driver from json to syslog.
@@ -305,11 +307,7 @@ docker compose up -d
 # Confirm Docker's logging driver is correctly configured to syslog.
 docker inspect <containerName> | grep -A 5 LogConfig
 
-# How to check if rsyslog server is listening.
-echo "This is a test log message." | nc <server_ip> <port>
-
 # Configure logrotate so that logs don't take too much space.
-# ===========================================================
 sudo vim /etc/logrotate.d/docker
 
 # Copy and paste | Start
@@ -355,6 +353,8 @@ if $programname == "docker" then {
 # well. `service` = more high level abstraction than `systemctl`.
 sudo systemctl restart rsyslog
 
+# How to check if rsyslog server is listening.
+echo "This is a test log message." | nc <server_ip> <port>
 
 # TODO: Use TCP protocol for logging in the central log server, and
 # enable SSL/TLS encryption through stunnel.
