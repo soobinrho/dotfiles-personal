@@ -192,11 +192,11 @@ rm -rf nerd-fonts
 
 ## Applications
 
-| ***Program*** | ***Deployment*** | ***Purpose*** |
-| ------------- | ---------------- | ------------- |
-| ***[Nsustain]*** | https://nsustain.com | Help the e[N]vironment and [sustain]ability by coding for anyone who works in the field. Open to any programmer who wants to contribute to environmental sustainability. |
-| ***[BeeMovr]*** | https://BeeMovr.nsustain.com | Help beekeepers by coding whatever they need for their bees. |
-| ***[Good Life Farms]*** | https://GoodLifeFarms.nsustain.com | Help local producers (farmers, beekeeprs, florists, and so on) by giving them a free, low-maintenance platform to sell their goods to local consumers. Deisnged to be as self-sustainable as possible: the UI is Google Sheets and Google Forms instead of fancy, expensive databases. |
+| ***Program*** | ***Purpose*** |
+| ------------- | ------------- |
+| https://nsustain.com | Help the e[N]vironment and [sustain]ability by coding for anyone who works in the field. Open to any programmer who wants to contribute to environmental sustainability. |
+| https://BeeMovr.nsustain.com | Help beekeepers by coding whatever they need for their bees. |
+| https://GoodLifeFarms.nsustain.com | Help local producers (farmers, beekeeprs, florists, and so on) by giving them a free, low-maintenance platform to sell their goods to local consumers. Deisnged to be as self-sustainable as possible: the UI is Google Sheets and Google Forms instead of fancy, expensive databases. |
 
 ```bash
 # ---------------------------------------------------------------------
