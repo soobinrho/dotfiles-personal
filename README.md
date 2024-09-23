@@ -192,11 +192,13 @@ rm -rf nerd-fonts
 
 ## Applications
 
+https://github.com/soobinrho/deploy-nsustain.com
+
 | ***Program*** | ***Purpose*** |
 | ------------- | ------------- |
-| nsustain.com | Help the e[N]vironment and [sustain]ability by coding for anyone who works in the field. Open to any programmer who wants to contribute to environmental sustainability. |
-| BeeMovr.nsustain.com | Help beekeepers by coding whatever they need for their bees. |
-| GoodLifeFarms.nsustain.com | Help local producers (farmers, beekeeprs, florists, and so on) by giving them a free, low-maintenance platform to sell their goods to local consumers. Deisnged to be as self-sustainable as possible: the UI is Google Sheets and Google Forms instead of fancy, expensive databases. |
+| Nsustain | Help the e[N]vironment and [sustain]ability by coding for anyone who works in the field. Open to any programmer who wants to contribute to environmental sustainability. |
+| BeeMovr | Help beekeepers by coding whatever they need for their bees. |
+| Good Life Farms | Help local producers (farmers, beekeeprs, florists, and so on) by giving them a free, low-maintenance platform to sell their goods to local consumers. Deisnged to be as self-sustainable as possible: it's built with Google Sheets and Google Forms instead of fancy, expensive databases. |
 
 ```bash
 # ---------------------------------------------------------------------
