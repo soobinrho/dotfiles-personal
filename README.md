@@ -179,8 +179,8 @@ rm -rf nerd-fonts
 
 | ***Program*** | ***Purpose*** |
 | ---- | ---- |
-| ***Hetzner*** | I use this for hosting my servers. Main server = 3 vCPU, 4GB RAM, 80GB disk. Security logging and monitoring server = 2 vCPU, 4GB RAM, 40GB disk. |
-| ***rsyslog*** | "Rocket-fast System for Log Processing." I use this for collecting all logs. |
+| ***Hetzner*** | I use this for hosting my servers. Main applications server = 3 vCPU, 4GB RAM, 80GB disk. Security logging and monitoring server = 2 vCPU, 4GB RAM, 40GB disk. |
+| ***rsyslog*** | "Rocket-fast System for Log Processing." I use this for collecting all my logs in my centralized logging server. |
 | ***Tarsnap*** | One of the most, if not the most, secure backup service. I use this for regular backups of my servers. |
 
 > [!NOTE]  
@@ -194,9 +194,9 @@ rm -rf nerd-fonts
 
 | ***Program*** | ***Purpose*** |
 | ------------- | ------------- |
-| https://nsustain.com | Help the e[N]vironment and [sustain]ability by coding for anyone who works in the field. Open to any programmer who wants to contribute to environmental sustainability. |
-| https://BeeMovr.nsustain.com | Help beekeepers by coding whatever they need for their bees. |
-| https://GoodLifeFarms.nsustain.com | Help local producers (farmers, beekeeprs, florists, and so on) by giving them a free, low-maintenance platform to sell their goods to local consumers. Deisnged to be as self-sustainable as possible: the UI is Google Sheets and Google Forms instead of fancy, expensive databases. |
+| nsustain.com | Help the e[N]vironment and [sustain]ability by coding for anyone who works in the field. Open to any programmer who wants to contribute to environmental sustainability. |
+| BeeMovr.nsustain.com | Help beekeepers by coding whatever they need for their bees. |
+| GoodLifeFarms.nsustain.com | Help local producers (farmers, beekeeprs, florists, and so on) by giving them a free, low-maintenance platform to sell their goods to local consumers. Deisnged to be as self-sustainable as possible: the UI is Google Sheets and Google Forms instead of fancy, expensive databases. |
 
 ```bash
 # ---------------------------------------------------------------------
