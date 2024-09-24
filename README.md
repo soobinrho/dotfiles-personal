@@ -402,6 +402,13 @@ tlp-stat --psup
 # Install powerstat: Power consumption measurement.
 sudo dnf install -y powerstat  # Fedora
 
+# Observations for my P14s Gen 2 AMD
+# ==================================
+# 1. 10% brightness, no wifi = 3.7 watt
+# 2. 10% brightness, wifi    = 4.7 watt
+# 3. 10% brightness, wifi    = 4.7 watt
+# 4. 70% brightness, wifi    = 6.0 watt
+
 # ---------------------------------------------------------------------
 # How to install Anaconda and disable automatic activation.
 # ---------------------------------------------------------------------
