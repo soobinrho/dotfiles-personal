@@ -421,6 +421,38 @@ ssh-keygen -b 4096
 ssh-copy-id root@ip_address
 
 # ---------------------------------------------------------------------
+# How I set up my client-side SSH configs.
+# Source:
+#   https://unix.stackexchange.com/questions/708206/ssh-timeout-does-not-happen-and-not-disconnect
+# ---------------------------------------------------------------------
+
+# How to configure the SSH client to time-out less frequently.
+cat >> ~/.ssh/config
+Host *
+  ServerAliveInterval 15
+  ServerAliveCountMax 3
+
+# How to create an alias so that we can `ssh myserver` instead of
+# `ssh main@ip_address` everytime.
+cat >> ~/.ssh/config
+Host myserver
+    HostName ip_address
+    User main
+
+# ---------------------------------------------------------------------
+# How to setup public / private key access for private GitHub repo.
+# Source:
+#   https://leangaurav.medium.com/setup-ssh-key-with-git-github-clone-private-repo-using-ssh-d983ab7bb956
+# ---------------------------------------------------------------------
+ssh-keygen -t ed25519 -C "name@example.com"
+
+# Copy and paste the public key to github.com repo - Code - SSH .
+vim ~/.ssh/id_ed25519.pub
+
+# How to check the https header returned in the network packet.
+curl --insecure -vvI https://nsustain.com 2>&1
+
+# ---------------------------------------------------------------------
 # How to configure git.
 # ---------------------------------------------------------------------
 git config --global user.name "Soobin Rho"
@@ -600,7 +632,7 @@ systemctl suspend
 # `ctrl` + `p`
 
 # Find files containing a certain text.
-egrep -ir "Certain text"
+grep -R "Certain text" .
 
 # Read in hexadecimal
 xxd <file name>
@@ -614,58 +646,6 @@ hexdump -b <file name>
 
 # Enable multiple audio outputs.
 pactl load-module module-combine-sink
-
-# ---------------------------------------------------------------------
-# How to install Cloudflare Tunnel.
-# ---------------------------------------------------------------------
-# Install Cloudflare Tunnel on the server.
-#   https://one.dash.cloudflare.com/
-#   Installation script is available at the `Access - Tunnels` setting.
-
-# Block all IP's and then only allow Cloudflare IP addresses,
-# so that the server is only accessible through Cloudflare Tunnel,
-# and direct access to the server is blocked for better security.
-# Source:
-#   https://github.com/Paul-Reed/cloudflare-ufw
-sudo ufw disable
-sudo ufw reset
-sudo ufw default deny incoming
-sudo ufw default allow outgoing
-sudo ufw allow from 192.168.1.0/24
-
-# Allow Cloudflare's IP addresses
-# Source:
-cd ~
-git clone https://github.com/Paul-Reed/cloudflare-ufw.git
-sudo ~/cloudflare-ufw/cloudflare-ufw.sh
-
-# Run `sudo crontab -e` and then add:
-# 0 0 * * 1 /home/myusername/cloudflare-ufw/cloudflare-ufw.sh > /dev/null 2>&1
-
-# Confirm all IP rules have been set.
-sudo ufw enable
-sudo ufw status verbose
-
-# ---------------------------------------------------------------------
-# How to install Cloudflared Client for SSH Users.
-# ---------------------------------------------------------------------
-# Install Cloudflared on the computer, from which you're accessing the
-# server.
-#   https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/use_cases/ssh/#2-connect-as-a-user
-
-# Add Public hostname: `ssh.example.com` and
-# `Service: ssh://localhost:22` at the `Access - Tunnels - Configure`
-# setting at:
-#   https://one.dash.cloudflare.com/
-
-# Edit ssh config so that ssh command authenticates using Cloudflared.
-# Run `vim ~/.ssh/config` and add:
-# Host ssh.example.com
-# ProxyCommand /usr/bin/cloudflared access ssh --hostname %h
-#
-# Host devserver
-#     HostName ssh.example.com
-#     User myusername
 
 # ---------------------------------------------------------------------
 # How to stream OBS to yourself using Nginx.
@@ -726,22 +706,6 @@ sudo /usr/local/nginx/sbin/nginx
 
 # Stop Nginx when you're done
 sudo /usr/local/nginx/sbin/nginx -s stop
-
-# ---------------------------------------------------------------------
-# Useful `~/.ssh/config` example.
-# ---------------------------------------------------------------------
-# Host dev
-#     HostName <server address>
-#     User <username>
-#
-# Host testing
-#     HostName <server address>
-#     IdentityFile ~/.ssh/id_rsa_testing
-#     User <username>
-#
-# Host *
-#   ServerAliveInterval 600
-#   ServerAliveCountMax 3
 
 # ---------------------------------------------------------------------
 # Journal entries on extra random tips.
