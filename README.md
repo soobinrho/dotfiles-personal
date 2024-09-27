@@ -145,6 +145,12 @@ sudo chown -Rv _apt:root /var/cache/apt/archives/partial/
 sudo chmod -Rv 700 /var/cache/apt/archives/partial/
 
 # ---------------------------------------------------------------------
+# Enable auto updates so that security patches are installed promptly.
+# ---------------------------------------------------------------------
+sudo apt install -y unattended-upgrades
+sudo dpkg-reconfigure -plow unattended-upgrades
+
+# ---------------------------------------------------------------------
 # Install development tools.
 # ---------------------------------------------------------------------
 sudo apt update -y
