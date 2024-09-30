@@ -427,7 +427,10 @@ sudo apt install -y tlp tlp-rdw  # Ubuntu only
 # Note: I don't use my laptop a lot, so 70%/80% threshold.
 # Reminder to change it to 40%/50% once I graduate.
 
-# Uncomment START_CHARGE_THRESH_BAT0 and others.
+# Set `START_CHARGE_THRESH_BAT0=70`
+# Set `STOP_CHARGE_THRESH_BAT0=80`
+# Set `CPU_ENERGY_PERF_POLICY_ON_AC=performance`
+# Set `PLATFORM_PROFILE_ON_AC=performance`
 sudo vim /etc/tlp.conf
 
 sudo tlp start
