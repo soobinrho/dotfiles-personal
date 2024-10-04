@@ -227,6 +227,7 @@ tmux new-session
 # Ctrl+a % = Split the window into two panes horizontally.
 # Ctrl+a " = Split the window into two panes vertically.
 # Ctrl+a <left|right|up|down> = Move between panes.
+# Ctrl+a <{|}> = Switch panes with each other.
 # Ctrl+a Ctrl+<left|right|up|down> = Resize pane.
 # Ctrl+a x = Close pane.
 # =======================
