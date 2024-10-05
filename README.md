@@ -350,7 +350,7 @@ source ~/.zshrc
 pnpm add -g typescript ts-node svg-term-cli
 
 # ---------------------------------------------------------------------
-# Copy and paste my config files.
+# How to copy and paste my config files from this repo.
 # ---------------------------------------------------------------------
 git clone https://github.com/soobinrho/dotfiles-personal.git
 cd /dotfiles-personal/home/soobinrho
@@ -364,6 +364,38 @@ cp ./.gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
 
 # Go to Shortcuts settings and unbind Konsole's Ctrl + Alt + t shortcut.
 # Bind alacritty to Ctrl + Alt + t.
+
+# ---------------------------------------------------------------------
+# vt-cli (VirusTotal CLI) workflows.
+# ---------------------------------------------------------------------
+# Install vt-cli from:
+#   https://github.com/VirusTotal/vt-cli/releases
+wget https://github.com/VirusTotal/vt-cli/releases/download/1.0.1/Linux64.zip
+unzip Linux64.zip
+sudo mv vt /usr/local/bin/
+
+# Get an API key from:
+#   https://www.virustotal.com/
+vt init
+
+# How to get a SHA256.
+shasum -a 256 fileName > fileName.sha
+
+# How to see if a file is in the VirusTotal database using SHA256.
+vt file <file_SHA256_hash>
+
+# How to get information about a website.
+vt url https://example.com
+
+# ---------------------------------------------------------------------
+# Where to install binaries?
+# ---------------------------------------------------------------------
+# Source: https://unix.stackexchange.com/a/8658
+# 1. `/usr/bin` is for distribution-managed normal user programs.
+# 2. `/usr/local/bin` is for normal user programs not managed by the
+#    distribution package manager, e.g. locally compiled packages.
+#    You should not install them into `/usr/bin` because future
+#    distribution upgrades may modify or delete them without warning.
 
 # ---------------------------------------------------------------------
 # (For laptops only) Laptop battery healthcare.
