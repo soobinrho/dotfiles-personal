@@ -71,6 +71,9 @@ gh auth setup-git
 sudo dnf install -y git-lfs
 
 # Install wipe: file/folder eraser.
+# Btw, on Windows, Sdelete is recommended.
+# Source:
+#   https://uit.stanford.edu/security/data-sanitization
 sudo dnf install -y wipe
 
 # Install jpegoptim: jpeg compressor.
