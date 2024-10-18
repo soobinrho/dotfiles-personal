@@ -705,6 +705,11 @@ pactl load-module module-combine-sink
 #   https://obsproject.com/forum/resources/how-to-set-up-your-own-private-rtmp-server-using-nginx.50
 # ---------------------------------------------------------------------
 
+# NOTE: 2024-10-17
+# I just realized `Sound Recorder`, which ships on Windows by default,
+# is actually quite good. So, I think I'd love to do most of my practice
+# on this instead of having to set up OBS.
+
 # For gaining practice on my rhetorics,
 # I needed a way to listen to my own speech.
 # I needed a program that will play what’s recorded into the
