@@ -410,6 +410,7 @@ vt url https://example.com
 # 5. Install Sound Recorder.
 # 6. Install VS Code.
 # 7. Install WSL. `Turn Windows features on or off` and then enable `Windows Hypervisor Platform` and `Windows Subsystem for Linux`.
+# 8. Install https://getfancontrol.com/
 
 # ---------------------------------------------------------------------
 # (For laptops only) Laptop battery healthcare.
