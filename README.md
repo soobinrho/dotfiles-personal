@@ -410,6 +410,7 @@ vt url https://example.com
 # 3. Install Nvidia graphics card driver.
 # 4. Install Motu M2 driver.
 # 5. Install https://www.ocenaudio.com/en/startpage and `Controls` - `Record Options` - `Overwrite when recording`.
+#    Also, `View` - `Hide Audio Tools` and `Hide Navigator`.
 # 6. Install VS Code.
 # 7. Install WSL. `Turn Windows features on or off` and then enable `Windows Hypervisor Platform` and `Windows Subsystem for Linux`.
 # 8. Install https://getfancontrol.com/
