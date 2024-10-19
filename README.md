@@ -288,6 +288,8 @@ cp ./.config/alacritty/* ~/.config/alacritty/
 # How to install nvim and Astrovim.
 # ---------------------------------------------------------------------
 # Install Astrovim.
+sudo dnf install -y neovim  # Fedora
+sudo apt install -y neovim  # Ubuntu
 git clone --depth 1 https://github.com/AstroNvim/template ~/.config/nvim
 rm -rf ~/.config/nvim/.git
 nvim
