@@ -401,6 +401,17 @@ vt url https://example.com
 #    distribution upgrades may modify or delete them without warning.
 
 # ---------------------------------------------------------------------
+# Windows Setup
+# ---------------------------------------------------------------------
+# 1. Run Windows Updates to install every available update.
+# 2. Install Chrome.
+# 3. Install Nvidia graphics card driver.
+# 4. Install Motu M2 driver.
+# 5. Install Sound Recorder.
+# 6. Install VS Code.
+# 7. Install WSL.
+
+# ---------------------------------------------------------------------
 # (For laptops only) Laptop battery healthcare.
 # ---------------------------------------------------------------------
 # Install tlp: power management and battery care.
