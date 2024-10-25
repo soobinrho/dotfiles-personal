@@ -782,6 +782,14 @@ sudo /usr/local/nginx/sbin/nginx -s stop
 # ---------------------------------------------------------------------
 # Journal entries on extra random tips.
 # ---------------------------------------------------------------------
+
+# October 25, 2024
+# ================
+# Privacy
+# - Google has a feature to notify you if your personal information is found online amd remove them selectively.
+https://support.google.com/websearch/answer/12719076?hl=en
+# - https://easyoptouts.com/
+
 # June 3, 2022
 # ============
 # Learned about git using `info gittutorial'.
