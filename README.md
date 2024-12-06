@@ -262,9 +262,10 @@ p10k configure
 #   https://ohmyposh.dev/
 
 # Create the profile file:
-#   New-Item -Path $PROFILE -Type File -Force
+#   Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine
+#   if (!(Test-Path -Path $PROFILE.AllUsersAllHosts)) { New-Item -ItemType File -Path $PROFILE.AllUsersAllHosts -Force }
 
-# On Windows Oh My Posh, I personally like this config for `$PROFILE`:
+# On Windows Oh My Posh, I personally like this config for `$PROFILE`. Copy and paste this to the created file.
 #   oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/powerlevel10k_rainbow.omp.json" | Invoke-Expression
 
 # Also, set opacity as 93% on Windows terminals settings, and set the
