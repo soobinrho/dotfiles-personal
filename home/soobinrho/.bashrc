@@ -1,6 +1,11 @@
 # ---------------------------------------------------------------------
 # Bash Configs
 # ---------------------------------------------------------------------
+# Run zsh by default.
+if test -t 1; then
+    exec zsh
+fi
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
