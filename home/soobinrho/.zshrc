@@ -69,6 +69,10 @@ else
   export EDITOR='nvim'
 fi
 
+# Source:
+#   https://github.com/neovim/neovim/blob/master/INSTALL.md#linux
+export PATH="$PATH:/opt/nvim-linux64/bin"
+
 # I delete ksshaskpass, so I unset this variable. Otherwise, git commit
 # will always ask for it instead of using the credentials from gh CLI.
 unset SSH_ASKPASS
