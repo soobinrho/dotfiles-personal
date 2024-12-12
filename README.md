@@ -59,9 +59,6 @@ sudo rpm -Uvh https://packages.microsoft.com/config/centos/8/packages-microsoft-
 sudo dnf update -y
 sudo dnf install -y powershell
 
-# Install neovim: more extensible fork of vim.
-sudo dnf install -y neovim python3-neovim
-
 # Install gh: GitHub CLI.
 sudo dnf install -y gh
 gh auth login
