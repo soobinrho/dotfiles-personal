@@ -572,6 +572,11 @@ python ../git-filter-repo.py --replace-message <(echo "password==>REDACTED_USING
 git push --force --mirror origin
 
 # ---------------------------------------------------------------------
+# How to sign all commits with GPG.
+# ---------------------------------------------------------------------
+git rebase --exec 'git commit --amend --no-edit -n -S' --root
+
+# ---------------------------------------------------------------------
 # How to reset commit history in a git repository.
 # Source:
 #   https://stackoverflow.com/a/26000395
