@@ -563,6 +563,15 @@ git clean -fd
 git rebase -i HEAD~15
 
 # ---------------------------------------------------------------------
+# How to erase sensitive information from git history.
+# Source:
+#   https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository
+# ---------------------------------------------------------------------
+python ../git-filter-repo.py --replace-text <(echo "password==>REDACTED_USING_GIT_FILTER_REPO") --force
+python ../git-filter-repo.py --replace-message <(echo "password==>REDACTED_USING_GIT_FILTER_REPO") --force
+git push --force --mirror origin
+
+# ---------------------------------------------------------------------
 # How to reset commit history in a git repository.
 # Source:
 #   https://stackoverflow.com/a/26000395
