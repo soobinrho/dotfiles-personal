@@ -327,6 +327,8 @@ nvim
 # gcc = Comment out a line.
 # gcap = Comment out a paragraph.
 # :7,17Commentary = Comment out with line numbers.
+# "ayy = Copy into the specific register.
+# "ap = Paste from the specific register.
 # ---------------------------------------------------------------------
 # m[A-Z] = Set a marker and `'[A-Z]` go to the marker.
 # <Select multiple lines with visual mode> :norm! @a = Execute a macro on multiple lines.
