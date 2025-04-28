@@ -416,7 +416,7 @@ vt url https://example.com
 # 4. Install Motu M2 driver.
 # 5. Install https://www.ocenaudio.com/en/startpage and `Controls` - `Record Options` - `Overwrite when recording`.
 #    Also, `View` - `Hide Audio Tools` and `Hide Navigator`.
-# 6. Install VS Code.
+# 6. Install VS Code. Install Black Formatter extension for Python formatting. Turn on format on save.
 # 7. Install WSL. `Turn Windows features on or off` and then enable `Windows Hypervisor Platform` and `Windows Subsystem for Linux`.
 
 # ---------------------------------------------------------------------
