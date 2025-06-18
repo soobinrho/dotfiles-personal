@@ -255,9 +255,6 @@ cp ./.zshrc ~/
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 p10k configure
 
-# If on Windows, install Oh My Posh for Powershell:
-#   https://ohmyposh.dev/
-
 # Create the profile file:
 #   Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine
 #   if (!(Test-Path -Path $PROFILE.AllUsersAllHosts)) { New-Item -ItemType File -Path $PROFILE.AllUsersAllHosts -Force }
@@ -418,6 +415,11 @@ vt url https://example.com
 #    Also, `View` - `Hide Audio Tools` and `Hide Navigator`.
 # 6. Install VS Code. Install Black Formatter extension for Python formatting. Turn on format on save.
 # 7. Install WSL. `Turn Windows features on or off` and then enable `Windows Hypervisor Platform` and `Windows Subsystem for Linux`.
+
+# ---------------------------------------------------------------------
+# My Favorite PowerShell Commands
+# ---------------------------------------------------------------------
+Select-String -Path ./src/* -Pattern 'cymera'
 
 # ---------------------------------------------------------------------
 # (For laptops only) Laptop battery healthcare.
