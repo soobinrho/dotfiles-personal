@@ -533,6 +533,8 @@ git config --global user.email "soobinrho@gmail.com"
 git config --global core.editor vim
 git config --global init.defaultBranch main
 git config --global alias.c 'commit -s'
+git config --global alias.s 'status'
+git config --global alias.l 'log --pretty=oneline --graph --abbrev-commit'
 
 # Get the key's key ID.
 # You'll get an output like this:
