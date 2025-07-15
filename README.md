@@ -420,7 +420,7 @@ vt url https://example.com
 # ---------------------------------------------------------------------
 # My Favorite PowerShell Commands
 # ---------------------------------------------------------------------
-Select-String -Path ./src/* -Pattern 'cymera'
+Select-String -Path ./**/* -Pattern 'PATH_CSRA' -ErrorAction SilentlyContinue
 
 # ---------------------------------------------------------------------
 # (For laptops only) Laptop battery healthcare.
