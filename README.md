@@ -705,6 +705,16 @@ find . -type f -not -name "*.gpg" -not -path '*/.*' | xargs gpg -v --batch --yes
 find . -type f -name "*.gpg" | xargs gpg -v --batch --decrypt-files
 
 # ---------------------------------------------------------------------
+# Kali Linux
+# ---------------------------------------------------------------------
+# When installing, I encountered an installation error "There was a problem reading data."
+$ Fix was to mount the installtion USB's partition manually with shell from Ctrl + Alt + 3.
+After running the following, return to the installation interface with Ctrl + Alt + 5.
+# Source: https://unix.stackexchange.com/a/473883
+ls /dev
+mount /dev/sdb1 /cdrom
+
+# ---------------------------------------------------------------------
 # Useful system commands.
 # ---------------------------------------------------------------------
 # Go to top level of internal documentation.
