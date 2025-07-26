@@ -230,8 +230,9 @@ Source: https://unix.stackexchange.com/a/473883
 6. Install WSL. `Turn Windows features on or off` and then enable `Windows Hypervisor Platform` and `Windows Subsystem for Linux`.
 7. Install Windows Sandbox from `Turn Windows features on or off`. It's useful for investigations.
 
+### Useful PowerShell Commands
 ```powershell
-# grep equivalent in PowerShell
+# `grep` equivalent in PowerShell
 Select-String -Path ./**/* -Pattern 'PATH_CSRA' -ErrorAction SilentlyContinue
 ```
 
@@ -311,7 +312,6 @@ ssh-copy-id root@ip_address
 # Source:
 #   https://unix.stackexchange.com/questions/708206/ssh-timeout-does-not-happen-and-not-disconnect
 # ---------------------------------------------------------------------
-
 # How to configure the SSH client to time-out less frequently.
 cat >> ~/.ssh/config
 Host *
@@ -324,19 +324,6 @@ cat >> ~/.ssh/config
 Host myserver
     HostName ip_address
     User main
-
-# ---------------------------------------------------------------------
-# How to setup public / private key access for private GitHub repo.
-# Source:
-#   https://leangaurav.medium.com/setup-ssh-key-with-git-github-clone-private-repo-using-ssh-d983ab7bb956
-# ---------------------------------------------------------------------
-ssh-keygen -t ed25519 -C "name@example.com"
-
-# Copy and paste the public key to github.com repo - Code - SSH .
-vim ~/.ssh/id_ed25519.pub
-
-# How to check the https header returned in the network packet.
-curl --insecure -vvI https://nsustain.com 2>&1
 
 # ---------------------------------------------------------------------
 # DANGER: Secure devices only.
@@ -449,7 +436,6 @@ find . -type f -name "*.gpg" | xargs gpg -v --batch --decrypt-files
 # ---------------------------------------------------------------------
 # Useful system commands.
 # ---------------------------------------------------------------------
-
 # How to use `cut` to filter data.
 who | cut -c 1-8  # outputs the first eight characters.
 who | cut -d' ' -f1,2  # sets the delimiter as ` ` and outputs the first and second columns.
@@ -685,41 +671,37 @@ git clone --depth 1 https://github.com/AstroNvim/template ~/.config/nvim
 rm -rf ~/.config/nvim/.git
 # add `alias vim='nvim'` to the profile dotfile.
 nvim
+
+# My favorite keybindings
+# =======================
+# \ = Horizontal split
+# | = Vertical split
+# Ctrl{h|j|k|l} = Window navigation
+# :q = Close window
+# =======================
+# Space + e = Neotree toggle
+# Space + o = Neotree focus
+# =======================
+# :bnew = New buffer
+# [b = Previous buffer
+# ]b = Next buffer
+# :bd = Close buffer
+# =======================
+# m[A-Z] = Set a marker and `'[A-Z]` go to the marker.
+# q: = Open command-history buffer.
+
+# Vim Commands
+# =======================
+# gc = Comment visual mode.
+# gcc = Comment out a line.
+# gcap = Comment out a paragraph.
+# :7,17Commentary = Comment out with line numbers.
+# "ayy = Copy into the specific register.
+# "ap = Paste from the specific register.
+# =======================
+# :norm! @a = Execute a macro on multiple lines selected via visual mode.
+# :ene|e = Edit a file in a new buffer, short for `:enew|edit`.
 ```
-
-<br>
-
-#### Vim Shortcuts
-
-- \ = Horizontal split
-- | = Vertical split
-- Ctrl{h|j|k|l} = Window navigation
-- :q = Close window
-
-- Space + e = Neotree toggle
-- Space + o = Neotree focus
-
-- :bnew = New buffer
-- [b = Previous buffer
-- ]b = Next buffer
-- :bd = Close buffer
-
-- m[A-Z] = Set a marker and `'[A-Z]` go to the marker.
-- q: = Open command-history buffer.
-
-<br>
-
-#### Vim Commands
-
-- gc = Comment visual mode.
-- gcc = Comment out a line.
-- gcap = Comment out a paragraph.
-- :7,17Commentary = Comment out with line numbers.
-- "ayy = Copy into the specific register.
-- "ap = Paste from the specific register.
-
-- <Select multiple lines with visual mode> :norm! @a = Execute a macro on multiple lines.
-- :ene|e = Edit a file in a new buffer, short for `:enew|edit`.
 
 <br>
 
