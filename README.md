@@ -199,6 +199,7 @@ cp ./.tmux.conf ~/
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # Reload tmux configs that includes tmux plugins installation list.
+# By default, the prefix key is ctrl + b, but I like ctrl + a better.
 tmux source ~/.tmux.conf
 
 # Press Ctrl+a I to install the plugins.
