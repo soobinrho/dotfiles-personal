@@ -239,6 +239,9 @@ sudo nmcli device wifi connect <SSID> --ask
 man --all intro  # Show intro manual pages. --all flag shows all manuals instead of just one.
 man --apropos disk  # Search manuals that contain a keyword.
 man --whatis nmcli  # Lookup what a program is.
+
+# Useful utilities.
+open .  # Open current directory with user's preferred program.
 ```
 
 <br>
