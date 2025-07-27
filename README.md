@@ -578,6 +578,8 @@ sudo add-apt-repository ppa:linrunner/tlp  # Ubuntu only
 sudo apt update -y  # Ubuntu only
 sudo apt install -y tlp tlp-rdw  # Ubuntu only
 
+# For Kali, build from source: https://linrunner.de/tlp/installation/others.html
+
 # "If the laptop is plugged most of the time and rarely unplugged,
 # maximizing battery lifetime at the cost of a greatly reduced runtime
 # may be acceptable, with values like starting charge at 40% and
