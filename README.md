@@ -683,6 +683,10 @@ tmux new-session
 # Ctrl+a <0|1|2|3|4|5|6|7|8|9> = Move to window using index.
 # Ctrl+a n = Move to the next window.
 # Ctrl+a p = Move to the previous window.
+# =======================
+# Ctrl+a I = Install plugins specified at ~/.tmux.conf
+# =======================
+# Ctrl+a [ = Enter copy mode. Here, drag with mouse and press y to copy. Supported by tmux-yank.
 ```
 
 <br>
