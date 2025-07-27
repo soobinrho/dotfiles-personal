@@ -37,9 +37,18 @@ Instead, only use what's useful for your use cases.
 ```bash
 # .zshrc
 
+# "This option is a variant of INC_APPEND_HISTORY in which, where
+# possible, the history entry is written out to the file after the
+# command is finished."
+# Source: https://zsh.sourceforge.io/Doc/Release/Options.html
+
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=10000000
 HISTFILESIZE=10000000
+
+# Gather history from multiple temrinals.
+# Source: https://askubuntu.com/a/80380
+export PROMPT_COMMAND='history -a'
 
 # Preferred editor for local and remote sessions.
 if [[ -n $SSH_CONNECTION ]]; then
@@ -61,9 +70,9 @@ if test -t 1; then
     exec zsh
 fi
 
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=10000000
 HISTFILESIZE=10000000
+export PROMPT_COMMAND='history -a'
 ```
 
 <br>
@@ -436,6 +445,10 @@ find . -type f -name "*.gpg" | xargs gpg -v --batch --decrypt-files
 # ---------------------------------------------------------------------
 # Useful system commands.
 # ---------------------------------------------------------------------
+hist  # View ~/.zsh_history, ~/.bash_history, etc.
+!<history line number>  # Get that command from history.
+!<string>  # Get the most recent command that starts with this string.
+
 # How to use `cut` to filter data.
 who | cut -c 1-8  # outputs the first eight characters.
 who | cut -d' ' -f1,2  # sets the delimiter as ` ` and outputs the first and second columns.
