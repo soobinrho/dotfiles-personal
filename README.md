@@ -230,6 +230,7 @@ mount /dev/sdb1 /cdrom
 sudo nmcli general status
 sudo nmcli radio all
 sudo nmcli connection
+sudo netstat --route --numeric
 
 # How to connect to a Wifi.
 sudo nmcli device wifi list
@@ -645,6 +646,8 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # Reload tmux configs that includes tmux plugins installation list.
 # By default, the prefix key is ctrl + b, but I like ctrl + a better.
+# This also has the advantage of being able to nest tmux in SSH sessions.
+# Use the ctrl + a as main prefix, and ctrl + b will work inside nested tmux.
 tmux source ~/.tmux.conf
 
 # Press Ctrl+a I to install the plugins.
@@ -687,6 +690,7 @@ tmux new-session
 # Ctrl+a I = Install plugins specified at ~/.tmux.conf
 # =======================
 # Ctrl+a [ = Enter copy mode. Here, drag with mouse and press y to copy. Supported by tmux-yank.
+#            Also, use vi keybindings to move around. Spacebar to select.
 ```
 
 <br>
