@@ -222,6 +222,7 @@ After running the following, return to the installation interface with Ctrl + Al
 
 ```bash
 # How to fix the "there was a problem reading data" error during installation.
+# Source: https://unix.stackexchange.com/a/473883
 ls /dev
 mount /dev/sdb1 /cdrom
 
@@ -233,9 +234,12 @@ sudo nmcli connection
 # How to connect to a Wifi.
 sudo nmcli device wifi list
 sudo nmcli device wifi connect <SSID> --ask
-```
 
-Source: https://unix.stackexchange.com/a/473883
+# How to use `man`.
+man --all intro  # Show intro manual pages. --all flag shows all manuals instead of just one.
+man --apropos disk  # Search manuals that contain a keyword.
+man --whatis nmcli  # Lookup what a program is.
+```
 
 <br>
 
@@ -753,7 +757,6 @@ pnpm add -g typescript svg-term-cli
 ```
 
 <br>
-
 
 ###  Microsoft Sound Recorder
 
