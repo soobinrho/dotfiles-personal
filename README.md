@@ -224,6 +224,15 @@ After running the following, return to the installation interface with Ctrl + Al
 # How to fix the "there was a problem reading data" error during installation.
 ls /dev
 mount /dev/sdb1 /cdrom
+
+# How to check network connectivity status.
+sudo nmcli general status
+sudo nmcli radio all
+sudo nmcli connection
+
+# How to connect to a Wifi.
+sudo nmcli device wifi list
+sudo nmcli device wifi connect <SSID> --ask
 ```
 
 Source: https://unix.stackexchange.com/a/473883
