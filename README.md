@@ -243,6 +243,8 @@ man --whatis nmcli  # Lookup what a program is.
 
 # Useful utilities.
 open .  # Open current directory with user's preferred program.
+locate /rules  # Find folders called rules.
+updatedb  # Manually the index for `locate`. Daily run by default.
 ```
 
 <br>
