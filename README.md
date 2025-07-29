@@ -689,7 +689,8 @@ tmux new-session
 # Ctrl+a p = Move to the previous window.
 # =======================
 # Ctrl+a I = Install plugins specified at ~/.tmux.conf
-# =======================
+# Ctrl+a Ctrl+s = Save panes and sessions.
+# Ctrl+a Ctrl+r = Load saved panes and sessions.
 # Ctrl+a [ = Enter copy mode. Here, drag with mouse and press y to copy. Supported by tmux-yank.
 #            Also, use vi keybindings to move around. Spacebar to select.
 ```
