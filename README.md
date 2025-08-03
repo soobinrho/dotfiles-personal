@@ -713,6 +713,9 @@ rm -rf ~/.config/nvim/.git
 # add `alias vim='nvim'` to the profile dotfile.
 nvim
 
+# Set shada (Share Data) to remember global variables and marks.
+# :set shada=!,'1000
+
 # My favorite keybindings
 # =======================
 # \ = Horizontal split
