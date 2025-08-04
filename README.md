@@ -714,7 +714,7 @@ rm -rf ~/.config/nvim/.git
 nvim
 
 # Set shada (Share Data) to remember global variables and marks.
-# :set shada=!,'1000
+echo vim.cmd\(\":set shada=\'1000\"\) >> ~/.config/nvim/init.lua
 
 # My favorite keybindings
 # =======================
