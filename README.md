@@ -245,6 +245,15 @@ man --whatis nmcli  # Lookup what a program is.
 open .  # Open current directory with user's preferred program.
 locate /rules  # Find folders called rules.
 updatedb  # Manually the index for `locate`. Daily run by default.
+
+# Display my ip addresses widget on the taskbar.
+# Right click taskbar > Panel > Add new items... > Generic Monitor
+# Use three widgets with no label and a period of 90 seconds.
+# 1. `~/widget_ip wlan0`
+# 2. `~/widget_ip tun0`
+# 3. `~/widget_ip target0`
+`~/widget_ip tun0`.
+cp dotfiles-personal/home/soobinrho/widget_ip ~/
 ```
 
 <br>
