@@ -257,6 +257,14 @@ updatedb  # Manually the index for `locate`. Daily run by default.
 # 3. `~/widget_ip target0`
 `~/widget_ip tun0`.
 cp dotfiles-personal/home/soobinrho/widget_ip ~/
+
+# Appearance setup.
+# Windows button > Appearance
+# ./Settings > Window Scaling 2x
+# ./Fonts > Default Font 14px
+# ./Fonts > Default Monospace Font 14px
+# ./Style > Kali-Dark
+# ./Icons > Flat-Remix-Green-Dark
 ```
 
 <br>
@@ -706,8 +714,8 @@ tmux new-session
 # Ctrl+a [ = Enter copy mode. Here, drag with mouse and press y to copy. Supported by tmux-yank.
 #            Also, use vi keybindings to move around. Spacebar to select.
 # =======================
-# Ctrl+a cjkl = Move to a different pane (tmux-pain-control)
-# Ctrl+a shift + alt + i = Log all terminal i/o from this terminal (tmux-logging)
+# Ctrl+a cjkl = Move to a different pane (tmux-pain-control).
+# Ctrl+a shift+alt+i = Log all terminal i/o from this terminal (tmux-logging).
 ```
 
 <br>
