@@ -246,8 +246,11 @@ open .  # Open current directory with user's preferred program.
 locate /rules  # Find folders called rules.
 updatedb  # Manually the index for `locate`. Daily run by default.
 
+# The network manager icon is white, so we have to switch to dark mode.
+# Right click taskbar > Panel > Panel preferences... > Appearance > Dark Mode.
+
 # Display my ip addresses widget on the taskbar.
-# Right click taskbar > Panel > Add new items... > Generic Monitor
+# Right click taskbar > Panel > Add New Items... > Generic Monitor.
 # Use three widgets with no label and a period of 90 seconds.
 # 1. `~/widget_ip wlan0`
 # 2. `~/widget_ip tun0`
