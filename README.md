@@ -693,6 +693,9 @@ tmux new-session
 # Ctrl+a Ctrl+r = Load saved panes and sessions.
 # Ctrl+a [ = Enter copy mode. Here, drag with mouse and press y to copy. Supported by tmux-yank.
 #            Also, use vi keybindings to move around. Spacebar to select.
+# =======================
+# Ctrl+a cjkl = Move to a different pane (tmux-pain-control)
+# Ctrl+a shift + alt + i = Log all terminal i/o from this terminal (tmux-logging)
 ```
 
 <br>
