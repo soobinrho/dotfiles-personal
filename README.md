@@ -58,6 +58,9 @@ else
 fi
 
 alias vim="nvim"
+
+# This allows us to use nvim even in sudo.
+alias svim="sudo $(which nvim)"
 ```
 
 <br>
