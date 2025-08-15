@@ -4,5 +4,5 @@ output=$(ip -4 addr show $1 2> /dev/null | grep -oP '(?<=inet\s)([0-9./]+){3}')
 if [[ -z $output ]]; then
     echo "$1 down"
 else
-    echo "$1 $output"
+    echo "$1=$output"
 fi
