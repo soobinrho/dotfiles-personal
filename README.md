@@ -738,11 +738,13 @@ mv nvim-linux-x86_64.appimage /opt/nvim/nvim
 # Install Astrovim.
 git clone --depth 1 https://github.com/AstroNvim/template ~/.config/nvim
 rm -rf ~/.config/nvim/.git
-# add `alias vim='nvim'` to the profile dotfile.
 nvim
 
 # Set shada (Share Data) to remember global variables and marks.
 echo vim.cmd\(\":set shada=\'1000\"\) >> ~/.config/nvim/init.lua
+
+# If Treesitter out of bound max_row error occurs, try :TSUpdate and
+# reopening nvim.
 
 # My favorite keybindings
 # =======================
