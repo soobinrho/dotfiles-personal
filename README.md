@@ -57,10 +57,8 @@ else
   export EDITOR='nvim'
 fi
 
-alias vim="nvim"
-
-# This allows us to use nvim even in sudo.
-alias svim="sudo $(which nvim)"
+alias vim='/home/kali/.local/bin/lvim'
+alias svim='sudo /home/kali/.local/bin/lvim'
 ```
 
 <br>
@@ -735,16 +733,27 @@ mkdir -p /opt/nvim
 mv nvim-linux-x86_64.appimage /opt/nvim/nvim
 # add `export PATH="$PATH:/opt/nvim/"` to the profile dotfile.
 
-# Install Astrovim.
-git clone --depth 1 https://github.com/AstroNvim/template ~/.config/nvim
-rm -rf ~/.config/nvim/.git
-nvim
+# Install LunarVim.
+# Get the newest version from https://www.lunarvim.org/docs/installation
+sudo apt install -y python3-pynvim
+LV_BRANCH='release-1.4/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.4/neovim-0.9/utils/installer/install.sh)
+# :LvimUpdate
+# :LvimSyncCorePlugins
+
+# Create a config file.
+cp ~/.local/share/lunarvim/lvim/utils/installer/config.example.lua ~/.config/lvim/config.lua
 
 # Set shada (Share Data) to remember global variables and marks.
-echo vim.cmd\(\":set shada=\'1000\"\) >> ~/.config/nvim/init.lua
+echo vim.cmd\(\":set shada=\'1000\"\) >> ~/.config/lvim/config.lua
 
-# If Treesitter out of bound max_row error occurs, try :TSUpdate and
-# reopening nvim.
+# Install Nerd Fonts.
+curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash
+getnf
+getnf > 1-70
+fc-cache -f -v
+
+# Open system settings and set `DroidSansMNerdFont-Regular` as the default mono font.
+# Open terminal setting and set `DroidSansMNerdFont-Regular` as the font.
 
 # My favorite keybindings
 # =======================
