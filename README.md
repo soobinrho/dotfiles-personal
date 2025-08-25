@@ -247,6 +247,10 @@ open .  # Open current directory with user's preferred program.
 locate /rules  # Find folders called rules.
 updatedb  # Manually the index for `locate`. Daily run by default.
 
+# How to turn off the mic mute keyboard backlight.
+sudo su -
+echo 0 > /sys/class/leds/platform::micmute/brightness
+
 # The network manager icon is white, so we have to switch to dark mode.
 # Right click taskbar > Panel > Panel preferences... > Appearance > Dark Mode.
 
