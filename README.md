@@ -307,6 +307,16 @@ cp ./.local/share/konsole/* ~/.local/share/konsole/
 cp ./.gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
 
 # ---------------------------------------------------------------------
+# MSI Motherboard Fan Settings
+# ---------------------------------------------------------------------
+# I noticed that my fan settings were all over the place and were
+# making fans work too much unnecessarily even at perfectly low temp.
+# These settings make my computer virtually silent at low load and
+# yet powerful when the load requires it.
+# 1. CPU: Auto - Smart Fan Mode.
+# 2. System (All case fans): PWM - Smart Fan Mode.
+
+# ---------------------------------------------------------------------
 # How to install Alacritty.
 # ---------------------------------------------------------------------
 # Alacritty is a fast OpenGL terminal emulator.
