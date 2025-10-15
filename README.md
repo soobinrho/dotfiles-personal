@@ -59,6 +59,8 @@ fi
 
 alias vim='/home/kali/.local/bin/lvim'
 alias svim='sudo /home/kali/.local/bin/lvim'
+
+if [ "$TMUX" = "" ]; then tmux; fi
 ```
 
 <br>
