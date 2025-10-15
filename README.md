@@ -260,12 +260,11 @@ echo 0 > /sys/class/leds/platform::micmute/brightness
 # Display my ip addresses widget on the taskbar.
 # Right click taskbar > Panel > Add New Items... > Generic Monitor.
 # Use three widgets with no label and a period of 90 seconds.
-# 1. `~/widget_ip wlan0`
-# 2. `~/widget_ip tun0`
+# 1. `/home/kali/widget_ip eth0`
+# 2. `/home/kali/widget_ip tun0`
 # 3. `echo target0=127.16.1.3`
 # 4. `echo target1=127.16.1.10`
 # 5. `echo target2=127.16.1.35`
-`~/widget_ip tun0`.
 cp dotfiles-personal/home/soobinrho/widget_ip ~/
 
 # Appearance setup.
