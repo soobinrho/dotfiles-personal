@@ -227,6 +227,9 @@ After running the following, return to the installation interface with Ctrl + Al
 ls /dev
 mount /dev/sdb1 /cdrom
 
+# If after disk decryption the Kali hangs with an infinite boot, try
+# Ctrl + alt + F1 and then sudo apt update; sudo apt upgrade -y
+
 # How to check network connectivity status.
 sudo nmcli general status
 sudo nmcli radio all
