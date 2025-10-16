@@ -230,6 +230,14 @@ mount /dev/sdb1 /cdrom
 # Do not install the Nvidia driver at least until the kernel module error gets fixed
 # by the next release.
 
+# If double monitor setup results in a blank screen after login,
+# Ctrl + alt + F1 and
+sudo service lightdm stop
+
+# Then, turn off the second monitor and restart the lightdm.
+# After the restart, login and turn on the monitor again.
+sudo service lightdm start
+
 # How to check network connectivity status.
 sudo nmcli general status
 sudo nmcli radio all
