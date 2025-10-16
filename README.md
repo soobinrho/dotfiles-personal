@@ -235,7 +235,9 @@ mount /dev/sdb1 /cdrom
 sudo service lightdm stop
 
 # Then, turn off the second monitor and restart the lightdm.
-# After the restart, login and turn on the monitor again.
+# After the restart, login and turn on the monitor again. However, it's recommended
+# to just turn off the monitor; reboot; login; and turn on the monitor because
+# it feels glitchy and possibly laggy to do the lightdm stop start method.
 sudo service lightdm start
 
 # How to check network connectivity status.
