@@ -212,21 +212,64 @@ rm -rf nerd-fonts
 
 <br>
 
-## Kali Setup
+## Kali Linux Setup
+
+### Error: "There was a problem reading data"
 
 When installing, I encountered the error "There was a problem reading data."
 The fix was to mount the installtion USB's partition manually with shell from Ctrl + Alt + 3.
 After running the following, return to the installation interface with Ctrl + Alt + 5.
 
 ```bash
-# How to fix the "there was a problem reading data" error during installation.
 # Source: https://unix.stackexchange.com/a/473883
 ls /dev
 mount /dev/sdb1 /cdrom
+```
 
-# If after disk decryption the Kali hangs with an infinite boot, try
-# Ctrl + alt + F1 and then sudo apt update; sudo apt upgrade -y
+<br>
 
+### Error: No desktop manager after installation with disk encryption
+
+This error was caused after I installed Kali on my desktop.
+The desktop manager xfce wouldn't load at all and instead get stuck in an infinite underscore blinking.
+Fix was to Ctrl + alt + F1 and then:
+
+```bash
+sudo apt update; sudo apt upgrade -y && reboot
+```
+
+<br>
+
+### Error: Nvidia driver kernel header build failing
+
+After my `sudo apt upgrade`, my kernel was upgraded to `Linux 6.16.8+kali-amd64`, and this is what I suspect caused the error when installing the Nvidia driver.
+So, I downgraded to a previous version of kernel.
+First, reboot Kali to the previous Kernel and run this to delete the newest kernel that's not supported yet by the Nvidia driver.
+
+```bash
+dpkg -l | grep linux-image
+sudo apt purge linux-image-6.16.8+kali-amd64
+
+# Source: https://www.kali.org/docs/general-use/install-nvidia-drivers-on-kali-linux/
+grep "contrib non-free" /etc/apt/sources.list
+sudo apt update
+sudo apt -y full-upgrade -y
+sudo apt install linux-headers-$(uname -r) -y
+[ -f /var/run/reboot-required ] && sudo reboot -f
+sudo apt install -y linux-headers-amd64
+sudo apt install -y nvidia-driver nvidia-cuda-toolkit
+```
+
+```bash
+# Try if the above doesn't work.
+wget https://in.download.nvidia.com/XFree86/Linux-x86_64/570.153.02/NVIDIA-Linux-x86_64-570.153.02.run
+chmod +x ./NVIDIA-Linux-x86_64-570.153.02.run
+sudo ./NVIDIA-Linux-x86_64-570.153.02.run
+```
+
+<br>
+
+```bash
 # Do not install the Nvidia driver at least until the kernel module error gets fixed
 # by the next release.
 
