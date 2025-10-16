@@ -559,6 +559,9 @@ git config --global alias.c 'commit -s'
 git config --global alias.s 'status'
 git config --global alias.l 'log --pretty=oneline --graph --abbrev-commit'
 
+# Generate a key pair.
+gpg --full-gen-key
+
 # Get the key's key ID.
 # You'll get an output like this:
 # sec    rsa4096/BC0596A444D39F64 2022-07-06
