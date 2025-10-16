@@ -258,6 +258,16 @@ sudo apt install linux-headers-$(uname -r) -y
 [ -f /var/run/reboot-required ] && sudo reboot -f
 sudo apt install -y linux-headers-amd64
 sudo apt install -y nvidia-driver nvidia-cuda-toolkit
+
+
+
+
+# How to prevent the kernel from upgrading automatically.
+uname -r
+sudo apt-mark hold 6.12.38
+
+# How to cancel the kernel hold.
+sudo apt-mark unhold 6.12.38
 ```
 
 ```bash
