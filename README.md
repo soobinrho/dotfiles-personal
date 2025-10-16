@@ -169,11 +169,6 @@ sudo dnf install -y irssi
 # /NETWORK ADD -sasl_username yourname -sasl_password yourpassword -sasl_mechanism PLAIN liberachat
 # /SET window_default_hidelevel hidden joins parts quits
 # /SET autolog on
-
-# Install nerd-fonts: fonts with better icons support.
-git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git
-nerd-fonts/install.sh
-rm -rf nerd-fonts
 ```
 
 <br>
