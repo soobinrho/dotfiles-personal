@@ -268,6 +268,8 @@ sudo apt-mark hold 6.12.38
 
 # How to cancel the kernel hold.
 sudo apt-mark unhold 6.12.38
+
+https://kali.download/kali/pool/main/l/linux/linux-headers-6.12.38%2Bkali-amd64_6.12.38-1kali1_amd64.deb
 ```
 
 ```bash
