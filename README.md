@@ -232,6 +232,9 @@ mount /dev/sdb1 /cdrom
 # If after disk decryption the Kali hangs with an infinite boot, try
 # Ctrl + alt + F1 and then sudo apt update; sudo apt upgrade -y
 
+# Do not install the Nvidia driver at least until the kernel module error gets fixed
+# by the next release.
+
 # How to check network connectivity status.
 sudo nmcli general status
 sudo nmcli radio all
