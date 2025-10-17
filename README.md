@@ -350,9 +350,9 @@ cp dotfiles-personal/home/soobinrho/widget_ip ~/
 <br>
 
 ## Windows Setup
-1. Run Windows Updates to install every available update.
+1. Install Nvidia driver.
 2. Install Chrome.
-3. Install Nvidia graphics card driver.
+3. Run Windows Updates to install every available update.
 4. Install Motu M2 driver.
 5. Install VS Code. Install Black Formatter extension for Python formatting. Turn on format on save.
 6. Install WSL. `Turn Windows features on or off` and then enable `Windows Hypervisor Platform` and `Windows Subsystem for Linux`.
