@@ -278,9 +278,18 @@ watch -d -n 0.5 nvidia-smi
 <br>
 
 ```bash
+# How to reduce grub timeout from 5 seconds to 1 second.
+sudo sed -i -e 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=1/g' /etc/default/grub
+sudo update-grub
+
 # How to restore my taskbar setup.
 cp ./home/soobinrho/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
 reboot
+
+# How to open up system information on startup.
+sudo apt install -y konsole
+crontab -e
+crontab > @reboot DISPLAY=:0.0 konsole -p 'Font=RobotoMono Nerd Font Mono,17' -e 'watch -d -n 0.5 nvidia-smi'
 
 # How to check network connectivity status.
 sudo nmcli general status

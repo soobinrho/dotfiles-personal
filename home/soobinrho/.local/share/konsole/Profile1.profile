@@ -1,6 +1,5 @@
 [Appearance]
-ColorScheme=Breeze
-Font=RobotoMono Nerd Font Mono,12,-1,5,50,0,0,0,0,0
+Font=RobotoMono Nerd Font Mono,20,-1,5,50,0,0,0,0,0
 
 [Cursor Options]
 CursorShape=0
