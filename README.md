@@ -7,14 +7,18 @@
   │   ├── alacritty
   │   │   └── alacritty.toml
   │   ├── konsolerc
-  │   └── obs-studio
-  │       └── basic
-  │           └── profiles
-  │               └── rhetorics_practice
-  │                   ├── basic.ini
-  │                   └── service.json
-  │           └── scenes
-  │               └── rhetorics_practice.json
+  │   ├── obs-studio
+  │   │   └── basic
+  │   │       ├── profiles
+  │   │       │   └── rhetorics_practice
+  │   │       │       ├── basic.ini
+  │   │       │       └── service.json
+  │   │       └── scenes
+  │   │           └── rhetorics_practice.json
+  │   └── xfce4
+  │       └── xfconf
+  │           └── xfce-perchannel-xml
+  │               └── xfce4-panel.xml
   ├── .gnupg
   │   └── gpg-agent.conf
   ├── .local
@@ -49,6 +53,8 @@ HISTFILESIZE=10000000
 # Gather history from multiple temrinals.
 # Source: https://askubuntu.com/a/80380
 export PROMPT_COMMAND='history -a'
+
+export PATH="$PATH:/opt/nvim/"
 
 # Preferred editor for local and remote sessions.
 if [[ -n $SSH_CONNECTION ]]; then
@@ -240,66 +246,57 @@ sudo apt update; sudo apt upgrade -y && reboot
 
 <br>
 
-### Error: Nvidia driver kernel header build failing
+### Nvidia Driver
 
-After my `sudo apt upgrade`, my kernel was upgraded to `Linux 6.16.8+kali-amd64`, and this is what I suspect caused the error when installing the Nvidia driver.
-So, I downgraded to a previous version of kernel.
-First, reboot Kali to the previous Kernel and run this to delete the newest kernel that's not supported yet by the Nvidia driver.
+At least at the time of this writing, `linux-image-6.16.8` was not compatible with the Nvidia driver.
+So, I downgraded to a previous version of kernel to make it work.
 
 ```bash
+uname -r
+sudo apt-mark hold 6.12.38  # sudo apt-mark unhold 6.12.38 in the future if needed.
+sudo apt update
+sudo apt full-upgrade -y
 dpkg -l | grep linux-image
 sudo apt purge linux-image-6.16.8+kali-amd64
+reboot
 
-# Source: https://www.kali.org/docs/general-use/install-nvidia-drivers-on-kali-linux/
-grep "contrib non-free" /etc/apt/sources.list
-sudo apt update
-sudo apt -y full-upgrade -y
-sudo apt install linux-headers-$(uname -r) -y
-[ -f /var/run/reboot-required ] && sudo reboot -f
-sudo apt install -y linux-headers-amd64
-sudo apt install -y nvidia-driver nvidia-cuda-toolkit
+# Download: https://kali.download/kali/pool/main/l/linux/
+sudo apt install ./linux-kbuild-6.12.38+kali_6.12.38-1kali1_amd64.deb
+sudo apt install ./linux-headers-6.12.38+kali-common_6.12.38-1kali1_all.deb
+sudo apt install ./linux-headers-6.12.38+kali-amd64_6.12.38-1kali1_amd64.deb
 
-
-
-
-# How to prevent the kernel from upgrading automatically.
-uname -r
-sudo apt-mark hold 6.12.38
-
-# How to cancel the kernel hold.
-sudo apt-mark unhold 6.12.38
-
-https://kali.download/kali/pool/main/l/linux/linux-headers-6.12.38%2Bkali-amd64_6.12.38-1kali1_amd64.deb
-```
-
-```bash
-# Try if the above doesn't work.
-wget https://in.download.nvidia.com/XFree86/Linux-x86_64/570.153.02/NVIDIA-Linux-x86_64-570.153.02.run
+# Download: https://in.download.nvidia.com/XFree86/Linux-x86_64/570.153.02/NVIDIA-Linux-x86_64-570.153.02.run
 chmod +x ./NVIDIA-Linux-x86_64-570.153.02.run
 sudo ./NVIDIA-Linux-x86_64-570.153.02.run
+reboot
+sudo apt install pkg-config
+sudo nvidia-settings
+hashcat -I
+watch -d -n 0.5 nvidia-smi
 ```
 
 <br>
 
 ```bash
-# Do not install the Nvidia driver at least until the kernel module error gets fixed
-# by the next release.
-
-# If double monitor setup results in a blank screen after login,
-# Ctrl + alt + F1 and
-sudo service lightdm stop
-
-# Then, turn off the second monitor and restart the lightdm.
-# After the restart, login and turn on the monitor again. However, it's recommended
-# to just turn off the monitor; reboot; login; and turn on the monitor because
-# it feels glitchy and possibly laggy to do the lightdm stop start method.
-sudo service lightdm start
+# How to restore my taskbar setup.
+cp ./home/soobinrho/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
+reboot
 
 # How to check network connectivity status.
 sudo nmcli general status
 sudo nmcli radio all
 sudo nmcli connection
 sudo netstat --route --numeric
+
+# How to move over files from a USB.
+mkdir ~/usb
+sudo mount /dev/sda3 ~/usb
+rsync --progress -ua ~/usb/2025-10-16 ~/
+sudo umount ~/usb
+
+# How to control the Xorg server.
+sudo service lightdm stop
+sudo service lightdm start
 
 # How to connect to a Wifi.
 sudo nmcli device wifi list
@@ -606,6 +603,9 @@ hexdump -b <file name>
 ### Version Management
 
 ```bash
+sudo apt install gh
+gh auth login
+
 git config --global user.name "Soobin Rho"
 git config --global user.email "soobinrho@gmail.com"
 git config --global core.editor vim
@@ -814,8 +814,8 @@ tmux new-session
 # Install Neovim.
 # Download .appimage from https://github.com/neovim/neovim/releases
 sudo chmod u+x nvim-linux-x86_64.appimage
-mkdir -p /opt/nvim
-mv nvim-linux-x86_64.appimage /opt/nvim/nvim
+sudo mkdir -p /opt/nvim
+sudo mv nvim-linux-x86_64.appimage /opt/nvim/nvim
 # add `export PATH="$PATH:/opt/nvim/"` to the profile dotfile.
 
 # Install LunarVim.
@@ -876,10 +876,10 @@ fc-cache -f -v
 ### Node.js
 
 ```bash
-# Install nvm: Node version manager.
+# Install nvm: Node version manager from https://github.com/nvm-sh/nvm?tab=readme-ov-file#install--update-script
 # After installing nvm, close and reopen terminal,
 # in order for new paths to take effect.
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 
 # Install Node.js
 nvm install node
@@ -891,11 +891,9 @@ pnpm setup
 # If you're using zsh:
 source ~/.zshrc
 
-# Install TypeScript: a JavaScript superset with types.
 # Install tldr: similar to [man], but with simple examples.
-# Install loadtest: server load testing tool.
-# Install svg-term-cli: asciinema to svg converter.
-pnpm add -g typescript svg-term-cli
+pnpm add -g tldr
+tldr -u
 ```
 
 <br>
