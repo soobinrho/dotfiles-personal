@@ -350,6 +350,7 @@ cp dotfiles-personal/home/soobinrho/widget_ip ~/
 <br>
 
 ## Windows Setup
+
 1. Install Nvidia driver.
 2. Install Chrome.
 3. Run Windows Updates to install every available update.
@@ -359,6 +360,7 @@ cp dotfiles-personal/home/soobinrho/widget_ip ~/
 7. Install Windows Sandbox from `Turn Windows features on or off`. It's useful for investigations.
 
 ### Useful PowerShell Commands
+
 ```powershell
 # `grep` equivalent in PowerShell
 Select-String -Path ./**/* -Pattern 'PATH_CSRA' -ErrorAction SilentlyContinue
@@ -659,6 +661,14 @@ git clean -fd
 git rebase -i HEAD~15
 
 # ---------------------------------------------------------------------
+# How to rebase a pull-request commit.
+# ---------------------------------------------------------------------
+git remote add upstream https://github.com/TreeHacks/website.git
+git fetch upstream
+git rebase upstream/2023-finaldesign
+git push -f
+
+# ---------------------------------------------------------------------
 # How to erase sensitive information from git history.
 # Source:
 #   https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository
@@ -792,7 +802,7 @@ tmux new-session
 # Ctrl+a w = See all sessions, windows, and panes. Here, you can press x to kill.
 # =======================
 # Ctrl+a Space = Rotate through major preset pane arrangements.
-# Ctrl+a Alt+<3|4|5> = Useful preset pane arrangements. 
+# Ctrl+a Alt+<3|4|5> = Useful preset pane arrangements.
 # Ctrl+a % = Split the window into two panes horizontally.
 # Ctrl+a " = Split the window into two panes vertically.
 # Ctrl+a <left|right|up|down> = Move between panes.
@@ -907,7 +917,7 @@ tldr -u
 
 <br>
 
-###  Microsoft Sound Recorder
+### Microsoft Sound Recorder
 
 October 17, 2024.
 I just realized Sound Recorder, which ships on Windows by default, is actually quite good.
@@ -948,6 +958,7 @@ Plus, you can see the HTML color code on any website with Ctrl + Shift + c.
 <br>
 
 ### Where to install binaries?
+
 1. `/usr/bin` is for distribution-managed normal user programs.
 2. `/usr/local/bin` is for normal user programs not managed by the distribution package manager, e.g. locally compiled packages. You should not install them into `/usr/bin` because future distribution upgrades may modify or delete them without warning.
 
@@ -973,7 +984,7 @@ Try `info '(dir)Top'`, or `info bash` and `u`.
 <br>
 
 ![Calc II Tips](https://user-images.githubusercontent.com/19341857/184079510-d7899b35-e114-4f50-a8a8-ab0c3a1384d5.png)
-***A random tip for Calc II.***
+**_A random tip for Calc II._**
 
 <br>
 <br>
