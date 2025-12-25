@@ -351,13 +351,14 @@ cp dotfiles-personal/home/soobinrho/widget_ip ~/
 
 ## Windows Setup
 
-1. Install Nvidia driver.
-2. Install Chrome.
-3. Run Windows Updates to install every available update.
-4. Install Motu M2 driver.
-5. Install VS Code. Install Black Formatter extension for Python formatting. Turn on format on save.
-6. Install WSL. `Turn Windows features on or off` and then enable `Windows Hypervisor Platform` and `Windows Subsystem for Linux`.
-7. Install Windows Sandbox from `Turn Windows features on or off`. It's useful for investigations.
+1. Enable disk-level encryption using Bitlocker.
+2. Install Nvidia driver.
+3. Install Chrome.
+4. Run Windows Updates to install every available update.
+5. Install Motu M2 driver.
+6. Install VS Code. Install Black Formatter extension for Python formatting. Turn on format on save.
+7. Install WSL. `Turn Windows features on or off` and then enable `Windows Hypervisor Platform` and `Windows Subsystem for Linux`.
+8. Install Windows Sandbox from `Turn Windows features on or off`. It's useful for investigations.
 
 ### Useful PowerShell Commands
 
