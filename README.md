@@ -552,6 +552,12 @@ asciinema rec
 svg-term --cast=11345 --out example.svg
 
 # ---------------------------------------------------------------------
+# How to compress a pdf file to reduce size.
+# ---------------------------------------------------------------------
+sudo apt install ghostscript
+gs -sDEVICE=pdfwrite -dPDFSETTINGS=/ebook -q -o compressed.pdf original.pdf
+
+# ---------------------------------------------------------------------
 # How to securely delete files.
 # ---------------------------------------------------------------------
 wipe -r ./folder
