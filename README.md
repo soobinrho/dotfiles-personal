@@ -56,6 +56,10 @@ export PROMPT_COMMAND='history -a'
 
 export PATH="$PATH:/opt/nvim/"
 
+# Fix for the "gpg signing failed inappropriate ioctl for device" error.
+# Source: https://stackoverflow.com/a/57620087
+export GPG_TTY=$(tty)
+
 # Preferred editor for local and remote sessions.
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='nvim'
