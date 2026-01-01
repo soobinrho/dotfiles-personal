@@ -806,11 +806,31 @@ tmux attach
 # How to create a new session.
 tmux new-session
 
+# How I prefer to start a new terminal.
+# 1. Since .zshrc is set to open tmux by default, it will open tmux and
+#    then create a new sesion.
+# 2. Ctrl+a w to go to original sessions and delete the newly-created
+#    session if needed.
+
+# How I prefer to close terminal at the end.
+# Ctrl+a Ctrl+s = Save sessions.
+# Ctrl+a d = Detach from tmux.
+# Ctrl d = Exit from terminal.
+
 # My favorite keybindings
 # =======================
 # Ctrl+a ? = Show all shortcuts.
 # Ctrl+a d = Detach from current session.
 # Ctrl+a w = See all sessions, windows, and panes. Here, you can press x to kill.
+# =======================
+# Ctrl+a c = Create a new window.
+# Ctrl+a <0|1|2|3|4|5|6|7|8|9> = Move to window using index.
+# Ctrl+a n = Move to the next window.
+# Ctrl+a p = Move to the previous window.
+# Ctrl+a , = Rename window.
+# =======================
+# Ctrl+a :new = Create a new session.
+# Ctrl+a $ = Rename session.
 # =======================
 # Ctrl+a Space = Rotate through major preset pane arrangements.
 # Ctrl+a Alt+<3|4|5> = Useful preset pane arrangements.
@@ -820,11 +840,6 @@ tmux new-session
 # Ctrl+a <{|}> = Switch panes with each other.
 # Ctrl+a Ctrl+<left|right|up|down> = Resize pane.
 # Ctrl+a x = Close pane.
-# =======================
-# Ctrl+a c = Create a new window.
-# Ctrl+a <0|1|2|3|4|5|6|7|8|9> = Move to window using index.
-# Ctrl+a n = Move to the next window.
-# Ctrl+a p = Move to the previous window.
 # =======================
 # Ctrl+a I = Install plugins specified at ~/.tmux.conf
 # Ctrl+a Ctrl+s = Save panes and sessions.
