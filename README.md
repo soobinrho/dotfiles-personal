@@ -69,6 +69,7 @@ fi
 
 alias vim='~/.local/bin/lvim'
 alias svim='sudo ~/.local/bin/lvim'
+alias ncdu='ncdu --color dark-bg --show-percent --show-itemcount --group-directories-first'
 
 if [ "$TMUX" = "" ]; then tmux; fi
 ```
@@ -136,7 +137,10 @@ sudo dnf install -y fastfetch
 sudo dnf install -y htop
 
 # Install ncdu: disk usage viewer.
-sudo dnf install -y ncdu
+wget https://dev.yorhel.nl/download/ncdu-2.9.1-linux-x86_64.tar.gz
+tar xvf ./ncdu-2.9.1-linux-x86_64.tar.gz
+sudo chmod 755 ./ncdu
+mv ./ncdu ~/.local/bin/
 
 # Install glances: system resources viewer.
 sudo dnf install -y glances
@@ -203,6 +207,12 @@ sudo apt install -y curl tree git git-lfs wipe ffmpeg \
 
 sudo snap install pinta tldr
 tldr -u
+
+# Install ncdu: disk usage viewer.
+wget https://dev.yorhel.nl/download/ncdu-2.9.1-linux-x86_64.tar.gz
+tar xvf ./ncdu-2.9.1-linux-x86_64.tar.gz
+sudo chmod 755 ./ncdu
+mv ./ncdu ~/.local/bin/
 
 # Since I only use vim, uninstall nano.
 sudo apt remove -y nano
