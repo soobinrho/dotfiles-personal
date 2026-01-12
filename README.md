@@ -68,7 +68,7 @@ else
 fi
 
 alias vim='~/.local/bin/lvim'
-alias svim='sudo ~/.local/bin/lvim'
+alias svim='sudo /opt/nvim/nvim'
 alias ncdu='ncdu --color dark-bg --show-percent --show-itemcount --group-directories-first'
 
 if [ "$TMUX" = "" ]; then tmux; fi
