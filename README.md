@@ -837,6 +837,7 @@ tmux new-session
 # Ctrl+a <0|1|2|3|4|5|6|7|8|9> = Move to window using index.
 # Ctrl+a n = Move to the next window.
 # Ctrl+a p = Move to the previous window.
+# Ctrl+a . = Give a new index to the current window.
 # Ctrl+a , = Rename window.
 # =======================
 # Ctrl+a :new = Create a new session.
