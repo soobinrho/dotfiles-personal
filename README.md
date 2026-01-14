@@ -67,6 +67,8 @@ else
   export EDITOR='nvim'
 fi
 
+export MY_IP=$(ip -4 addr show tun0 2> /dev/null | grep -oP '(?<=inet\s)([0-9.]+){3}')
+
 alias vim='~/.local/bin/lvim'
 alias svim='sudo /opt/nvim/nvim'
 alias ncdu='ncdu --color dark-bg --show-percent --show-itemcount --group-directories-first'
