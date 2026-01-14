@@ -56,10 +56,6 @@ export PROMPT_COMMAND='history -a'
 
 export PATH="$PATH:/opt/nvim/"
 
-# Fix for the "gpg signing failed inappropriate ioctl for device" error.
-# Source: https://stackoverflow.com/a/57620087
-export GPG_TTY=$(tty)
-
 # Preferred editor for local and remote sessions.
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='nvim'
@@ -630,6 +626,20 @@ xxd <file name>
 
 # How to read in binary.
 hexdump -b <file name>
+```
+
+<br>
+
+### Zsh Framework
+
+```bash
+# Install zsh4humans: A preconfigured framework for Zsh.
+# It aims to have everything ready to be used out of the box.
+if command -v curl >/dev/null 2>&1; then
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/romkatv/zsh4humans/v5/install)"
+else
+  sh -c "$(wget -O- https://raw.githubusercontent.com/romkatv/zsh4humans/v5/install)"
+fi
 ```
 
 <br>
