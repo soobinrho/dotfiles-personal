@@ -64,6 +64,8 @@ else
 fi
 
 export MY_IP=$(ip -4 addr show tun0 2> /dev/null | grep -oP '(?<=inet\s)([0-9.]+){3}')
+export MY_IP_eth0=$(ip -4 addr show eth0 2> /dev/null | grep -oP '(?<=inet\s)([0-9.]+){3}')
+export MY_IP_wlan0=$(ip -4 addr show wlan0 2> /dev/null | grep -oP '(?<=inet\s)([0-9.]+){3}')
 
 alias vim='~/.local/bin/lvim'
 alias svim='sudo /opt/nvim/nvim'
