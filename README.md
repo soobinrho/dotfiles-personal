@@ -70,8 +70,6 @@ export MY_IP_wlan0=$(ip -4 addr show wlan0 2> /dev/null | grep -oP '(?<=inet\s)(
 alias vim='~/.local/bin/lvim'
 alias svim='sudo /opt/nvim/nvim'
 alias ncdu='ncdu --color dark-bg --show-percent --show-itemcount --group-directories-first'
-
-if [ "$TMUX" = "" ]; then tmux; fi
 ```
 
 <br>
