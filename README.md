@@ -140,6 +140,9 @@ tar xvf ./ncdu-2.9.1-linux-x86_64.tar.gz
 sudo chmod 755 ./ncdu
 mv ./ncdu ~/.local/bin/
 
+# Install variety: Wallpaper rotator using Bing Images of the Day.
+sudo dnf install -y variety
+
 # Install glances: system resources viewer.
 sudo dnf install -y glances
 
@@ -201,7 +204,7 @@ sudo apt update -y
 sudo apt upgrade -y
 sudo apt install -y curl tree git git-lfs wipe ffmpeg \
     jpegoptim irssi fastfetch htop ncdu glances asciinema \
-    xournal vlc gimp obs-studio powerstat
+    xournal vlc gimp obs-studio powerstat variety
 
 sudo snap install pinta tldr
 tldr -u
