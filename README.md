@@ -696,6 +696,7 @@ git clean -fd
 # How to rebase in git, including squashing.
 # ---------------------------------------------------------------------
 git rebase -i HEAD~15
+git rebase -i --root
 
 # ---------------------------------------------------------------------
 # How to rebase a pull-request commit.
