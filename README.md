@@ -693,6 +693,14 @@ git config --edit
 git clean -fd
 
 # ---------------------------------------------------------------------
+# How to clean .git
+# ---------------------------------------------------------------------
+# Source: https://stackoverflow.com/a/5277575
+git reflog expire --expire=now --all
+git repack -ad
+git prune
+
+# ---------------------------------------------------------------------
 # How to rebase in git, including squashing.
 # ---------------------------------------------------------------------
 git rebase -i HEAD~15
