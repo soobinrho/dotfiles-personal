@@ -380,8 +380,9 @@ cp dotfiles-personal/home/soobinrho/widget_ip ~/
 ### Useful PowerShell Commands
 
 ```powershell
-# `grep` equivalent in PowerShell
+# grep equivalent in PowerShell
 Select-String -Path ./**/* -Pattern 'PATH_CSRA' -ErrorAction SilentlyContinue
+Get-ChildItem -Recurse *.* | Select-String -Pattern "print\(e\)"
 ```
 
 <br>
