@@ -127,6 +127,7 @@ sudo dnf install -y wipe
 
 # Install jpegoptim: jpeg compressor.
 sudo dnf install -y jpegoptim
+jpegoptim -v --size=240k example.jpg
 
 # Install fastfetch: system information viewer.
 sudo dnf install -y fastfetch
