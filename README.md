@@ -741,6 +741,15 @@ git commit -am"refactor: reset all commit history for security"
 git branch -D main  # Delete the original branch.
 git branch -m main  # Rename the orphan branchto main.
 git push -f origin main
+
+# ---------------------------------------------------------------------
+# How to reset file permissions in git.
+# Source:
+#   https://stackoverflow.com/a/4408378
+# ---------------------------------------------------------------------
+git diff -p -R --no-ext-diff --no-color --diff-filter=M \
+    | grep -E "^(diff|(old|new) mode)" --color=never  \
+    | git apply
 ```
 
 <br>
