@@ -54,7 +54,14 @@ HISTFILESIZE=10000000
 # Source: https://askubuntu.com/a/80380
 export PROMPT_COMMAND='history -a'
 
+export MY_IP=$(ip -4 addr show tun0 2> /dev/null | grep -oP '(?<=inet\s)([0-9.]+){3}')
+export MY_IP_eth0=$(ip -4 addr show eth0 2> /dev/null | grep -oP '(?<=inet\s)([0-9.]+){3}')
+export MY_IP_wlan0=$(ip -4 addr show wlan0 2> /dev/null | grep -oP '(?<=inet\s)([0-9.]+){3}')
+
 export PATH="$PATH:/opt/nvim/"
+alias vim='nvim'
+alias svim='sudo /opt/nvim/nvim'
+alias ncdu='ncdu --color dark-bg --show-percent --show-itemcount --group-directories-first'
 
 # Preferred editor for local and remote sessions.
 if [[ -n $SSH_CONNECTION ]]; then
@@ -62,14 +69,6 @@ if [[ -n $SSH_CONNECTION ]]; then
 else
   export EDITOR='nvim'
 fi
-
-export MY_IP=$(ip -4 addr show tun0 2> /dev/null | grep -oP '(?<=inet\s)([0-9.]+){3}')
-export MY_IP_eth0=$(ip -4 addr show eth0 2> /dev/null | grep -oP '(?<=inet\s)([0-9.]+){3}')
-export MY_IP_wlan0=$(ip -4 addr show wlan0 2> /dev/null | grep -oP '(?<=inet\s)([0-9.]+){3}')
-
-alias vim='~/.local/bin/lvim'
-alias svim='sudo /opt/nvim/nvim'
-alias ncdu='ncdu --color dark-bg --show-percent --show-itemcount --group-directories-first'
 ```
 
 <br>
@@ -910,24 +909,14 @@ sudo mkdir -p /opt/nvim
 sudo mv nvim-linux-x86_64.appimage /opt/nvim/nvim
 # add `export PATH="$PATH:/opt/nvim/"` to the profile dotfile.
 
-# Install LunarVim.
-# Get the newest version from https://www.lunarvim.org/docs/installation
-sudo apt install -y python3-pynvim
-LV_BRANCH='release-1.4/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.4/neovim-0.9/utils/installer/install.sh)
-# :LvimUpdate
-# :LvimSyncCorePlugins
-
-# Create a config file.
-cp ~/.local/share/lunarvim/lvim/utils/installer/config.example.lua ~/.config/lvim/config.lua
-
-# Set shada (Share Data) to remember global variables and marks.
-echo vim.cmd\(\":set shada=\'1000\"\) >> ~/.config/lvim/config.lua
-
 # Install Nerd Fonts.
 curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash
 getnf
 getnf > 1-70
 fc-cache -f -v
+
+# Install LazyVim.
+git clone https://github.com/LazyVim/starter ~/.config/nvim
 
 # Open system settings and set `DroidSansMNerdFont-Regular` as the default mono font.
 # Open terminal setting and set `DroidSansMNerdFont-Regular` as the font.
