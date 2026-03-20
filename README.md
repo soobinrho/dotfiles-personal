@@ -62,6 +62,9 @@ export PATH="$PATH:/opt/nvim/"
 alias vim='nvim'
 alias svim='sudo /opt/nvim/nvim'
 alias ncdu='ncdu --color dark-bg --show-percent --show-itemcount --group-directories-first'
+alias dockerrm="docker ps -aq | xargs docker stop | xargs docker rm"
+alias dockervolumerm="docker volume ls -q | xargs docker volume rm"
+alias dockerrmi="docker images -q | xargs docker rmi -f"
 
 # Preferred editor for local and remote sessions.
 if [[ -n $SSH_CONNECTION ]]; then
