@@ -149,11 +149,6 @@ sudo dnf install -y variety
 # Install glances: system resources viewer.
 sudo dnf install -y glances
 
-# Install bat: colored, cooler version of cat.
-sudo dnf install -y bat
-mkdir -p ~/.local/bin
-ln -s /usr/bin/batcat ~/.local/bin/bat
-
 # Install asciinema: terminal session recording tool.
 sudo dnf install -y asciinema
 
@@ -220,11 +215,6 @@ mv ./ncdu ~/.local/bin/
 
 # Since I only use vim, uninstall nano.
 sudo apt remove -y nano
-
-# Install bat: colored, cooler version of cat.
-sudo apt install -y bat
-mkdir -p ~/.local/bin
-ln -s /usr/bin/batcat ~/.local/bin/bat
 
 # Install gh from https://cli.github.com/
 
@@ -583,7 +573,7 @@ gs -sDEVICE=pdfwrite -dPDFSETTINGS=/ebook -q -o compressed.pdf original.pdf
 # ---------------------------------------------------------------------
 # How to grep but faster. Ripgrep: fastest grep written in Rust.
 # ---------------------------------------------------------------------
-wget https://github.com/BurntSushi/ripgrep/releases/download/15.1.0/ripgrep-15.1.0-x86_64-pc-windows-msvc.zip -O rg.zip  # Windows: C:\windows\system3\rg.exe
+wget https://github.com/BurntSushi/ripgrep/releases/download/15.1.0/ripgrep-15.1.0-x86_64-pc-windows-msvc.zip -O rg.zip  # Windows: C:\Windows\system32\rg.exe
 sudo apt install -y ripgrep  # Ubuntu
 rg REGEX_TO_SEARCH
 rg -tpy PYTHON_FILES
@@ -591,6 +581,14 @@ rg -Tpy NOT_PYTHON_FILES
 rg -u INCLUDE.GITIGNORED_FILES
 rg -uu INCLUDE.GITIGNORED_FILES_AND_HIDDEN_FILES
 rg -uuu INCLUDE.GITIGNORED_FILES_AND_HIDDEN_FILES_AND_BINARY_FILES
+
+# ---------------------------------------------------------------------
+# Bat: Cat but better.
+# ---------------------------------------------------------------------
+wget https://github.com/sharkdp/bat/releases/download/v0.26.1/bat-v0.26.1-x86_64-pc-windows-msvc.zip -O bat.zip  # Windows: C:\Windows\system32\bat.exe
+sudo apt install -y bat
+mkdir -p ~/.local/bin
+ln -s /usr/bin/batcat ~/.local/bin/bat
 
 # ---------------------------------------------------------------------
 # How to securely delete files.
