@@ -573,7 +573,7 @@ gs -sDEVICE=pdfwrite -dPDFSETTINGS=/ebook -q -o compressed.pdf original.pdf
 # ---------------------------------------------------------------------
 # How to grep but faster. Ripgrep: fastest grep written in Rust.
 # ---------------------------------------------------------------------
-wget https://github.com/BurntSushi/ripgrep/releases/download/15.1.0/ripgrep-15.1.0-x86_64-pc-windows-msvc.zip -O rg.zip  # Windows: C:\Windows\system32\rg.exe
+wget https://github.com/BurntSushi/ripgrep/releases/<GET_THE_LATEST> -O rg.zip  # Windows: C:\Windows\system32\rg.exe
 sudo apt install -y ripgrep  # Ubuntu
 rg REGEX_TO_SEARCH
 rg -tpy PYTHON_FILES
@@ -585,7 +585,8 @@ rg -uuu INCLUDE.GITIGNORED_FILES_AND_HIDDEN_FILES_AND_BINARY_FILES
 # ---------------------------------------------------------------------
 # Bat: Cat but better.
 # ---------------------------------------------------------------------
-wget https://github.com/sharkdp/bat/releases/download/v0.26.1/bat-v0.26.1-x86_64-pc-windows-msvc.zip -O bat.zip  # Windows: C:\Windows\system32\bat.exe
+wget https://github.com/sharkdp/bat/releases/download/<GET_THE_LATEST> -O bat.zip  # Windows: C:\Windows\system32\bat.exe
+wget https://github.com/jftuga/less-Windows/releases/<GET_THE_LATEST> -O less.exe  # Required for pagination support.
 sudo apt install -y bat
 mkdir -p ~/.local/bin
 ln -s /usr/bin/batcat ~/.local/bin/bat
