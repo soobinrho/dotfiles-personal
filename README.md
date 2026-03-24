@@ -235,11 +235,6 @@ mv ./ncdu ~/.local/bin/
 sudo apt remove -y nano
 
 # Install gh from https://cli.github.com/
-
-# Install nerd-fonts: fonts with better icons support.
-git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git
-nerd-fonts/install.sh
-rm -rf nerd-fonts
 ```
 
 <br>
