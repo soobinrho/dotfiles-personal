@@ -65,6 +65,7 @@ export MY_IP_wlan0=$(ip -4 addr show wlan0 2> /dev/null | grep -oP '(?<=inet\s)(
 export PATH="$PATH:/opt/nvim/"
 alias vim='nvim'
 alias svim='sudo /opt/nvim/nvim'
+alias delta='delta --line-numbers'
 alias ncdu='ncdu --color dark-bg --show-percent --show-itemcount --group-directories-first'
 alias dockerrm="docker ps -aq | xargs docker stop | xargs docker rm"
 alias dockervolumerm="docker volume ls -q | xargs docker volume rm"
@@ -109,6 +110,9 @@ sudo dnf update -y
 sudo dnf install -y bat
 mkdir -p ~/.local/bin
 ln -s /usr/bin/batcat ~/.local/bin/bat
+
+# Install ripgrep.
+sudo dnf install -y ripgrep
 
 # Install git.
 sudo dnf install -y git
@@ -215,6 +219,9 @@ sudo apt install -y curl tree git git-lfs wipe ffmpeg \
 
 sudo snap install pinta tldr
 tldr -u
+
+# Install ripgrep.
+sudo apt install -y ripgrep
 
 # Install bat.
 sudo apt install -y bat
@@ -411,7 +418,7 @@ bat file.txt
 
 # Delta: Diff equivalent.
 wget https://github.com/dandavison/delta/releases/<GET_THE_LATEST> -o delta.exe # Windows: C:Windows\system32\delta.exe
-delta file1 file2
+delta file1 file2 --line-numbers
 ```
 
 <br>
@@ -588,14 +595,26 @@ git clone https://github.com/LazyVim/starter ~/.config/nvim
 
 <br>
 
+## Delta
+
+```bash
+sudo apt install -y delta
+git config --global core.pager 'delta'
+git config --global interactive.diffFilter 'delta'
+git config --global core.pager 'delta'
+git config --global delta.navigate 'true'
+```
+
+<br>
+
 ## Version Management
 
 ```bash
 sudo apt install gh
 gh auth login
 
-git config --global user.name "Soobin Rho"
-git config --global user.email "soobinrho@gmail.com"
+git config --global user.name 'Soobin Rho'
+git config --global user.email 'soobinrho@gmail.com'
 git config --global core.editor vim
 git config --global init.defaultBranch main
 git config --global alias.c 'commit -s'
