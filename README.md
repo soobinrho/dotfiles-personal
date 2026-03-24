@@ -381,6 +381,12 @@ Get-Content ./file.txt -Tail 5 -Wait
 
 # `diff` equivalent.
 fc ./1 ./2
+
+# Get neovim from https://neovim.io/doc/install/
+echo 'New-Alias vim nvim' >> $profile
+
+# `source ~/.zshrc` equivalent.
+. $profile
 ```
 
 <br>
