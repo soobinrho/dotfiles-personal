@@ -428,6 +428,20 @@ fc ./1 ./2
 
 <br>
 
+## Zsh
+
+```bash
+# Install zsh4humans: A preconfigured framework for Zsh.
+# It aims to have everything ready to be used out of the box.
+if command -v curl >/dev/null 2>&1; then
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/romkatv/zsh4humans/v5/install)"
+else
+  sh -c "$(wget -O- https://raw.githubusercontent.com/romkatv/zsh4humans/v5/install)"
+fi
+```
+
+<br>
+
 ## Tmux
 
 ```bash
@@ -566,20 +580,6 @@ git clone https://github.com/LazyVim/starter ~/.config/nvim
 # =======================
 # :norm! @a = Execute a macro on multiple lines selected via visual mode.
 # :ene|e = Edit a file in a new buffer, short for `:enew|edit`.
-```
-
-<br>
-
-## Zsh Framework
-
-```bash
-# Install zsh4humans: A preconfigured framework for Zsh.
-# It aims to have everything ready to be used out of the box.
-if command -v curl >/dev/null 2>&1; then
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/romkatv/zsh4humans/v5/install)"
-else
-  sh -c "$(wget -O- https://raw.githubusercontent.com/romkatv/zsh4humans/v5/install)"
-fi
 ```
 
 <br>
