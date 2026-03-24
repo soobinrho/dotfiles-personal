@@ -617,6 +617,7 @@ git config --global init.defaultBranch main
 git config --global alias.c 'commit -s'
 git config --global alias.s 'status'
 git config --global alias.l 'log --pretty=oneline --graph --abbrev-commit'
+git config --global alias.lp 'log --patch'
 
 # Generate a key pair.
 gpg --full-gen-key
