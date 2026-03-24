@@ -595,6 +595,12 @@ mkdir -p ~/.local/bin
 ln -s /usr/bin/batcat ~/.local/bin/bat
 
 # ---------------------------------------------------------------------
+# Delta: Diff supported in Windows.
+# ---------------------------------------------------------------------
+wget https://github.com/dandavison/delta/releases/<GET_THE_LATEST> -o delta.exe # Windows: C:Windows\system32\delta.exe
+delta file1 file2
+
+# ---------------------------------------------------------------------
 # How to securely delete files.
 # ---------------------------------------------------------------------
 wipe -r ./folder
