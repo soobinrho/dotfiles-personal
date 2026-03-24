@@ -41,6 +41,10 @@ Instead, only use what's useful for your use cases.
 ```bash
 # .zshrc
 
+# Modify the Zsh4humans default tmux startup command. Otherwise, it's super weird
+# to use a regular terminal and VS Code terminal at the same time.
+zstyle ':z4h:' start-tmux command tmux new-session
+
 # "This option is a variant of INC_APPEND_HISTORY in which, where
 # possible, the history entry is written out to the file after the
 # command is finished."
