@@ -369,6 +369,8 @@ cp dotfiles-personal/home/soobinrho/widget_ip ~/
 8. Install Windows Sandbox from `Turn Windows features on or off`. It's useful for investigations.
 9. Windows Terminal - Settings - Appearance - Background opacity 95%.
 
+<br>
+
 ### Useful PowerShell Commands
 
 ```powershell
@@ -391,7 +393,7 @@ echo 'New-Alias vim nvim' >> $profile
 
 <br>
 
-### Tmux
+## Tmux
 
 ```bash
 # Source: https://www.redhat.com/sysadmin/introduction-tmux-linux
@@ -478,7 +480,7 @@ tmux new-session
 
 <br>
 
-### Nvim
+## Nvim
 
 ```bash
 # Install Neovim.
@@ -533,7 +535,7 @@ git clone https://github.com/LazyVim/starter ~/.config/nvim
 
 <br>
 
-### Zsh Framework
+## Zsh Framework
 
 ```bash
 # Install zsh4humans: A preconfigured framework for Zsh.
@@ -547,7 +549,7 @@ fi
 
 <br>
 
-### Version Management
+## Version Management
 
 ```bash
 sudo apt install gh
@@ -651,7 +653,7 @@ git diff -p -R --no-ext-diff --no-color --diff-filter=M \
 
 <br>
 
-### Node.js
+## Node.js
 
 ```bash
 # Install nvm: Node version manager from https://github.com/nvm-sh/nvm?tab=readme-ov-file#install--update-script
@@ -676,7 +678,7 @@ tldr -u
 
 <br>
 
-### Microsoft Sound Recorder
+## Microsoft Sound Recorder
 
 October 17, 2024.
 I just realized Sound Recorder, which ships on Windows by default, is actually quite good.
@@ -684,7 +686,7 @@ It's great for speech practice.
 
 <br>
 
-### Google Privacy Monitoring
+## Google Privacy Monitoring
 
 Google has a feature to notify you if your personal information is found online:
 https://support.google.com/websearch/answer/12719076?hl=en
@@ -693,7 +695,7 @@ Also, use https://easyoptouts.com/ to help remove personal information online.
 
 <br>
 
-### What is `#!/bin/bash`?
+## What is `#!/bin/bash`?
 
 Shell scripts can have the file extension of `.sh` but it can be more useful to leave it without any extension.
 Instead, just put the shebang `#!/bin/bash` at the first one.
@@ -706,7 +708,7 @@ source: https://stackoverflow.com/questions/27813563/what-is-the-bash-file-exten
 
 <br>
 
-### How to create borders around images with gimp
+## How to create borders around images with gimp
 
 For the README.MD for my "Latex Template for College Assignments," I had to add an example image.
 I added light-grey (HTML Color Code F6F8FA) borders around the picture so that it doesn't just blend in too much with a white background.
@@ -716,7 +718,7 @@ Plus, you can see the HTML color code on any website with Ctrl + Shift + c.
 
 <br>
 
-### Where to install binaries?
+## Where to install binaries?
 
 1. `/usr/bin` is for distribution-managed normal user programs.
 2. `/usr/local/bin` is for normal user programs not managed by the distribution package manager, e.g. locally compiled packages. You should not install them into `/usr/bin` because future distribution upgrades may modify or delete them without warning.
@@ -725,7 +727,7 @@ Source: https://unix.stackexchange.com/a/8658
 
 <br>
 
-### `xournal`
+## `xournal`
 
 June 21, 2022.
 For my Calc II midterm exam, I needed a proctor service.
@@ -734,7 +736,7 @@ Here's what I found and liked: xournal.
 
 <br>
 
-### `info`
+## `info`
 
 I am so glad to have found the "top of the INFO tree.
 It has documentations for everything, including core file manipulation, Gzip, grep, etc.
@@ -742,7 +744,7 @@ Try `info '(dir)Top'`, or `info bash` and `u`.
 
 <br>
 
-### Laptop Battery Healthcare
+## Laptop Battery Healthcare
 
 ```bash
 # Install tlp: power management and battery care.
@@ -801,7 +803,7 @@ sudo dnf install -y powerstat  # Fedora
 
 <br>
 
-### My Other Useful Workflows
+## My Other Useful Workflows
 
 ```bash
 # ---------------------------------------------------------------------
