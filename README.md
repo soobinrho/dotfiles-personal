@@ -588,6 +588,9 @@ sudo apt install -y ripgrep  # Ubuntu
 rg REGEX_TO_SEARCH
 rg -tpy PYTHON_FILES
 rg -Tpy NOT_PYTHON_FILES
+rg -u INCLUDE.GITIGNORED_FILES
+rg -uu INCLUDE.GITIGNORED_FILES_AND_HIDDEN_FILES
+rg -uuu INCLUDE.GITIGNORED_FILES_AND_HIDDEN_FILES_AND_BINARY_FILES
 
 # ---------------------------------------------------------------------
 # How to securely delete files.
