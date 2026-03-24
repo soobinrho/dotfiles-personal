@@ -581,6 +581,15 @@ sudo apt install ghostscript
 gs -sDEVICE=pdfwrite -dPDFSETTINGS=/ebook -q -o compressed.pdf original.pdf
 
 # ---------------------------------------------------------------------
+# How to grep but faster. Ripgrep: fastest grep written in Rust.
+# ---------------------------------------------------------------------
+wget https://github.com/BurntSushi/ripgrep/releases/download/15.1.0/ripgrep-15.1.0-x86_64-pc-windows-msvc.zip -O rg.zip  # Windows: C:\windows\system3\rg.exe
+sudo apt install -y ripgrep  # Ubuntu
+rg REGEX_TO_SEARCH
+rg -tpy PYTHON_FILES
+rg -Tpy NOT_PYTHON_FILES
+
+# ---------------------------------------------------------------------
 # How to securely delete files.
 # ---------------------------------------------------------------------
 wipe -r ./folder
