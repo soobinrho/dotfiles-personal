@@ -391,459 +391,6 @@ echo 'New-Alias vim nvim' >> $profile
 
 <br>
 
-## My Other Useful Workflows
-
-```bash
-# ---------------------------------------------------------------------
-# How to use dotfiles in this repo.
-# ---------------------------------------------------------------------
-# Konsole dotfiles.
-cp ./.config/konsolerc ~/.config/
-cp ./.local/share/konsole/* ~/.local/share/konsole/
-
-# GPG agent configs.
-cp ./.gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
-
-# ---------------------------------------------------------------------
-# MSI Motherboard Fan Settings
-# ---------------------------------------------------------------------
-# I noticed that my fan settings were all over the place and were
-# making fans work too much unnecessarily even at perfectly low temp.
-# These settings make my computer virtually silent at low load and
-# yet powerful when the load requires it.
-# 1. CPU: Auto - Smart Fan Mode.
-# 2. System (All case fans): PWM - Smart Fan Mode.
-
-# ---------------------------------------------------------------------
-# How to install Alacritty.
-# ---------------------------------------------------------------------
-# Alacritty is a fast OpenGL terminal emulator.
-sudo dnf install -y alacritty  # Fedora
-sudo snap install alacritty --classic  # Ubuntu
-
-# Apply my Alacritty configs.
-git clone https://github.com/soobinrho/dotfiles-personal.git
-cd /dotfiles-personal/home/soobinrho
-mkdir -p ~/.config/alacritty
-cp ./.config/alacritty/* ~/.config/alacritty/
-
-# Go to Shortcuts settings and unbind Konsole's Ctrl + Alt + t shortcut.
-# Bind alacritty to Ctrl + Alt + t.
-
-# ---------------------------------------------------------------------
-# vt-cli (VirusTotal CLI) workflows.
-# ---------------------------------------------------------------------
-# Install vt-cli from:
-#   https://github.com/VirusTotal/vt-cli/releases
-wget https://github.com/VirusTotal/vt-cli/releases/download/1.0.1/Linux64.zip
-unzip Linux64.zip
-sudo mv vt /usr/local/bin/
-
-# Get an API key from:
-#   https://www.virustotal.com/
-vt init
-
-# How to get a SHA256.
-shasum -a 256 fileName > fileName.sha
-
-# How to see if a file is in the VirusTotal database using SHA256.
-vt file <file_SHA256_hash>
-
-# How to get information about a website.
-vt url https://example.com
-
-# ---------------------------------------------------------------------
-# How to install Anaconda and disable automatic activation.
-# ---------------------------------------------------------------------
-# Download https://www.anaconda.com/download and then:
-~/anaconda3/bin/conda init zsh
-conda config --set auto_activate_base false
-
-# ---------------------------------------------------------------------
-# How to create a new SSH key.
-# Source:
-#   https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-20-04
-# ---------------------------------------------------------------------
-# Create a key with the length of 4096 bits
-ssh-keygen -b 4096
-
-# Copy the public key to the SSH server
-ssh-copy-id root@ip_address
-
-# ---------------------------------------------------------------------
-# How I set up my client-side SSH configs.
-# Source:
-#   https://unix.stackexchange.com/questions/708206/ssh-timeout-does-not-happen-and-not-disconnect
-# ---------------------------------------------------------------------
-# How to configure the SSH client to time-out less frequently.
-cat >> ~/.ssh/config
-Host *
-  ServerAliveInterval 15
-  ServerAliveCountMax 3
-
-# How to create an alias so that we can `ssh myserver` instead of
-# `ssh main@ip_address` everytime.
-cat >> ~/.ssh/config
-Host myserver
-    HostName ip_address
-    User main
-
-# ---------------------------------------------------------------------
-# DANGER: Secure devices only.
-# How to copy both the public and private GPG keys to secondary laptop.
-# ---------------------------------------------------------------------
-# Note that I'm copying my private key as well
-# because both the SSH server and client are my personal laptops.
-# Never transfer your private keys, unless you absolutely need to.
-rsync --archive ~/.gnupg $(whoami)@ip_address:~
-
-# The --archive option preserves
-# all permissions, modification times, and
-# everytihng inside the directory recursively
-
-# ---------------------------------------------------------------------
-# DANGER: Secure devices only.
-# How to copy both the public and private SSH keys to secondary laptop.
-# ---------------------------------------------------------------------
-# This also copies `authorized_keys`, `config`, and `known_hosts`.
-# Again, never transfer your private keys, unless you absolutely need to.
-rsync --archive ~/.ssh $(whoami)@ip_address:~
-rsync --archive ~/.gitconfig $(whoami)@ip_address:~/.gitconfig
-
-# ---------------------------------------------------------------------
-# How to disable updates for specific packages in dnf.
-# ---------------------------------------------------------------------
-sudo vim /etc/dnf/dnf.conf
-
-# Add the following line. For example, exclude=kernel*
-exclude=package-name-version18*
-
-# ---------------------------------------------------------------------
-# How to increase number of kernels retained in Fedora.
-# ---------------------------------------------------------------------
-sudo vim /etc/dnf/dnf.conf
-
-# Change this:
-installonly_limit=<number>
-
-# ---------------------------------------------------------------------
-# How to triple boot in Windows, Ubuntu, and Fedora.
-# ---------------------------------------------------------------------
-# Install Windows, Ubuntu, and then Fedora.
-
-# How to make a Fedora / Ubuntu installation USB.
-lsblk
-sudo dd if=Fedora-KDE.iso of=/dev/sdb bs=16M oflag=direct; sync
-
-# How to make a Windows installation USB.
-sudo dnf install WoeUSB
-sudo woeusb --device Win10.iso /dev/sdb --target-filesystem ntfs
-
-# ---------------------------------------------------------------------
-# How to disable GUI in Ubuntu.
-# ---------------------------------------------------------------------
-# Disable the GUI.
-sudo apt remove lightdm
-
-# How to re-enable the GUI.
-sudo apt install lightdm
-reboot
-
-# ---------------------------------------------------------------------
-# How to extract a high quality audio from a video file.
-# ---------------------------------------------------------------------
-ffmpeg -i sample.avi -q:a 0 -map a sample.mp3
-
-# ---------------------------------------------------------------------
-# How to make a screencast gif.
-# ---------------------------------------------------------------------
-# 1. Screencast with the simplescreenrecorder or obs-studio.
-
-# 2. Go to gifski's GitHub page and then build from source.
-#    https://github.com/ImageOptim/gifski
-
-# 3. Convert the screencast video into png files.
-ffmpeg -i example.mkv frame%04d.png
-
-# 4. Convert to gif.
-~/gifski/target/release/gifski -o example.gif frame*.png --repeat 0 -Q 100 --fps 50 -W 960 -H 516
-
-# If you're just trying to turn a terminal session into a gif, there's
-# a simpler way using asciinema and svg-term-cli.
-asciinema rec
-svg-term --cast=11345 --out example.svg
-
-# ---------------------------------------------------------------------
-# How to compress a pdf file to reduce size.
-# ---------------------------------------------------------------------
-sudo apt install ghostscript
-gs -sDEVICE=pdfwrite -dPDFSETTINGS=/ebook -q -o compressed.pdf original.pdf
-
-# ---------------------------------------------------------------------
-# How to grep but faster. Ripgrep: fastest grep written in Rust.
-# ---------------------------------------------------------------------
-wget https://github.com/BurntSushi/ripgrep/releases/<GET_THE_LATEST> -O rg.zip  # Windows: C:\Windows\system32\rg.exe
-sudo apt install -y ripgrep  # Ubuntu
-rg REGEX_TO_SEARCH
-rg -tpy PYTHON_FILES
-rg -Tpy NOT_PYTHON_FILES
-rg -u INCLUDE.GITIGNORED_FILES
-rg -uu INCLUDE.GITIGNORED_FILES_AND_HIDDEN_FILES
-rg -uuu INCLUDE.GITIGNORED_FILES_AND_HIDDEN_FILES_AND_BINARY_FILES
-
-# ---------------------------------------------------------------------
-# Bat: Cat but better.
-# ---------------------------------------------------------------------
-wget https://github.com/sharkdp/bat/releases/download/<GET_THE_LATEST> -O bat.zip  # Windows: C:\Windows\system32\bat.exe
-wget https://github.com/jftuga/less-Windows/releases/<GET_THE_LATEST> -O less.exe  # Required for pagination support.
-sudo apt install -y bat
-mkdir -p ~/.local/bin
-ln -s /usr/bin/batcat ~/.local/bin/bat
-
-# ---------------------------------------------------------------------
-# Delta: Diff supported in Windows.
-# ---------------------------------------------------------------------
-wget https://github.com/dandavison/delta/releases/<GET_THE_LATEST> -o delta.exe # Windows: C:Windows\system32\delta.exe
-delta file1 file2
-
-# ---------------------------------------------------------------------
-# How to securely delete files.
-# ---------------------------------------------------------------------
-wipe -r ./folder
-
-# Quick mode (overwrite only 4 times).
-wipe -rq ./folder
-
-# ---------------------------------------------------------------------
-# How to encrypt and decypt files using GPG.
-# ---------------------------------------------------------------------
-# Encrypt.
-gpg -e important_document.pdf
-
-# Decrypt.
-gpg important_document.pdf.gpg
-
-# Encrypt all files recursively.
-find . -type f -not -name "*.gpg" -not -path '*/.*' | xargs gpg -v --batch --yes --recipient soobinrho@gmail.com --encrypt-files
-
-# Decrypt all files recursively.
-find . -type f -name "*.gpg" | xargs gpg -v --batch --decrypt-files
-
-# ---------------------------------------------------------------------
-# Useful system commands.
-# ---------------------------------------------------------------------
-hist  # View ~/.zsh_history, ~/.bash_history, etc.
-!<history line number>  # Get that command from history.
-!<string>  # Get the most recent command that starts with this string.
-
-# How to use `cut` to filter data.
-who | cut -c 1-8  # outputs the first eight characters.
-who | cut -d' ' -f1,2  # sets the delimiter as ` ` and outputs the first and second columns.
-
-# How to sort in reverse.
-who | cut -d' ' -f2 | sort -r
-
-# How to get unique data.
-who | cut -d' ' -f1 | uniq
-
-# How to reconfigure GRUB.
-sudo grub2-mkconfig -o /boot/grub2/grub.cfg
-
-# How to shutdown.
-poweroff
-
-# How to suspend.
-systemctl suspend
-
-# How to find files containing a certain text.
-grep -R "Certain text" .
-
-# How to read in hexadecimal.
-xxd <file name>
-
-# How to read in binary.
-hexdump -b <file name>
-```
-
-<br>
-
-### Zsh Framework
-
-```bash
-# Install zsh4humans: A preconfigured framework for Zsh.
-# It aims to have everything ready to be used out of the box.
-if command -v curl >/dev/null 2>&1; then
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/romkatv/zsh4humans/v5/install)"
-else
-  sh -c "$(wget -O- https://raw.githubusercontent.com/romkatv/zsh4humans/v5/install)"
-fi
-```
-
-<br>
-
-### Version Management
-
-```bash
-sudo apt install gh
-gh auth login
-
-git config --global user.name "Soobin Rho"
-git config --global user.email "soobinrho@gmail.com"
-git config --global core.editor vim
-git config --global init.defaultBranch main
-git config --global alias.c 'commit -s'
-git config --global alias.s 'status'
-git config --global alias.l 'log --pretty=oneline --graph --abbrev-commit'
-
-# Generate a key pair.
-gpg --full-gen-key
-
-# Get the key's key ID.
-# You'll get an output like this:
-# sec    rsa4096/BC0596A444D39F64 2022-07-06
-# BC0596A444D39F64 is the key ID.
-gpg --list-secret-keys --keyid-format LONG
-
-# Copy and paste the key's public key to GitHub's GPG Key section settings.
-gpg --armor --export BC0596A444D39F64
-
-# Configure git to sign all commits with the key.
-git config --global user.signingkey BC0596A444D39F64
-git config --global commit.gpgSign true
-
-# ---------------------------------------------------------------------
-# How to see all git configs.
-# ---------------------------------------------------------------------
-# See global configs.
-git config --global --edit
-
-# See local configs.
-git config --edit
-
-# ---------------------------------------------------------------------
-# How to delete untracked files and folders in git.
-# ---------------------------------------------------------------------
-git clean -fd
-
-# ---------------------------------------------------------------------
-# How to clean .git
-# ---------------------------------------------------------------------
-# Source: https://stackoverflow.com/a/5277575
-git reflog expire --expire=now --all
-git repack -ad
-git prune
-
-# ---------------------------------------------------------------------
-# How to rebase in git, including squashing.
-# ---------------------------------------------------------------------
-git rebase -i HEAD~15
-git rebase -i --root
-
-# ---------------------------------------------------------------------
-# How to rebase a pull-request commit.
-# ---------------------------------------------------------------------
-git remote add upstream https://github.com/TreeHacks/website.git
-git fetch upstream
-git rebase upstream/2023-finaldesign
-git push -f
-
-# ---------------------------------------------------------------------
-# How to erase sensitive information from git history.
-# Source:
-#   https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository
-# ---------------------------------------------------------------------
-python ../git-filter-repo.py --replace-text <(echo "password==>REDACTED_USING_GIT_FILTER_REPO") --force
-python ../git-filter-repo.py --replace-message <(echo "password==>REDACTED_USING_GIT_FILTER_REPO") --force
-git push --force --mirror origin
-
-# ---------------------------------------------------------------------
-# How to sign all commits with GPG.
-# ---------------------------------------------------------------------
-git rebase --exec 'git commit --amend --no-edit -n -S' --root
-
-# ---------------------------------------------------------------------
-# How to reset commit history in a git repository.
-# Source:
-#   https://stackoverflow.com/a/26000395
-# ---------------------------------------------------------------------
-git checkout --orphan latest_branch
-git add -A
-git commit -am"refactor: reset all commit history for security"
-git branch -D main  # Delete the original branch.
-git branch -m main  # Rename the orphan branchto main.
-git push -f origin main
-
-# ---------------------------------------------------------------------
-# How to reset file permissions in git.
-# Source:
-#   https://stackoverflow.com/a/4408378
-# ---------------------------------------------------------------------
-git diff -p -R --no-ext-diff --no-color --diff-filter=M \
-    | grep -E "^(diff|(old|new) mode)" --color=never  \
-    | git apply
-```
-
-<br>
-
-### Laptop Battery Healthcare
-
-```bash
-# Install tlp: power management and battery care.
-sudo dnf install -y tlp tlp-rdw  # Fedora only
-sudo dnf remove power-profiles-daemon  # Fedora only
-systemctl enable tlp.service  # Fedora only
-systemctl mask systemd-rfkill.service systemd-rfkill.socket  # Fedora only
-
-sudo add-apt-repository ppa:linrunner/tlp  # Ubuntu only
-sudo apt update -y  # Ubuntu only
-sudo apt install -y tlp tlp-rdw  # Ubuntu only
-
-# For Kali, build from source: https://linrunner.de/tlp/installation/others.html
-
-# "If the laptop is plugged most of the time and rarely unplugged,
-# maximizing battery lifetime at the cost of a greatly reduced runtime
-# may be acceptable, with values like starting charge at 40% and
-# stopping at 50%.
-#
-# On the contrary, if you use it unplugged most of the time, starting
-# charge at 85% and stopping at 90% would allow for a much longer
-# runtime and still give a lifespan benefit over the factory settings.
-# Default TLP settings (only if you uncomment the relevant lines) are
-# slightly more protective regarding lifespan, with 75/80% charge
-# thresholds."
-# Source:
-#   https://linrunner.de/tlp/faq/battery.html#how-to-choose-good-battery-charge-thresholds
-
-# Note: I don't use my laptop a lot, so 70%/80% threshold.
-# Reminder to change it to 40%/50% once I graduate.
-
-# Set `START_CHARGE_THRESH_BAT0=70`
-# Set `STOP_CHARGE_THRESH_BAT0=80`
-# Set `CPU_ENERGY_PERF_POLICY_ON_AC=performance`
-# Set `PLATFORM_PROFILE_ON_AC=performance`
-sudo vim /etc/tlp.conf
-
-sudo tlp start
-
-# See running status of tlp.
-sudo tlp-stat -s
-
-# See power statistics.
-tlp-stat --psup
-
-# Install powerstat: Power consumption measurement.
-sudo dnf install -y powerstat  # Fedora
-
-# Observations for my P14s Gen 2 AMD
-# ==================================
-# 1. 10% brightness, no wifi = 3.7 watt
-# 2. 10% brightness, wifi    = 4.7 watt
-# 3. 10% brightness, wifi    = 4.7 watt
-# 4. 70% brightness, wifi    = 6.0 watt
-```
-
-<br>
-
 ### Tmux
 
 ```bash
@@ -986,6 +533,124 @@ git clone https://github.com/LazyVim/starter ~/.config/nvim
 
 <br>
 
+### Zsh Framework
+
+```bash
+# Install zsh4humans: A preconfigured framework for Zsh.
+# It aims to have everything ready to be used out of the box.
+if command -v curl >/dev/null 2>&1; then
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/romkatv/zsh4humans/v5/install)"
+else
+  sh -c "$(wget -O- https://raw.githubusercontent.com/romkatv/zsh4humans/v5/install)"
+fi
+```
+
+<br>
+
+### Version Management
+
+```bash
+sudo apt install gh
+gh auth login
+
+git config --global user.name "Soobin Rho"
+git config --global user.email "soobinrho@gmail.com"
+git config --global core.editor vim
+git config --global init.defaultBranch main
+git config --global alias.c 'commit -s'
+git config --global alias.s 'status'
+git config --global alias.l 'log --pretty=oneline --graph --abbrev-commit'
+
+# Generate a key pair.
+gpg --full-gen-key
+
+# Get the key's key ID.
+# You'll get an output like this:
+# sec    rsa4096/BC0596A444D39F64 2022-07-06
+# BC0596A444D39F64 is the key ID.
+gpg --list-secret-keys --keyid-format LONG
+
+# Copy and paste the key's public key to GitHub's GPG Key section settings.
+gpg --armor --export BC0596A444D39F64
+
+# Configure git to sign all commits with the key.
+git config --global user.signingkey BC0596A444D39F64
+git config --global commit.gpgSign true
+
+# ---------------------------------------------------------------------
+# How to see all git configs.
+# ---------------------------------------------------------------------
+# See global configs.
+git config --global --edit
+
+# See local configs.
+git config --edit
+
+# ---------------------------------------------------------------------
+# How to delete untracked files and folders in git.
+# ---------------------------------------------------------------------
+git clean -fd
+
+# ---------------------------------------------------------------------
+# How to clean .git
+# ---------------------------------------------------------------------
+# Source: https://stackoverflow.com/a/5277575
+git reflog expire --expire=now --all
+git repack -ad
+git prune
+
+# ---------------------------------------------------------------------
+# How to rebase in git, including squashing.
+# ---------------------------------------------------------------------
+git rebase -i HEAD~15
+git rebase -i --root
+
+# ---------------------------------------------------------------------
+# How to rebase a pull-request commit.
+# ---------------------------------------------------------------------
+git remote add upstream https://github.com/TreeHacks/website.git
+git fetch upstream
+git rebase upstream/2023-finaldesign
+git push -f
+
+# ---------------------------------------------------------------------
+# How to erase sensitive information from git history.
+# Source:
+#   https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository
+# ---------------------------------------------------------------------
+python ../git-filter-repo.py --replace-text <(echo "password==>REDACTED_USING_GIT_FILTER_REPO") --force
+python ../git-filter-repo.py --replace-message <(echo "password==>REDACTED_USING_GIT_FILTER_REPO") --force
+git push --force --mirror origin
+
+# ---------------------------------------------------------------------
+# How to sign all commits with GPG.
+# ---------------------------------------------------------------------
+git rebase --exec 'git commit --amend --no-edit -n -S' --root
+
+# ---------------------------------------------------------------------
+# How to reset commit history in a git repository.
+# Source:
+#   https://stackoverflow.com/a/26000395
+# ---------------------------------------------------------------------
+git checkout --orphan latest_branch
+git add -A
+git commit -am"refactor: reset all commit history for security"
+git branch -D main  # Delete the original branch.
+git branch -m main  # Rename the orphan branchto main.
+git push -f origin main
+
+# ---------------------------------------------------------------------
+# How to reset file permissions in git.
+# Source:
+#   https://stackoverflow.com/a/4408378
+# ---------------------------------------------------------------------
+git diff -p -R --no-ext-diff --no-color --diff-filter=M \
+    | grep -E "^(diff|(old|new) mode)" --color=never  \
+    | git apply
+```
+
+<br>
+
 ### Node.js
 
 ```bash
@@ -1074,6 +739,331 @@ Here's what I found and liked: xournal.
 I am so glad to have found the "top of the INFO tree.
 It has documentations for everything, including core file manipulation, Gzip, grep, etc.
 Try `info '(dir)Top'`, or `info bash` and `u`.
+
+<br>
+
+### Laptop Battery Healthcare
+
+```bash
+# Install tlp: power management and battery care.
+sudo dnf install -y tlp tlp-rdw  # Fedora only
+sudo dnf remove power-profiles-daemon  # Fedora only
+systemctl enable tlp.service  # Fedora only
+systemctl mask systemd-rfkill.service systemd-rfkill.socket  # Fedora only
+
+sudo add-apt-repository ppa:linrunner/tlp  # Ubuntu only
+sudo apt update -y  # Ubuntu only
+sudo apt install -y tlp tlp-rdw  # Ubuntu only
+
+# For Kali, build from source: https://linrunner.de/tlp/installation/others.html
+
+# "If the laptop is plugged most of the time and rarely unplugged,
+# maximizing battery lifetime at the cost of a greatly reduced runtime
+# may be acceptable, with values like starting charge at 40% and
+# stopping at 50%.
+#
+# On the contrary, if you use it unplugged most of the time, starting
+# charge at 85% and stopping at 90% would allow for a much longer
+# runtime and still give a lifespan benefit over the factory settings.
+# Default TLP settings (only if you uncomment the relevant lines) are
+# slightly more protective regarding lifespan, with 75/80% charge
+# thresholds."
+# Source:
+#   https://linrunner.de/tlp/faq/battery.html#how-to-choose-good-battery-charge-thresholds
+
+# Note: I don't use my laptop a lot, so 70%/80% threshold.
+# Reminder to change it to 40%/50% once I graduate.
+
+# Set `START_CHARGE_THRESH_BAT0=70`
+# Set `STOP_CHARGE_THRESH_BAT0=80`
+# Set `CPU_ENERGY_PERF_POLICY_ON_AC=performance`
+# Set `PLATFORM_PROFILE_ON_AC=performance`
+sudo vim /etc/tlp.conf
+
+sudo tlp start
+
+# See running status of tlp.
+sudo tlp-stat -s
+
+# See power statistics.
+tlp-stat --psup
+
+# Install powerstat: Power consumption measurement.
+sudo dnf install -y powerstat  # Fedora
+
+# Observations for my P14s Gen 2 AMD
+# ==================================
+# 1. 10% brightness, no wifi = 3.7 watt
+# 2. 10% brightness, wifi    = 4.7 watt
+# 3. 10% brightness, wifi    = 4.7 watt
+# 4. 70% brightness, wifi    = 6.0 watt
+```
+
+<br>
+
+### My Other Useful Workflows
+
+```bash
+# ---------------------------------------------------------------------
+# How to grep but faster. Ripgrep: fastest grep written in Rust.
+# ---------------------------------------------------------------------
+wget https://github.com/BurntSushi/ripgrep/releases/<GET_THE_LATEST> -O rg.zip  # Windows: C:\Windows\system32\rg.exe
+sudo apt install -y ripgrep  # Ubuntu
+rg REGEX_TO_SEARCH
+rg -tpy PYTHON_FILES
+rg -Tpy NOT_PYTHON_FILES
+rg -u INCLUDE.GITIGNORED_FILES
+rg -uu INCLUDE.GITIGNORED_FILES_AND_HIDDEN_FILES
+rg -uuu INCLUDE.GITIGNORED_FILES_AND_HIDDEN_FILES_AND_BINARY_FILES
+
+# ---------------------------------------------------------------------
+# Bat: Cat but better.
+# ---------------------------------------------------------------------
+wget https://github.com/sharkdp/bat/releases/download/<GET_THE_LATEST> -O bat.zip  # Windows: C:\Windows\system32\bat.exe
+wget https://github.com/jftuga/less-Windows/releases/<GET_THE_LATEST> -O less.exe  # Required for pagination support.
+sudo apt install -y bat
+mkdir -p ~/.local/bin
+ln -s /usr/bin/batcat ~/.local/bin/bat
+
+# ---------------------------------------------------------------------
+# Delta: Diff supported in Windows.
+# ---------------------------------------------------------------------
+wget https://github.com/dandavison/delta/releases/<GET_THE_LATEST> -o delta.exe # Windows: C:Windows\system32\delta.exe
+delta file1 file2
+
+# ---------------------------------------------------------------------
+# How to securely delete files.
+# ---------------------------------------------------------------------
+wipe -r ./folder
+
+# Quick mode (overwrite only 4 times).
+wipe -rq ./folder
+
+# ---------------------------------------------------------------------
+# How to encrypt and decypt files using GPG.
+# ---------------------------------------------------------------------
+# Encrypt.
+gpg -e important_document.pdf
+
+# Decrypt.
+gpg important_document.pdf.gpg
+
+# Encrypt all files recursively.
+find . -type f -not -name "*.gpg" -not -path '*/.*' | xargs gpg -v --batch --yes --recipient soobinrho@gmail.com --encrypt-files
+
+# Decrypt all files recursively.
+find . -type f -name "*.gpg" | xargs gpg -v --batch --decrypt-files
+
+# ---------------------------------------------------------------------
+# How to extract a high quality audio from a video file.
+# ---------------------------------------------------------------------
+ffmpeg -i sample.avi -q:a 0 -map a sample.mp3
+
+# ---------------------------------------------------------------------
+# How to make a screencast gif.
+# ---------------------------------------------------------------------
+# 1. Screencast with the simplescreenrecorder or obs-studio.
+
+# 2. Go to gifski's GitHub page and then build from source.
+#    https://github.com/ImageOptim/gifski
+
+# 3. Convert the screencast video into png files.
+ffmpeg -i example.mkv frame%04d.png
+
+# 4. Convert to gif.
+~/gifski/target/release/gifski -o example.gif frame*.png --repeat 0 -Q 100 --fps 50 -W 960 -H 516
+
+# If you're just trying to turn a terminal session into a gif, there's
+# a simpler way using asciinema and svg-term-cli.
+asciinema rec
+svg-term --cast=11345 --out example.svg
+
+# ---------------------------------------------------------------------
+# How to compress a pdf file to reduce size.
+# ---------------------------------------------------------------------
+sudo apt install ghostscript
+gs -sDEVICE=pdfwrite -dPDFSETTINGS=/ebook -q -o compressed.pdf original.pdf
+
+# ---------------------------------------------------------------------
+# How to create a new SSH key.
+# Source:
+#   https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-20-04
+# ---------------------------------------------------------------------
+# Create a key with the length of 4096 bits
+ssh-keygen -b 4096
+
+# Copy the public key to the SSH server
+ssh-copy-id root@ip_address
+
+# ---------------------------------------------------------------------
+# How I set up my client-side SSH configs.
+# Source:
+#   https://unix.stackexchange.com/questions/708206/ssh-timeout-does-not-happen-and-not-disconnect
+# ---------------------------------------------------------------------
+# How to configure the SSH client to time-out less frequently.
+cat >> ~/.ssh/config
+Host *
+  ServerAliveInterval 15
+  ServerAliveCountMax 3
+
+# How to create an alias so that we can `ssh myserver` instead of
+# `ssh main@ip_address` everytime.
+cat >> ~/.ssh/config
+Host myserver
+    HostName ip_address
+    User main
+
+# ---------------------------------------------------------------------
+# DANGER: Secure devices only.
+# How to copy both the public and private GPG keys to secondary laptop.
+# ---------------------------------------------------------------------
+# Note that I'm copying my private key as well
+# because both the SSH server and client are my personal laptops.
+# Never transfer your private keys, unless you absolutely need to.
+rsync --archive ~/.gnupg $(whoami)@ip_address:~
+
+# The --archive option preserves
+# all permissions, modification times, and
+# everytihng inside the directory recursively
+
+# ---------------------------------------------------------------------
+# DANGER: Secure devices only.
+# How to copy both the public and private SSH keys to secondary laptop.
+# ---------------------------------------------------------------------
+# This also copies `authorized_keys`, `config`, and `known_hosts`.
+# Again, never transfer your private keys, unless you absolutely need to.
+rsync --archive ~/.ssh $(whoami)@ip_address:~
+rsync --archive ~/.gitconfig $(whoami)@ip_address:~/.gitconfig
+
+# ---------------------------------------------------------------------
+# How to disable updates for specific packages in dnf.
+# ---------------------------------------------------------------------
+sudo vim /etc/dnf/dnf.conf
+
+# Add the following line. For example, exclude=kernel*
+exclude=package-name-version18*
+
+# ---------------------------------------------------------------------
+# How to increase number of kernels retained in Fedora.
+# ---------------------------------------------------------------------
+sudo vim /etc/dnf/dnf.conf
+
+# Change this:
+installonly_limit=<number>
+
+# ---------------------------------------------------------------------
+# Useful system commands.
+# ---------------------------------------------------------------------
+hist  # View ~/.zsh_history, ~/.bash_history, etc.
+!<history line number>  # Get that command from history.
+!<string>  # Get the most recent command that starts with this string.
+
+# How to use `cut` to filter data.
+who | cut -c 1-8  # outputs the first eight characters.
+who | cut -d' ' -f1,2  # sets the delimiter as ` ` and outputs the first and second columns.
+
+# How to sort in reverse.
+who | cut -d' ' -f2 | sort -r
+
+# How to get unique data.
+who | cut -d' ' -f1 | uniq
+
+# How to reconfigure GRUB.
+sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+
+# How to shutdown.
+poweroff
+
+# How to suspend.
+systemctl suspend
+
+# How to find files containing a certain text.
+grep -R "Certain text" .
+
+# How to read in hexadecimal.
+xxd <file name>
+
+# How to read in binary.
+hexdump -b <file name>
+
+# ---------------------------------------------------------------------
+# MSI Motherboard Fan Settings
+# ---------------------------------------------------------------------
+# I noticed that my fan settings were all over the place and were
+# making fans work too much unnecessarily even at perfectly low temp.
+# These settings make my computer virtually silent at low load and
+# yet powerful when the load requires it.
+# 1. CPU: Auto - Smart Fan Mode.
+# 2. System (All case fans): PWM - Smart Fan Mode.
+
+# ---------------------------------------------------------------------
+# How to install Alacritty.
+# ---------------------------------------------------------------------
+# Alacritty is a fast OpenGL terminal emulator.
+sudo dnf install -y alacritty  # Fedora
+sudo snap install alacritty --classic  # Ubuntu
+
+# Apply my Alacritty configs.
+git clone https://github.com/soobinrho/dotfiles-personal.git
+cd /dotfiles-personal/home/soobinrho
+mkdir -p ~/.config/alacritty
+cp ./.config/alacritty/* ~/.config/alacritty/
+
+# Go to Shortcuts settings and unbind Konsole's Ctrl + Alt + t shortcut.
+# Bind alacritty to Ctrl + Alt + t.
+
+# ---------------------------------------------------------------------
+# vt-cli (VirusTotal CLI) workflows.
+# ---------------------------------------------------------------------
+# Install vt-cli from:
+#   https://github.com/VirusTotal/vt-cli/releases
+wget https://github.com/VirusTotal/vt-cli/releases/download/1.0.1/Linux64.zip
+unzip Linux64.zip
+sudo mv vt /usr/local/bin/
+
+# Get an API key from:
+#   https://www.virustotal.com/
+vt init
+
+# How to get a SHA256.
+shasum -a 256 fileName > fileName.sha
+
+# How to see if a file is in the VirusTotal database using SHA256.
+vt file <file_SHA256_hash>
+
+# How to get information about a website.
+vt url https://example.com
+
+# ---------------------------------------------------------------------
+# How to install Anaconda and disable automatic activation.
+# ---------------------------------------------------------------------
+# Download https://www.anaconda.com/download and then:
+~/anaconda3/bin/conda init zsh
+conda config --set auto_activate_base false
+
+# ---------------------------------------------------------------------
+# How to triple boot in Windows, Ubuntu, and Fedora.
+# ---------------------------------------------------------------------
+# Install Windows, Ubuntu, and then Fedora.
+
+# How to make a Fedora / Ubuntu installation USB.
+lsblk
+sudo dd if=Fedora-KDE.iso of=/dev/sdb bs=16M oflag=direct; sync
+
+# How to make a Windows installation USB.
+sudo dnf install WoeUSB
+sudo woeusb --device Win10.iso /dev/sdb --target-filesystem ntfs
+
+# ---------------------------------------------------------------------
+# How to disable GUI in Ubuntu.
+# ---------------------------------------------------------------------
+# Disable the GUI.
+sudo apt remove lightdm
+
+# How to re-enable the GUI.
+sudo apt install lightdm
+reboot
+```
 
 <br>
 
