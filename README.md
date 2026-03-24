@@ -101,6 +101,11 @@ sudo systemctl enable --now dnf-automatic-install.timer
 # Update.
 sudo dnf update -y
 
+# Install bat.
+sudo dnf install -y bat
+mkdir -p ~/.local/bin
+ln -s /usr/bin/batcat ~/.local/bin/bat
+
 # Install git.
 sudo dnf install -y git
 
@@ -206,6 +211,11 @@ sudo apt install -y curl tree git git-lfs wipe ffmpeg \
 
 sudo snap install pinta tldr
 tldr -u
+
+# Install bat.
+sudo apt install -y bat
+mkdir -p ~/.local/bin
+ln -s /usr/bin/batcat ~/.local/bin/bat
 
 # Install ncdu: disk usage viewer.
 wget https://dev.yorhel.nl/download/ncdu-2.9.1-linux-x86_64.tar.gz
@@ -386,9 +396,29 @@ fc ./1 ./2
 
 # Get neovim from https://neovim.io/doc/install/
 echo 'New-Alias vim nvim' >> $profile
+echo '$env:path += ";$env:LOCALAPPDATA\Programs"' >> $profile
 
 # `source ~/.zshrc` equivalent.
 . $profile
+
+# Grep but faster. Fastest grep written in Rust.
+wget https://github.com/BurntSushi/ripgrep/releases/<GET_THE_LATEST> -O rg.zip  # $env:LOCALAPPDATA\Programs\rg.exe
+rg REGEX_TO_SEARCH
+rg -tpy PYTHON_FILES
+rg -Tpy NOT_PYTHON_FILES
+rg -u INCLUDE.GITIGNORED_FILES
+rg -uu INCLUDE.GITIGNORED_FILES_AND_HIDDEN_FILES
+rg -uuu INCLUDE.GITIGNORED_FILES_AND_HIDDEN_FILES_AND_BINARY_FILES
+
+# Bat: Cat but better.
+# `less` is used by `bat` for pagination.
+wget https://github.com/jftuga/less-Windows/releases/<GET_THE_LATEST> -O less.exe  # $env:LOCALAPPDATA\Programs\less.exe
+wget https://github.com/sharkdp/bat/releases/download/<GET_THE_LATEST> -O bat.zip  # $env:LOCALAPPDATA\Programs\bat.exe
+bat file.txt
+
+# Delta: Diff equivalent.
+wget https://github.com/dandavison/delta/releases/<GET_THE_LATEST> -o delta.exe # Windows: C:Windows\system32\delta.exe
+delta file1 file2
 ```
 
 <br>
@@ -806,33 +836,6 @@ sudo dnf install -y powerstat  # Fedora
 ## My Other Useful Workflows
 
 ```bash
-# ---------------------------------------------------------------------
-# How to grep but faster. Ripgrep: fastest grep written in Rust.
-# ---------------------------------------------------------------------
-wget https://github.com/BurntSushi/ripgrep/releases/<GET_THE_LATEST> -O rg.zip  # Windows: C:\Windows\system32\rg.exe
-sudo apt install -y ripgrep  # Ubuntu
-rg REGEX_TO_SEARCH
-rg -tpy PYTHON_FILES
-rg -Tpy NOT_PYTHON_FILES
-rg -u INCLUDE.GITIGNORED_FILES
-rg -uu INCLUDE.GITIGNORED_FILES_AND_HIDDEN_FILES
-rg -uuu INCLUDE.GITIGNORED_FILES_AND_HIDDEN_FILES_AND_BINARY_FILES
-
-# ---------------------------------------------------------------------
-# Bat: Cat but better.
-# ---------------------------------------------------------------------
-wget https://github.com/sharkdp/bat/releases/download/<GET_THE_LATEST> -O bat.zip  # Windows: C:\Windows\system32\bat.exe
-wget https://github.com/jftuga/less-Windows/releases/<GET_THE_LATEST> -O less.exe  # Required for pagination support.
-sudo apt install -y bat
-mkdir -p ~/.local/bin
-ln -s /usr/bin/batcat ~/.local/bin/bat
-
-# ---------------------------------------------------------------------
-# Delta: Diff supported in Windows.
-# ---------------------------------------------------------------------
-wget https://github.com/dandavison/delta/releases/<GET_THE_LATEST> -o delta.exe # Windows: C:Windows\system32\delta.exe
-delta file1 file2
-
 # ---------------------------------------------------------------------
 # How to securely delete files.
 # ---------------------------------------------------------------------
