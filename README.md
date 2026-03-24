@@ -371,7 +371,7 @@ cp dotfiles-personal/home/soobinrho/widget_ip ~/
 
 <br>
 
-### Useful PowerShell Commands
+## Useful PowerShell Commands
 
 ```powershell
 # `grep` equivalent.
