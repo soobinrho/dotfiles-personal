@@ -378,6 +378,9 @@ Get-ChildItem -Recurse *.* | Select-String -Pattern "print\(e\)"
 
 # `tail -f` equivalent.
 Get-Content ./file.txt -Tail 5 -Wait
+
+# `diff` equivalent.
+fc ./1 ./2
 ```
 
 <br>
