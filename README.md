@@ -378,30 +378,19 @@ cp dotfiles-personal/home/soobinrho/widget_ip ~/
 7. Install WSL. `Turn Windows features on or off` and then enable `Windows Hypervisor Platform` and `Windows Subsystem for Linux`.
 8. Install Windows Sandbox from `Turn Windows features on or off`. It's useful for investigations.
 9. Windows Terminal - Settings - Appearance - Background opacity 95%.
-
-<br>
-
-## Useful PowerShell Commands
+10. Install my favorite utilities:
 
 ```powershell
-# `grep` equivalent.
-Select-String -Path ./**/* -Pattern 'PATH_CSRA' -ErrorAction SilentlyContinue
-Get-ChildItem -Recurse *.* | Select-String -Pattern "print\(e\)"
-
-# `tail -f` equivalent.
-Get-Content ./file.txt -Tail 5 -Wait
-
-# `diff` equivalent.
-fc ./1 ./2
-
 # Get neovim from https://neovim.io/doc/install/
+
+# Set up the PowerShell profile.
 echo 'New-Alias vim nvim' >> $profile
 echo '$env:path += ";$env:LOCALAPPDATA\Programs"' >> $profile
 
-# `source ~/.zshrc` equivalent.
+# Load the profile.
 . $profile
 
-# Grep but faster. Fastest grep written in Rust.
+# Install ripgrep: grep but faster. Fastest grep written in Rust.
 wget https://github.com/BurntSushi/ripgrep/releases/<GET_THE_LATEST> -O rg.zip  # $env:LOCALAPPDATA\Programs\rg.exe
 rg REGEX_TO_SEARCH
 rg -tpy PYTHON_FILES
@@ -419,6 +408,22 @@ bat file.txt
 # Delta: Diff equivalent.
 wget https://github.com/dandavison/delta/releases/<GET_THE_LATEST> -o delta.exe # Windows: C:Windows\system32\delta.exe
 delta file1 file2
+```
+
+<br>
+
+## Useful PowerShell Commands
+
+```powershell
+# `grep` equivalent.
+Select-String -Path ./**/* -Pattern 'PATH_CSRA' -ErrorAction SilentlyContinue
+Get-ChildItem -Recurse *.* | Select-String -Pattern "print\(e\)"
+
+# `tail -f` equivalent.
+Get-Content ./file.txt -Tail 5 -Wait
+
+# `diff` equivalent.
+fc ./1 ./2
 ```
 
 <br>
