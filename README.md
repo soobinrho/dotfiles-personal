@@ -217,9 +217,6 @@ sudo apt install -y curl tree git git-lfs wipe ffmpeg \
     jpegoptim irssi fastfetch htop ncdu glances asciinema \
     xournal vlc gimp obs-studio powerstat variety
 
-sudo snap install pinta tldr
-tldr -u
-
 # Install ripgrep.
 sudo apt install -y ripgrep
 
@@ -728,10 +725,6 @@ pnpm setup
 
 # If you're using zsh:
 source ~/.zshrc
-
-# Install tldr: similar to [man], but with simple examples.
-pnpm add -g tldr
-tldr -u
 ```
 
 <br>
@@ -864,6 +857,14 @@ sudo dnf install -y powerstat  # Fedora
 ## My Other Useful Workflows
 
 ```bash
+# ---------------------------------------------------------------------
+# How to install tldr.
+# ---------------------------------------------------------------------
+# Do not install from `sudo apt install`. This installs an older
+# version that can error out.
+pipx install tldr
+tldr -u
+
 # ---------------------------------------------------------------------
 # How to securely delete files.
 # ---------------------------------------------------------------------
