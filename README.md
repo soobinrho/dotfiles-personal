@@ -472,8 +472,8 @@ tmux source ~/.tmux.conf
 
 # If tmux-mem-cpu-load installation exits with a cmake error,
 # then install cmake with
-sudo dnf install -y cmake  # Fedora
-sudo apt install -y cmake  # Ubuntu
+sudo dnf groupinstall -y "Development Tools" "Development Libraries"  # Fedora
+sudo apt install -y cmake build-essential  # Ubuntu
 
 # How to see all sessions.
 tmux ls
