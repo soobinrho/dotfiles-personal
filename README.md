@@ -583,6 +583,9 @@ git clone https://github.com/LazyVim/starter ~/.config/nvim
 # =======================
 # :norm! @a = Execute a macro on multiple lines selected via visual mode.
 # :ene|e = Edit a file in a new buffer, short for `:enew|edit`.
+# =======================
+# :%s/HERE(\d+)/\1HERE/g = \1 means first () group, \2 means second () group, and so on.
+# :%s/^\d+/&,/g = & means entire match
 ```
 
 <br>
