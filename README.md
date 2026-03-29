@@ -574,6 +574,7 @@ git clone https://github.com/LazyVim/starter ~/.config/nvim
 
 # Vim Commands
 # =======================
+# Ctrl + q = Enter visual mode.
 # gc = Comment visual mode.
 # gcc = Comment out a line.
 # gcap = Comment out a paragraph.
