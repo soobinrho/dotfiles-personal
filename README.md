@@ -774,6 +774,25 @@ Download and install Maple Mono NF (Nerd Font) (Select unhinted) from https://gi
 - **VS Code**: `Maple Mono NF`
 - **MS Terminal**: `Maple Mono NF`
 
+On VS Code, add these configs to `User Settings (JSON)`:
+
+```json
+  "editor.fontFamily": "'Maple Mono NF'",
+  "editor.inlineSuggest.fontFamily": "'Maple Mono NF'",
+  "debug.console.fontFamily": "'Maple Mono NF'",
+  "editor.codeLensFontFamily": "'Maple Mono NF'",
+  "editor.inlayHints.fontFamily": "'Maple Mono NF'",
+  "terminal.integrated.fontFamily": "'Maple Mono NF'",
+  "notebook.markup.fontFamily": "'Maple Mono NF'",
+  "notebook.output.fontFamily": "'Maple Mono NF'",
+  "chat.editor.fontFamily": "'Maple Mono NF'",
+  "chat.fontFamily": "'Maple Mono NF'",
+  "editor.fontLigatures": true,
+```
+
+Note: ligatures feature is nice to have.
+Any [TODO], [NOTE], [FIXME], and [WARNING] inside the code get super nice graphics thanks to Maple Mono's ligatures.
+
 ---
 
 ### Which file should I download?
