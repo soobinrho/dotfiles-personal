@@ -764,6 +764,8 @@ Add these configs to `User Settings (JSON)`:
   },
 ```
 
+<br>
+
 ## Font: Maple Mono NF
 
 Reference: https://news.ycombinator.com/item?id=47575403
