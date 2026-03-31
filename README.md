@@ -729,6 +729,24 @@ source ~/.zshrc
 
 <br>
 
+## uv (Python Package Manager)
+
+Install from https://docs.astral.sh/uv/getting-started/installation/
+
+```bash
+# =======================================
+# Reduce the risk of supply-chain attacks
+# =======================================
+# Linux
+echo 'exclude-newer = "7 days"' >> ~/.config/uv/uv.toml
+
+# Windows
+New-Item -ItemType Directory -Force -Path $env:APPDATA\uv
+echo 'exclude-newer = "7 days"' >> $env:APPDATA\uv\uv.toml
+```
+
+<br>
+
 ## Font: Maple Mono NF
 
 Reference: https://news.ycombinator.com/item?id=47575403
