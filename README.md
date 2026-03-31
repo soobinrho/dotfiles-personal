@@ -310,7 +310,7 @@ reboot
 # How to open up system information on startup.
 sudo apt install -y konsole
 crontab -e
-crontab > @reboot DISPLAY=:0.0 konsole -p 'Font=RobotoMono Nerd Font Mono,17' -e 'watch -d -n 0.5 nvidia-smi'
+crontab > @reboot DISPLAY=:0.0 konsole -p 'Font=Maple Mono NF,17' -e 'watch -d -n 0.5 nvidia-smi'
 
 # How to check network connectivity status.
 sudo nmcli general status
@@ -542,17 +542,8 @@ sudo mkdir -p /opt/nvim
 sudo mv nvim-linux-x86_64.appimage /opt/nvim/nvim
 # add `export PATH="$PATH:/opt/nvim/"` to the profile dotfile.
 
-# Install Nerd Fonts.
-curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash
-getnf
-getnf > 1-70
-fc-cache -f -v
-
 # Install LazyVim.
 git clone https://github.com/LazyVim/starter ~/.config/nvim
-
-# Open system settings and set `DroidSansMNerdFont-Regular` as the default mono font.
-# Open terminal setting and set `DroidSansMNerdFont-Regular` as the font.
 
 # My favorite keybindings
 # =======================
@@ -756,6 +747,26 @@ Download and install Maple Mono NF (Nerd Font) (Select unhinted) from https://gi
 - **QTerminal**: `Maple Mono NF`
 - **VS Code**: `Maple Mono NF`
 - **MS Terminal**: `Maple Mono NF`
+
+---
+
+### Which file should I download?
+
+Source: https://github.com/ahatem/IoskeleyMono
+
+| I want to… | Download |
+|---|---|
+| Use it in my editor / IDE | A TTF zip |
+| Use it in my terminal with icons | A Nerd Font zip |
+
+1. Download and unzip your chosen file
+2. Select all `.ttf` files inside
+3. Install on your system:
+   - **macOS** — double-click any font → Install Font, or drag all into Font Book
+   - **Windows** — select all → right-click → Install
+   - **Linux** — copy to `~/.local/share/fonts/` then run `fc-cache -fv`
+
+---
 
 <br>
 
