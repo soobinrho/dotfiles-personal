@@ -738,6 +738,32 @@ echo 'exclude-newer = "7 days"' >> $env:APPDATA\uv\uv.toml
 
 <br>
 
+## ruff (Python Linter and Formatter)
+
+Install from https://docs.astral.sh/ruff/installation/ and install the VS Code extension for ruff.
+Add these configs to `User Settings (JSON)`:
+
+```json
+  "notebook.formatOnSave.enabled": true,
+  "notebook.codeActionsOnSave": {
+    "notebook.source.fixAll": "explicit",
+    "notebook.source.organizeImports": "explicit",
+  },
+  "[python]": {
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "explicit",
+      "source.organizeImports": "explicit",
+    },
+    "editor.defaultFormatter": "charliermarsh.ruff",
+  },
+  "ruff.format.preview": true,
+  "[markdown]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "charliermarsh.ruff",
+  },
+```
+
 ## Font: Maple Mono NF
 
 Reference: https://news.ycombinator.com/item?id=47575403
