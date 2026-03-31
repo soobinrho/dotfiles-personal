@@ -729,6 +729,18 @@ source ~/.zshrc
 
 <br>
 
+## Font: Maple Mono NF
+
+Reference: https://news.ycombinator.com/item?id=47575403
+
+Download and install Maple Mono NF (Nerd Font) (Select unhinted) from https://github.com/subframe7536/maple-font/releases
+
+- **QTerminal**: `Maple Mono NF`
+- **VS Code**: `Maple Mono NF`
+- **MS Terminal**: `Maple Mono NF`
+
+<br>
+
 ## Microsoft Sound Recorder
 
 October 17, 2024.
