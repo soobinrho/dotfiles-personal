@@ -827,12 +827,8 @@ It's great for speech practice.
 
 ## Microsoft Flight Simulator 2024
 
-For security best practices, create a dedicated account for MSFS so that my friends can play it on my computer without giving them access to my main user account:
-
-1. Create a non-administrative user dedicated for flight sim.
-2. Right click `C:\Users\<USERN>\AppData\Local\Packages\Microsoft.Limitless_8wekyb3d8bbwe`
-3. Properties - Security - Advanced - Add - Select a principal - Advanced... - Find Now
-4. Select the flight sim account and give full access to the MSFS directory.
+For security best practices, create a dedicated account for MSFS so that my friends can play it on my computer without giving them access to my main user account.
+All flight sim including MSFS as well as add-ons and drivers should be installed under this account.
 
 <br>
 
@@ -856,7 +852,6 @@ Then, configure:
 - Rudder axis
 - Aileron axis
 - Elevator axis
-- Left / Right brake axis
 
 <br>
 
@@ -879,6 +874,8 @@ Then, configure:
 - Throttle axis
 - Flaps axis
 - Gear up / down
+- Brake axis
+- Individual toe left / right brake axis (Right click the z axis on VPC Configuration software and create two virtual axis based on the z axis: Lz & Rz)
 - Parking brake on / off
 - Spoilers toggle
 
