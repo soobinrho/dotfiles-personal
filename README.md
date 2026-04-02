@@ -827,12 +827,31 @@ It's great for speech practice.
 
 ## Microsoft Flight Simulator 2024
 
+For security best practices, create a dedicated account for MSFS so that my friends can play it on my computer without giving them access to my main user account:
+
+1. Create a non-administrative user dedicated for flight sim.
+2. Right click `C:\Users\<USERN>\AppData\Local\Packages\Microsoft.Limitless_8wekyb3d8bbwe`
+3. Properties - Security - Advanced - Add - Select a principal - Advanced... - Find Now
+4. Select the flight sim account and give full access to the MSFS directory.
+
+<br>
+
+Configure the Logitech Radio Panel driver to run at login:
+
+1. Open Task Scheduler
+2. Create Task...
+3. Configure it to run at login and execute `"C:\Program Files\Logitech\Microsoft Flight Simulator Plugin\LogiMicrosoftFlightSimulator.exe" --run --force`
+
+<br>
+
+### Key Bindings
+
 First, go to each axis and set deadzone as 0.1.
 For the view axis x and y, set deadzone as 0.3.
 
 Then, configure:
 
-### Primary Control Surface
+#### Primary Control Surface
 
 - Rudder axis
 - Aileron axis
@@ -841,7 +860,7 @@ Then, configure:
 
 <br>
 
-### View Controls
+#### View Controls
 
 - Cockpit quick view left / right 40°
 - Cockpit quick view up / down
@@ -855,7 +874,7 @@ Then, configure:
 
 <br>
 
-### Other Controls
+#### Other Controls
 
 - Throttle axis
 - Flaps axis
