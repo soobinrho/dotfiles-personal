@@ -880,6 +880,7 @@ Then, configure:
 - Flaps axis
 - Gear up / down
 - Parking brake on / off
+- Spoilers toggle
 
 <br>
 
