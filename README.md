@@ -825,6 +825,45 @@ It's great for speech practice.
 
 <br>
 
+## Microsoft Flight Simulator 2024
+
+First, go to each axis and set deadzone as 0.1.
+For the view axis x and y, set deadzone as 0.3.
+
+Then, configure:
+
+### Primary Control Surface
+
+- Rudder axis
+- Aileron axis
+- Elevator axis
+- Left / Right brake axis
+
+<br>
+
+### View Controls
+
+- Cockpit quick view left / right 40°
+- Cockpit quick view up / down
+- Cockpit view left / right / up / down axis
+- External quick view left / right / up
+- External view left / right / up / down axis
+- Cockpit view zoom in / out
+- External view zoom in / out
+- Cockpit view reset
+- External view reset
+
+<br>
+
+### Other Controls
+
+- Throttle axis
+- Flaps axis
+- Gear up / down
+- Parking brake on / off
+
+<br>
+
 ## Google Privacy Monitoring
 
 Google has a feature to notify you if your personal information is found online:
