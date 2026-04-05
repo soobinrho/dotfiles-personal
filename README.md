@@ -441,6 +441,9 @@ if command -v curl >/dev/null 2>&1; then
 else
   sh -c "$(wget -O- https://raw.githubusercontent.com/romkatv/zsh4humans/v5/install)"
 fi
+
+# If new panes in Tmux opens bash and fails to open zsh:
+sudo ln -s /usr/local/bin/zsh /bin/zsh
 ```
 
 <br>
