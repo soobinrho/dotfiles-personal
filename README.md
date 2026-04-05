@@ -1006,7 +1006,8 @@ sudo dnf install -y powerstat  # Fedora
 # ---------------------------------------------------------------------
 # Do not install from `sudo apt install`. This installs an older
 # version that can error out.
-pipx install tldr
+uv tool add pipx
+uv tool add tldr
 tldr -u
 
 # ---------------------------------------------------------------------
