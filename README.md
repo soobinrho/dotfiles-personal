@@ -588,7 +588,7 @@ git clone https://github.com/LazyVim/starter ~/.config/nvim
 ## Delta
 
 ```bash
-sudo apt install -y delta
+sudo apt install -y git-delta
 git config --global core.pager 'delta'
 git config --global interactive.diffFilter 'delta'
 git config --global core.pager 'delta'
