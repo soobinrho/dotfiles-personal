@@ -597,7 +597,7 @@ git config --global delta.navigate 'true'
 
 <br>
 
-## Version Management
+## Version Control (Git)
 
 ```bash
 sudo apt install gh
@@ -698,6 +698,20 @@ git push -f origin main
 git diff -p -R --no-ext-diff --no-color --diff-filter=M \
     | grep -E "^(diff|(old|new) mode)" --color=never  \
     | git apply
+
+# ---------------------------------------------------------------------
+# Git commands to run to get an overview when starting a new project.
+# Source:
+#   https://news.ycombinator.com/item?id=47687273
+# ---------------------------------------------------------------------
+# Which file changes the most?
+git log --format=format: --name-only --since="1 year ago" | sort | uniq -c | sort -nr | head -20
+
+# Who built this?
+git shortlog -sn --no-merges
+
+# Where are the current bugs?
+git log -i -E --grep="fix|bug|broken|todo" --name-only --format='' | sort | uniq -c | sort -nr | head -20
 ```
 
 <br>
