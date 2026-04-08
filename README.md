@@ -427,6 +427,9 @@ Get-Content ./file.txt -Tail 5 -Wait
 
 # `diff` equivalent.
 fc ./1 ./2
+
+# Set encoding to UTF-8.
+Get-Content .\uv.toml | Set-Content -Encoding utf8 ./uv.utf8.toml
 ```
 
 <br>
