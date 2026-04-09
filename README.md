@@ -409,6 +409,8 @@ wget https://github.com/sharkdp/bat/releases/download/<GET_THE_LATEST> -O bat.zi
 bat file.txt
 
 # Delta: Diff equivalent.
+# Tip: Run code formatters on the files before running delta so that differences
+# in syntax don't show up and clutter up the results.
 wget https://github.com/dandavison/delta/releases/<GET_THE_LATEST> -o delta.exe # Windows: C:Windows\system32\delta.exe
 delta file1 file2 --line-numbers
 ```
