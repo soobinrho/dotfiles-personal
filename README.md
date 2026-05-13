@@ -377,7 +377,7 @@ cp dotfiles-personal/home/soobinrho/widget_ip ~/
 3. Install Chrome.
 4. Run Windows Updates to install every available update.
 5. Install Motu M2 driver.
-6. Install VS Code. Install Black Formatter extension for Python formatting. Turn on format on save.
+6. Install VS Code. Install Black Formatter extension for Python formatting. Turn on format on save. Install [VS Code DevContainers](https://code.visualstudio.com/docs/devcontainers/containers) for security.
 7. Install WSL. `Turn Windows features on or off` and then enable `Windows Hypervisor Platform` and `Windows Subsystem for Linux`.
 8. Install Windows Sandbox from `Turn Windows features on or off`. It's useful for investigations.
 9. Windows Terminal - Settings - Appearance - Background opacity 95%.
