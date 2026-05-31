@@ -186,6 +186,9 @@ sudo dnf remove -y nano
 # Install irssi: irs client.
 sudo dnf install -y irssi
 
+# Install lnav: great log viewer.
+sudo dnf install -y lnav
+
 # Add default channel and enable auto log-in in irssi.
 # Source:
 #   https://irssi.org/documentation/manual/automation/
@@ -215,7 +218,7 @@ sudo apt update -y
 sudo apt upgrade -y
 sudo apt install -y curl tree git git-lfs wipe ffmpeg \
     jpegoptim irssi fastfetch htop glances asciinema \
-    xournal vlc gimp obs-studio powerstat variety
+    xournal vlc gimp obs-studio powerstat variety lnav
 
 # Install ripgrep.
 sudo apt install -y ripgrep
