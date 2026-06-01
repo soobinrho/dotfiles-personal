@@ -1267,6 +1267,13 @@ sudo apt remove lightdm
 # How to re-enable the GUI.
 sudo apt install lightdm
 reboot
+
+# ---------------------------------------------------------------------
+# How to block distracting websites at work (Windows).
+# ---------------------------------------------------------------------
+# Ctrl + x and then Windows PowerShell (Admin)
+cd C:\Windows\System32\drivers\etc
+"`n127.0.0.1 news.ycombinator.com reddit.com apnews.com cnn.com foxnews.com www.theguardian.com" | out-file -encoding UTF8 -append hosts
 ```
 
 <br>
