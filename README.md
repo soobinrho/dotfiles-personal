@@ -1273,7 +1273,7 @@ reboot
 # ---------------------------------------------------------------------
 # Ctrl + x and then Windows PowerShell (Admin)
 cd C:\Windows\System32\drivers\etc
-"`n127.0.0.1 news.ycombinator.com reddit.com apnews.com cnn.com foxnews.com www.theguardian.com" | out-file -encoding UTF8 -append hosts
+"`n127.0.0.1 news.ycombinator.com www.linkedin.com reddit.com apnews.com cnn.com foxnews.com www.theguardian.com" | out-file -encoding UTF8 -append hosts
 ```
 
 <br>
