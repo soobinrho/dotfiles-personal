@@ -217,7 +217,7 @@ sudo dpkg-reconfigure -plow unattended-upgrades
 sudo apt update -y
 sudo apt upgrade -y
 sudo apt install -y curl tree git git-lfs wipe ffmpeg \
-    jpegoptim irssi fastfetch htop glances asciinema \
+    jpegoptim irssi neofetch htop glances asciinema \
     xournal vlc gimp obs-studio powerstat variety lnav
 
 # Install ripgrep.
