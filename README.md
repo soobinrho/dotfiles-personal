@@ -605,6 +605,17 @@ git config --global delta.navigate 'true'
 
 <br>
 
+## Docker
+
+```bash
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh ./get-docker.sh
+sudo groupadd docker
+sudo usermod -aG docker $USER
+```
+
+<br>
+
 ## Version Control (Git)
 
 ```bash
