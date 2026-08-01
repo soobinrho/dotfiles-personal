@@ -375,8 +375,9 @@ cp dotfiles-personal/home/soobinrho/widget_ip ~/
 
 ## Windows Setup
 
+0. Remove all bloatwares.
 1. Enable disk-level encryption using Bitlocker.
-2. Install Nvidia driver.
+2. Install hardware drivers.
 3. Install Chrome.
 4. Run Windows Updates to install every available update.
 5. Install Motu M2 driver.
