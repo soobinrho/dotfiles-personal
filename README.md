@@ -375,17 +375,17 @@ cp dotfiles-personal/home/soobinrho/widget_ip ~/
 
 ## Windows Setup
 
-0. Remove all bloatwares.
-1. Enable disk-level encryption using Bitlocker.
-2. Install hardware drivers.
-3. Install Chrome.
-4. Run Windows Updates to install every available update.
-5. Install Motu M2 driver.
-6. Install VS Code. Install Black Formatter extension for Python formatting. Turn on format on save. Install [VS Code DevContainers](https://code.visualstudio.com/docs/devcontainers/containers) for security.
-7. Install WSL. `Turn Windows features on or off` and then enable `Windows Hypervisor Platform` and `Windows Subsystem for Linux`.
-8. Install Windows Sandbox from `Turn Windows features on or off`. It's useful for investigations.
-9. Windows Terminal - Settings - Appearance - Background opacity 95%.
-10. Install my favorite utilities:
+0. Remove all bloatwares. `regedit` and delete `LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run Name = Logitech Download Assistant`.
+2. Enable disk-level encryption using Bitlocker.
+3. Install hardware drivers.
+4. Install Chrome.
+5. Run Windows Updates to install every available update.
+6. Install Motu M2 driver.
+7. Install VS Code. Install Black Formatter extension for Python formatting. Turn on format on save. Install [VS Code DevContainers](https://code.visualstudio.com/docs/devcontainers/containers) for security.
+8. Install WSL. `Turn Windows features on or off` and then enable `Windows Hypervisor Platform` and `Windows Subsystem for Linux`.
+9. Install Windows Sandbox from `Turn Windows features on or off`. It's useful for investigations.
+10. Windows Terminal - Settings - Appearance - Background opacity 95%.
+11. Install my favorite utilities:
 
 ```powershell
 # Get neovim from https://neovim.io/doc/install/
