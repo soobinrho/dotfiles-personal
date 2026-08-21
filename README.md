@@ -375,16 +375,41 @@ cp dotfiles-personal/home/soobinrho/widget_ip ~/
 
 ## Windows Setup
 
-0. Remove all bloatwares. `regedit` and delete `LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run Name = Logitech Download Assistant`.
-1. Enable disk-level encryption using Bitlocker.
-2. Update Windows.
-3. Install hardware drivers.
-4. Install Chrome.
-5. Install VS Code.
-6. Install WSL. `Turn Windows features on or off` and then enable `Windows Hypervisor Platform` and `Windows Subsystem for Linux`.
-7. Install Windows Sandbox from `Turn Windows features on or off`. It's useful for investigations.
-8. Windows Terminal - Settings - Appearance - Background opacity 95%.
-9. Install my favorite utilities shown below.
+0. Remove all unrequired softwares.
+
+```pwsh
+# Remove Windows Bloatwares.
+Get-AppxPackage -allusers *communications* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *CandyCrushSaga* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *CandyCrushSodaSaga* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Feedback* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *officehub* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *outlook* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *solitairecollection* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *bing* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *gamingapp* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *msteams* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -AllUsers *Copilot* | Remove-AppxPackage -AllUsers
+
+# Configure user access control. The first user account (and the only admin account should be admin-soobin).
+net user soobinrho /add
+net user anonymous /add
+net user anonymous-guests /add
+
+# Open regedit and paste this to the address bar:
+#   Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+# Then, delete `Logitech Download Assistant`
+```
+
+2. Enable disk-level encryption using Bitlocker.
+3. Update Windows.
+4. Install hardware drivers.
+5. Install Chrome.
+6. Install VS Code.
+7. Install WSL. `Turn Windows features on or off` and then enable `Windows Hypervisor Platform` and `Windows Subsystem for Linux`.
+8. Install Windows Sandbox from `Turn Windows features on or off`. It's useful for investigations.
+9. Windows Terminal - Settings - Appearance - Background opacity 95%.
+10. Install my favorite utilities shown below.
 
 ```powershell
 # Get neovim from https://neovim.io/doc/install/
