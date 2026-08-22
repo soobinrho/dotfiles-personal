@@ -391,14 +391,24 @@ Get-AppxPackage -allusers *gamingapp* | Remove-AppxPackage -AllUsers
 Get-AppxPackage -allusers *msteams* | Remove-AppxPackage -AllUsers
 Get-AppxPackage -AllUsers *Copilot* | Remove-AppxPackage -AllUsers
 
+# Disable Windows' Welcome message for new users.
+$path_winlogon = "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon"
+if (-not (Test-Path $path_winlogon)) { New-Item -Path $path_winlogon -Force }
+New-ItemProperty -Path $path_winlogon -Name "EnableFirstLogonAnimation" -Value 0 -PropertyType DWORD -Force | Out-Null
+
+$path_oobe = "HKLM:\SOFTWARE\Policies\Microsoft\Windows"
+if (-not (Test-Path $path_oobe)) { New-Item -Path $path_oobe -Force }
+New-ItemProperty -Path $path_oobe -Name "DisablePrivacyExperience" -Value 1 -PropertyType DWORD -Force | Out-Null
+New-ItemProperty -Path $path_oobe -Name "PrivacyConsentStatus" -Value 1 -PropertyType DWORD -Force | Out-Null
+
 # Configure user access control. The first user account (and the only admin account should be admin-soobin).
 net user soobinrho /add
 net user anonymous /add
 net user anonymous-guests /add
 
-# Open regedit and paste this to the address bar:
-#   Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
-# Then, delete `Logitech Download Assistant`
+# Remove the Logitech bloatware.
+$path_bloat = "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run"
+if ((Get-Item $path_bloat).Property -contains "Logitech Download Assistant") { Remove-ItemProperty -Path $path_bloat -Name "Logitech Download Assistant" }
 ```
 
 2. Enable disk-level encryption using Bitlocker.
