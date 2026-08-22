@@ -373,12 +373,20 @@ cp dotfiles-personal/home/soobinrho/widget_ip ~/
 
 <br>
 
+## Windows Installation Guidelines
+
+- Use `oobe\bypassnro` at startup if stuck with wifi driver issues.
+- Alternatively, to solve the root cause, download all critical drivers from https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-p-series-laptops/thinkpad-p14s-gen-6-type-21qt-21qu/downloads/driver-list and extract to a folder. Copy that folder into the installation USB. When Windows first boots in and is not able to find a drive, it will give you an option to install all drivers in a specific dir.
+- To avoid my `C:\Users` folder from being truncated by Windows to `soobi`, create a local user without MS account first; set the username to `soobinrho`; and finally link the account to Microsoft.
+
+<br>
+
 ## Windows Setup
 
 0. Remove all unrequired softwares.
 
 ```pwsh
-# Remove Windows Bloatwares.
+# Note that Copilot, Onedrive, and Xbox Live need to be deleted manually from Settings.
 Get-AppxPackage -allusers *communications* | Remove-AppxPackage -allusers
 Get-AppxPackage -allusers *CandyCrushSaga* | Remove-AppxPackage -allusers
 Get-AppxPackage -allusers *CandyCrushSodaSaga* | Remove-AppxPackage -allusers
