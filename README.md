@@ -244,6 +244,17 @@ sudo apt remove -y nano
 
 ## Kali Linux Setup
 
+Avoid creating a Kali Linux installation USB from Windows because Defender will most likely corrupt the installation files.
+Instead, create it from a Linux system following https://www.kali.org/docs/usb/live-usb-install-with-linux/
+
+```bash
+# Example. Follow the link above for most up-to-date guidelines.
+sudo fdisk -l
+sudo dd if=kali-linux-amd64.iso of=/dev/sdc conv=fsync bs=4M status=progress
+```
+
+<br>
+
 ### Error: "There was a problem reading data"
 
 When installing, I encountered the error "There was a problem reading data."
