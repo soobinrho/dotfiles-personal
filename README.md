@@ -379,27 +379,26 @@ cp dotfiles-personal/home/soobinrho/widget_ip ~/
 
 ```pwsh
 # Remove Windows Bloatwares.
-Get-AppxPackage -allusers *communications* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *CandyCrushSaga* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *CandyCrushSodaSaga* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Feedback* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *officehub* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *outlook* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *solitairecollection* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *bing* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *gamingapp* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *msteams* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -AllUsers *Copilot* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *communications* | Remove-AppxPackage -allusers
+Get-AppxPackage -allusers *CandyCrushSaga* | Remove-AppxPackage -allusers
+Get-AppxPackage -allusers *CandyCrushSodaSaga* | Remove-AppxPackage -allusers
+Get-AppxPackage -allusers *Feedback* | Remove-AppxPackage -allusers
+Get-AppxPackage -allusers *officehub* | Remove-AppxPackage -allusers
+Get-AppxPackage -allusers *outlook* | Remove-AppxPackage -allusers
+Get-AppxPackage -allusers *solitairecollection* | Remove-AppxPackage -allusers
+Get-AppxPackage -allusers *bing* | Remove-AppxPackage -allusers
+Get-AppxPackage -allusers *gamingapp* | Remove-AppxPackage -allusers
+Get-AppxPackage -allusers *msteams* | Remove-AppxPackage -allusers
 
 # Disable Windows' Welcome message for new users.
 $path_winlogon = "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon"
 if (-not (Test-Path $path_winlogon)) { New-Item -Path $path_winlogon -Force }
-New-ItemProperty -Path $path_winlogon -Name "EnableFirstLogonAnimation" -Value 0 -PropertyType DWORD -Force | Out-Null
+New-ItemProperty -Path $path_winlogon -Name "EnableFirstLogonAnimation" -Value 0 -PropertyType DWORD -Force
 
 $path_oobe = "HKLM:\SOFTWARE\Policies\Microsoft\Windows"
 if (-not (Test-Path $path_oobe)) { New-Item -Path $path_oobe -Force }
-New-ItemProperty -Path $path_oobe -Name "DisablePrivacyExperience" -Value 1 -PropertyType DWORD -Force | Out-Null
-New-ItemProperty -Path $path_oobe -Name "PrivacyConsentStatus" -Value 1 -PropertyType DWORD -Force | Out-Null
+New-ItemProperty -Path $path_oobe -Name "DisablePrivacyExperience" -Value 1 -PropertyType DWORD -Force
+New-ItemProperty -Path $path_oobe -Name "PrivacyConsentStatus" -Value 1 -PropertyType DWORD -Force
 
 # Configure user access control. The first user account (and the only admin account should be admin-soobin).
 net user soobinrho /add
