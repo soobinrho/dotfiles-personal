@@ -255,63 +255,6 @@ sudo dd if=kali-linux-amd64.iso of=/dev/sdc conv=fsync bs=4M status=progress
 
 <br>
 
-### Error: "There was a problem reading data"
-
-When installing, I encountered the error "There was a problem reading data."
-The fix was to mount the installtion USB's partition manually with shell from Ctrl + Alt + 3.
-After running the following, return to the installation interface with Ctrl + Alt + 5.
-
-```bash
-# Source: https://unix.stackexchange.com/a/473883
-ls /dev
-mount /dev/sdb1 /cdrom
-```
-
-<br>
-
-### Error: No desktop manager after installation with disk encryption
-
-This error was caused after I installed Kali on my desktop.
-The desktop manager xfce wouldn't load at all and instead get stuck in an infinite underscore blinking.
-Fix was to Ctrl + alt + F1 and then:
-
-```bash
-sudo apt update; sudo apt upgrade -y && reboot
-```
-
-<br>
-
-### Nvidia Driver
-
-At least at the time of this writing, `linux-image-6.16.8` was not compatible with the Nvidia driver.
-So, I downgraded to a previous version of kernel to make it work.
-
-```bash
-uname -r
-sudo apt-mark hold 6.12.38  # sudo apt-mark unhold 6.12.38 in the future if needed.
-sudo apt update
-sudo apt full-upgrade -y
-dpkg -l | grep linux-image
-sudo apt purge linux-image-6.16.8+kali-amd64
-reboot
-
-# Download: https://kali.download/kali/pool/main/l/linux/
-sudo apt install ./linux-kbuild-6.12.38+kali_6.12.38-1kali1_amd64.deb
-sudo apt install ./linux-headers-6.12.38+kali-common_6.12.38-1kali1_all.deb
-sudo apt install ./linux-headers-6.12.38+kali-amd64_6.12.38-1kali1_amd64.deb
-
-# Download: https://in.download.nvidia.com/XFree86/Linux-x86_64/570.153.02/NVIDIA-Linux-x86_64-570.153.02.run
-chmod +x ./NVIDIA-Linux-x86_64-570.153.02.run
-sudo ./NVIDIA-Linux-x86_64-570.153.02.run
-reboot
-sudo apt install pkg-config
-sudo nvidia-settings
-hashcat -I
-watch -d -n 0.5 nvidia-smi
-```
-
-<br>
-
 ```bash
 # How to reduce grub timeout from 5 seconds to 1 second.
 sudo sed -i -e 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=1/g' /etc/default/grub
@@ -320,6 +263,9 @@ sudo update-grub
 # How to restore my taskbar setup.
 cp ./home/soobinrho/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
 reboot
+
+# Enable the HiDPI mode.
+kali-hidpi-mode enable
 
 # How to open up system information on startup.
 sudo apt install -y konsole
@@ -380,6 +326,63 @@ cp dotfiles-personal/home/soobinrho/widget_ip ~/
 # ./Fonts > Default Monospace Font 14px
 # ./Style > Kali-Dark
 # ./Icons > Flat-Remix-Green-Dark
+```
+
+<br>
+
+### Error: "There was a problem reading data"
+
+When installing, I encountered the error "There was a problem reading data."
+The fix was to mount the installtion USB's partition manually with shell from Ctrl + Alt + 3.
+After running the following, return to the installation interface with Ctrl + Alt + 5.
+
+```bash
+# Source: https://unix.stackexchange.com/a/473883
+ls /dev
+mount /dev/sdb1 /cdrom
+```
+
+<br>
+
+### Error: No desktop manager after installation with disk encryption
+
+This error was caused after I installed Kali on my desktop.
+The desktop manager xfce wouldn't load at all and instead get stuck in an infinite underscore blinking.
+Fix was to Ctrl + alt + F1 and then:
+
+```bash
+sudo apt update; sudo apt upgrade -y && reboot
+```
+
+<br>
+
+### Nvidia Driver
+
+At least at the time of this writing, `linux-image-6.16.8` was not compatible with the Nvidia driver.
+So, I downgraded to a previous version of kernel to make it work.
+
+```bash
+uname -r
+sudo apt-mark hold 6.12.38  # sudo apt-mark unhold 6.12.38 in the future if needed.
+sudo apt update
+sudo apt full-upgrade -y
+dpkg -l | grep linux-image
+sudo apt purge linux-image-6.16.8+kali-amd64
+reboot
+
+# Download: https://kali.download/kali/pool/main/l/linux/
+sudo apt install ./linux-kbuild-6.12.38+kali_6.12.38-1kali1_amd64.deb
+sudo apt install ./linux-headers-6.12.38+kali-common_6.12.38-1kali1_all.deb
+sudo apt install ./linux-headers-6.12.38+kali-amd64_6.12.38-1kali1_amd64.deb
+
+# Download: https://in.download.nvidia.com/XFree86/Linux-x86_64/570.153.02/NVIDIA-Linux-x86_64-570.153.02.run
+chmod +x ./NVIDIA-Linux-x86_64-570.153.02.run
+sudo ./NVIDIA-Linux-x86_64-570.153.02.run
+reboot
+sudo apt install pkg-config
+sudo nvidia-settings
+hashcat -I
+watch -d -n 0.5 nvidia-smi
 ```
 
 <br>
