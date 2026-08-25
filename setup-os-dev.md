@@ -32,7 +32,7 @@ export PATH_SETUP_OS_DEV_LOG='setup-os-dev.log'
 
 echo '[INFO] Upgrading the system packages...'
 sudo apt update &>> $PATH_SETUP_OS_DEV_LOG
-sudo apt full-upgrade -y &>> $PATH_SETUP_OS_DEV_LOG
+sudo apt upgrade -y &>> $PATH_SETUP_OS_DEV_LOG
 
 echo '[INFO] Installing my favorite tools...'
 sudo apt install -y \
