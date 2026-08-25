@@ -31,6 +31,29 @@ sudo update-grub >> $PATH_SETUP_OS_CYBERSECURITY_LOG
 echo '[INFO] Enabling the HiDPI mode...'
 kali-hidpi-mode enable &>> $PATH_SETUP_OS_CYBERSECURITY_LOG
 
+echo '[INFO] Installing my favorite tools...'
+sudo apt install -y \
+  tmux \
+  git-delta \
+  ripgrep \
+  gh \
+  bat \
+  curl \
+  tree \
+  wget \
+  git \
+  git-lfs \
+  wipe \
+  ffmpeg \
+  jpegoptim \
+  xournal \
+  neofetch \
+  htop \
+  glances \
+  powerstat \
+  lnav \
+  &>> $PATH_SETUP_OS_CYBERSECURITY_LOG
+
 echo '[INFO] Setting up git...'
 git config --global user.name 'Soobin Rho'
 git config --global user.email 'soobinrho@gmail.com'
@@ -41,8 +64,19 @@ git config --global alias.s 'status'
 git config --global alias.l 'log --pretty=oneline --graph --abbrev-commit'
 git config --global alias.lp 'log --patch'
 
-echo '[INFO] Installing my favorite tools...'
-sudo apt install -y tmux git-delta ripgrep gh &>> $PATH_SETUP_OS_CYBERSECURITY_LOG
+echo '[INFO] Uninstalling nano so that vim becomes the default...'
+sudo apt remove -y nano &>> $PATH_SETUP_OS_DEV_LOG
+
+echo '[INFO] Setting up bat...'
+mkdir -p ~/.local/bin
+ln -s /usr/bin/batcat ~/.local/bin/bat
+
+echo '[INFO] Installing ncdu...'
+wget https://dev.yorhel.nl/download/ncdu-2.9.1-linux-x86_64.tar.gz &>> $PATH_SETUP_OS_DEV_LOG
+tar xvf ./ncdu*.tar.gz &>> $PATH_SETUP_OS_DEV_LOG
+sudo chmod 755 ./ncdu
+mv ./ncdu ~/.local/bin/
+rm ./ncdu*.tar.gz
 
 echo '[INFO] Installing Docker...'
 curl -fsSL https://get.docker.com -o get-docker.sh &>> $PATH_SETUP_OS_CYBERSECURITY_LOG
