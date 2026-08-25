@@ -60,6 +60,8 @@ net user 'anonymous-guests' /add
 Set-LocalUser -Name 'anonymous' -Password $Password
 ```
 
+<br>
+
 Then, run the code block.
 
 ```pwsh
