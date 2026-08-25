@@ -42,7 +42,7 @@ git config --global alias.l 'log --pretty=oneline --graph --abbrev-commit'
 git config --global alias.lp 'log --patch'
 
 echo '[INFO] Installing my favorite tools...'
-sudo apt install -y tmux git-delta ripgrep &>> $PATH_SETUP_OS_CYBERSECURITY_LOG
+sudo apt install -y tmux git-delta ripgrep gh &>> $PATH_SETUP_OS_CYBERSECURITY_LOG
 
 echo '[INFO] Installing Docker...'
 curl -fsSL https://get.docker.com -o get-docker.sh &>> $PATH_SETUP_OS_CYBERSECURITY_LOG
