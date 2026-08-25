@@ -6,13 +6,7 @@ First, save the following code block as `setup-os-main.psh`.
 $Env:PATH_SETUP_OS_MAIN_LOG = "setup-os-main.log.txt"
 Write-Host "[INFO] Installation log: ""${env:PATH_SETUP_OS_MAIN_LOG}""" -ForegroundColor Green
 
-Write-Host '[INFO] Installing Chocolatey: a package manager for Windows...' -ForegroundColor Green
-Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1')) *>> $env:PATH_SETUP_OS_MAIN_LOG
-
-Write-Host '[INFO] Installing my favorite tools...' -ForegroundColor Green
-choco install -y neovim googlechrome firefox vscode.install *>> $env:PATH_SETUP_OS_MAIN_LOG
-
-Write-Host '[INFO] Installing softwares I don''t need...' -ForegroundColor Green
+Write-Host '[INFO] Uninstalling softwares I don''t need...' -ForegroundColor Green
 Write-Host '[INFO] Note that Copilot, Onedrive, and Xbox Live need to be deleted manually from Settings.' -ForegroundColor Yellow
 Get-AppxPackage -allusers '*communications*' | Remove-AppxPackage -allusers *>> $env:PATH_SETUP_OS_MAIN_LOG
 Get-AppxPackage -allusers '*CandyCrushSaga*' | Remove-AppxPackage -allusers *>> $env:PATH_SETUP_OS_MAIN_LOG
@@ -39,6 +33,15 @@ Write-Host '[INFO] Disabling Logitech''s annoying popus...' -ForegroundColor Gre
 # Remove the Logitech bloatware.
 $path_bloat = 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run'
 if ((Get-Item $path_bloat).Property -contains 'Logitech Download Assistant') { Remove-ItemProperty -Path $path_bloat -Name 'Logitech Download Assistant' *>> $env:PATH_SETUP_OS_MAIN_LOG }
+
+Write-Host '[INFO] Installing WSL...' -ForegroundColor Green
+if (-not (Get-Command wsl -ErrorAction SilentlyContinue)) { wsl --install *>> $env:PATH_SETUP_OS_MAIN_LOG }
+
+Write-Host '[INFO] Installing Chocolatey: a package manager for Windows...' -ForegroundColor Green
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1')) *>> $env:PATH_SETUP_OS_MAIN_LOG
+
+Write-Host '[INFO] Installing my favorite tools...' -ForegroundColor Green
+choco install -y neovim googlechrome firefox vscode.install *>> $env:PATH_SETUP_OS_MAIN_LOG
 
 Write-Host '[INFO] Provisioning appropriate users...' -ForegroundColor Green
 # This assumes that the account you're running this from is `admin-soobin`.
