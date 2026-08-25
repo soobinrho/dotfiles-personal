@@ -32,6 +32,16 @@
 <br>
 <br>
 
+## Fresh Installs
+
+[1.](setup-os-main.md) How to configure fresh `os-main`<br>
+[2.](setup-os-cybersecurity.md) How to configure fresh `os-cybersecurity`<br>
+[3.](setup-os-dev.md) How to configure fresh `os-dev`<br>
+[4.](setup-os-backup.md) How to configure fresh `os-backup`
+
+<br>
+<br>
+
 ## Profile Dotfiles
 
 I use distro specific dotfiles as a baseline and add applicable sections as I go.
@@ -568,6 +578,19 @@ git config --global core.pager 'delta'
 git config --global interactive.diffFilter 'delta'
 git config --global core.pager 'delta'
 git config --global delta.navigate 'true'
+```
+
+<br>
+
+## Ripgrep
+
+```bash
+rg REGEX_TO_SEARCH
+rg -tpy PYTHON_FILES
+rg -Tpy NOT_PYTHON_FILES
+rg -u INCLUDE.GITIGNORED_FILES
+rg -uu INCLUDE.GITIGNORED_FILES_AND_HIDDEN_FILES
+rg -uuu INCLUDE.GITIGNORED_FILES_AND_HIDDEN_FILES_AND_BINARY_FILES
 ```
 
 <br>
