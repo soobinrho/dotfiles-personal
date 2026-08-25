@@ -40,6 +40,15 @@
 [4.](setup-os-backup.md) How to configure fresh `os-backup`
 
 <br>
+
+| Hostname | Purpose |
+| -------- | ------- |
+| `os-main` | A Windows instance used for my main tasks. |
+| `os-cybersecurity` | A Kali Linux instance used for cybersecurity tasks. |
+| `os-dev` | An Ubuntu instance as a VM inside `os-main` with [Quickemu](https://github.com/quickemu-project) for all development tasks. Isolated as a VM to mitigate the risk of supply-chain attacks. Treat as DMZ. This system must not have access to any of my sensitive information including my Google account, GitHub credentials, etc. |
+| `os-backup` | An Ubuntu instance storing my offline backup files in case of failure in my cloud backups. |
+
+<br>
 <br>
 
 ## Profile Dotfiles
