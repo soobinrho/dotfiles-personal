@@ -13,7 +13,7 @@ sudo dd if=kali-linux-amd64.iso of=/dev/sdc conv=fsync bs=4M status=progress
 
 <br>
 
-After installation, save the following code block as `setup-os-main.sh`.
+After installation, save the following code block as `setup-os-cybersecurity.sh`.
 
 ```bash
 #!/usr/bin/env bash
@@ -65,8 +65,8 @@ fi
 Then, run the code block.
 
 ```pwsh
-sudo chmod +x ./setup-os-main.sh
-./setup-os-main.sh
+sudo chmod +x ./setup-os-cybersecurity.sh
+./setup-os-cybersecurity.sh
 ```
 
 <br>
