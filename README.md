@@ -195,23 +195,6 @@ Get-Content .\uv.toml | Set-Content -Encoding utf8 ./uv.utf8.toml
 
 <br>
 
-### Zsh
-
-```bash
-# Install zsh4humans: A preconfigured framework for Zsh.
-# It aims to have everything ready to be used out of the box.
-if command -v curl >/dev/null 2>&1; then
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/romkatv/zsh4humans/v5/install)"
-else
-  sh -c "$(wget -O- https://raw.githubusercontent.com/romkatv/zsh4humans/v5/install)"
-fi
-
-# If new panes in Tmux opens bash and fails to open zsh:
-sudo ln -s /usr/local/bin/zsh /bin/zsh
-```
-
-<br>
-
 ### Tmux
 
 ```bash
