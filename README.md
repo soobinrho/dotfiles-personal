@@ -480,6 +480,13 @@ git shortlog -sn --no-merges
 
 # Where are the current bugs?
 git log -i -E --grep="fix|bug|broken|todo" --name-only --format='' | sort | uniq -c | sort -nr | head -20
+
+# ---------------------------------------------------------------------
+# How to download the latest from a GitHub Releases page.
+# Source:
+#   https://stackoverflow.com/a/26738019
+# ---------------------------------------------------------------------
+wget $(curl -sL https://api.github.com/repos/VirusTotal/vt-cli/releases/latest | grep browser_download_url | grep 'Linux64.zip' | cut -d '"' -f 4)
 ```
 
 <br>
