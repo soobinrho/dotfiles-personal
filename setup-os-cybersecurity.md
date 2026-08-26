@@ -53,6 +53,7 @@ sudo apt install -y \
   powerstat \
   lnav \
   eza \
+  zoxide \
   &>> $PATH_SETUP_OS_CYBERSECURITY_LOG
 
 echo '[INFO] Setting up git...'
