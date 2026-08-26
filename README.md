@@ -139,8 +139,6 @@ sudo dnf remove power-profiles-daemon  # Fedora only
 systemctl enable tlp.service  # Fedora only
 systemctl mask systemd-rfkill.service systemd-rfkill.socket  # Fedora only
 
-sudo add-apt-repository ppa:linrunner/tlp  # Ubuntu only
-sudo apt update -y  # Ubuntu only
 sudo apt install -y tlp tlp-rdw  # Ubuntu only
 
 # For Kali, build from source: https://linrunner.de/tlp/installation/others.html
