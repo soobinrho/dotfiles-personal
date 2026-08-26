@@ -32,7 +32,7 @@
 <br>
 <br>
 
-## Fresh Installs
+## Procedures for Fresh Installs
 
 [1.](setup-os-main.md) How to configure fresh `os-main`<br>
 [2.](setup-os-cybersecurity.md) How to configure fresh `os-cybersecurity`<br>
