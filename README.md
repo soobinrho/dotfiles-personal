@@ -899,7 +899,7 @@ hexdump -b <file name>
 # ---------------------------------------------------------------------
 # Alacritty is a fast OpenGL terminal emulator.
 sudo dnf install -y alacritty  # Fedora
-sudo snap install alacritty --classic  # Ubuntu
+sudo apt install -y alacritty  # Ubuntu
 
 # Apply my Alacritty configs.
 wget https://raw.githubusercontent.com/soobinrho/dotfiles-personal/refs/heads/main/home/soobinrho/.config/alacritty/alacritty.toml
