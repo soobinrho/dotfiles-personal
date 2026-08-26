@@ -1,3 +1,5 @@
+[Go Back to Homepage](https://github.com/soobinrho/dotfiles-personal/tree/main#procedures-for-fresh-installs)
+
 <br>
 
 ## How to configure fresh `os-backup`
