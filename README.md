@@ -906,8 +906,8 @@ mv ./alacritty.toml ~/.config/alacritty/
 # vt-cli (VirusTotal CLI) workflows.
 # ---------------------------------------------------------------------
 # Install vt-cli from:
-#   https://github.com/VirusTotal/vt-cli/releases
-wget https://github.com/VirusTotal/vt-cli/releases/download/1.0.1/Linux64.zip
+#   https://github.com/VirusTotal/vt-cli/releases/latest
+wget $(curl -sL https://api.github.com/repos/VirusTotal/vt-cli/releases/latest | grep browser_download_url | grep 'Linux64.zip' | cut -d '"' -f 4)
 unzip Linux64.zip
 sudo mv vt /usr/local/bin/
 
