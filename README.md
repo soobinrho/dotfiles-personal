@@ -490,7 +490,7 @@ git log -i -E --grep="fix|bug|broken|todo" --name-only --format='' | sort | uniq
 # Install nvm: Node version manager from https://github.com/nvm-sh/nvm?tab=readme-ov-file#install--update-script
 # After installing nvm, close and reopen terminal,
 # in order for new paths to take effect.
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/refs/heads/master/install.sh | bash
 
 # Install Node.js
 nvm install node
