@@ -43,7 +43,7 @@ Write-Host '[INFO] Installing Chocolatey: a package manager for Windows...' -For
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1')) *>> $env:PATH_SETUP_OS_MAIN_LOG
 
 Write-Host '[INFO] Installing my favorite tools...' -ForegroundColor Green
-choco install -y neovim googlechrome firefox vscode.install *>> $env:PATH_SETUP_OS_MAIN_LOG
+choco install -y neovim googlechrome firefox vscode.install 7zip.install rufus sqlite git git-lfs.install *>> $env:PATH_SETUP_OS_MAIN_LOG
 
 Write-Host '[INFO] Provisioning appropriate users...' -ForegroundColor Green
 # This assumes that the account you're running this from is `admin-soobin`.
