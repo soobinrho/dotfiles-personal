@@ -73,6 +73,10 @@ zstyle ':z4h:' start-tmux command tmux new-session
 HISTSIZE=10000000
 HISTFILESIZE=10000000
 
+# Use bat for manuals.
+# Source: https://youtu.be/J0m_iHOTAY4?si=9A7_pkS3x0fB9-Gu
+export MANPAGER="bat -l man -p"
+
 # Gather history from multiple temrinals.
 # Source: https://askubuntu.com/a/80380
 export PROMPT_COMMAND='history -a'
@@ -96,6 +100,10 @@ if [[ -n $SSH_CONNECTION ]]; then
 else
   export EDITOR='nvim'
 fi
+
+# Zoxide makes `cd` much easier for long paths.
+# Reference: https://github.com/ajeetdsouza/zoxide
+eval "$(zoxide init zsh)"
 ```
 
 <br>
