@@ -2,25 +2,15 @@
 
 ## How to configure fresh `os-dev`
 
-Use Quickemu to install `os-dev` as a VM.
+First, use VMware or VirtualBox to install an Ubuntu VM.
 
 ```bash
-# Reference: https://github.com/quickemu-project/quickemu/wiki/01-Installation
-sudo apt update
-sudo apt upgrade -y
-sudo apt install quickemu qemu-system-modules-spice
-quickget ubuntu
-quickemu --vm ubuntu*.conf
-
 # Install OpenSSH server inside `os-dev`.
 sudo apt update
 sudo apt upgrade -y
 sudo apt install openssh-server -y
 sudo systemctl status ssh
 ssh -p 22220 soobinrho@localhost
-
-# TODO: Schedule `os-dev` to run at startup.
-quickemu --vm ubuntu*.conf --display none
 ```
 
 After installation, save the following code block as `setup-os-dev.sh`.
@@ -110,6 +100,26 @@ Then, run the code block.
 ```pwsh
 sudo chmod +x ./setup-os-dev.sh
 ./setup-os-dev.sh
+```
+
+<br>
+
+## Notes
+
+### How to create a per-project VM for security
+
+Even though `os-dev` is itself isolated from `os-main`, implement further security control to prevent dependencies in one project from compromising all other projects by isolating every project.
+
+```bash
+# Reference: https://github.com/quickemu-project/quickemu/wiki/01-Installation
+sudo apt update
+sudo apt upgrade -y
+sudo apt install quickemu qemu-system-modules-spice
+quickget ubuntu
+quickemu --vm ubuntu*.conf
+
+# TODO: Schedule it to run at startup.
+quickemu --vm ubuntu*.conf --display none
 ```
 
 <br>
