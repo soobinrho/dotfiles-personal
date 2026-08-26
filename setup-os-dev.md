@@ -5,16 +5,6 @@
 ## How to configure fresh `os-dev`
 
 First, use VMware or VirtualBox to install an Ubuntu VM.
-
-```bash
-# Install OpenSSH server inside `os-dev`.
-sudo apt update
-sudo apt upgrade -y
-sudo apt install openssh-server -y
-sudo systemctl status ssh
-ssh -p 22220 soobinrho@localhost
-```
-
 After installation, save the following code block as `setup-os-dev.sh`.
 
 ```bash
@@ -81,6 +71,10 @@ sudo sh ./get-docker.sh &>> $PATH_SETUP_OS_DEV_LOG
 sudo groupadd docker
 sudo usermod -aG docker $USER
 
+echo '[INFO] Installing an SSH server...'
+sudo apt install openssh-server -y &>> $PATH_SETUP_OS_DEV_LOG
+sudo systemctl status ssh &>> $PATH_SETUP_OS_DEV_LOG
+
 echo '[INFO] Enabling auto updates to get the security patches regularly...'
 sudo apt install -y unattended-upgrades &>> $PATH_SETUP_OS_DEV_LOG
 sudo dpkg-reconfigure -plow unattended-upgrades
@@ -119,6 +113,13 @@ sudo apt upgrade -y
 sudo apt install quickemu qemu-system-modules-spice
 quickget ubuntu
 quickemu --vm ubuntu*.conf
+
+# Install OpenSSH server inside the VM.
+sudo apt update
+sudo apt upgrade -y
+sudo apt install openssh-server -y
+sudo systemctl status ssh
+ssh -p 22220 soobinrho@localhost
 
 # TODO: Schedule it to run at startup.
 quickemu --vm ubuntu*.conf --display none
