@@ -212,7 +212,7 @@ sudo apt install -y tmux  # Ubuntu
 
 # Apply my tmux configs.
 wget https://raw.githubusercontent.com/soobinrho/dotfiles-personal/refs/heads/main/home/soobinrho/.tmux.conf
-cp ./.tmux.conf ~/
+mv ./.tmux.conf ~/
 
 # Install the plugin manager.
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -895,10 +895,9 @@ sudo dnf install -y alacritty  # Fedora
 sudo snap install alacritty --classic  # Ubuntu
 
 # Apply my Alacritty configs.
-git clone https://github.com/soobinrho/dotfiles-personal.git
-cd /dotfiles-personal/home/soobinrho
+wget https://raw.githubusercontent.com/soobinrho/dotfiles-personal/refs/heads/main/home/soobinrho/.config/alacritty/alacritty.toml
 mkdir -p ~/.config/alacritty
-cp ./.config/alacritty/* ~/.config/alacritty/
+mv ./alacritty.toml ~/.config/alacritty/
 
 # Go to Shortcuts settings and unbind Konsole's Ctrl + Alt + t shortcut.
 # Bind alacritty to Ctrl + Alt + t.
