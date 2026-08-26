@@ -111,7 +111,8 @@ sudo chmod +x ./setup-os-cybersecurity.sh
 
 ```bash
 # How to restore my taskbar setup.
-cp ./home/soobinrho/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
+wget https://raw.githubusercontent.com/soobinrho/dotfiles-personal/refs/heads/main/home/soobinrho/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
+mv ./xfce4-panel.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
 reboot
 
 # How to check network connectivity status.
