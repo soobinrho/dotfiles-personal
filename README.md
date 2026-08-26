@@ -211,8 +211,7 @@ sudo dnf install -y tmux  # Fedora
 sudo apt install -y tmux  # Ubuntu
 
 # Apply my tmux configs.
-git clone https://github.com/soobinrho/dotfiles-personal.git
-cd /dotfiles-personal/home/soobinrho
+wget https://raw.githubusercontent.com/soobinrho/dotfiles-personal/refs/heads/main/home/soobinrho/.tmux.conf
 cp ./.tmux.conf ~/
 
 # Install the plugin manager.
