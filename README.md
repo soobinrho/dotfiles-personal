@@ -94,6 +94,11 @@ alias dockerrm="docker ps -aq | xargs docker stop | xargs docker rm"
 alias dockervolumerm="docker volume ls -q | xargs docker volume rm"
 alias dockerrmi="docker images -q | xargs docker rmi -f"
 
+# Soruce: https://youtu.be/J0m_iHOTAY4?si=8feHtV51SHfeuUuF&t=355
+alias ls='eza --icons'
+alias ll='eza --icons --lh --git'
+alias la='eza --icons --lah --git'
+
 # Preferred editor for local and remote sessions.
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='nvim'
