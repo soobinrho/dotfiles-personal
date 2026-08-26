@@ -292,8 +292,8 @@ tmux new-session
 
 ```bash
 # Install Neovim.
-# Download .appimage from https://github.com/neovim/neovim/releases
-sudo chmod u+x nvim-linux-x86_64.appimage
+wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux-x86_64.appimage
+sudo chmod u+x ./nvim-linux-x86_64.appimage
 sudo mkdir -p /opt/nvim
 sudo mv nvim-linux-x86_64.appimage /opt/nvim/nvim
 # add `export PATH="$PATH:/opt/nvim/"` to the profile dotfile.
