@@ -55,6 +55,7 @@ sudo apt install -y \
   glances \
   powerstat \
   lnav \
+  eza \
   &>> $PATH_SETUP_OS_DEV_LOG
 
 echo '[INFO] Setting up git...'
