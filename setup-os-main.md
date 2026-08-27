@@ -4,7 +4,10 @@
 
 ## How to configure fresh `os-main`
 
-First, save the following code block as `setup-os-main.psh`.
+The first account I want to create in `os-main` is `admin-soobin`, but Windows normally doesn't allow you to create your first account without linking to a Microsoft account.
+So, at first login bypass this restriction with `Shift + F10` and `start ms-cxh:localonly`.
+
+Then, after creating the `admin-soobin` account and logging in, save the following code block as `setup-os-main.psh`.
 
 ```pwsh
 $Env:PATH_SETUP_OS_MAIN_LOG = "setup-os-main.log.txt"
