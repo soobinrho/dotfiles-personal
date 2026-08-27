@@ -7,7 +7,7 @@
 The first account I want to create in `os-main` is `admin-soobin`, but Windows normally doesn't allow you to create your first account without linking to a Microsoft account.
 So, at first login bypass this restriction with `Shift + F10` and `start ms-cxh:localonly`.
 
-Then, after creating the `admin-soobin` account and logging in, save the following code block as `setup-os-main.psh`.
+Then, after creating the `admin-soobin` account, save the following code block as `setup-os-main.psh`.
 
 ```pwsh
 $Env:PATH_SETUP_OS_MAIN_LOG = "setup-os-main.log.txt"
@@ -27,7 +27,7 @@ Get-AppxPackage -allusers '*gamingapp*' | Remove-AppxPackage -allusers *>> $env:
 Get-AppxPackage -allusers '*msteams*' | Remove-AppxPackage -allusers *>> $env:PATH_SETUP_OS_MAIN_LOG
 
 Write-Host '[INFO] Disabling Windows'' Welcome message for new users...' -ForegroundColor Green
-$path_winlogon = 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon' *>> $env:PATH_SETUP_OS_MAIN_LOG
+$path_winlogon = 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon'
 if (-not (Test-Path $path_winlogon)) { New-Item -Path $path_winlogon -Force *>> $env:PATH_SETUP_OS_MAIN_LOG }
 New-ItemProperty -Path $path_winlogon -Name 'EnableFirstLogonAnimation' -Value 0 -PropertyType DWORD -Force *>> $env:PATH_SETUP_OS_MAIN_LOG
 
@@ -36,7 +36,7 @@ if (-not (Test-Path $path_oobe)) { New-Item -Path $path_oobe -Force *>> $env:PAT
 New-ItemProperty -Path $path_oobe -Name 'DisablePrivacyExperience' -Value 1 -PropertyType DWORD -Force *>> $env:PATH_SETUP_OS_MAIN_LOG
 New-ItemProperty -Path $path_oobe -Name 'PrivacyConsentStatus' -Value 1 -PropertyType DWORD -Force *>> $env:PATH_SETUP_OS_MAIN_LOG
 
-Write-Host '[INFO] Disabling Logitech''s annoying popus...' -ForegroundColor Green
+Write-Host '[INFO] Disabling Logitech''s annoying popups...' -ForegroundColor Green
 # Remove the Logitech bloatware.
 $path_bloat = 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run'
 if ((Get-Item $path_bloat).Property -contains 'Logitech Download Assistant') { Remove-ItemProperty -Path $path_bloat -Name 'Logitech Download Assistant' *>> $env:PATH_SETUP_OS_MAIN_LOG }
@@ -67,7 +67,7 @@ Set-LocalUser -Name 'anonymous' -Password $Password
 
 <br>
 
-Then, run the code block.
+Then, run the code block on a terminal with an admin privilege.
 
 ```pwsh
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine -Force
