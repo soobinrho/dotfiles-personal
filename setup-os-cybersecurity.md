@@ -4,7 +4,7 @@
 
 ## How to configure fresh `os-cybersecurity`
 
-I've switched over from Kali to Ubuntu because Ubuntu supports ThinkPad P1 G3 Gen 9's wifi chip out of the box.
+I've switched over from Kali to Ubuntu because Ubuntu supports Thinkpad P1 Gen 9's wifi chip out of the box.
 Download an Ubuntu LTS image, use Rufus to write the image onto a USB drive.
 Under the secure boot section of the Thinkpad BIOS, enable "Microsoft 3rd Party CA" so that Ubuntu can be used with secure boot.
 
