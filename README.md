@@ -967,6 +967,57 @@ reboot
 # Ctrl + x and then Windows PowerShell (Admin)
 cd C:\Windows\System32\drivers\etc
 "`n127.0.0.1 news.ycombinator.com www.linkedin.com www.reddit.com reddit.com amazon.com ebay.com apnews.com www.bbc.com cnn.com www.foxnews.com www.theguardian.com" | out-file -encoding UTF8 -append hosts
+
+# ---------------------------------------------------------------------
+# How to check network connectivity status.
+# ---------------------------------------------------------------------
+sudo nmcli general status
+sudo nmcli radio all
+sudo nmcli connection
+sudo netstat --route --numeric
+
+# ---------------------------------------------------------------------
+# How to connect to a Wifi from terminal.
+# ---------------------------------------------------------------------
+sudo nmcli device wifi list
+sudo nmcli device wifi connect <SSID> --ask
+
+# ---------------------------------------------------------------------
+# How to move over files from a USB.
+# ---------------------------------------------------------------------
+mkdir ~/usb
+sudo mount /dev/sda3 ~/usb
+rsync --progress -ua ~/usb/2025-10-16 ~/
+sudo umount ~/usb
+
+# ---------------------------------------------------------------------
+# How to use `man`.
+# ---------------------------------------------------------------------
+man --all intro  # Show intro manual pages. --all flag shows all manuals instead of just one.
+man --apropos disk  # Search manuals that contain a keyword.
+man --whatis nmcli  # Lookup what a program is.
+
+# ---------------------------------------------------------------------
+# How to open current directory using the registered default program.
+# ---------------------------------------------------------------------
+open .
+
+# ---------------------------------------------------------------------
+# How to find a folder with its name.
+# ---------------------------------------------------------------------
+locate /FOLDER_NAME
+
+# ---------------------------------------------------------------------
+# How to update the index ofor the `locate` util.
+# ---------------------------------------------------------------------
+# This is automatically run daily by default.
+updatedb
+
+# ---------------------------------------------------------------------
+# How to turn off the mic-mute keyboard backlight.
+# ---------------------------------------------------------------------
+sudo su -
+echo 0 > /sys/class/leds/platform::micmute/brightness
 ```
 
 <br>
