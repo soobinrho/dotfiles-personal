@@ -91,12 +91,16 @@ fi
 
 <br>
 
-Then, run the code block.
+Run the code block.
 
 ```pwsh
 sudo chmod +x ./setup-os-dev.sh
 ./setup-os-dev.sh
 ```
+
+<br>
+
+Then, set up an SSH connection via Windows Terminal: https://learn.microsoft.com/en-us/windows/terminal/tutorials/ssh
 
 <br>
 
