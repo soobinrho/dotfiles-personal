@@ -4,16 +4,14 @@
 
 ## How to configure fresh `os-cybersecurity`
 
-Avoid creating a Kali Linux installation USB from Windows because Defender will most likely corrupt the installation files.
-Instead, create it from a Linux system following https://www.kali.org/docs/usb/live-usb-install-with-linux/
+I've switched over from Kali to Ubuntu because Ubuntu supports ThinkPad P1 G3 Gen 9's wifi chip out of the box.
+Download an Ubuntu LTS image, use Rufus to write the image onto a USB drive.
+Under the secure boot section of the Thinkpad BIOS, enable "Microsoft 3rd Party CA" so that Ubuntu can be used with secure boot.
 
-```bash
-# Example. Follow the link above for most up-to-date guidelines.
-sudo fdisk -l
-sudo dd if=kali-linux-amd64.iso of=/dev/sdc conv=fsync bs=4M status=progress
-```
-
-<br>
+Ubuntu LTS 26.04 installer might have a bug in which installation with disk encryption fails due to unexpected errors in rsync.
+To avoid this, open the Disks software before proceeding with the installation.
+Format the target disk.
+There's no need to create a partition as the installer will do that.
 
 After installation, save the following code block as `setup-os-cybersecurity.sh`.
 
@@ -87,6 +85,8 @@ curl -fsSL https://get.docker.com -o get-docker.sh &>> $PATH_SETUP_OS_CYBERSECUR
 sudo sh ./get-docker.sh &>> $PATH_SETUP_OS_CYBERSECURITY_LOG
 sudo groupadd docker
 sudo usermod -aG docker $USER
+
+# Todo: install the pen testing tools
 
 echo '[INFO] Installing zsh4humans: a battery-included Zsh framework...'
 sudo apt install -y zsh &>> $PATH_SETUP_OS_CYBERSECURITY_LOG
