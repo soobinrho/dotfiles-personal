@@ -109,7 +109,7 @@ sudo chmod +x ./setup-os-cybersecurity.sh
 
 <br>
 
-## Notes
+## Notes for Kali Linux
 
 ```bash
 # How to restore my taskbar setup.
@@ -117,39 +117,9 @@ wget https://raw.githubusercontent.com/soobinrho/dotfiles-personal/refs/heads/ma
 mv ./xfce4-panel.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
 reboot
 
-# How to check network connectivity status.
-sudo nmcli general status
-sudo nmcli radio all
-sudo nmcli connection
-sudo netstat --route --numeric
-
-# How to move over files from a USB.
-mkdir ~/usb
-sudo mount /dev/sda3 ~/usb
-rsync --progress -ua ~/usb/2025-10-16 ~/
-sudo umount ~/usb
-
 # How to control the Xorg server.
 sudo service lightdm stop
 sudo service lightdm start
-
-# How to connect to a Wifi.
-sudo nmcli device wifi list
-sudo nmcli device wifi connect <SSID> --ask
-
-# How to use `man`.
-man --all intro  # Show intro manual pages. --all flag shows all manuals instead of just one.
-man --apropos disk  # Search manuals that contain a keyword.
-man --whatis nmcli  # Lookup what a program is.
-
-# Useful utilities.
-open .  # Open current directory with user's preferred program.
-locate /rules  # Find folders called rules.
-updatedb  # Manually the index for `locate`. Daily run by default.
-
-# How to turn off the mic mute keyboard backlight.
-sudo su -
-echo 0 > /sys/class/leds/platform::micmute/brightness
 
 # The network manager icon is white, so we have to switch to dark mode.
 # Right click taskbar > Panel > Panel preferences... > Appearance > Dark Mode.
