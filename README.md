@@ -603,6 +603,17 @@ It's great for speech practice.
 
 <br>
 
+### Installation Tips for Ubuntu
+
+Under the secure boot section of the Thinkpad BIOS, enable "Microsoft 3rd Party CA" so that Ubuntu can be used with secure boot.
+
+Ubuntu LTS 26.04 installer might have a bug in which installation with disk encryption fails due to unexpected errors in rsync.
+To avoid this, open the Disks software before proceeding with the installation.
+Format the target disk.
+There's no need to create a partition as the installer will do that.
+
+<br>
+
 ### Microsoft Flight Simulator 2024
 
 For security best practices, create a dedicated account for MSFS so that my friends can play it on my computer without giving them access to my main user account.
@@ -960,13 +971,6 @@ sudo apt remove lightdm
 # How to re-enable the GUI.
 sudo apt install lightdm
 reboot
-
-# ---------------------------------------------------------------------
-# How to block distracting websites at work (Windows).
-# ---------------------------------------------------------------------
-# Ctrl + x and then Windows PowerShell (Admin)
-cd C:\Windows\System32\drivers\etc
-"`n127.0.0.1 news.ycombinator.com www.linkedin.com www.reddit.com reddit.com amazon.com ebay.com apnews.com www.bbc.com cnn.com www.foxnews.com www.theguardian.com" | out-file -encoding UTF8 -append hosts
 
 # ---------------------------------------------------------------------
 # How to check network connectivity status.
