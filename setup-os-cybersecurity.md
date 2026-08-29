@@ -4,16 +4,10 @@
 
 ## How to configure fresh `os-cybersecurity`
 
-I've switched over from Kali to Ubuntu because Ubuntu supports Thinkpad P1 Gen 9's wifi chip out of the box.
-Download an Ubuntu LTS image, use Rufus to write the image onto a USB drive.
-Under the secure boot section of the Thinkpad BIOS, enable "Microsoft 3rd Party CA" so that Ubuntu can be used with secure boot.
+This is a Kali Linux VM instance inside `os-main`.
+Download https://www.kali.org/get-kali/#kali-virtual-machines
 
-Ubuntu LTS 26.04 installer might have a bug in which installation with disk encryption fails due to unexpected errors in rsync.
-To avoid this, open the Disks software before proceeding with the installation.
-Format the target disk.
-There's no need to create a partition as the installer will do that.
-
-After installation, save the following code block as `setup-os-cybersecurity.sh`.
+Then, save the following code block as `setup-os-cybersecurity.sh`.
 
 ```bash
 #!/usr/bin/env bash
@@ -86,8 +80,6 @@ sudo sh ./get-docker.sh &>> $PATH_SETUP_OS_CYBERSECURITY_LOG
 sudo groupadd docker
 sudo usermod -aG docker $USER
 
-# Todo: install the pen testing tools
-
 echo '[INFO] Installing zsh4humans: a battery-included Zsh framework...'
 sudo apt install -y zsh &>> $PATH_SETUP_OS_CYBERSECURITY_LOG
 sudo ln -s /usr/local/bin/zsh /bin/zsh
@@ -109,7 +101,7 @@ sudo chmod +x ./setup-os-cybersecurity.sh
 
 <br>
 
-## Notes for Kali Linux
+## Notes
 
 ```bash
 # How to restore my taskbar setup.
