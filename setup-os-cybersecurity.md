@@ -7,6 +7,10 @@
 This is a Kali Linux VM instance inside `os-main`.
 Download https://www.kali.org/get-kali/#kali-virtual-machines
 
+Allocate half of the host's RAM and half of the CPU cores to `os-security`.
+Select “Fit all virtual machine memory into reserved host RAM” (Reference: https://www.kali.org/docs/virtualization/improving-vm-performance-vmware/).
+Add the Kali Linux’s VM files to “Windows Security” > “Virus & threat protection” > “Exclusions” > “Add an exclusion.”
+
 Then, save the following code block as `setup-os-cybersecurity.sh`.
 
 ```bash
