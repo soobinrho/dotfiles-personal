@@ -86,3 +86,42 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine -Force
 - To avoid my `C:\Users` folder from being truncated by Windows to `soobi`, create a local user without MS account first; set the username to `soobinrho`; and finally link the account to Microsoft.
 
 <br>
+
+### Useful PowerShell Commands
+
+```powershell
+# `grep` equivalent.
+Select-String -Path ./**/* -Pattern 'PATH_CSRA' -ErrorAction SilentlyContinue
+Get-ChildItem -Recurse *.* | Select-String -Pattern "print\(e\)"
+
+# `tail -f` equivalent.
+Get-Content ./file.txt -Tail 5 -Wait
+
+# `diff` equivalent.
+fc ./1 ./2
+
+# Set encoding to UTF-8.
+Get-Content .\uv.toml | Set-Content -Encoding utf8 ./uv.utf8.toml
+```
+
+<br>
+
+### Microsoft Sound Recorder
+
+October 17, 2024: I just realized Sound Recorder, which ships on Windows by default, is actually quite good.
+It's great for practicing speech.
+
+<br>
+
+### My Favorite Shortcuts
+
+| Shortcut | Purpose |
+| -------- | ------- |
+| Windows + z | Split screen window management |
+| Windows + Shift + s | Take a screenshot, save to clipboard, and also save to Pictures folder |
+| Windows + Tab | See all virtual desktops |
+| Windows + Ctrl + d | Create a virtual desktop |
+| Windows + Ctrl + F4 | Delete a virtual desktop |
+| Windows + Ctrl + arrow | Move to previous/next virtual desktop |
+
+<br>
