@@ -34,7 +34,7 @@
 
 ## Procedures for Fresh Installs
 
-[1.](setup-os-main.md) How to configure fresh `os-main`<br>
+[1.](setup-os-server-win.md) How to configure fresh `os-server-win`<br>
 [2.](setup-os-cybersecurity.md) How to configure fresh `os-cybersecurity`<br>
 [3.](setup-os-dev.md) How to configure fresh `os-dev`<br>
 [4.](setup-os-backup.md) How to configure fresh `os-backup`
@@ -43,8 +43,8 @@
 
 | Hostname | Purpose |
 | -------- | ------- |
-| `os-main` | A Windows instance used for my main tasks. |
-| `os-cybersecurity` | A Linux box used for cybersecurity tasks. |
+| `os-server-win` | A Windows instance used mainly as an RDP server. |
+| `os-cybersecurity` | A Kali Linux instance used for cybersecurity tasks. |
 | `os-dev` | An Ubuntu instance as a VM inside `os-main`. Used for all development tasks. Isolated as a VM to mitigate the risk of supply-chain attacks. Treat as DMZ. This system must not have access to any of my sensitive information including my Google account, GitHub credentials, etc. |
 | `os-backup` | An Ubuntu instance storing my offline backup files in case of failure in my cloud backups. Isolated from all other systems as much as possible to minimize the attack surface. |
 

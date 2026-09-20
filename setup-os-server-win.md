@@ -2,15 +2,15 @@
 
 <br>
 
-## How to configure fresh `os-main`
+## How to configure fresh `os-server-win`
 
 The first account I want to create in `os-main` is `admin-soobin`, but Windows normally doesn't allow you to create your first account without linking to a Microsoft account.
 So, at first login bypass this restriction with `Shift + F10` and `start ms-cxh:localonly`.
 
-Then, after creating the `admin-soobin` account, save the following code block as `setup-os-main.psh`.
+Then, after creating the `admin-soobin` account, save the following code block as `setup-os-server-win.psh`.
 
 ```pwsh
-$Env:PATH_SETUP_OS_MAIN_LOG = "setup-os-main.log.txt"
+$Env:PATH_SETUP_OS_MAIN_LOG = "setup-os-server-win.log.txt"
 Write-Host "[INFO] Installation log: ""${env:PATH_SETUP_OS_MAIN_LOG}""" -ForegroundColor Green
 
 Write-Host '[INFO] Uninstalling softwares I don''t need...' -ForegroundColor Green
@@ -41,9 +41,6 @@ Write-Host '[INFO] Disabling Logitech''s annoying popups...' -ForegroundColor Gr
 $path_bloat = 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run'
 if ((Get-Item $path_bloat).Property -contains 'Logitech Download Assistant') { Remove-ItemProperty -Path $path_bloat -Name 'Logitech Download Assistant' *>> $env:PATH_SETUP_OS_MAIN_LOG }
 
-Write-Host '[INFO] Installing WSL...' -ForegroundColor Green
-if (-not (Get-Command wsl -ErrorAction SilentlyContinue)) { wsl --install *>> $env:PATH_SETUP_OS_MAIN_LOG }
-
 Write-Host '[INFO] Installing Chocolatey: a package manager for Windows...' -ForegroundColor Green
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1')) *>> $env:PATH_SETUP_OS_MAIN_LOG
 
@@ -58,11 +55,13 @@ $Password = Read-Host -AsSecureString
 net user 'soobinrho' /add
 Set-LocalUser -Name 'soobinrho' -Password $Password
 
-Write-Host '[INFO] Enter the password for "anonymous": ' -NoNewline -ForegroundColor Green
+Write-Host '[INFO] Enter the password for "rdp-soobin": ' -NoNewline -ForegroundColor Green
 $Password = Read-Host -AsSecureString
-net user 'anonymous' /add
+net user 'rdp-soobin' /add
+Set-LocalUser -Name 'rdp-soobin' -Password $Password
+
+Write-Host '[INFO] Creating "anonymous-guests"' -ForegroundColor Green
 net user 'anonymous-guests' /add
-Set-LocalUser -Name 'anonymous' -Password $Password
 ```
 
 <br>
@@ -71,7 +70,37 @@ Then, run the code block on a terminal with an admin privilege.
 
 ```pwsh
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine -Force
-./setup-os-main.psh
+./setup-os-server-win.psh
+```
+
+<br>
+
+## RDP
+
+# Enable RDP.
+Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server" -Name "fDenyTSConnections" -Value 0
+Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "UserAuthentication" -Value 1
+
+```bash
+# Disallow RDP from admin.
+# 1. Win + R
+# 2. gpedit.msc
+# 3. Computer Configuration > Windows Settings > Security Settings > Local Policies > User Rights Assignment
+# 4. Deny log on through Remote Desktop Services
+
+# Allow RDP only within the local subnet and disallow any remote networks.
+
+# Allow only a specific IP range for RDP.
+# 1. Windows Defender Firewall
+# 2. Inbound Rules > Remote Desktop > User Mode (TCP)
+# 3. Allow the connection if it is secure
+# 4. Find the network address using ipconfig -- e.g. 192.168.40.0/24
+# 5. Add the network address to "Scope" > "These IP addresses"
+
+# Disable unused services.
+# 1. Windows Defender Firewall
+# 2. Inbound Rules > Remote Desktop > Remote Desktop - Shadow and Remote Desktop - User Mode (UDP)
+# 3. Block the connection.
 ```
 
 <br>
